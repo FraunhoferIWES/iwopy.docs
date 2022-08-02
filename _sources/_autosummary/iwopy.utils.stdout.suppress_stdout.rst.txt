@@ -1,0 +1,6 @@
+iwopy.utils.stdout.suppress\_stdout
+===================================
+
+.. currentmodule:: iwopy.utils.stdout
+
+.. autofunction:: suppress_stdout

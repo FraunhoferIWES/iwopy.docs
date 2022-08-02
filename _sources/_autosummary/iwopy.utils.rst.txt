@@ -1,0 +1,33 @@
+﻿iwopy.utils
+===========
+
+.. automodule:: iwopy.utils
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.utils.discretization
+   iwopy.utils.stdout
+

@@ -1,0 +1,31 @@
+iwopy.core.function
+===================
+
+.. automodule:: iwopy.core.function
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      OptFunction
+   
+   
+
+   
+   
+   
+
+
+

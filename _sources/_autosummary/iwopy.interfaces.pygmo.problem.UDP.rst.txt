@@ -1,0 +1,43 @@
+iwopy.interfaces.pygmo.problem.UDP
+==================================
+
+.. currentmodule:: iwopy.interfaces.pygmo.problem
+
+.. autoclass:: UDP
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~UDP.__init__
+      ~UDP.apply
+      ~UDP.finalize
+      ~UDP.fitness
+      ~UDP.get_bounds
+      ~UDP.get_extra_info
+      ~UDP.get_name
+      ~UDP.get_nec
+      ~UDP.get_nic
+      ~UDP.get_nix
+      ~UDP.get_nobj
+      ~UDP.gradient
+      ~UDP.gradient_sparsity
+      ~UDP.has_batch_fitness
+      ~UDP.has_gradient
+      ~UDP.has_gradient_sparsity
+      ~UDP.has_hessians
+      ~UDP.has_hessians_sparsity
+      ~UDP.has_set_seed
+   
+   
+
+   
+   
+   

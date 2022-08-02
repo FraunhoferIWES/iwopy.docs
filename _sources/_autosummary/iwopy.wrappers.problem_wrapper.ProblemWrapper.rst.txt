@@ -1,0 +1,60 @@
+iwopy.wrappers.problem\_wrapper.ProblemWrapper
+==============================================
+
+.. currentmodule:: iwopy.wrappers.problem_wrapper
+
+.. autoclass:: ProblemWrapper
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ProblemWrapper.__init__
+      ~ProblemWrapper.add_constraint
+      ~ProblemWrapper.add_objective
+      ~ProblemWrapper.apply_individual
+      ~ProblemWrapper.apply_population
+      ~ProblemWrapper.calc_gradients
+      ~ProblemWrapper.check_constraints_individual
+      ~ProblemWrapper.check_constraints_population
+      ~ProblemWrapper.evaluate_individual
+      ~ProblemWrapper.evaluate_population
+      ~ProblemWrapper.finalize
+      ~ProblemWrapper.finalize_individual
+      ~ProblemWrapper.finalize_population
+      ~ProblemWrapper.get_gradients
+      ~ProblemWrapper.initial_values_float
+      ~ProblemWrapper.initial_values_int
+      ~ProblemWrapper.initialize
+      ~ProblemWrapper.max_values_float
+      ~ProblemWrapper.max_values_int
+      ~ProblemWrapper.min_values_float
+      ~ProblemWrapper.min_values_int
+      ~ProblemWrapper.var_names_float
+      ~ProblemWrapper.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ProblemWrapper.INT_INF
+      ~ProblemWrapper.initialized
+      ~ProblemWrapper.max_values_constraints
+      ~ProblemWrapper.min_values_constraints
+      ~ProblemWrapper.n_constraints
+      ~ProblemWrapper.n_objectives
+      ~ProblemWrapper.n_vars_float
+      ~ProblemWrapper.n_vars_int
+   
+   

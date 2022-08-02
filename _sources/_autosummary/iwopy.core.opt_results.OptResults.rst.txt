@@ -1,0 +1,25 @@
+iwopy.core.opt\_results.OptResults
+==================================
+
+.. currentmodule:: iwopy.core.opt_results
+
+.. autoclass:: OptResults
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OptResults.__init__
+   
+   
+
+   
+   
+   

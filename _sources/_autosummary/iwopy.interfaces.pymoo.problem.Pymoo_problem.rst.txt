@@ -1,0 +1,42 @@
+iwopy.interfaces.pymoo.problem.Pymoo\_problem
+=============================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.problem
+
+.. autoclass:: Pymoo_problem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Pymoo_problem.__init__
+      ~Pymoo_problem.bounds
+      ~Pymoo_problem.do
+      ~Pymoo_problem.evaluate
+      ~Pymoo_problem.finalize
+      ~Pymoo_problem.has_bounds
+      ~Pymoo_problem.has_constraints
+      ~Pymoo_problem.ideal_point
+      ~Pymoo_problem.nadir_point
+      ~Pymoo_problem.name
+      ~Pymoo_problem.pareto_front
+      ~Pymoo_problem.pareto_set
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Pymoo_problem.n_constr
+   
+   

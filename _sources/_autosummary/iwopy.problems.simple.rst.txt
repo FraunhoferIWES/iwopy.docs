@@ -1,0 +1,31 @@
+iwopy.problems.simple
+=====================
+
+.. automodule:: iwopy.problems.simple
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      SimpleProblem
+   
+   
+
+   
+   
+   
+
+
+

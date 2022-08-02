@@ -1,0 +1,32 @@
+﻿iwopy.problems
+==============
+
+.. automodule:: iwopy.problems
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.problems.simple
+

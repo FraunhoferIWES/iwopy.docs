@@ -1,0 +1,31 @@
+iwopy.interfaces.pymoo.factory.Factory
+======================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.factory
+
+.. autoclass:: Factory
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Factory.__init__
+      ~Factory.get_algorithm
+      ~Factory.get_crossover
+      ~Factory.get_mutation
+      ~Factory.get_sampling
+      ~Factory.get_termination
+      ~Factory.print
+   
+   
+
+   
+   
+   

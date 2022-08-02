@@ -1,0 +1,51 @@
+iwopy.core.constraint.Constraint
+================================
+
+.. currentmodule:: iwopy.core.constraint
+
+.. autoclass:: Constraint
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Constraint.__init__
+      ~Constraint.ana_deriv
+      ~Constraint.calc_individual
+      ~Constraint.calc_population
+      ~Constraint.check_individual
+      ~Constraint.check_population
+      ~Constraint.finalize
+      ~Constraint.finalize_individual
+      ~Constraint.finalize_population
+      ~Constraint.get_bounds
+      ~Constraint.initialize
+      ~Constraint.n_components
+      ~Constraint.rename_vars_float
+      ~Constraint.rename_vars_int
+      ~Constraint.vardeps_float
+      ~Constraint.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Constraint.component_names
+      ~Constraint.initialized
+      ~Constraint.n_vars_float
+      ~Constraint.n_vars_int
+      ~Constraint.var_names_float
+      ~Constraint.var_names_int
+   
+   

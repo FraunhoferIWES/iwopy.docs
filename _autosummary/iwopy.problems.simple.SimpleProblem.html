@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iwopy.problems.simple.SimpleProblem &mdash; iwopy 0.0.11
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="iwopy.utils" href="iwopy.utils.html" />
+    <link rel="prev" title="iwopy.problems.simple" href="iwopy.problems.simple.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> iwopy
+          </a>
+              <div class="version">
+                0.0.11
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#developers">Developers</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iwopy.benchmarks.html">iwopy.benchmarks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.core.html">iwopy.core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.base.html">iwopy.core.base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.base.Base.html">iwopy.core.base.Base</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.constraint.html">iwopy.core.constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.constraint.Constraint.html">iwopy.core.constraint.Constraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function.html">iwopy.core.function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function.OptFunction.html">iwopy.core.function.OptFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function_list.html">iwopy.core.function_list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.memory.html">iwopy.core.memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.objective.html">iwopy.core.objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.objective.Objective.html">iwopy.core.objective.Objective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.optimizer.Optimizer.html">iwopy.core.optimizer.Optimizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.problem.html">iwopy.core.problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.interfaces.html">iwopy.interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.interfaces.pygmo.html">iwopy.interfaces.pygmo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.algos.html">iwopy.interfaces.pygmo.algos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.imports.html">iwopy.interfaces.pygmo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.optimizer.html">iwopy.interfaces.pygmo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.problem.html">iwopy.interfaces.pygmo.problem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.interfaces.pymoo.html">iwopy.interfaces.pymoo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.factory.html">iwopy.interfaces.pymoo.factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.imports.html">iwopy.interfaces.pymoo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.optimizer.html">iwopy.interfaces.pymoo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.problem.html">iwopy.interfaces.pymoo.problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="iwopy.problems.html">iwopy.problems</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="iwopy.problems.simple.html">iwopy.problems.simple</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">iwopy.problems.simple.SimpleProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.utils.html">iwopy.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.wrappers.html">iwopy.wrappers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.html">iwopy.wrappers.discretize_reg_grid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">iwopy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">API</a> &raquo;</li>
+          <li><a href="iwopy.problems.html">iwopy.problems</a> &raquo;</li>
+          <li><a href="iwopy.problems.simple.html">iwopy.problems.simple</a> &raquo;</li>
+      <li>iwopy.problems.simple.SimpleProblem</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/iwopy.problems.simple.SimpleProblem.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="iwopy-problems-simple-simpleproblem">
+<h1>iwopy.problems.simple.SimpleProblem<a class="headerlink" href="#iwopy-problems-simple-simpleproblem" title="Permalink to this heading"></a>
+</h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.problems.simple.</span></span><span class="sig-name descname"><span class="pre">SimpleProblem</span></span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Bases: <a class="reference internal" href="iwopy.core.problem.Problem.html#iwopy.core.problem.Problem" title="iwopy.core.problem.Problem"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problem</span></code></a></p>
+<p>A problem which simply pipes variables to its
+objectives and constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>int_vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> or </em><em>array-like</em>) – The integer variables, either dict with name str
+to initial value mapping, or list of variable names</p></li>
+<li><p><strong>float_vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> or </em><em>array-like</em>) – The float variables, either dict with name str
+to initial value mapping, or list of variable names</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Additional parameters for the Problem class</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_int_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_int_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_float_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_float_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.__init__" title="Permalink to this definition"></a>
+</dt>
+<dd></dd>
+</dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#id0" title="iwopy.problems.simple.SimpleProblem.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(name[, int_vars, float_vars, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.add_constraint" title="iwopy.problems.simple.SimpleProblem.add_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constraint</span></code></a>(constraint[, varmap_int, ...])</p></td>
+<td><p>Add a constraint to the problem.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.add_objective" title="iwopy.problems.simple.SimpleProblem.add_objective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_objective</span></code></a>(objective[, varmap_int, ...])</p></td>
+<td><p>Add an objective to the problem.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.apply_individual" title="iwopy.problems.simple.SimpleProblem.apply_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_individual</span></code></a>(vars_int, vars_float)</p></td>
+<td><p>Apply new variables to the problem.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.apply_population" title="iwopy.problems.simple.SimpleProblem.apply_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_population</span></code></a>(vars_int, vars_float)</p></td>
+<td><p>Apply new variables to the problem, for a whole population.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.calc_gradients" title="iwopy.problems.simple.SimpleProblem.calc_gradients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_gradients</span></code></a>(vars_int, vars_float, func, ...)</p></td>
+<td><p>The actual gradient calculation.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.check_constraints_individual" title="iwopy.problems.simple.SimpleProblem.check_constraints_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_individual</span></code></a>(constraint_values)</p></td>
+<td><p>Check if the constraints are fullfilled for the given individual.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.check_constraints_population" title="iwopy.problems.simple.SimpleProblem.check_constraints_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_population</span></code></a>(constraint_values)</p></td>
+<td><p>Check if the constraints are fullfilled for the given population.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.evaluate_individual" title="iwopy.problems.simple.SimpleProblem.evaluate_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_individual</span></code></a>(vars_int, vars_float)</p></td>
+<td><p>Evaluate a single individual of the problem.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.evaluate_population" title="iwopy.problems.simple.SimpleProblem.evaluate_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_population</span></code></a>(vars_int, vars_float)</p></td>
+<td><p>Evaluate all individuals of a population.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.finalize" title="iwopy.problems.simple.SimpleProblem.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>([verbosity])</p></td>
+<td><p>Finalize the object.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.finalize_individual" title="iwopy.problems.simple.SimpleProblem.finalize_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_individual</span></code></a>(vars_int, vars_float[, ...])</p></td>
+<td><p>Finalization, given the champion data.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.finalize_population" title="iwopy.problems.simple.SimpleProblem.finalize_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_population</span></code></a>(vars_int, vars_float[, ...])</p></td>
+<td><p>Finalization, given the final population data.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.get_gradients" title="iwopy.problems.simple.SimpleProblem.get_gradients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_gradients</span></code></a>(vars_int, vars_float[, func, ...])</p></td>
+<td><p>Obtain gradients of a function that is linked to the problem.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.initial_values_float" title="iwopy.problems.simple.SimpleProblem.initial_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_values_float</span></code></a>()</p></td>
+<td><p>The initial values of the float variables.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.initial_values_int" title="iwopy.problems.simple.SimpleProblem.initial_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_values_int</span></code></a>()</p></td>
+<td><p>The initial values of the integer variables.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.initialize" title="iwopy.problems.simple.SimpleProblem.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([verbosity])</p></td>
+<td><p>Initialize the problem.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.max_values_float" title="iwopy.problems.simple.SimpleProblem.max_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_float</span></code></a>()</p></td>
+<td><p>The maximal values of the float variables.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.max_values_int" title="iwopy.problems.simple.SimpleProblem.max_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_int</span></code></a>()</p></td>
+<td><p>The maximal values of the integer variables.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.min_values_float" title="iwopy.problems.simple.SimpleProblem.min_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_float</span></code></a>()</p></td>
+<td><p>The minimal values of the float variables.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.min_values_int" title="iwopy.problems.simple.SimpleProblem.min_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_int</span></code></a>()</p></td>
+<td><p>The minimal values of the integer variables.</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.var_names_float" title="iwopy.problems.simple.SimpleProblem.var_names_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_float</span></code></a>()</p></td>
+<td><p>The names of float variables.</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.var_names_int" title="iwopy.problems.simple.SimpleProblem.var_names_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_int</span></code></a>()</p></td>
+<td><p>The names of integer variables.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="row-odd">
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">INT_INF</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.initialized" title="iwopy.problems.simple.SimpleProblem.initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialized</span></code></a></p></td>
+<td><p>Flag for finished initialization</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.max_values_constraints" title="iwopy.problems.simple.SimpleProblem.max_values_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_constraints</span></code></a></p></td>
+<td><p>Gets the maximal values of constraints</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.min_values_constraints" title="iwopy.problems.simple.SimpleProblem.min_values_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_constraints</span></code></a></p></td>
+<td><p>Gets the minimal values of constraints</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.n_constraints" title="iwopy.problems.simple.SimpleProblem.n_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_constraints</span></code></a></p></td>
+<td><p>The total number of constraints, i.e., the sum of all components</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.n_objectives" title="iwopy.problems.simple.SimpleProblem.n_objectives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_objectives</span></code></a></p></td>
+<td><p>The total number of objectives, i.e., the sum of all components</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.n_vars_float" title="iwopy.problems.simple.SimpleProblem.n_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_float</span></code></a></p></td>
+<td><p>The number of float variables</p></td>
+</tr>
+<tr class="row-even">
+<td><p><a class="reference internal" href="#iwopy.problems.simple.SimpleProblem.n_vars_int" title="iwopy.problems.simple.SimpleProblem.n_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_int</span></code></a></p></td>
+<td><p>The number of int variables</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_int_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_int_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_float_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_float_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.add_constraint">
+<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.add_constraint" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Add a constraint to the problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>constraint</strong> (<em>iwopy.Constraint</em>) – The constraint</p></li>
+<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+problem variables. Key: str or int,
+value: str or int</p></li>
+<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+problem variables. Key: str or int,
+value: str or int</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.add_objective">
+<span class="sig-name descname"><span class="pre">add_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objective</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.add_objective" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Add an objective to the problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>objective</strong> (<em>iwopy.Objective</em>) – The objective</p></li>
+<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+problem variables. Key: str or int,
+value: str or int</p></li>
+<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+problem variables. Key: str or int,
+value: str or int</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.apply_individual">
+<span class="sig-name descname"><span class="pre">apply_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.apply_individual" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Apply new variables to the problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p><strong>problem_results</strong> – The results of the variable application
+to the problem</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd">
+<p>Any</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.apply_population">
+<span class="sig-name descname"><span class="pre">apply_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.apply_population" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Apply new variables to the problem,
+for a whole population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p><strong>problem_results</strong> – The results of the variable application
+to the problem</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd">
+<p>Any</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.calc_gradients">
+<span class="sig-name descname"><span class="pre">calc_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fvars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.calc_gradients" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The actual gradient calculation.</p>
+<p>Can be overloaded in derived classes, the base class only considers
+analytic derivatives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
+<li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
+for a list of all objectives and all constraints
+(in that order)</p></li>
+<li><p><strong>ivars</strong> (<em>list of int</em>) – The indices of the function int variables in the problem</p></li>
+<li><p><strong>fvars</strong> (<em>list of int</em>) – The indices of the function float variables in the problem</p></li>
+<li><p><strong>vrs</strong> (<em>list of int</em>) – The function float variable indices wrt which the
+derivatives are to be calculated</p></li>
+<li><p><strong>components</strong> (<em>list of int</em>) – The selected components of func, or None for all</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p><strong>gradients</strong> – The gradients of the functions, shape:
+(n_func_cmpnts, n_vrs)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.check_constraints_individual">
+<span class="sig-name descname"><span class="pre">check_constraints_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.check_constraints_individual" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Check if the constraints are fullfilled for the
+given individual.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_components,)</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p><strong>values</strong> – The boolean result, shape: (n_components,)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd">
+<p>np.array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.check_constraints_population">
+<span class="sig-name descname"><span class="pre">check_constraints_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.check_constraints_population" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Check if the constraints are fullfilled for the
+given population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_pop, n_components)</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p><strong>values</strong> – The boolean result, shape: (n_pop, n_components)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd">
+<p>np.array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.evaluate_individual">
+<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.evaluate_individual" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Evaluate a single individual of the problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
+<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p></p>
+<ul class="simple">
+<li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_objectives,)</p></li>
+<li><p><strong>con</strong> (<em>np.array</em>) – The constraints values, shape: (n_constraints,)</p></li>
+</ul>
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.evaluate_population">
+<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.evaluate_population" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Evaluate all individuals of a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p></p>
+<ul class="simple">
+<li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_pop, n_objectives)</p></li>
+<li><p><strong>cons</strong> (<em>np.array</em>) – The constraints values, shape: (n_pop, n_constraints)</p></li>
+</ul>
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.finalize">
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.finalize" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Finalize the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.finalize_individual">
+<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.finalize_individual" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Finalization, given the champion data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The optimal integer variable values, shape: (n_vars_int,)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p></p>
+<ul class="simple">
+<li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
+to the problem</p></li>
+<li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_objectives,)</p></li>
+<li><p><strong>cons</strong> (<em>np.array</em>) – The constraints values, shape: (n_constraints,)</p></li>
+</ul>
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.finalize_population">
+<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.finalize_population" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Finalization, given the final population data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values of the final
+generation, shape: (n_pop, n_vars_int)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values of the final
+generation, shape: (n_pop, n_vars_float)</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p></p>
+<ul class="simple">
+<li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
+to the problem</p></li>
+<li><p><strong>objs</strong> (<em>np.array</em>) – The final objective function values, shape: (n_pop, n_components)</p></li>
+<li><p><strong>cons</strong> (<em>np.array</em>) – The final constraint values, shape: (n_pop, n_constraints)</p></li>
+</ul>
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.get_gradients">
+<span class="sig-name descname"><span class="pre">get_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.get_gradients" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Obtain gradients of a function that is linked to the
+problem.</p>
+<p>The func object typically is a <cite>iwopy.core.OptFunctionList</cite>
+object that contains a selection of objectives and/or constraints
+that were previously added to this problem. By default all
+objectives and constraints (and all their components) are
+being considered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
+<li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
+<li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
+for a list of all objectives and all constraints
+(in that order)</p></li>
+<li><p><strong>vars</strong> (<em>list of int</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
+derivatives are to be calculated, or
+None for all</p></li>
+<li><p><strong>components</strong> (<em>list of int</em>) – The selected components of func, or None for all</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p><strong>gradients</strong> – The gradients of the functions, shape:
+(n_func_cmpnts, n_vrs)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.initial_values_float">
+<span class="sig-name descname"><span class="pre">initial_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.initial_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.initial_values_float" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The initial values of the float variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>values</strong> – Initial float values, shape: (n_vars_float,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.initial_values_int">
+<span class="sig-name descname"><span class="pre">initial_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.initial_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.initial_values_int" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The initial values of the integer variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>values</strong> – Initial int values, shape: (n_vars_int,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.initialize" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Initialize the problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.initialized">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.initialized" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Flag for finished initialization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p>True if initialization has been done</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.max_values_constraints">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_values_constraints</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.max_values_constraints" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Gets the maximal values of constraints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>cma</strong> – The maximal constraint values, shape: (n_constraints,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.max_values_float">
+<span class="sig-name descname"><span class="pre">max_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.max_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.max_values_float" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The maximal values of the float variables.</p>
+<p>Use numpy.inf for unbounded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>values</strong> – Maximal float values, shape: (n_vars_float,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.max_values_int">
+<span class="sig-name descname"><span class="pre">max_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.max_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.max_values_int" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The maximal values of the integer variables.</p>
+<p>Use self.INT_INF for unbounded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>values</strong> – Maximal int values, shape: (n_vars_int,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.min_values_constraints">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_values_constraints</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.min_values_constraints" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Gets the minimal values of constraints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>cmi</strong> – The minimal constraint values, shape: (n_constraints,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.min_values_float">
+<span class="sig-name descname"><span class="pre">min_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.min_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.min_values_float" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The minimal values of the float variables.</p>
+<p>Use -numpy.inf for unbounded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>values</strong> – Minimal float values, shape: (n_vars_float,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.min_values_int">
+<span class="sig-name descname"><span class="pre">min_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.min_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.min_values_int" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The minimal values of the integer variables.</p>
+<p>Use -self.INT_INF for unbounded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>values</strong> – Minimal int values, shape: (n_vars_int,)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.n_constraints">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_constraints</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.n_constraints" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The total number of constraints,
+i.e., the sum of all components</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>n_con</strong> – The total number of constraint
+functions</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.n_objectives">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_objectives</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.n_objectives" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The total number of objectives,
+i.e., the sum of all components</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>n_obj</strong> – The total number of objective
+functions</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.n_vars_float">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.n_vars_float" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The number of float variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>n</strong> – The number of float variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.n_vars_int">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.n_vars_int" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The number of int variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>n</strong> – The number of int variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.var_names_float">
+<span class="sig-name descname"><span class="pre">var_names_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.var_names_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.var_names_float" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The names of float variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>names</strong> – The names of the float variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p>list of str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.problems.simple.SimpleProblem.var_names_int">
+<span class="sig-name descname"><span class="pre">var_names_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/problems/simple.html#SimpleProblem.var_names_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.problems.simple.SimpleProblem.var_names_int" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The names of integer variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p><strong>names</strong> – The names of the integer variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even">
+<p>list of str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iwopy.problems.simple.html" class="btn btn-neutral float-left" title="iwopy.problems.simple" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iwopy.utils.html" class="btn btn-neutral float-right" title="iwopy.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #009879;
+    }
+  </style>
+
+
+</body>
+</html>

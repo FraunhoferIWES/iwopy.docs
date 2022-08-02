@@ -1,0 +1,31 @@
+iwopy.core.opt\_results
+=======================
+
+.. automodule:: iwopy.core.opt_results
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      OptResults
+   
+   
+
+   
+   
+   
+
+
+

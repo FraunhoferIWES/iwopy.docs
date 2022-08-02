@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iwopy.core.problem &mdash; iwopy 0.0.11
+ documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> iwopy
+          </a>
+              <div class="version">
+                0.0.11
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#developers">Developers</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.html">iwopy.benchmarks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.core.html">iwopy.core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.base.html">iwopy.core.base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.base.Base.html">iwopy.core.base.Base</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.constraint.html">iwopy.core.constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.constraint.Constraint.html">iwopy.core.constraint.Constraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.function.html">iwopy.core.function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.function.OptFunction.html">iwopy.core.function.OptFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_list.html">iwopy.core.function_list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.objective.html">iwopy.core.objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.objective.Objective.html">iwopy.core.objective.Objective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.optimizer.Optimizer.html">iwopy.core.optimizer.Optimizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.html">iwopy.interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pygmo.html">iwopy.interfaces.pygmo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pygmo.algos.html">iwopy.interfaces.pygmo.algos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pygmo.imports.html">iwopy.interfaces.pygmo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pygmo.optimizer.html">iwopy.interfaces.pygmo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pygmo.problem.html">iwopy.interfaces.pygmo.problem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pymoo.html">iwopy.interfaces.pymoo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pymoo.factory.html">iwopy.interfaces.pymoo.factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pymoo.imports.html">iwopy.interfaces.pymoo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pymoo.optimizer.html">iwopy.interfaces.pymoo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.interfaces.pymoo.problem.html">iwopy.interfaces.pymoo.problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.problems.html">iwopy.problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.problems.simple.html">iwopy.problems.simple</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.problems.simple.SimpleProblem.html">iwopy.problems.simple.SimpleProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.utils.html">iwopy.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.html">iwopy.wrappers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.html">iwopy.wrappers.discretize_reg_grid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">iwopy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>iwopy.core.problem</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for iwopy.core.problem</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">fnmatch</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="nn">.function_list</span> <span class="kn">import</span> <span class="n">OptFunctionList</span>
+<span class="kn">from</span> <span class="nn">.memory</span> <span class="kn">import</span> <span class="n">Memory</span>
+<span class="kn">from</span> <span class="nn">iwopy.utils</span> <span class="kn">import</span> <span class="n">RegularDiscretizationGrid</span>
+
+
+<div class="viewcode-block" id="Problem"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem">[docs]</a><span class="k">class</span> <span class="nc">Problem</span><span class="p">(</span><span class="n">Base</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract base class for optimization problems.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name: str</span>
+<span class="sd">        The problem&#39;s name</span>
+<span class="sd">    mem_size : int, optional</span>
+<span class="sd">        The memory size, default no memory</span>
+<span class="sd">    mem_keyf : Function, optional</span>
+<span class="sd">        The memory key function. Parameters: </span>
+<span class="sd">        (vars_int, vars_float), returns key Object</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    objs : iwopy.core.OptFunctionList</span>
+<span class="sd">        The objective functions</span>
+<span class="sd">    cons : iwopy.core.OptFunctionList</span>
+<span class="sd">        The constraints</span>
+<span class="sd">    memory : iwopy.core.Memory</span>
+<span class="sd">        The memory, or None</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">INT_INF</span> <span class="o">=</span> <span class="n">RegularDiscretizationGrid</span><span class="o">.</span><span class="n">INT_INF</span>
+
+<div class="viewcode-block" id="Problem.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mem_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mem_keyf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">objs</span> <span class="o">=</span> <span class="n">OptFunctionList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;objs&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cons</span> <span class="o">=</span> <span class="n">OptFunctionList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;cons&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mem_size</span> <span class="o">=</span> <span class="n">mem_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mem_keyf</span> <span class="o">=</span> <span class="n">mem_keyf</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Problem.var_names_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.var_names_int">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The names of integer variables.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        names : list of str</span>
+<span class="sd">            The names of the integer variables</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Problem.initial_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.initial_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">initial_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The initial values of the integer variables.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : numpy.ndarray</span>
+<span class="sd">            Initial int values, shape: (n_vars_int,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="Problem.min_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.min_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">min_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The minimal values of the integer variables.</span>
+
+<span class="sd">        Use -self.INT_INF for unbounded.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : numpy.ndarray</span>
+<span class="sd">            Minimal int values, shape: (n_vars_int,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">INT_INF</span></div>
+
+<div class="viewcode-block" id="Problem.max_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.max_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">max_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The maximal values of the integer variables.</span>
+
+<span class="sd">        Use self.INT_INF for unbounded.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : numpy.ndarray</span>
+<span class="sd">            Maximal int values, shape: (n_vars_int,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">INT_INF</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n_vars_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The number of int variables</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n : int</span>
+<span class="sd">            The number of int variables</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">())</span>
+
+<div class="viewcode-block" id="Problem.var_names_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.var_names_float">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The names of float variables.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        names : list of str</span>
+<span class="sd">            The names of the float variables</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Problem.initial_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.initial_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">initial_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The initial values of the float variables.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : numpy.ndarray</span>
+<span class="sd">            Initial float values, shape: (n_vars_float,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Problem.min_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.min_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">min_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The minimal values of the float variables.</span>
+
+<span class="sd">        Use -numpy.inf for unbounded.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : numpy.ndarray</span>
+<span class="sd">            Minimal float values, shape: (n_vars_float,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span></div>
+
+<div class="viewcode-block" id="Problem.max_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.max_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">max_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The maximal values of the float variables.</span>
+
+<span class="sd">        Use numpy.inf for unbounded.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : numpy.ndarray</span>
+<span class="sd">            Maximal float values, shape: (n_vars_float,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n_vars_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The number of float variables</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n : int</span>
+<span class="sd">            The number of float variables</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">_apply_varmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtype</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">varmap</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function for mapping function variables</span>
+<span class="sd">        to problem variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">varmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">pnms</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">vtype</span> <span class="o">==</span> <span class="s2">&quot;int&quot;</span>
+            <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
+        <span class="p">)</span>
+
+        <span class="n">vmap</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">fv</span><span class="p">,</span> <span class="n">pv</span> <span class="ow">in</span> <span class="n">varmap</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">pvl</span> <span class="o">=</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pnms</span><span class="p">,</span> <span class="n">pv</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pvl</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">vtype</span><span class="si">}</span><span class="s2"> varmap rule &#39;</span><span class="si">{</span><span class="n">fv</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">pv</span><span class="si">}</span><span class="s2">&#39; failed for </span><span class="si">{</span><span class="n">ftype</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, pattern &#39;</span><span class="si">{</span><span class="n">pv</span><span class="si">}</span><span class="s2">&#39; not found among problem </span><span class="si">{</span><span class="n">vtype</span><span class="si">}</span><span class="s2"> variables </span><span class="si">{</span><span class="n">pnms</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">pvl</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Require unique match of </span><span class="si">{</span><span class="n">vtype</span><span class="si">}</span><span class="s2"> variable &#39;</span><span class="si">{</span><span class="n">fv</span><span class="si">}</span><span class="s2">&#39; of </span><span class="si">{</span><span class="n">ftype</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; to problem variables, found </span><span class="si">{</span><span class="n">pvl</span><span class="si">}</span><span class="s2"> for pattern &#39;</span><span class="si">{</span><span class="n">pv</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">vmap</span><span class="p">[</span><span class="n">fv</span><span class="p">]</span> <span class="o">=</span> <span class="n">pvl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pv</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">pv</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pv</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pnms</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: varmap rule &#39;</span><span class="si">{</span><span class="n">fv</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">pv</span><span class="si">}</span><span class="s2">&#39; cannot be applied for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pnms</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">vtype</span><span class="si">}</span><span class="s2"> variables </span><span class="si">{</span><span class="n">pnms</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="n">vmap</span><span class="p">[</span><span class="n">fv</span><span class="p">]</span> <span class="o">=</span> <span class="n">pnms</span><span class="p">[</span><span class="n">pv</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: varmap_</span><span class="si">{</span><span class="n">vtype</span><span class="si">}</span><span class="s2"> target variable in &#39;</span><span class="si">{</span><span class="n">fv</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">pv</span><span class="si">}</span><span class="s2">&#39; of </span><span class="si">{</span><span class="n">ftype</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is neither str nor int&quot;</span>
+                <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">vtype</span> <span class="o">==</span> <span class="s2">&quot;int&quot;</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">rename_vars_int</span><span class="p">(</span><span class="n">vmap</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">rename_vars_float</span><span class="p">(</span><span class="n">vmap</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Problem.add_objective"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.add_objective">[docs]</a>    <span class="k">def</span> <span class="nf">add_objective</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">objective</span><span class="p">,</span>
+        <span class="n">varmap_int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">varmap_float</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add an objective to the problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        objective : iwopy.Objective</span>
+<span class="sd">            The objective</span>
+<span class="sd">        varmap_int: dict, optional</span>
+<span class="sd">            Mapping from objective variables to</span>
+<span class="sd">            problem variables. Key: str or int,</span>
+<span class="sd">            value: str or int</span>
+<span class="sd">        varmap_float: dict, optional</span>
+<span class="sd">            Mapping from objective variables to</span>
+<span class="sd">            problem variables. Key: str or int,</span>
+<span class="sd">            value: str or int</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">objective</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
+            <span class="n">objective</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_apply_varmap</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="n">objective</span><span class="p">,</span> <span class="s2">&quot;objective&quot;</span><span class="p">,</span> <span class="n">varmap_int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_apply_varmap</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="n">objective</span><span class="p">,</span> <span class="s2">&quot;objective&quot;</span><span class="p">,</span> <span class="n">varmap_float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">objective</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Problem.add_constraint"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.add_constraint">[docs]</a>    <span class="k">def</span> <span class="nf">add_constraint</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">constraint</span><span class="p">,</span>
+        <span class="n">varmap_int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">varmap_float</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a constraint to the problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        constraint : iwopy.Constraint</span>
+<span class="sd">            The constraint</span>
+<span class="sd">        varmap_int: dict, optional</span>
+<span class="sd">            Mapping from objective variables to</span>
+<span class="sd">            problem variables. Key: str or int,</span>
+<span class="sd">            value: str or int</span>
+<span class="sd">        varmap_float: dict, optional</span>
+<span class="sd">            Mapping from objective variables to</span>
+<span class="sd">            problem variables. Key: str or int,</span>
+<span class="sd">            value: str or int</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">constraint</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
+            <span class="n">constraint</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_apply_varmap</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="n">constraint</span><span class="p">,</span> <span class="s2">&quot;constraint&quot;</span><span class="p">,</span> <span class="n">varmap_int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_apply_varmap</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="n">constraint</span><span class="p">,</span> <span class="s2">&quot;constraint&quot;</span><span class="p">,</span> <span class="n">varmap_float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+
+        <span class="n">cmi</span><span class="p">,</span> <span class="n">cma</span> <span class="o">=</span> <span class="n">constraint</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="n">cmi</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="n">cma</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span><span class="p">,</span> <span class="n">cmi</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span><span class="p">,</span> <span class="n">cma</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">min_values_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the minimal values of constraints</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        cmi : numpy.ndarray</span>
+<span class="sd">            The minimal constraint values, shape: (n_constraints,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_values_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the maximal values of constraints</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        cma : numpy.ndarray</span>
+<span class="sd">            The maximal constraint values, shape: (n_constraints,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n_objectives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The total number of objectives,</span>
+<span class="sd">        i.e., the sum of all components</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n_obj : int</span>
+<span class="sd">            The total number of objective</span>
+<span class="sd">            functions</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The total number of constraints,</span>
+<span class="sd">        i.e., the sum of all components</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n_con : int</span>
+<span class="sd">            The total number of constraint</span>
+<span class="sd">            functions</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_find_vars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">ret_inds</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function for reducing problem variables</span>
+<span class="sd">        to function variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vnmsi</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">())</span>
+        <span class="n">vnmsf</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
+        <span class="n">ivars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">func</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vnmsi</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: int variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39; of function &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; not among int problem variables </span><span class="si">{</span><span class="n">vnmsi</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">ivars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vnmsi</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="n">fvars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">func</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vnmsf</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: float variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39; of function &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; not among float problem variables </span><span class="si">{</span><span class="n">vnmsf</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">fvars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vnmsf</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_float</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">varsi</span> <span class="o">=</span> <span class="n">vars_int</span><span class="p">[</span><span class="n">ivars</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_int</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="n">varsf</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">vars_float</span><span class="p">[</span><span class="n">fvars</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_float</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_pop</span> <span class="o">=</span> <span class="n">vars_float</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">varsi</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">vars_int</span><span class="p">[:,</span> <span class="n">ivars</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_int</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">varsf</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">vars_float</span><span class="p">[:,</span> <span class="n">fvars</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_float</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ret_inds</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ivars</span><span class="p">,</span> <span class="n">fvars</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span>
+
+<div class="viewcode-block" id="Problem.calc_gradients"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.calc_gradients">[docs]</a>    <span class="k">def</span> <span class="nf">calc_gradients</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">vars_int</span><span class="p">,</span>
+        <span class="n">vars_float</span><span class="p">,</span>
+        <span class="n">func</span><span class="p">,</span>
+        <span class="n">ivars</span><span class="p">,</span>
+        <span class="n">fvars</span><span class="p">,</span>
+        <span class="n">vrs</span><span class="p">,</span>
+        <span class="n">components</span><span class="p">,</span>
+        <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The actual gradient calculation.</span>
+
+<span class="sd">        Can be overloaded in derived classes, the base class only considers</span>
+<span class="sd">        analytic derivatives.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_vars_float,)</span>
+<span class="sd">        func : iwopy.core.OptFunctionList, optional</span>
+<span class="sd">            The functions to be differentiated, or None</span>
+<span class="sd">            for a list of all objectives and all constraints</span>
+<span class="sd">            (in that order)</span>
+<span class="sd">        ivars : list of int</span>
+<span class="sd">            The indices of the function int variables in the problem</span>
+<span class="sd">        fvars : list of int</span>
+<span class="sd">            The indices of the function float variables in the problem</span>
+<span class="sd">        vrs : list of int</span>
+<span class="sd">            The function float variable indices wrt which the</span>
+<span class="sd">            derivatives are to be calculated</span>
+<span class="sd">        components : list of int</span>
+<span class="sd">            The selected components of func, or None for all</span>
+<span class="sd">        pop : bool</span>
+<span class="sd">            Flag for vectorizing calculations via population</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gradients : numpy.ndarray</span>
+<span class="sd">            The gradients of the functions, shape:</span>
+<span class="sd">            (n_func_cmpnts, n_vrs)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_vars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vrs</span><span class="p">)</span>
+        <span class="n">varsi</span> <span class="o">=</span> <span class="n">vars_int</span><span class="p">[</span><span class="n">ivars</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_int</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="n">varsf</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[</span><span class="n">fvars</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_float</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">func</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="n">n_vars</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vi</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vrs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fvars</span><span class="p">:</span>
+                <span class="n">gradients</span><span class="p">[:,</span> <span class="n">vi</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">ana_deriv</span><span class="p">(</span>
+                    <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">fvars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">components</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gradients</span><span class="p">[:,</span> <span class="n">vi</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="n">gradients</span></div>
+
+<div class="viewcode-block" id="Problem.get_gradients"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.get_gradients">[docs]</a>    <span class="k">def</span> <span class="nf">get_gradients</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">vars_int</span><span class="p">,</span>
+        <span class="n">vars_float</span><span class="p">,</span>
+        <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain gradients of a function that is linked to the</span>
+<span class="sd">        problem.</span>
+
+<span class="sd">        The func object typically is a `iwopy.core.OptFunctionList`</span>
+<span class="sd">        object that contains a selection of objectives and/or constraints</span>
+<span class="sd">        that were previously added to this problem. By default all</span>
+<span class="sd">        objectives and constraints (and all their components) are</span>
+<span class="sd">        being considered.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_vars_float,)</span>
+<span class="sd">        func : iwopy.core.OptFunctionList, optional</span>
+<span class="sd">            The functions to be differentiated, or None</span>
+<span class="sd">            for a list of all objectives and all constraints</span>
+<span class="sd">            (in that order)</span>
+<span class="sd">        vars : list of int or str, optional</span>
+<span class="sd">            The float variables wrt which the</span>
+<span class="sd">            derivatives are to be calculated, or</span>
+<span class="sd">            None for all</span>
+<span class="sd">        components : list of int</span>
+<span class="sd">            The selected components of func, or None for all</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+<span class="sd">        pop : bool</span>
+<span class="sd">            Flag for vectorizing calculations via population</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gradients : numpy.ndarray</span>
+<span class="sd">            The gradients of the functions, shape:</span>
+<span class="sd">            (n_func_cmpnts, n_vrs)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># set and check func:</span>
+        <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="n">OptFunctionList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;objs_cons&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">problem</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Attempt to calculate gradient for function &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; which is linked to different problem &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">func</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">verbosity</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">verbosity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># find function variables:</span>
+        <span class="n">ivars</span><span class="p">,</span> <span class="n">fvars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">ret_inds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># find names of differentiation variables:</span>
+        <span class="n">vnmsf</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">vars</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">vars</span> <span class="o">=</span> <span class="n">vnmsf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tvars</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">vnmsf</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Variable index </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2"> exceeds problem float variables, count = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">vnmsf</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
+                    <span class="n">tvars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vnmsf</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">vl</span> <span class="o">=</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">vnmsf</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">vl</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: No match for variable pattern &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39; among problem float variable </span><span class="si">{</span><span class="n">vnmsf</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
+                    <span class="n">tvars</span> <span class="o">+=</span> <span class="n">vl</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Illegal type &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;, expecting str or int&quot;</span>
+                    <span class="p">)</span>
+            <span class="nb">vars</span> <span class="o">=</span> <span class="n">tvars</span>
+
+        <span class="c1"># find variable indices among function float variables:</span>
+        <span class="n">vrs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">hvnmsf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vnmsf</span><span class="p">)[</span><span class="n">fvars</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">hvnmsf</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Selected gradient variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39; not in function variables &#39;</span><span class="si">{</span><span class="n">hvnmsf</span><span class="si">}</span><span class="s2">&#39; for function &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+                <span class="p">)</span>
+            <span class="n">vrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hvnmsf</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+        <span class="c1"># update components:</span>
+        <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">n_components</span><span class="p">())</span>
+
+        <span class="c1"># calculate gradients:</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_gradients</span><span class="p">(</span>
+            <span class="n">vars_int</span><span class="p">,</span>
+            <span class="n">vars_float</span><span class="p">,</span>
+            <span class="n">func</span><span class="p">,</span>
+            <span class="n">ivars</span><span class="p">,</span>
+            <span class="n">fvars</span><span class="p">,</span>
+            <span class="n">vrs</span><span class="p">,</span>
+            <span class="n">components</span><span class="p">,</span>
+            <span class="n">pop</span><span class="o">=</span><span class="n">pop</span><span class="p">,</span>
+            <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># check success:</span>
+        <span class="n">nog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">gradients</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nog</span><span class="p">):</span>
+            <span class="n">nvrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">vars</span><span class="p">)[</span><span class="n">nog</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Failed to calculate derivatives for variables </span><span class="si">{</span><span class="n">nvrs</span><span class="si">}</span><span class="s2">. Maybe wrap this problem into DiscretizeRegGrid?&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">gradients</span></div>
+
+<div class="viewcode-block" id="Problem.initialize"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">): Initializing&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hline</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hline</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mem_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mem_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mem_keyf</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Memory size  : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hline</span><span class="p">)</span>
+
+        <span class="n">n_int</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_vars_int</span>
+        <span class="n">n_float</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_vars_float</span>
+        <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  n_vars_int   : </span><span class="si">{</span><span class="n">n_int</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  n_vars_float : </span><span class="si">{</span><span class="n">n_float</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hline</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  n_objectives : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">n_functions</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  n_obj_cmptns : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hline</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  n_constraints: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">n_functions</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  n_con_cmptns : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_constraints</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hline</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Problem initialized without added objectives.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maximize</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="n">i0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maximize</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">maximize</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+            <span class="n">i0</span> <span class="o">=</span> <span class="n">i1</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Problem.apply_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.apply_individual">[docs]</a>    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply new variables to the problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_vars_float,)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        problem_results : Any</span>
+<span class="sd">            The results of the variable application</span>
+<span class="sd">            to the problem</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Problem.apply_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.apply_population">[docs]</a>    <span class="k">def</span> <span class="nf">apply_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply new variables to the problem,</span>
+<span class="sd">        for a whole population.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_pop, n_vars_int)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_pop, n_vars_float)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        problem_results : Any</span>
+<span class="sd">            The results of the variable application</span>
+<span class="sd">            to the problem</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Problem.evaluate_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.evaluate_individual">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate a single individual of the problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_vars_float,)</span>
+<span class="sd">        ret_prob_res : bool</span>
+<span class="sd">            Flag for additionally returning of problem results</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        objs : np.array</span>
+<span class="sd">            The objective function values, shape: (n_objectives,)</span>
+<span class="sd">        con : np.array</span>
+<span class="sd">            The constraints values, shape: (n_constraints,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">memres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">lookup_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">memres</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="n">memres</span>
+                <span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">objs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
+
+            <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">)</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">calc_individual</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+
+            <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">)</span>
+            <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">calc_individual</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">store_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span></div>
+
+<div class="viewcode-block" id="Problem.evaluate_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.evaluate_population">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate all individuals of a population.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_pop, n_vars_int)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_pop, n_vars_float)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        objs : np.array</span>
+<span class="sd">            The objective function values, shape: (n_pop, n_objectives)</span>
+<span class="sd">        cons : np.array</span>
+<span class="sd">            The constraints values, shape: (n_pop, n_constraints)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">from_mem</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">memres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">lookup_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">memres</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">todo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">memres</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">from_mem</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">todo</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">from_mem</span><span class="p">:</span>
+
+            <span class="n">objs</span> <span class="o">=</span> <span class="n">memres</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span>
+            <span class="n">cons</span> <span class="o">=</span> <span class="n">memres</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">:]</span>
+            <span class="k">del</span> <span class="n">memres</span>
+
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">todo</span><span class="p">):</span>
+
+                <span class="n">vals_int</span> <span class="o">=</span> <span class="n">vars_int</span><span class="p">[</span><span class="n">todo</span><span class="p">]</span>
+                <span class="n">vals_float</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[</span><span class="n">todo</span><span class="p">]</span>
+            
+                <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_population</span><span class="p">(</span><span class="n">vals_int</span><span class="p">,</span> <span class="n">vals_float</span><span class="p">)</span>
+
+                <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vals_int</span><span class="p">,</span> <span class="n">vals_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">)</span>
+                <span class="n">ores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">calc_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+                <span class="n">objs</span><span class="p">[</span><span class="n">todo</span><span class="p">]</span> <span class="o">=</span> <span class="n">ores</span>
+
+                <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vals_int</span><span class="p">,</span> <span class="n">vals_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">)</span>
+                <span class="n">cres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">calc_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+                <span class="n">cons</span><span class="p">[</span><span class="n">todo</span><span class="p">]</span> <span class="o">=</span> <span class="n">cres</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">store_population</span><span class="p">(</span><span class="n">vals_int</span><span class="p">,</span> <span class="n">vals_float</span><span class="p">,</span> <span class="n">ores</span><span class="p">,</span> <span class="n">cres</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
+
+            <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">)</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">calc_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+
+            <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">)</span>
+            <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">calc_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">store_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span></div>
+
+<div class="viewcode-block" id="Problem.check_constraints_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.check_constraints_individual">[docs]</a>    <span class="k">def</span> <span class="nf">check_constraints_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the constraints are fullfilled for the</span>
+<span class="sd">        given individual.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        constraint_values : np.array</span>
+<span class="sd">            The constraint values, shape: (n_components,)</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : np.array</span>
+<span class="sd">            The boolean result, shape: (n_components,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">constraint_values</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_constraints</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+        <span class="n">i0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">check_individual</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">],</span> <span class="n">verbosity</span><span class="p">)</span>
+            <span class="n">i0</span> <span class="o">=</span> <span class="n">i1</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="Problem.check_constraints_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.check_constraints_population">[docs]</a>    <span class="k">def</span> <span class="nf">check_constraints_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the constraints are fullfilled for the</span>
+<span class="sd">        given population.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        constraint_values : np.array</span>
+<span class="sd">            The constraint values, shape: (n_pop, n_components)</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values : np.array</span>
+<span class="sd">            The boolean result, shape: (n_pop, n_components)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">constraint_values</span>
+        <span class="n">n_pop</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_constraints</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+        <span class="n">i0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span>
+            <span class="n">out</span><span class="p">[:,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">check_population</span><span class="p">(</span><span class="n">val</span><span class="p">[:,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">],</span> <span class="n">verbosity</span><span class="p">)</span>
+            <span class="n">i0</span> <span class="o">=</span> <span class="n">i1</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="Problem.finalize_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.finalize_individual">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalization, given the champion data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The optimal integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The optimal float variable values, shape: (n_vars_float,)</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        problem_results : Any</span>
+<span class="sd">            The results of the variable application</span>
+<span class="sd">            to the problem</span>
+<span class="sd">        objs : np.array</span>
+<span class="sd">            The objective function values, shape: (n_objectives,)</span>
+<span class="sd">        cons : np.array</span>
+<span class="sd">            The constraints values, shape: (n_constraints,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
+
+        <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">)</span>
+        <span class="n">objs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">finalize_individual</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
+
+        <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">)</span>
+        <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">finalize_individual</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span></div>
+
+<div class="viewcode-block" id="Problem.finalize_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.finalize_population">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalization, given the final population data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values of the final</span>
+<span class="sd">            generation, shape: (n_pop, n_vars_int)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values of the final</span>
+<span class="sd">            generation, shape: (n_pop, n_vars_float)</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        problem_results : Any</span>
+<span class="sd">            The results of the variable application</span>
+<span class="sd">            to the problem</span>
+<span class="sd">        objs : np.array</span>
+<span class="sd">            The final objective function values, shape: (n_pop, n_components)</span>
+<span class="sd">        cons : np.array</span>
+<span class="sd">            The final constraint values, shape: (n_pop, n_constraints)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
+
+        <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">)</span>
+        <span class="n">objs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">finalize_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
+
+        <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">)</span>
+        <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">finalize_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #009879;
+    }
+  </style>
+
+
+</body>
+</html>

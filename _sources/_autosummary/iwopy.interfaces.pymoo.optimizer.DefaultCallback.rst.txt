@@ -1,0 +1,28 @@
+iwopy.interfaces.pymoo.optimizer.DefaultCallback
+================================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.optimizer
+
+.. autoclass:: DefaultCallback
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DefaultCallback.__init__
+      ~DefaultCallback.initialize
+      ~DefaultCallback.notify
+      ~DefaultCallback.update
+   
+   
+
+   
+   
+   

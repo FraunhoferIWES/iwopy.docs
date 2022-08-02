@@ -1,0 +1,31 @@
+iwopy.core.problem
+==================
+
+.. automodule:: iwopy.core.problem
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      Problem
+   
+   
+
+   
+   
+   
+
+
+

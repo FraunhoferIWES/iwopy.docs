@@ -1,0 +1,31 @@
+iwopy.interfaces.pygmo.optimizer
+================================
+
+.. automodule:: iwopy.interfaces.pygmo.optimizer
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      Optimizer_pygmo
+   
+   
+
+   
+   
+   
+
+
+

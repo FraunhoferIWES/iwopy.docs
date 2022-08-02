@@ -1,0 +1,40 @@
+﻿iwopy.core
+==========
+
+.. automodule:: iwopy.core
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.core.base
+   iwopy.core.constraint
+   iwopy.core.function
+   iwopy.core.function_list
+   iwopy.core.memory
+   iwopy.core.objective
+   iwopy.core.opt_results
+   iwopy.core.optimizer
+   iwopy.core.problem
+

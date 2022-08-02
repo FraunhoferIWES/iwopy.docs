@@ -1,0 +1,33 @@
+﻿iwopy.benchmarks.rosenbrock
+===========================
+
+.. automodule:: iwopy.benchmarks.rosenbrock
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      Constraints
+      Objective
+      Problem
+   
+   
+
+   
+   
+   
+
+
+

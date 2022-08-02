@@ -1,0 +1,33 @@
+﻿iwopy.wrappers
+==============
+
+.. automodule:: iwopy.wrappers
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.wrappers.discretize_reg_grid
+   iwopy.wrappers.problem_wrapper
+

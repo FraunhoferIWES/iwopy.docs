@@ -1,0 +1,60 @@
+iwopy.benchmarks.branin.BraninProblem
+=====================================
+
+.. currentmodule:: iwopy.benchmarks.branin
+
+.. autoclass:: BraninProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~BraninProblem.__init__
+      ~BraninProblem.add_constraint
+      ~BraninProblem.add_objective
+      ~BraninProblem.apply_individual
+      ~BraninProblem.apply_population
+      ~BraninProblem.calc_gradients
+      ~BraninProblem.check_constraints_individual
+      ~BraninProblem.check_constraints_population
+      ~BraninProblem.evaluate_individual
+      ~BraninProblem.evaluate_population
+      ~BraninProblem.finalize
+      ~BraninProblem.finalize_individual
+      ~BraninProblem.finalize_population
+      ~BraninProblem.get_gradients
+      ~BraninProblem.initial_values_float
+      ~BraninProblem.initial_values_int
+      ~BraninProblem.initialize
+      ~BraninProblem.max_values_float
+      ~BraninProblem.max_values_int
+      ~BraninProblem.min_values_float
+      ~BraninProblem.min_values_int
+      ~BraninProblem.var_names_float
+      ~BraninProblem.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BraninProblem.INT_INF
+      ~BraninProblem.initialized
+      ~BraninProblem.max_values_constraints
+      ~BraninProblem.min_values_constraints
+      ~BraninProblem.n_constraints
+      ~BraninProblem.n_objectives
+      ~BraninProblem.n_vars_float
+      ~BraninProblem.n_vars_int
+   
+   

@@ -1,0 +1,35 @@
+iwopy.core.optimizer.Optimizer
+==============================
+
+.. currentmodule:: iwopy.core.optimizer
+
+.. autoclass:: Optimizer
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Optimizer.__init__
+      ~Optimizer.finalize
+      ~Optimizer.initialize
+      ~Optimizer.print_info
+      ~Optimizer.solve
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Optimizer.initialized
+   
+   

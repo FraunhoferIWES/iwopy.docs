@@ -1,0 +1,6 @@
+iwopy.interfaces.pygmo.imports.check\_import
+============================================
+
+.. currentmodule:: iwopy.interfaces.pygmo.imports
+
+.. autofunction:: check_import

@@ -1,0 +1,35 @@
+iwopy.interfaces.pygmo
+======================
+
+.. automodule:: iwopy.interfaces.pygmo
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.interfaces.pygmo.algos
+   iwopy.interfaces.pygmo.imports
+   iwopy.interfaces.pygmo.optimizer
+   iwopy.interfaces.pygmo.problem
+

@@ -1,0 +1,38 @@
+iwopy.core.memory.Memory
+========================
+
+.. currentmodule:: iwopy.core.memory
+
+.. autoclass:: Memory
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Memory.__init__
+      ~Memory.clear
+      ~Memory.found_individual
+      ~Memory.found_population
+      ~Memory.lookup_individual
+      ~Memory.lookup_population
+      ~Memory.store_individual
+      ~Memory.store_population
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Memory.size
+   
+   

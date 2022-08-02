@@ -1,0 +1,36 @@
+iwopy.interfaces.pymoo.optimizer.Optimizer\_pymoo
+=================================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.optimizer
+
+.. autoclass:: Optimizer_pymoo
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Optimizer_pymoo.__init__
+      ~Optimizer_pymoo.finalize
+      ~Optimizer_pymoo.get_figure_f
+      ~Optimizer_pymoo.initialize
+      ~Optimizer_pymoo.print_info
+      ~Optimizer_pymoo.solve
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Optimizer_pymoo.initialized
+   
+   

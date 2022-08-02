@@ -1,0 +1,60 @@
+iwopy.core.problem.Problem
+==========================
+
+.. currentmodule:: iwopy.core.problem
+
+.. autoclass:: Problem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Problem.__init__
+      ~Problem.add_constraint
+      ~Problem.add_objective
+      ~Problem.apply_individual
+      ~Problem.apply_population
+      ~Problem.calc_gradients
+      ~Problem.check_constraints_individual
+      ~Problem.check_constraints_population
+      ~Problem.evaluate_individual
+      ~Problem.evaluate_population
+      ~Problem.finalize
+      ~Problem.finalize_individual
+      ~Problem.finalize_population
+      ~Problem.get_gradients
+      ~Problem.initial_values_float
+      ~Problem.initial_values_int
+      ~Problem.initialize
+      ~Problem.max_values_float
+      ~Problem.max_values_int
+      ~Problem.min_values_float
+      ~Problem.min_values_int
+      ~Problem.var_names_float
+      ~Problem.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Problem.INT_INF
+      ~Problem.initialized
+      ~Problem.max_values_constraints
+      ~Problem.min_values_constraints
+      ~Problem.n_constraints
+      ~Problem.n_objectives
+      ~Problem.n_vars_float
+      ~Problem.n_vars_int
+   
+   

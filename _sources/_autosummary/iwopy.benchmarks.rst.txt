@@ -1,0 +1,33 @@
+﻿iwopy.benchmarks
+================
+
+.. automodule:: iwopy.benchmarks
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.benchmarks.branin
+   iwopy.benchmarks.rosenbrock
+

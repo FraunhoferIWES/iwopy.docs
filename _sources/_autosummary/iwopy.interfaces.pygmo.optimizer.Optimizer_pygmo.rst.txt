@@ -1,0 +1,35 @@
+iwopy.interfaces.pygmo.optimizer.Optimizer\_pygmo
+=================================================
+
+.. currentmodule:: iwopy.interfaces.pygmo.optimizer
+
+.. autoclass:: Optimizer_pygmo
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Optimizer_pygmo.__init__
+      ~Optimizer_pygmo.finalize
+      ~Optimizer_pygmo.initialize
+      ~Optimizer_pygmo.print_info
+      ~Optimizer_pygmo.solve
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Optimizer_pygmo.initialized
+   
+   

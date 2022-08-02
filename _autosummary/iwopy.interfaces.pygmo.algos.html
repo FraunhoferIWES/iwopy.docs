@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iwopy.interfaces.pygmo.algos &mdash; iwopy 0.0.11
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="iwopy.interfaces.pygmo.algos.AlgoFactory" href="iwopy.interfaces.pygmo.algos.AlgoFactory.html" />
+    <link rel="prev" title="iwopy.interfaces.pygmo" href="iwopy.interfaces.pygmo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> iwopy
+          </a>
+              <div class="version">
+                0.0.11
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#developers">Developers</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iwopy.benchmarks.html">iwopy.benchmarks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.core.html">iwopy.core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.base.html">iwopy.core.base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.base.Base.html">iwopy.core.base.Base</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.constraint.html">iwopy.core.constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.constraint.Constraint.html">iwopy.core.constraint.Constraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function.html">iwopy.core.function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function.OptFunction.html">iwopy.core.function.OptFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function_list.html">iwopy.core.function_list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.memory.html">iwopy.core.memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.objective.html">iwopy.core.objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.objective.Objective.html">iwopy.core.objective.Objective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.optimizer.Optimizer.html">iwopy.core.optimizer.Optimizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.problem.html">iwopy.core.problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="iwopy.interfaces.html">iwopy.interfaces</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="iwopy.interfaces.pygmo.html">iwopy.interfaces.pygmo</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">iwopy.interfaces.pygmo.algos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.imports.html">iwopy.interfaces.pygmo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.optimizer.html">iwopy.interfaces.pygmo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pygmo.problem.html">iwopy.interfaces.pygmo.problem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.interfaces.pymoo.html">iwopy.interfaces.pymoo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.factory.html">iwopy.interfaces.pymoo.factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.imports.html">iwopy.interfaces.pymoo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.optimizer.html">iwopy.interfaces.pymoo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.problem.html">iwopy.interfaces.pymoo.problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.problems.html">iwopy.problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.problems.simple.html">iwopy.problems.simple</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.problems.simple.SimpleProblem.html">iwopy.problems.simple.SimpleProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.utils.html">iwopy.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iwopy.wrappers.html">iwopy.wrappers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.html">iwopy.wrappers.discretize_reg_grid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">iwopy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">API</a> &raquo;</li>
+          <li><a href="iwopy.interfaces.html">iwopy.interfaces</a> &raquo;</li>
+          <li><a href="iwopy.interfaces.pygmo.html">iwopy.interfaces.pygmo</a> &raquo;</li>
+      <li>iwopy.interfaces.pygmo.algos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/iwopy.interfaces.pygmo.algos.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-iwopy.interfaces.pygmo.algos">
+<span id="iwopy-interfaces-pygmo-algos"></span><h1>iwopy.interfaces.pygmo.algos<a class="headerlink" href="#module-iwopy.interfaces.pygmo.algos" title="Permalink to this heading"></a>
+</h1>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="row-odd">
+<td><p><a class="reference internal" href="iwopy.interfaces.pygmo.algos.AlgoFactory.html#iwopy.interfaces.pygmo.algos.AlgoFactory" title="iwopy.interfaces.pygmo.algos.AlgoFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlgoFactory</span></code></a></p></td>
+<td><p>Creates a pygmo algorithm from parameters</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iwopy.interfaces.pygmo.html" class="btn btn-neutral float-left" title="iwopy.interfaces.pygmo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iwopy.interfaces.pygmo.algos.AlgoFactory.html" class="btn btn-neutral float-right" title="iwopy.interfaces.pygmo.algos.AlgoFactory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #009879;
+    }
+  </style>
+
+
+</body>
+</html>

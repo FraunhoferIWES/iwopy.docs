@@ -1,0 +1,60 @@
+iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
+======================================================
+
+.. currentmodule:: iwopy.wrappers.discretize_reg_grid
+
+.. autoclass:: DiscretizeRegGrid
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DiscretizeRegGrid.__init__
+      ~DiscretizeRegGrid.add_constraint
+      ~DiscretizeRegGrid.add_objective
+      ~DiscretizeRegGrid.apply_individual
+      ~DiscretizeRegGrid.apply_population
+      ~DiscretizeRegGrid.calc_gradients
+      ~DiscretizeRegGrid.check_constraints_individual
+      ~DiscretizeRegGrid.check_constraints_population
+      ~DiscretizeRegGrid.evaluate_individual
+      ~DiscretizeRegGrid.evaluate_population
+      ~DiscretizeRegGrid.finalize
+      ~DiscretizeRegGrid.finalize_individual
+      ~DiscretizeRegGrid.finalize_population
+      ~DiscretizeRegGrid.get_gradients
+      ~DiscretizeRegGrid.initial_values_float
+      ~DiscretizeRegGrid.initial_values_int
+      ~DiscretizeRegGrid.initialize
+      ~DiscretizeRegGrid.max_values_float
+      ~DiscretizeRegGrid.max_values_int
+      ~DiscretizeRegGrid.min_values_float
+      ~DiscretizeRegGrid.min_values_int
+      ~DiscretizeRegGrid.var_names_float
+      ~DiscretizeRegGrid.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DiscretizeRegGrid.INT_INF
+      ~DiscretizeRegGrid.initialized
+      ~DiscretizeRegGrid.max_values_constraints
+      ~DiscretizeRegGrid.min_values_constraints
+      ~DiscretizeRegGrid.n_constraints
+      ~DiscretizeRegGrid.n_objectives
+      ~DiscretizeRegGrid.n_vars_float
+      ~DiscretizeRegGrid.n_vars_int
+   
+   

@@ -1,0 +1,31 @@
+iwopy.core.objective
+====================
+
+.. automodule:: iwopy.core.objective
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      Objective
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,50 @@
+iwopy.benchmarks.branin.BraninObjective
+=======================================
+
+.. currentmodule:: iwopy.benchmarks.branin
+
+.. autoclass:: BraninObjective
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~BraninObjective.__init__
+      ~BraninObjective.ana_deriv
+      ~BraninObjective.calc_individual
+      ~BraninObjective.calc_population
+      ~BraninObjective.f
+      ~BraninObjective.finalize
+      ~BraninObjective.finalize_individual
+      ~BraninObjective.finalize_population
+      ~BraninObjective.initialize
+      ~BraninObjective.maximize
+      ~BraninObjective.n_components
+      ~BraninObjective.rename_vars_float
+      ~BraninObjective.rename_vars_int
+      ~BraninObjective.vardeps_float
+      ~BraninObjective.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BraninObjective.component_names
+      ~BraninObjective.initialized
+      ~BraninObjective.n_vars_float
+      ~BraninObjective.n_vars_int
+      ~BraninObjective.var_names_float
+      ~BraninObjective.var_names_int
+   
+   

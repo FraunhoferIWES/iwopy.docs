@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iwopy.interfaces.pygmo.algos &mdash; iwopy 0.0.11
+ documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> iwopy
+          </a>
+              <div class="version">
+                0.0.11
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.html">iwopy.benchmarks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/iwopy.core.html">iwopy.core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.base.html">iwopy.core.base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.base.Base.html">iwopy.core.base.Base</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.constraint.html">iwopy.core.constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.constraint.Constraint.html">iwopy.core.constraint.Constraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function.html">iwopy.core.function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function.OptFunction.html">iwopy.core.function.OptFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function_list.html">iwopy.core.function_list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.objective.html">iwopy.core.objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.objective.Objective.html">iwopy.core.objective.Objective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.optimizer.Optimizer.html">iwopy.core.optimizer.Optimizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.html">iwopy.interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pygmo.html">iwopy.interfaces.pygmo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pygmo.algos.html">iwopy.interfaces.pygmo.algos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pygmo.imports.html">iwopy.interfaces.pygmo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pygmo.optimizer.html">iwopy.interfaces.pygmo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pygmo.problem.html">iwopy.interfaces.pygmo.problem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pymoo.html">iwopy.interfaces.pymoo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.html">iwopy.interfaces.pymoo.factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pymoo.imports.html">iwopy.interfaces.pymoo.imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.html">iwopy.interfaces.pymoo.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.html">iwopy.interfaces.pymoo.problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/iwopy.problems.html">iwopy.problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.problems.simple.html">iwopy.problems.simple</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.problems.simple.SimpleProblem.html">iwopy.problems.simple.SimpleProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.html">iwopy.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.html">iwopy.wrappers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.discretize_reg_grid.html">iwopy.wrappers.discretize_reg_grid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">iwopy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      <li>iwopy.interfaces.pygmo.algos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for iwopy.interfaces.pygmo.algos</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.imports</span> <span class="kn">import</span> <span class="n">pygmo</span><span class="p">,</span> <span class="n">check_import</span>
+
+<div class="viewcode-block" id="AlgoFactory"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.algos.AlgoFactory.html#iwopy.interfaces.pygmo.algos.AlgoFactory">[docs]</a><span class="k">class</span> <span class="nc">AlgoFactory</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a pygmo algorithm from parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AlgoFactory.new"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.algos.AlgoFactory.html#iwopy.interfaces.pygmo.algos.AlgoFactory.new">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a pygmo algo.</span>
+
+<span class="sd">        Optimizer parameters are extracted from kwargs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        type : str</span>
+<span class="sd">            Name of the driver type</span>
+<span class="sd">        kwargs : dict, optional</span>
+<span class="sd">            Additional parameters, type dependent</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pygmo.algo :</span>
+<span class="sd">            The pygmo algorithm object</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">check_import</span><span class="p">()</span>
+
+        <span class="c1"># nlopt:</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;nlopt&quot;</span><span class="p">:</span>
+
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;optimizer&#39;</span><span class="p">])</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="s1">&#39;ftol_rel&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">ftol_rel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ftol_rel&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;ftol_abs&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">ftol_abs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ftol_abs&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;xtol_rel&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">xtol_rel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xtol_rel&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;xtol_abs&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">xtol_abs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xtol_abs&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;maxeval&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">maxeval</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;maxeval&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;maxtime&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">maxtime</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;maxtime&#39;</span><span class="p">]</span>
+
+        <span class="c1"># ipopt:</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;ipopt&quot;</span><span class="p">:</span>
+
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">ipopt</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                    <span class="n">uda</span><span class="o">.</span><span class="n">set_integer_option</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+                
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+                    <span class="n">uda</span><span class="o">.</span><span class="n">set_numeric_option</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+                
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">uda</span><span class="o">.</span><span class="n">set_string_option</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+            
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+
+        <span class="c1"># sga:</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;sga&quot;</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            </span>
+<span class="sd">            Simple Genetic Algorithm</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                gen (``int``): number of generations.</span>
+<span class="sd">                cr (``float``): crossover probability.</span>
+<span class="sd">                eta_c (``float``): distribution index for ``sbx`` crossover. This parameter is inactive if other types of crossover are selected.</span>
+<span class="sd">                m (``float``): mutation probability.</span>
+<span class="sd">                param_m (``float``): distribution index (``polynomial`` mutation), gaussian width (``gaussian`` mutation) or inactive (``uniform`` mutation)</span>
+<span class="sd">                param_s (``float``): the number of best individuals to use in &quot;truncated&quot; selection or the size of the tournament in ``tournament`` selection.</span>
+<span class="sd">                crossover (``str``): the crossover strategy. One of ``exponential``, ``binomial``, ``single`` or ``sbx``</span>
+<span class="sd">                mutation (``str``): the mutation strategy. One of ``gaussian``, ``polynomial`` or ``uniform``.</span>
+<span class="sd">                selection (``str``): the selection strategy. One of ``tournament``, &quot;truncated&quot;.</span>
+<span class="sd">                seed (``int``): seed used by the internal random number generator</span>
+
+<span class="sd">                The various blocks of pygmo genetic algorithm are listed below:</span>
+
+<span class="sd">                *Selection*: two selection methods are provided: ``tournament`` and ``truncated``. ``Tournament`` selection works by</span>
+<span class="sd">                selecting each offspring as the one having the minimal fitness in a random group of size *param_s*. The ``truncated``</span>
+<span class="sd">                selection, instead, works selecting the best *param_s* chromosomes in the entire population over and over.</span>
+<span class="sd">                We have deliberately not implemented the popular roulette wheel selection as we are of the opinion that such</span>
+<span class="sd">                a system does not generalize much being highly sensitive to the fitness scaling.</span>
+
+<span class="sd">                *Crossover*: four different crossover schemes are provided:``single``, ``exponential``, ``binomial``, ``sbx``. The</span>
+<span class="sd">                ``single`` point crossover, works selecting a random point in the parent chromosome and, with probability *cr*, inserting the</span>
+<span class="sd">                partner chromosome thereafter. The ``exponential`` crossover is taken from the algorithm differential evolution,</span>
+<span class="sd">                implemented, in pygmo, as :class:`~pygmo.de`. It essentially selects a random point in the parent chromosome and inserts,</span>
+<span class="sd">                in each successive gene, the partner values with probability  *cr* up to when it stops. The binomial crossover</span>
+<span class="sd">                inserts each gene from the partner with probability *cr*. The simulated binary crossover (called ``sbx``), is taken</span>
+<span class="sd">                from the NSGA-II algorithm, implemented in pygmo as :class:`~pygmo.nsga2`, and makes use of an additional parameter called</span>
+<span class="sd">                distribution index *eta_c*.</span>
+
+<span class="sd">                *Mutation*: three different mutations schemes are provided: ``uniform``, ``gaussian`` and ``polynomial``. Uniform mutation</span>
+<span class="sd">                simply randomly samples from the bounds. Gaussian muattion samples around each gene using a normal distribution</span>
+<span class="sd">                with standard deviation proportional to the *param_m* and the bounds width. The last scheme is the ``polynomial``</span>
+<span class="sd">                mutation from Deb.</span>
+
+<span class="sd">                *Reinsertion*: the only reinsertion strategy provided is what we call pure elitism. After each generation</span>
+<span class="sd">                all parents and children are put in the same pool and only the best are passed to the next generation.</span>
+
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">sga</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+
+        <span class="c1"># pso:</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;pso&quot;</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Args:</span>
+<span class="sd">                gen (``int``): number of generations</span>
+<span class="sd">                omega (``float``): inertia weight (or constriction factor)</span>
+<span class="sd">                eta1 (``float``): social component</span>
+<span class="sd">                eta2 (``float``): cognitive component</span>
+<span class="sd">                max_vel (``float``): maximum allowed particle velocities (normalized with respect to the bounds width)</span>
+<span class="sd">                variant (``int``): algorithmic variant</span>
+<span class="sd">                neighb_type (``int``): swarm topology (defining each particle&#39;s neighbours)</span>
+<span class="sd">                neighb_param (``int``): topology parameter (defines how many neighbours to consider)</span>
+<span class="sd">                memory (``bool``): when true the velocities are not reset between successive calls to the evolve method</span>
+<span class="sd">                seed (``int``): seed used by the internal random number generator (default is random)</span>
+
+<span class="sd">            Raises:</span>
+<span class="sd">                OverflowError: if *gen* or *seed* is negative or greater than an implementation-defined value</span>
+<span class="sd">                ValueError: if *omega* is not in the [0,1] interval, if *eta1*, *eta2* are not in the [0,4] interval, if *max_vel* is not in ]0,1]</span>
+<span class="sd">                ValueError: *variant* is not one of 1 .. 6, if *neighb_type* is not one of 1 .. 4 or if *neighb_param* is zero</span>
+<span class="sd">                </span>
+<span class="sd">            The following variants can be selected via the *variant* parameter:</span>
+
+<span class="sd">            +-----------------------------------------+-----------------------------------------+</span>
+<span class="sd">            | 1 - Canonical (with inertia weight)     | 2 - Same social and cognitive rand.     |</span>
+<span class="sd">            +-----------------------------------------+-----------------------------------------+</span>
+<span class="sd">            | 3 - Same rand. for all components       | 4 - Only one rand.                      |</span>
+<span class="sd">            +-----------------------------------------+-----------------------------------------+</span>
+<span class="sd">            | 5 - Canonical (with constriction fact.) | 6 - Fully Informed (FIPS)               |</span>
+<span class="sd">            +-----------------------------------------+-----------------------------------------+</span>
+
+<span class="sd">            The following topologies are selected by *neighb_type*:</span>
+
+<span class="sd">            +--------------------------------------+--------------------------------------+</span>
+<span class="sd">            | 1 - gbest                            | 2 - lbest                            |</span>
+<span class="sd">            +--------------------------------------+--------------------------------------+</span>
+<span class="sd">            | 3 - Von Neumann                      | 4 - Adaptive random                  |</span>
+<span class="sd">            +--------------------------------------+--------------------------------------+</span>
+
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">pso</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+
+        <span class="c1"># bee_colony:</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;bee_colony&quot;</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Artificial Bee Colony.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                gen (``int``): number of generations</span>
+<span class="sd">                limit (``int``): maximum number of trials for abandoning a source</span>
+<span class="sd">                seed (``int``): seed used by the internal random number generator (default is random)</span>
+
+<span class="sd">            Raises:</span>
+<span class="sd">                OverflowError: if *gen*, *limit* or *seed* is negative or greater than an implementation-defined value</span>
+<span class="sd">                ValueError: if *limit* is not greater than 0</span>
+
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">bee_colony</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+
+        <span class="c1"># nsga2:</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;nsga2&quot;</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Non dominated Sorting Genetic Algorithm (NSGA-II).</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                gen (``int``): number of generations</span>
+<span class="sd">                cr (``float``): crossover probability</span>
+<span class="sd">                eta_c (``float``): distribution index for crossover</span>
+<span class="sd">                m (``float``): mutation probability</span>
+<span class="sd">                eta_m (``float``): distribution index for mutation</span>
+<span class="sd">                seed (``int``): seed used by the internal random number generator (default is random)</span>
+
+<span class="sd">            Raises:</span>
+<span class="sd">                OverflowError: if *gen* or *seed* are negative or greater than an implementation-defined value</span>
+<span class="sd">                ValueError: if either *cr* is not in [0,1[, *eta_c* is not in [0,100[, *m* is not in [0,1], or</span>
+<span class="sd">                *eta_m* is not in [0,100[</span>
+
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">nsga2</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+
+
+        <span class="c1"># unknown driver:</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">estr</span>  <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Unknown uda type &#39;</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s2">&#39;.</span><span class="se">\n</span><span class="s2">Known solvers:&quot;</span>
+            <span class="n">estr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  nlopt&quot;</span>
+            <span class="n">estr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  ipopt&quot;</span>
+            <span class="n">estr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  sga&quot;</span>
+            <span class="n">estr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  pso&quot;</span>
+            <span class="n">estr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  bee_colony&quot;</span>
+            <span class="n">estr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  nsga2&quot;</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">estr</span><span class="p">)</span>
+
+        <span class="n">algo</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">algo</span></div></div>
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #009879;
+    }
+  </style>
+
+
+</body>
+</html>

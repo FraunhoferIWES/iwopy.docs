@@ -1,0 +1,58 @@
+iwopy.utils.discretization.RegularDiscretizationGrid
+====================================================
+
+.. currentmodule:: iwopy.utils.discretization
+
+.. autoclass:: RegularDiscretizationGrid
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RegularDiscretizationGrid.__init__
+      ~RegularDiscretizationGrid.all_gridpoints
+      ~RegularDiscretizationGrid.deriv_coeffs
+      ~RegularDiscretizationGrid.deriv_coeffs_gridpoints
+      ~RegularDiscretizationGrid.find_grid_inds
+      ~RegularDiscretizationGrid.find_gridpoints
+      ~RegularDiscretizationGrid.find_ingrid
+      ~RegularDiscretizationGrid.get_cell
+      ~RegularDiscretizationGrid.get_cells
+      ~RegularDiscretizationGrid.get_corner
+      ~RegularDiscretizationGrid.get_corners
+      ~RegularDiscretizationGrid.gp2i
+      ~RegularDiscretizationGrid.gpts2inds
+      ~RegularDiscretizationGrid.grad_coeffs
+      ~RegularDiscretizationGrid.grad_coeffs_gridpoints
+      ~RegularDiscretizationGrid.i2gp
+      ~RegularDiscretizationGrid.in_grid
+      ~RegularDiscretizationGrid.inds2gpts
+      ~RegularDiscretizationGrid.interpolation_coeffs_point
+      ~RegularDiscretizationGrid.interpolation_coeffs_points
+      ~RegularDiscretizationGrid.is_gridi
+      ~RegularDiscretizationGrid.is_gridpoint
+      ~RegularDiscretizationGrid.print_info
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~RegularDiscretizationGrid.DIGITS
+      ~RegularDiscretizationGrid.INT_INF
+      ~RegularDiscretizationGrid.n_dims
+      ~RegularDiscretizationGrid.n_points
+      ~RegularDiscretizationGrid.p_max
+      ~RegularDiscretizationGrid.p_min
+   
+   

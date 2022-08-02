@@ -1,0 +1,6 @@
+iwopy.core.memory.get\_default\_keyf
+====================================
+
+.. currentmodule:: iwopy.core.memory
+
+.. autofunction:: get_default_keyf

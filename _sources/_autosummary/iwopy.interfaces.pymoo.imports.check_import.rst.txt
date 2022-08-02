@@ -1,0 +1,6 @@
+iwopy.interfaces.pymoo.imports.check\_import
+============================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.imports
+
+.. autofunction:: check_import

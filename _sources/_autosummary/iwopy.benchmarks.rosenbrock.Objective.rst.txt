@@ -1,0 +1,49 @@
+iwopy.benchmarks.rosenbrock.Objective
+=====================================
+
+.. currentmodule:: iwopy.benchmarks.rosenbrock
+
+.. autoclass:: Objective
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Objective.__init__
+      ~Objective.ana_deriv
+      ~Objective.calc_individual
+      ~Objective.calc_population
+      ~Objective.finalize
+      ~Objective.finalize_individual
+      ~Objective.finalize_population
+      ~Objective.initialize
+      ~Objective.maximize
+      ~Objective.n_components
+      ~Objective.rename_vars_float
+      ~Objective.rename_vars_int
+      ~Objective.vardeps_float
+      ~Objective.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Objective.component_names
+      ~Objective.initialized
+      ~Objective.n_vars_float
+      ~Objective.n_vars_int
+      ~Objective.var_names_float
+      ~Objective.var_names_int
+   
+   

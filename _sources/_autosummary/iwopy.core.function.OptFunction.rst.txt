@@ -1,0 +1,48 @@
+iwopy.core.function.OptFunction
+===============================
+
+.. currentmodule:: iwopy.core.function
+
+.. autoclass:: OptFunction
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OptFunction.__init__
+      ~OptFunction.ana_deriv
+      ~OptFunction.calc_individual
+      ~OptFunction.calc_population
+      ~OptFunction.finalize
+      ~OptFunction.finalize_individual
+      ~OptFunction.finalize_population
+      ~OptFunction.initialize
+      ~OptFunction.n_components
+      ~OptFunction.rename_vars_float
+      ~OptFunction.rename_vars_int
+      ~OptFunction.vardeps_float
+      ~OptFunction.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~OptFunction.component_names
+      ~OptFunction.initialized
+      ~OptFunction.n_vars_float
+      ~OptFunction.n_vars_int
+      ~OptFunction.var_names_float
+      ~OptFunction.var_names_int
+   
+   

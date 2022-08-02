@@ -1,0 +1,31 @@
+iwopy.utils.discretization
+==========================
+
+.. automodule:: iwopy.utils.discretization
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      RegularDiscretizationGrid
+   
+   
+
+   
+   
+   
+
+
+
