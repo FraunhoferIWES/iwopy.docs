@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.benchmarks.branin.BraninObjective &mdash; iwopy 0.0.11
+  <title>iwopy.benchmarks.branin.BraninObjective &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -67,6 +67,11 @@
 <li class="toctree-l3 current"><a class="reference internal" href="iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -163,6 +168,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -249,13 +255,14 @@ y = [0, 15]</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>problem</strong> (<em>iwopy.Problem</em>) – The underlying optimization problem</p></li>
+<li><p><strong>ana_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Switch for analytical derivatives</p></li>
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The function name</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninObjective.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninObjective.__init__" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninObjective.__init__" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
@@ -268,7 +275,7 @@ y = [0, 15]</p>
 </colgroup>
 <tbody>
 <tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.benchmarks.branin.BraninObjective.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(problem[, name])</p></td>
+<td><p><a class="reference internal" href="#id0" title="iwopy.benchmarks.branin.BraninObjective.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(problem[, ana_deriv, name])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even">
@@ -364,14 +371,14 @@ y = [0, 15]</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninObjective.ana_deriv">
-<span class="sig-name descname"><span class="pre">ana_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninObjective.ana_deriv" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">ana_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninObjective.ana_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninObjective.ana_deriv" title="Permalink to this definition"></a>
 </dt>
 <dd>
 <p>Calculates the analytic derivative, if possible.</p>

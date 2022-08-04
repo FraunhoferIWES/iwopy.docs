@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pymoo.optimizer &mdash; iwopy 0.0.11
+  <title>iwopy.interfaces.pymoo.optimizer &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -64,6 +64,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -160,6 +165,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -200,23 +206,24 @@
 <span class="k">if</span> <span class="n">IMPORT_OK</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">pymoo.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 
-<div class="viewcode-block" id="DefaultCallback"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.DefaultCallback.html#iwopy.interfaces.pymoo.optimizer.DefaultCallback">[docs]</a><span class="k">class</span> <span class="nc">DefaultCallback</span><span class="p">(</span><span class="n">Callback</span><span class="p">):</span>
 
+<div class="viewcode-block" id="DefaultCallback"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.DefaultCallback.html#iwopy.interfaces.pymoo.optimizer.DefaultCallback">[docs]</a><span class="k">class</span> <span class="nc">DefaultCallback</span><span class="p">(</span><span class="n">Callback</span><span class="p">):</span>
 <div class="viewcode-block" id="DefaultCallback.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.DefaultCallback.html#iwopy.interfaces.pymoo.optimizer.DefaultCallback.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
     <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">):</span>
         <span class="n">fvals</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">pop</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
         <span class="n">cvals</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">pop</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;CV&quot;</span><span class="p">)</span>
-        <span class="n">i</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">fvals</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">fvals</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">],</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">],</span> <span class="n">cvals</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> </div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">],</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">],</span> <span class="n">cvals</span><span class="p">[</span><span class="n">i</span><span class="p">])</span></div>
+
 
 <div class="viewcode-block" id="Optimizer_pymoo"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo.html#iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo">[docs]</a><span class="k">class</span> <span class="nc">Optimizer_pymoo</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -260,7 +267,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">setup_pars</span> <span class="o">=</span> <span class="n">setup_pars</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">term_pars</span> <span class="o">=</span> <span class="n">term_pars</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span>  <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">algo</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="Optimizer_pymoo.print_info"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo.html#iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo.print_info">[docs]</a>    <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -275,7 +282,7 @@
             <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem_pars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        
+
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algo_pars</span><span class="p">):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Algorithm:&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------&quot;</span><span class="p">)</span>
@@ -312,7 +319,7 @@
 
         <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-        
+
         <span class="n">factory</span> <span class="o">=</span> <span class="n">Factory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">algo</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">get_algorithm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algo_pars</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">term</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">get_termination</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">term_pars</span><span class="p">)</span>
@@ -343,23 +350,23 @@
         <span class="c1"># run pymoo solver:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span><span class="p">,</span>
-                        <span class="n">algorithm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">algo</span><span class="p">,</span>
-                        <span class="n">termination</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">term</span><span class="p">,</span>
-                        <span class="n">verbose</span><span class="o">=</span><span class="n">verbosity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-                        <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">,</span>
-                        <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">setup_pars</span>
-                    <span class="p">)</span>
-        
+            <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span><span class="p">,</span>
+            <span class="n">algorithm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">algo</span><span class="p">,</span>
+            <span class="n">termination</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">term</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbosity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">,</span>
+            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">setup_pars</span><span class="p">,</span>
+        <span class="p">)</span>
+
         <span class="c1"># transfer callback:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">algorithm</span><span class="o">.</span><span class="n">callback</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span></div>
-    
+
 <div class="viewcode-block" id="Optimizer_pymoo.get_figure_f"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo.html#iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo.get_figure_f">[docs]</a>    <span class="k">def</span> <span class="nf">get_figure_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valid_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create a figure that shows the </span>
+<span class="sd">        Create a figure that shows the</span>
 <span class="sd">        objective function development</span>
 <span class="sd">        during optimization.</span>
 
@@ -390,19 +397,19 @@
                 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Impossible fig/ax input&quot;</span><span class="p">)</span>
-            
+
             <span class="n">fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">objs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">base_name</span>
-            <span class="n">fvals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;f_best&#39;</span><span class="p">]</span>
-            <span class="n">gens</span>  <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fvals</span><span class="p">))</span>
+            <span class="n">fvals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span>
+            <span class="n">gens</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fvals</span><span class="p">))</span>
 
             <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gens</span><span class="p">,</span> <span class="n">fvals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            
+
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_constraints</span><span class="p">():</span>
-                <span class="n">cv</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;cv_best&#39;</span><span class="p">])</span>
-                <span class="n">sel</span> <span class="o">=</span> <span class="n">cv</span> <span class="o">==</span> <span class="mf">0.</span>
+                <span class="n">cv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">])</span>
+                <span class="n">sel</span> <span class="o">=</span> <span class="n">cv</span> <span class="o">==</span> <span class="mf">0.0</span>
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
-                    <span class="n">i</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sel</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> 
-                    <span class="n">vdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;first valid&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sel</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">vdict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;first valid&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}</span>
                     <span class="k">if</span> <span class="n">valid_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="n">vdict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">valid_dict</span><span class="p">)</span>
                     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="n">vdict</span><span class="p">)</span>
@@ -414,10 +421,9 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
             <span class="k">return</span> <span class="n">fig</span>
-        
+
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
-        
 </pre></div>
 
            </div>

@@ -1,0 +1,60 @@
+iwopy.benchmarks.rosenbrock.RosenbrockProblem
+=============================================
+
+.. currentmodule:: iwopy.benchmarks.rosenbrock
+
+.. autoclass:: RosenbrockProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RosenbrockProblem.__init__
+      ~RosenbrockProblem.add_constraint
+      ~RosenbrockProblem.add_objective
+      ~RosenbrockProblem.apply_individual
+      ~RosenbrockProblem.apply_population
+      ~RosenbrockProblem.calc_gradients
+      ~RosenbrockProblem.check_constraints_individual
+      ~RosenbrockProblem.check_constraints_population
+      ~RosenbrockProblem.evaluate_individual
+      ~RosenbrockProblem.evaluate_population
+      ~RosenbrockProblem.finalize
+      ~RosenbrockProblem.finalize_individual
+      ~RosenbrockProblem.finalize_population
+      ~RosenbrockProblem.get_gradients
+      ~RosenbrockProblem.initial_values_float
+      ~RosenbrockProblem.initial_values_int
+      ~RosenbrockProblem.initialize
+      ~RosenbrockProblem.max_values_float
+      ~RosenbrockProblem.max_values_int
+      ~RosenbrockProblem.min_values_float
+      ~RosenbrockProblem.min_values_int
+      ~RosenbrockProblem.var_names_float
+      ~RosenbrockProblem.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~RosenbrockProblem.INT_INF
+      ~RosenbrockProblem.initialized
+      ~RosenbrockProblem.max_values_constraints
+      ~RosenbrockProblem.min_values_constraints
+      ~RosenbrockProblem.n_constraints
+      ~RosenbrockProblem.n_objectives
+      ~RosenbrockProblem.n_vars_float
+      ~RosenbrockProblem.n_vars_int
+   
+   

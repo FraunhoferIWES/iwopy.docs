@@ -1,4 +1,4 @@
-﻿iwopy.benchmarks.rosenbrock
+iwopy.benchmarks.rosenbrock
 ===========================
 
 .. automodule:: iwopy.benchmarks.rosenbrock
@@ -19,9 +19,8 @@
       :toctree:
       :template: custom-class-template.rst
    
-      Constraints
-      Objective
-      Problem
+      RosenbrockObjective
+      RosenbrockProblem
    
    
 

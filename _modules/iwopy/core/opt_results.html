@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.opt_results &mdash; iwopy 0.0.11
+  <title>iwopy.core.opt_results &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -64,6 +64,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -160,6 +165,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -189,9 +195,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for iwopy.core.opt_results</h1><div class="highlight"><pre>
-<span></span>
-
-<div class="viewcode-block" id="OptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults">[docs]</a><span class="k">class</span> <span class="nc">OptResults</span><span class="p">:</span>
+<div class="viewcode-block" id="OptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults">[docs]</a><span></span><span class="k">class</span> <span class="nc">OptResults</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Container for optimization results.</span>
 
@@ -207,13 +211,13 @@
 <span class="sd">        Multi objective case: Pareto variables, shape: (n_pop, n_vars_float)</span>
 <span class="sd">    objs : np.array</span>
 <span class="sd">        Single objective case: Optimal objective function value, shape: (1,)</span>
-<span class="sd">        Multi objective case: Pareto front objective function values, </span>
+<span class="sd">        Multi objective case: Pareto front objective function values,</span>
 <span class="sd">        shape: (n_pop, n_objectives)</span>
 <span class="sd">    cons : np.array</span>
 <span class="sd">        Single objective case: Constraint values, shape: (1,)</span>
 <span class="sd">        Multi objective case: Constraint values, shape: (n_pop, n_constraints)</span>
 <span class="sd">    problem_results : Object</span>
-<span class="sd">        The results of the variable application to the problem  </span>
+<span class="sd">        The results of the variable application to the problem</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -227,31 +231,31 @@
 <span class="sd">        Multi objective case: Pareto variables, shape: (n_pop, n_vars_float)</span>
 <span class="sd">    objs : np.array</span>
 <span class="sd">        Single objective case: Optimal objective function value, shape: (1,)</span>
-<span class="sd">        Multi objective case: Pareto front objective function values, </span>
+<span class="sd">        Multi objective case: Pareto front objective function values,</span>
 <span class="sd">        shape: (n_pop, n_objectives)</span>
 <span class="sd">    cons : np.array</span>
 <span class="sd">        Single objective case: Constraint values, shape: (1,)</span>
 <span class="sd">        Multi objective case: Constraint values, shape: (n_pop, n_constraints)</span>
 <span class="sd">    problem_results : Object</span>
-<span class="sd">        The results of the variable application to the problem  </span>
+<span class="sd">        The results of the variable application to the problem</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="OptResults.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span>
-            <span class="n">success</span><span class="p">,</span>
-            <span class="n">vars_int</span><span class="p">,</span>
-            <span class="n">vars_float</span><span class="p">,</span>
-            <span class="n">objs</span><span class="p">,</span>
-            <span class="n">cons</span><span class="p">,</span>
-            <span class="n">problem_results</span><span class="p">,</span>
-        <span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">success</span><span class="p">,</span>
+        <span class="n">vars_int</span><span class="p">,</span>
+        <span class="n">vars_float</span><span class="p">,</span>
+        <span class="n">objs</span><span class="p">,</span>
+        <span class="n">cons</span><span class="p">,</span>
+        <span class="n">problem_results</span><span class="p">,</span>
+    <span class="p">):</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">success</span>         <span class="o">=</span> <span class="n">success</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vars_int</span>        <span class="o">=</span> <span class="n">vars_int</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span>      <span class="o">=</span> <span class="n">vars_float</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">objs</span>            <span class="o">=</span> <span class="n">objs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cons</span>            <span class="o">=</span> <span class="n">cons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="n">success</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vars_int</span> <span class="o">=</span> <span class="n">vars_int</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span> <span class="o">=</span> <span class="n">vars_float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objs</span> <span class="o">=</span> <span class="n">objs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cons</span> <span class="o">=</span> <span class="n">cons</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">problem_results</span> <span class="o">=</span> <span class="n">problem_results</span></div></div>
 </pre></div>
 

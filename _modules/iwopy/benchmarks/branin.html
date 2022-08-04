@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.benchmarks.branin &mdash; iwopy 0.0.11
+  <title>iwopy.benchmarks.branin &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -64,6 +64,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -160,6 +165,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -193,6 +199,7 @@
 
 <span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">SimpleProblem</span><span class="p">,</span> <span class="n">Objective</span>
 
+
 <div class="viewcode-block" id="BraninObjective"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective">[docs]</a><span class="k">class</span> <span class="nc">BraninObjective</span><span class="p">(</span><span class="n">Objective</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The objective function for the Branin problem.</span>
@@ -225,30 +232,74 @@
 <span class="sd">    ----------</span>
 <span class="sd">    problem: iwopy.Problem</span>
 <span class="sd">        The underlying optimization problem</span>
+<span class="sd">    ana_deriv : bool</span>
+<span class="sd">        Switch for analytical derivatives</span>
 <span class="sd">    name: str</span>
 <span class="sd">        The function name</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="BraninObjective.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;f&quot;</span><span class="p">):</span>
+
+<div class="viewcode-block" id="BraninObjective.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">ana_deriv</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;f&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">vnames_float</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
 
         <span class="c1"># Parameters of branin function,</span>
         <span class="c1"># (a, b, c, r, s, t)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pars</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="mi">1</span><span class="p">,</span> 
-            <span class="mf">5.1</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>
-            <span class="mi">5</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="mf">5.1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>
+            <span class="mi">5</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span>
             <span class="mi">6</span><span class="p">,</span>
             <span class="mi">10</span><span class="p">,</span>
-            <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span>
-        <span class="p">)</span></div>
+            <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ana_deriv</span> <span class="o">=</span> <span class="n">ana_deriv</span></div>
 
 <div class="viewcode-block" id="BraninObjective.f"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The Branin function f(x, y)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pars</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">c</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">s</span></div>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span><span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span></div>
+
+<div class="viewcode-block" id="BraninObjective.ana_deriv"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.ana_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">ana_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the analytic derivative, if possible.</span>
+
+<span class="sd">        Use `numpy.nan` if analytic derivatives cannot be calculated.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values, shape: (n_vars_float,)</span>
+<span class="sd">        var : int</span>
+<span class="sd">            The index of the differentiation float variable</span>
+<span class="sd">        components : list of int</span>
+<span class="sd">            The selected components, or None for all</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        deriv : numpy.ndarray</span>
+<span class="sd">            The derivative values, shape: (n_sel_components,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ana_deriv</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">ana_deriv</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">components</span><span class="p">)</span>
+
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">vars_float</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pars</span>
+
+        <span class="k">if</span> <span class="n">var</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">-</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">var</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="BraninObjective.n_components"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.n_components">[docs]</a>    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -275,7 +326,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span></div>
-    
+
 <div class="viewcode-block" id="BraninObjective.calc_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.calc_individual">[docs]</a>    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for a single individual of the</span>
@@ -298,7 +349,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">vars_float</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)])</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)])</span></div>
 
 <div class="viewcode-block" id="BraninObjective.calc_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html#iwopy.benchmarks.branin.BraninObjective.calc_population">[docs]</a>    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -322,7 +373,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span></div></div>
+
 
 <div class="viewcode-block" id="BraninProblem"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html#iwopy.benchmarks.branin.BraninProblem">[docs]</a><span class="k">class</span> <span class="nc">BraninProblem</span><span class="p">(</span><span class="n">SimpleProblem</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -332,9 +384,11 @@
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
 <span class="sd">        The name of the problem</span>
+<span class="sd">    ana_deriv : bool</span>
+<span class="sd">        Switch for analytical derivatives</span>
 <span class="sd">    initial_values : list of float</span>
 <span class="sd">        The initial values</span>
-<span class="sd">    </span>
+
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    initial_values : list of float</span>
@@ -342,16 +396,16 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="BraninProblem.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html#iwopy.benchmarks.branin.BraninProblem.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;branin&quot;</span><span class="p">,</span> <span class="n">initial_values</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]):</span>
-        
+<div class="viewcode-block" id="BraninProblem.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html#iwopy.benchmarks.branin.BraninProblem.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;branin&quot;</span><span class="p">,</span> <span class="n">initial_values</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">ana_deriv</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">name</span><span class="p">,</span>
             <span class="n">float_vars</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">initial_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">initial_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span>
-            <span class="n">min_float_vars</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">0.</span><span class="p">},</span>
-            <span class="n">max_float_vars</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">10.</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">},</span>
+            <span class="n">min_float_vars</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span>
+            <span class="n">max_float_vars</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">},</span>
         <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">BraninObjective</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">BraninObjective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ana_deriv</span><span class="o">=</span><span class="n">ana_deriv</span><span class="p">))</span></div></div>
 </pre></div>
 
            </div>

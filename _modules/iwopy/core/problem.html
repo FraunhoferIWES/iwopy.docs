@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.problem &mdash; iwopy 0.0.11
+  <title>iwopy.core.problem &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -64,6 +64,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -160,6 +165,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -210,7 +216,7 @@
 <span class="sd">    mem_size : int, optional</span>
 <span class="sd">        The memory size, default no memory</span>
 <span class="sd">    mem_keyf : Function, optional</span>
-<span class="sd">        The memory key function. Parameters: </span>
+<span class="sd">        The memory key function. Parameters:</span>
 <span class="sd">        (vars_int, vars_float), returns key Object</span>
 
 <span class="sd">    Attributes</span>
@@ -235,7 +241,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_mem_size</span> <span class="o">=</span> <span class="n">mem_size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_mem_keyf</span> <span class="o">=</span> <span class="n">mem_keyf</span>
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="kc">None</span></div>
 
@@ -484,7 +490,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span><span class="p">,</span> <span class="n">cmi</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span><span class="p">,</span> <span class="n">cma</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
-    
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">min_values_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -943,18 +949,18 @@
             <span class="k">if</span> <span class="n">memres</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">todo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">memres</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">from_mem</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">todo</span><span class="p">)</span>
-        
+
         <span class="k">if</span> <span class="n">from_mem</span><span class="p">:</span>
 
-            <span class="n">objs</span> <span class="o">=</span> <span class="n">memres</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span>
-            <span class="n">cons</span> <span class="o">=</span> <span class="n">memres</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">:]</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="n">memres</span><span class="p">[:,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span>
+            <span class="n">cons</span> <span class="o">=</span> <span class="n">memres</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span> <span class="p">:]</span>
             <span class="k">del</span> <span class="n">memres</span>
 
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">todo</span><span class="p">):</span>
 
                 <span class="n">vals_int</span> <span class="o">=</span> <span class="n">vars_int</span><span class="p">[</span><span class="n">todo</span><span class="p">]</span>
                 <span class="n">vals_float</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[</span><span class="n">todo</span><span class="p">]</span>
-            
+
                 <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_population</span><span class="p">(</span><span class="n">vals_int</span><span class="p">,</span> <span class="n">vals_float</span><span class="p">)</span>
 
                 <span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_vars</span><span class="p">(</span><span class="n">vals_int</span><span class="p">,</span> <span class="n">vals_float</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">)</span>
@@ -978,7 +984,7 @@
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">store_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">)</span>
-        
+
         <span class="k">return</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span></div>
 
 <div class="viewcode-block" id="Problem.check_constraints_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.check_constraints_individual">[docs]</a>    <span class="k">def</span> <span class="nf">check_constraints_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>

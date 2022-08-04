@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.memory &mdash; iwopy 0.0.11
+  <title>iwopy.core.memory &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -64,6 +64,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -160,6 +165,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -191,6 +197,7 @@
   <h1>Source code for iwopy.core.memory</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+
 <div class="viewcode-block" id="get_default_keyf"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.memory.get_default_keyf.html#iwopy.core.memory.get_default_keyf">[docs]</a><span class="k">def</span> <span class="nf">get_default_keyf</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the default key function</span>
@@ -199,7 +206,7 @@
 <span class="sd">    ----------</span>
 <span class="sd">    digits : int</span>
 <span class="sd">        The number of digits for floats</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Function :</span>
@@ -220,15 +227,16 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Object : </span>
-<span class="sd">            The key </span>
+<span class="sd">        Object :</span>
+<span class="sd">            The key</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">li</span> <span class="o">=</span> <span class="n">vars_int</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_int</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
         <span class="n">tf</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vars_float</span><span class="p">,</span> <span class="n">digits</span><span class="p">))</span>
         <span class="k">return</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">li</span><span class="p">),</span> <span class="n">tf</span><span class="p">)</span>
-    
+
     <span class="k">return</span> <span class="n">default_key</span></div>
+
 
 <div class="viewcode-block" id="Memory"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.memory.Memory.html#iwopy.core.memory.Memory">[docs]</a><span class="k">class</span> <span class="nc">Memory</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -239,7 +247,7 @@
 <span class="sd">    size : int</span>
 <span class="sd">        The number of maximally stored results</span>
 <span class="sd">    keyf : Function, optional</span>
-<span class="sd">        The memory key function. Parameters: </span>
+<span class="sd">        The memory key function. Parameters:</span>
 <span class="sd">        (vars_int, vars_float), returns key Object</span>
 
 <span class="sd">    Attributes</span>
@@ -250,36 +258,37 @@
 <span class="sd">        The stored data. Key: keyf return type,</span>
 <span class="sd">        Values: tuples (objs, cons)</span>
 <span class="sd">    keyf : Function</span>
-<span class="sd">        The memory key function. Parameters: </span>
+<span class="sd">        The memory key function. Parameters:</span>
 <span class="sd">        (vars_int, vars_float), returns key Object</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
 <div class="viewcode-block" id="Memory.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.memory.Memory.html#iwopy.core.memory.Memory.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">keyf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_size</span> <span class="o">=</span> <span class="n">size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">keyf</span> <span class="o">=</span> <span class="n">keyf</span> <span class="k">if</span> <span class="n">keyf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">get_default_keyf</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span></div>
-    
+
 <div class="viewcode-block" id="Memory.clear"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.memory.Memory.html#iwopy.core.memory.Memory.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Clears the memory</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span></div>
-    
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The number of elements currently stored </span>
+<span class="sd">        The number of elements currently stored</span>
 <span class="sd">        in memory</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        int :</span>
-<span class="sd">            The number of elements currently stored </span>
+<span class="sd">            The number of elements currently stored</span>
 <span class="sd">            in memory</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    
+
 <div class="viewcode-block" id="Memory.found_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.memory.Memory.html#iwopy.core.memory.Memory.found_individual">[docs]</a>    <span class="k">def</span> <span class="nf">found_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if entry is found in memory.</span>
@@ -294,7 +303,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        found : bool</span>
-<span class="sd">            True if data is available </span>
+<span class="sd">            True if data is available</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keyf</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
@@ -420,7 +429,7 @@
                     <span class="n">n_o</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">objs</span><span class="p">)</span>
                     <span class="n">n_c</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cons</span><span class="p">)</span>
                     <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="n">n_o</span> <span class="o">+</span> <span class="n">n_c</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">objs</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-                
+
                 <span class="n">results</span><span class="p">[</span><span class="n">pi</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">]</span>
 
         <span class="k">return</span> <span class="n">results</span></div></div>

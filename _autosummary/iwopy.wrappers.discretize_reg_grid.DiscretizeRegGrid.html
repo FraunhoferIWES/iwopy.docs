@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid &mdash; iwopy 0.0.11
+  <title>iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -67,6 +67,11 @@
 <li class="toctree-l3"><a class="reference internal" href="iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -163,6 +168,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +253,7 @@ Either a dict with key: variable name str,
 value: order int, or a global integer order
 for all variables. Default is same as fd_order</p></li>
 <li><p><strong>mem_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The memory size, default no memory</p></li>
+<li><p><strong>dpars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Additional parameters for <cite>RegularDiscretizationGrid</cite></p></li>
 </ul>
 </dd>
 </dl>
@@ -299,7 +306,7 @@ Key: variable name str, value: order int</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_bounds_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/wrappers/discretize_reg_grid.html#DiscretizeRegGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.__init__" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_bounds_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dpars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/wrappers/discretize_reg_grid.html#DiscretizeRegGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.__init__" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
@@ -448,7 +455,7 @@ Key: variable name str, value: order int</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_bounds_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/wrappers/discretize_reg_grid.html#DiscretizeRegGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_bounds_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dpars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/wrappers/discretize_reg_grid.html#DiscretizeRegGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>

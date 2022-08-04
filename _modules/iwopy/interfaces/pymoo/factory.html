@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pymoo.factory &mdash; iwopy 0.0.11
+  <title>iwopy.interfaces.pymoo.factory &mdash; iwopy 0.0.12
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.11
+                0.0.12
 
               </div>
 <div role="search">
@@ -64,6 +64,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.BraninObjective.html">iwopy.benchmarks.branin.BraninObjective</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.branin.BraninProblem.html">iwopy.benchmarks.branin.BraninProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.rosenbrock.html">iwopy.benchmarks.rosenbrock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockObjective.html">iwopy.benchmarks.rosenbrock.RosenbrockObjective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.benchmarks.rosenbrock.RosenbrockProblem.html">iwopy.benchmarks.rosenbrock.RosenbrockProblem</a></li>
 </ul>
 </li>
 </ul>
@@ -160,6 +165,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -193,9 +199,9 @@
 
 <span class="k">if</span> <span class="n">IMPORT_OK</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">pymoo.operators.sampling.rnd</span> <span class="kn">import</span> <span class="p">(</span>
-        <span class="n">IntegerRandomSampling</span><span class="p">,</span> 
-        <span class="n">FloatRandomSampling</span><span class="p">,</span> 
-        <span class="n">BinaryRandomSampling</span><span class="p">,</span> 
+        <span class="n">IntegerRandomSampling</span><span class="p">,</span>
+        <span class="n">FloatRandomSampling</span><span class="p">,</span>
+        <span class="n">BinaryRandomSampling</span><span class="p">,</span>
         <span class="n">PermutationRandomSampling</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="kn">from</span> <span class="nn">pymoo.operators.sampling.lhs</span> <span class="kn">import</span> <span class="n">LatinHypercubeSampling</span>
@@ -207,16 +213,17 @@
         <span class="n">DefaultMultiObjectiveTermination</span><span class="p">,</span>
     <span class="p">)</span>
 
+
 <div class="viewcode-block" id="Factory"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory">[docs]</a><span class="k">class</span> <span class="nc">Factory</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory for pymoo components</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Factory.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_problem</span><span class="p">,</span><span class="n">verbosity</span><span class="p">):</span>
+<div class="viewcode-block" id="Factory.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_problem</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">):</span>
         <span class="n">check_import</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span> <span class="o">=</span> <span class="n">pymoo_problem</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="n">verbosity</span></div>
-    
+
     <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -242,7 +249,9 @@
         <span class="k">elif</span> <span class="n">samp_name</span> <span class="o">==</span> <span class="s2">&quot;lhs&quot;</span><span class="p">:</span>
             <span class="n">out</span> <span class="o">=</span> <span class="n">LatinHypercubeSampling</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown sampling &#39;</span><span class="si">{</span><span class="n">samp_name</span><span class="si">}</span><span class="s2">&#39;, please choose: int_random, float_random, binary_random, permutation_random, lhs&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unknown sampling &#39;</span><span class="si">{</span><span class="n">samp_name</span><span class="si">}</span><span class="s2">&#39;, please choose: int_random, float_random, binary_random, permutation_random, lhs&quot;</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selecting sampling: </span><span class="si">{</span><span class="n">samp_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
@@ -256,7 +265,7 @@
             <span class="n">out</span> <span class="o">=</span> <span class="n">SBX</span><span class="p">(</span><span class="o">**</span><span class="n">pars</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown crossover &#39;</span><span class="si">{</span><span class="n">cross</span><span class="si">}</span><span class="s2">&#39;, please choose: sbx&quot;</span><span class="p">)</span>
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selecting crossover: </span><span class="si">{</span><span class="n">cross</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">out</span></div>

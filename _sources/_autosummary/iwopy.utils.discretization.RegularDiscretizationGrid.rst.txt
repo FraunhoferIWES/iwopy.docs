@@ -18,6 +18,8 @@ iwopy.utils.discretization.RegularDiscretizationGrid
    
       ~RegularDiscretizationGrid.__init__
       ~RegularDiscretizationGrid.all_gridpoints
+      ~RegularDiscretizationGrid.apply_tol
+      ~RegularDiscretizationGrid.apply_tols
       ~RegularDiscretizationGrid.deriv_coeffs
       ~RegularDiscretizationGrid.deriv_coeffs_gridpoints
       ~RegularDiscretizationGrid.find_grid_inds
