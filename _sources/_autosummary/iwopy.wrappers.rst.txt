@@ -30,4 +30,7 @@
 
    iwopy.wrappers.discretize_reg_grid
    iwopy.wrappers.problem_wrapper
+   iwopy.wrappers.simple_constraint
+   iwopy.wrappers.simple_objective
+   iwopy.wrappers.simple_problem
 

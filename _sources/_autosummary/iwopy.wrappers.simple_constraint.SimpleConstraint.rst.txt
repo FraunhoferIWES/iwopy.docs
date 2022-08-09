@@ -1,0 +1,53 @@
+iwopy.wrappers.simple\_constraint.SimpleConstraint
+==================================================
+
+.. currentmodule:: iwopy.wrappers.simple_constraint
+
+.. autoclass:: SimpleConstraint
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SimpleConstraint.__init__
+      ~SimpleConstraint.ana_deriv
+      ~SimpleConstraint.calc_individual
+      ~SimpleConstraint.calc_population
+      ~SimpleConstraint.check_individual
+      ~SimpleConstraint.check_population
+      ~SimpleConstraint.f
+      ~SimpleConstraint.finalize
+      ~SimpleConstraint.finalize_individual
+      ~SimpleConstraint.finalize_population
+      ~SimpleConstraint.g
+      ~SimpleConstraint.get_bounds
+      ~SimpleConstraint.initialize
+      ~SimpleConstraint.n_components
+      ~SimpleConstraint.rename_vars_float
+      ~SimpleConstraint.rename_vars_int
+      ~SimpleConstraint.vardeps_float
+      ~SimpleConstraint.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SimpleConstraint.component_names
+      ~SimpleConstraint.initialized
+      ~SimpleConstraint.n_vars_float
+      ~SimpleConstraint.n_vars_int
+      ~SimpleConstraint.var_names_float
+      ~SimpleConstraint.var_names_int
+   
+   

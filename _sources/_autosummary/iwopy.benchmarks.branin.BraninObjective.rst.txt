@@ -24,6 +24,7 @@ iwopy.benchmarks.branin.BraninObjective
       ~BraninObjective.finalize
       ~BraninObjective.finalize_individual
       ~BraninObjective.finalize_population
+      ~BraninObjective.g
       ~BraninObjective.initialize
       ~BraninObjective.maximize
       ~BraninObjective.n_components
@@ -41,6 +42,7 @@ iwopy.benchmarks.branin.BraninObjective
    .. autosummary::
    
       ~BraninObjective.component_names
+      ~BraninObjective.has_ana_derivs
       ~BraninObjective.initialized
       ~BraninObjective.n_vars_float
       ~BraninObjective.n_vars_int

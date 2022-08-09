@@ -4,8 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History &mdash; iwopy 0.0.12
- documentation</title>
+  <title>History &mdash; iwopy 0.0.13 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -23,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="iwopy.wrappers.problem_wrapper.ProblemWrapper" href="_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html" /> 
+    <link rel="prev" title="iwopy.wrappers.simple_problem.SimpleProblem" href="_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,8 +33,7 @@
             <a href="index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.12
-
+                0.0.13
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -56,7 +54,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -132,13 +130,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="_autosummary/iwopy.problems.html">iwopy.problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.problems.simple.html">iwopy.problems.simple</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.problems.simple.SimpleProblem.html">iwopy.problems.simple.SimpleProblem</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/iwopy.utils.html">iwopy.utils</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
@@ -159,6 +150,18 @@
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.wrappers.simple_constraint.html">iwopy.wrappers.simple_constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html">iwopy.wrappers.simple_constraint.SimpleConstraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.wrappers.simple_objective.html">iwopy.wrappers.simple_objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.simple_objective.SimpleObjective.html">iwopy.wrappers.simple_objective.SimpleObjective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.wrappers.simple_problem.html">iwopy.wrappers.simple_problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html">iwopy.wrappers.simple_problem.SimpleProblem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -168,6 +171,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v0-0-12-alpha">v0.0.12-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-0-13-alpha">v0.0.13-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -256,6 +260,31 @@
 </ul>
 <p><strong>Full Changelog</strong>: <a class="reference external" href="https://github.com/FraunhoferIWES/iwopy/commits/v0.0.12">https://github.com/FraunhoferIWES/iwopy/commits/v0.0.12</a></p>
 </section>
+<section id="v0-0-13-alpha">
+<h2>v0.0.13-alpha<a class="headerlink" href="#v0-0-13-alpha" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li>
+<p>Wrappers:</p>
+<ul>
+<li><p>Introducing <code class="docutils literal notranslate"><span class="pre">SimpleObjective</span></code> and <code class="docutils literal notranslate"><span class="pre">SimpleConstraint</span></code>, for functions of simple numeric types like <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">y,</span> <span class="pre">...)</span></code></p></li>
+</ul>
+</li>
+<li>
+<p>Examples:</p>
+<ul>
+<li><p>New example: <code class="docutils literal notranslate"><span class="pre">electrostatics</span></code>, solvable with IPOPT, GA, PSO</p></li>
+</ul>
+</li>
+<li>
+<p>Notebooks:</p>
+<ul>
+<li><p>Work on <code class="docutils literal notranslate"><span class="pre">examples.ipynb</span></code>: Adding section on simple function minimization</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a class="reference external" href="https://github.com/FraunhoferIWES/iwopy/commits/v0.0.13">https://github.com/FraunhoferIWES/iwopy/commits/v0.0.13</a></p>
+</section>
 </section>
 
 
@@ -263,7 +292,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html" class="btn btn-neutral float-left" title="iwopy.wrappers.problem_wrapper.ProblemWrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html" class="btn btn-neutral float-left" title="iwopy.wrappers.simple_problem.SimpleProblem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.utils.discretization &mdash; iwopy 0.0.12
- documentation</title>
+  <title>iwopy.utils.discretization &mdash; iwopy 0.0.13 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -32,8 +31,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.12
-
+                0.0.13
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -54,7 +52,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -130,13 +128,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.problems.html">iwopy.problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.problems.simple.html">iwopy.problems.simple</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.problems.simple.SimpleProblem.html">iwopy.problems.simple.SimpleProblem</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.utils.html">iwopy.utils</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
@@ -157,6 +148,18 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_constraint.html">iwopy.wrappers.simple_constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html">iwopy.wrappers.simple_constraint.SimpleConstraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_objective.html">iwopy.wrappers.simple_objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_objective.SimpleObjective.html">iwopy.wrappers.simple_objective.SimpleObjective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_problem.html">iwopy.wrappers.simple_problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html">iwopy.wrappers.simple_problem.SimpleProblem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -166,6 +169,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -196,7 +200,6 @@
              
   <h1>Source code for iwopy.utils.discretization</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">RegularGridInterpolator</span>
 
 
 <div class="viewcode-block" id="RegularDiscretizationGrid"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid">[docs]</a><span class="k">class</span> <span class="nc">RegularDiscretizationGrid</span><span class="p">:</span>
@@ -214,10 +217,10 @@
 <span class="sd">        The number of steps, len: n_dims. Use</span>
 <span class="sd">        INT_INF for infinite.</span>
 <span class="sd">    tol : list of float, optional</span>
-<span class="sd">        The tolerances for grid bounds, default is 0, </span>
+<span class="sd">        The tolerances for grid bounds, default is 0,</span>
 <span class="sd">        shape: (n_dims,)</span>
-<span class="sd">    **kwargs : dict, optional</span>
-<span class="sd">        Additional parameters for `RegularGridInterpolator`</span>
+<span class="sd">    digits : int</span>
+<span class="sd">        The grid point precision</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -230,17 +233,19 @@
 <span class="sd">    tol : numpy.ndarray</span>
 <span class="sd">        The tolerances for grid bounds, shape: (n_dims,),</span>
 <span class="sd">        or None</span>
+<span class="sd">    digits : int</span>
+<span class="sd">        The grid point precision</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">INT_INF</span> <span class="o">=</span> <span class="o">-</span><span class="mi">999999</span>
-    <span class="n">DIGITS</span> <span class="o">=</span> <span class="mi">12</span>
 
-<div class="viewcode-block" id="RegularDiscretizationGrid.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">deltas</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="RegularDiscretizationGrid.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">deltas</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">digits</span> <span class="o">=</span> <span class="n">digits</span>
 
         <span class="k">if</span> <span class="n">tol</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -248,30 +253,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ocell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ocell</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_interp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_interp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ocell</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
-
-    <span class="k">def</span> <span class="nf">_get_interp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Helper function for interpolation object creation</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">n_dims</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell0</span><span class="p">)</span>
-
-        <span class="n">cdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">cell0</span><span class="p">)</span>
-        <span class="n">cdata</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="n">cdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">cdata</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
-
-        <span class="n">cshp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cdata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-        <span class="n">idata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">cshp</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">n_dims</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-        <span class="n">isel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">cdata</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">di</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_dims</span><span class="p">):</span>
-            <span class="n">dj</span> <span class="o">=</span> <span class="n">n_dims</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">di</span>
-            <span class="n">isel</span><span class="p">[:]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">dj</span> <span class="o">*</span> <span class="n">cdata</span><span class="p">[</span><span class="n">di</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">put_along_axis</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">isel</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">RegularGridInterpolator</span><span class="p">(</span><span class="n">cell0</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span> <span class="o">=</span> <span class="kc">None</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">n_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -332,7 +314,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span>
         <span class="n">m</span><span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">INT_INF</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deltas</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.print_info"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.print_info">[docs]</a>    <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spaces</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -454,7 +436,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grind indices </span><span class="si">{</span><span class="n">inds</span><span class="si">}</span><span class="s2"> are not on grid&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.find_grid_inds"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.find_grid_inds">[docs]</a>    <span class="k">def</span> <span class="nf">find_grid_inds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -502,14 +484,14 @@
 
         <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_gp2i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gp</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lower_left</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function for indices calculation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">lower_left</span><span class="p">:</span>
-            <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">gp</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+            <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">gp</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -530,7 +512,7 @@
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
 
         <span class="k">if</span> <span class="n">lower_left</span><span class="p">:</span>
-            <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">gpts</span> <span class="o">-</span> <span class="n">o</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+            <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">gpts</span> <span class="o">-</span> <span class="n">o</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">gpts</span> <span class="o">-</span> <span class="n">o</span><span class="p">)</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
@@ -549,7 +531,7 @@
 <span class="sd">        ----------</span>
 <span class="sd">        p : numpy.ndarray</span>
 <span class="sd">            The point, shape: (n_dims,)</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        q : numpy.ndarray</span>
@@ -561,11 +543,11 @@
             <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
             <span class="n">dlo</span> <span class="o">=</span> <span class="n">q</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_min</span>
-            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span>
+            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span>
             <span class="n">q</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_min</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span>
 
             <span class="n">dhi</span> <span class="o">=</span> <span class="n">q</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span>
-            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span>
+            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span>
             <span class="n">q</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span>
 
             <span class="k">return</span> <span class="n">q</span>
@@ -579,7 +561,7 @@
 <span class="sd">        ----------</span>
 <span class="sd">        pts : numpy.ndarray</span>
 <span class="sd">            The points, shape: (n_pts, n_dims)</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        q : numpy.ndarray</span>
@@ -591,19 +573,19 @@
             <span class="n">qts</span> <span class="o">=</span> <span class="n">pts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
             <span class="n">dlo</span> <span class="o">=</span> <span class="n">qts</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_min</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dlo</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
                 <span class="n">pmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qts</span><span class="p">)</span>
                 <span class="n">pmin</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_min</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
                 <span class="n">qts</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span> <span class="o">=</span> <span class="n">pmin</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span>
 
             <span class="n">dhi</span> <span class="o">=</span> <span class="n">qts</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+            <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
                 <span class="n">pmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qts</span><span class="p">)</span>
                 <span class="n">pmax</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
                 <span class="n">qts</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span> <span class="o">=</span> <span class="n">pmax</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span>
-            
+
             <span class="k">return</span> <span class="n">qts</span>
         <span class="k">return</span> <span class="n">pts</span></div>
 
@@ -634,7 +616,7 @@
                 <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">inds</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ret_inds</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">p0</span> <span class="o">==</span> <span class="n">p</span><span class="p">),</span> <span class="n">inds</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">p0</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span></div>
@@ -670,7 +652,7 @@
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
             <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
             <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
+            <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
             <span class="n">sel</span> <span class="o">=</span> <span class="n">sel</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p0</span> <span class="o">==</span> <span class="n">pts</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">ret_inds</span><span class="p">:</span>
@@ -837,7 +819,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grind indices </span><span class="si">{</span><span class="n">inds</span><span class="si">}</span><span class="s2"> are not on grid&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_corners"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_corners">[docs]</a>    <span class="k">def</span> <span class="nf">get_corners</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -879,7 +861,7 @@
                 <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">selg</span><span class="p">)</span><span class="si">}</span><span class="s2"> indices not on grid, e.g. indices </span><span class="si">{</span><span class="n">selg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">inds</span><span class="p">[</span><span class="n">selg</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_cell"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_cell">[docs]</a>    <span class="k">def</span> <span class="nf">get_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -900,7 +882,7 @@
         <span class="n">cell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">cell</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_corner</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="n">cell</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_cells"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_cells">[docs]</a>    <span class="k">def</span> <span class="nf">get_cells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -923,7 +905,33 @@
         <span class="n">cells</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">cells</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_corners</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="n">cells</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_interpolate_ocell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qts</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function for interpolation weights in</span>
+<span class="sd">        unit hypercube.</span>
+
+<span class="sd">        Classic volume weighting, see e.g. Fig. 2 and Eq. (4) in</span>
+<span class="sd">        http://dx.doi.org/10.1088/0004-6256/139/2/342</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ocell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+            <span class="n">ocell</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">ocell</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">ocell</span>
+
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">qts</span> <span class="o">&gt;=</span> <span class="mf">0.0</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates below 0: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&lt;</span><span class="mf">0.</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">qts</span> <span class="o">&lt;=</span> <span class="mf">1.0</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates above 1: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&gt;</span><span class="mf">1.</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">qts</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.interpolation_coeffs_point"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.interpolation_coeffs_point">[docs]</a>    <span class="k">def</span> <span class="nf">interpolation_coeffs_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -957,16 +965,15 @@
         <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cell</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
         <span class="n">p0</span> <span class="o">=</span> <span class="n">cell</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="n">n_dims</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p0</span><span class="p">)</span>
-        <span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">p0</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
+        <span class="n">qts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">p</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">p0</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interp</span><span class="p">(</span><span class="n">pts</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolate_ocell</span><span class="p">(</span><span class="n">qts</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_error_info</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">for_ocell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">e</span>
-
         <span class="n">gpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">cell</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">gpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">gpts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n_dims</span><span class="p">,</span> <span class="n">n_dims</span><span class="p">)</span>
+        <span class="n">gpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">gpts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n_dims</span><span class="p">,</span> <span class="n">n_dims</span><span class="p">)</span>
 
         <span class="n">sel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0e-14</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
@@ -1008,28 +1015,22 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_tols</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_corners</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">qts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">pts</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
 
-        <span class="n">cells</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cells</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
-        <span class="n">ocell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
-        <span class="n">p0</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
-
-        <span class="n">opts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pts</span> <span class="o">-</span> <span class="n">p0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interp</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>  <span class="c1"># shape: (n_pts, n_gp)</span>
-        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_error_infos</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="n">for_ocell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolate_ocell</span><span class="p">(</span><span class="n">qts</span><span class="p">)</span>  <span class="c1"># shape: (n_pts, n_gp)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_error_infos</span><span class="p">(</span><span class="n">qts</span><span class="p">,</span> <span class="n">for_ocell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">e</span>
 
-        <span class="n">ipts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">ocell</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">ipts</span> <span class="o">=</span> <span class="n">ipts</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">)</span>
         <span class="n">gpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
-            <span class="n">p0</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="n">ipts</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span>
+            <span class="n">p0</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span>
         <span class="p">)</span>  <span class="c1"># shape: (n_pts, n_gp, n_dims)</span>
 
         <span class="c1"># remove points with zero weights:</span>
         <span class="n">sel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0e-14</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
-            <span class="n">ipts</span> <span class="o">=</span> <span class="n">ipts</span><span class="p">[</span><span class="o">~</span><span class="n">sel</span><span class="p">]</span>
             <span class="n">coeffs</span> <span class="o">=</span> <span class="n">coeffs</span><span class="p">[:,</span> <span class="o">~</span><span class="n">sel</span><span class="p">]</span>
             <span class="n">gpts</span> <span class="o">=</span> <span class="n">gpts</span><span class="p">[:,</span> <span class="o">~</span><span class="n">sel</span><span class="p">]</span>
 
@@ -1194,7 +1195,7 @@
         <span class="c1"># reorganize data to single grid point array:</span>
         <span class="n">n_pts</span><span class="p">,</span> <span class="n">n_gp</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">n_apts</span> <span class="o">=</span> <span class="n">n_pts</span> <span class="o">*</span> <span class="n">n_gp</span>
-        <span class="n">gpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">gpts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DIGITS</span><span class="p">)</span>
+        <span class="n">gpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">gpts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
         <span class="n">gpts</span><span class="p">,</span> <span class="n">amap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
             <span class="n">gpts</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_apts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dims</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>

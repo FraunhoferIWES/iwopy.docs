@@ -1,0 +1,52 @@
+iwopy.wrappers.simple\_objective.SimpleObjective
+================================================
+
+.. currentmodule:: iwopy.wrappers.simple_objective
+
+.. autoclass:: SimpleObjective
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SimpleObjective.__init__
+      ~SimpleObjective.ana_deriv
+      ~SimpleObjective.calc_individual
+      ~SimpleObjective.calc_population
+      ~SimpleObjective.f
+      ~SimpleObjective.finalize
+      ~SimpleObjective.finalize_individual
+      ~SimpleObjective.finalize_population
+      ~SimpleObjective.g
+      ~SimpleObjective.initialize
+      ~SimpleObjective.maximize
+      ~SimpleObjective.n_components
+      ~SimpleObjective.rename_vars_float
+      ~SimpleObjective.rename_vars_int
+      ~SimpleObjective.vardeps_float
+      ~SimpleObjective.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SimpleObjective.component_names
+      ~SimpleObjective.has_ana_derivs
+      ~SimpleObjective.initialized
+      ~SimpleObjective.n_vars_float
+      ~SimpleObjective.n_vars_int
+      ~SimpleObjective.var_names_float
+      ~SimpleObjective.var_names_int
+   
+   

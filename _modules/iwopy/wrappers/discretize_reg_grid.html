@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.0.12
- documentation</title>
+  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.0.13 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -32,8 +31,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.12
-
+                0.0.13
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -54,7 +52,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#..to-be-coming-soon">..to be coming soon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -130,13 +128,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.problems.html">iwopy.problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.problems.simple.html">iwopy.problems.simple</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.problems.simple.SimpleProblem.html">iwopy.problems.simple.SimpleProblem</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/iwopy.utils.html">iwopy.utils</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.utils.discretization.html">iwopy.utils.discretization</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
@@ -157,6 +148,18 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_constraint.html">iwopy.wrappers.simple_constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html">iwopy.wrappers.simple_constraint.SimpleConstraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_objective.html">iwopy.wrappers.simple_objective</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_objective.SimpleObjective.html">iwopy.wrappers.simple_objective.SimpleObjective</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_problem.html">iwopy.wrappers.simple_problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html">iwopy.wrappers.simple_problem.SimpleProblem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -166,6 +169,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -249,11 +253,14 @@
         <span class="n">base_problem</span><span class="p">,</span>
         <span class="n">deltas</span><span class="p">,</span>
         <span class="n">fd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">fd_bounds_order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">fd_bounds_order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">mem_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
         <span class="o">**</span><span class="n">dpars</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_problem</span><span class="p">,</span> <span class="n">base_problem</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_grid&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="n">deltas</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">deltas</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">base_problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_deltas</span> <span class="o">=</span> <span class="n">deltas</span>
@@ -635,7 +642,65 @@
             <span class="k">return</span> <span class="p">(</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;pgo,pg-&gt;po&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;pgc,pg-&gt;pc&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
-            <span class="p">)</span></div></div>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DiscretizeRegGrid.finalize_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.finalize_individual">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalization, given the champion data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The optimal integer variable values, shape: (n_vars_int,)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The optimal float variable values, shape: (n_vars_float,)</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        problem_results : Any</span>
+<span class="sd">            The results of the variable application</span>
+<span class="sd">            to the problem</span>
+<span class="sd">        objs : np.array</span>
+<span class="sd">            The objective function values, shape: (n_objectives,)</span>
+<span class="sd">        cons : np.array</span>
+<span class="sd">            The constraints values, shape: (n_constraints,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">finalize_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DiscretizeRegGrid.finalize_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.finalize_population">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalization, given the final population data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vars_int : np.array</span>
+<span class="sd">            The integer variable values of the final</span>
+<span class="sd">            generation, shape: (n_pop, n_vars_int)</span>
+<span class="sd">        vars_float : np.array</span>
+<span class="sd">            The float variable values of the final</span>
+<span class="sd">            generation, shape: (n_pop, n_vars_float)</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        problem_results : Any</span>
+<span class="sd">            The results of the variable application</span>
+<span class="sd">            to the problem</span>
+<span class="sd">        objs : np.array</span>
+<span class="sd">            The final objective function values, shape: (n_pop, n_components)</span>
+<span class="sd">        cons : np.array</span>
+<span class="sd">            The final constraint values, shape: (n_pop, n_constraints)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">finalize_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

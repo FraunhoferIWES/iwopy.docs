@@ -50,7 +50,6 @@ iwopy.utils.discretization.RegularDiscretizationGrid
 
    .. autosummary::
    
-      ~RegularDiscretizationGrid.DIGITS
       ~RegularDiscretizationGrid.INT_INF
       ~RegularDiscretizationGrid.n_dims
       ~RegularDiscretizationGrid.n_points

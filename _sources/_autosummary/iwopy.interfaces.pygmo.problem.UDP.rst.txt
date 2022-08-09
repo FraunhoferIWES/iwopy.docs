@@ -17,7 +17,7 @@ iwopy.interfaces.pygmo.problem.UDP
    .. autosummary::
    
       ~UDP.__init__
-      ~UDP.apply
+      ~UDP.batch_fitness
       ~UDP.finalize
       ~UDP.fitness
       ~UDP.get_bounds

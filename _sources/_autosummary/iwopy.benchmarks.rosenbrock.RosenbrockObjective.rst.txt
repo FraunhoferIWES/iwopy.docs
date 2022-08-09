@@ -24,6 +24,7 @@ iwopy.benchmarks.rosenbrock.RosenbrockObjective
       ~RosenbrockObjective.finalize
       ~RosenbrockObjective.finalize_individual
       ~RosenbrockObjective.finalize_population
+      ~RosenbrockObjective.g
       ~RosenbrockObjective.initialize
       ~RosenbrockObjective.maximize
       ~RosenbrockObjective.n_components
@@ -41,6 +42,7 @@ iwopy.benchmarks.rosenbrock.RosenbrockObjective
    .. autosummary::
    
       ~RosenbrockObjective.component_names
+      ~RosenbrockObjective.has_ana_derivs
       ~RosenbrockObjective.initialized
       ~RosenbrockObjective.n_vars_float
       ~RosenbrockObjective.n_vars_int

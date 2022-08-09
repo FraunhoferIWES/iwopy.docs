@@ -1,0 +1,31 @@
+iwopy.wrappers.simple\_constraint
+=================================
+
+.. automodule:: iwopy.wrappers.simple_constraint
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      SimpleConstraint
+   
+   
+
+   
+   
+   
+
+
+

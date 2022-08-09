@@ -1,0 +1,60 @@
+iwopy.wrappers.simple\_problem.SimpleProblem
+============================================
+
+.. currentmodule:: iwopy.wrappers.simple_problem
+
+.. autoclass:: SimpleProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SimpleProblem.__init__
+      ~SimpleProblem.add_constraint
+      ~SimpleProblem.add_objective
+      ~SimpleProblem.apply_individual
+      ~SimpleProblem.apply_population
+      ~SimpleProblem.calc_gradients
+      ~SimpleProblem.check_constraints_individual
+      ~SimpleProblem.check_constraints_population
+      ~SimpleProblem.evaluate_individual
+      ~SimpleProblem.evaluate_population
+      ~SimpleProblem.finalize
+      ~SimpleProblem.finalize_individual
+      ~SimpleProblem.finalize_population
+      ~SimpleProblem.get_gradients
+      ~SimpleProblem.initial_values_float
+      ~SimpleProblem.initial_values_int
+      ~SimpleProblem.initialize
+      ~SimpleProblem.max_values_float
+      ~SimpleProblem.max_values_int
+      ~SimpleProblem.min_values_float
+      ~SimpleProblem.min_values_int
+      ~SimpleProblem.var_names_float
+      ~SimpleProblem.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SimpleProblem.INT_INF
+      ~SimpleProblem.initialized
+      ~SimpleProblem.max_values_constraints
+      ~SimpleProblem.min_values_constraints
+      ~SimpleProblem.n_constraints
+      ~SimpleProblem.n_objectives
+      ~SimpleProblem.n_vars_float
+      ~SimpleProblem.n_vars_int
+   
+   
