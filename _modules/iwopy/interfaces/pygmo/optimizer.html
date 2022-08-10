@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pygmo.optimizer &mdash; iwopy 0.0.13 documentation</title>
+  <title>iwopy.interfaces.pygmo.optimizer &mdash; iwopy 0.0.14
+ documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -31,7 +32,8 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.13
+                0.0.14
+
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,6 +55,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -170,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -291,8 +295,8 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_int</span><span class="p">:</span>
                 <span class="n">x</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_float</span> <span class="p">:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">initial_values_int</span><span class="p">()</span>
 
-            <span class="c1">#xf = x[: self.problem.n_vars_float]</span>
-            <span class="c1">#xi = x[self.problem.n_vars_float :].astype(np.int64)</span>
+            <span class="c1"># xf = x[: self.problem.n_vars_float]</span>
+            <span class="c1"># xi = x[self.problem.n_vars_float :].astype(np.int64)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">udp</span><span class="o">.</span><span class="n">_active</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="o">.</span><span class="n">set_x</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>

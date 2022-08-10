@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pygmo.algos &mdash; iwopy 0.0.13 documentation</title>
+  <title>iwopy.interfaces.pygmo.algos &mdash; iwopy 0.0.14
+ documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -31,7 +32,8 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.13
+                0.0.14
+
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -53,6 +55,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -170,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -236,7 +240,9 @@
                     <span class="n">bfe</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">bfe</span><span class="p">()</span>
                     <span class="n">uda</span><span class="o">.</span><span class="n">set_bfe</span><span class="p">(</span><span class="n">bfe</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Algorithm &#39;</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s2">&#39;: Failed to set bfe for pop mode, will not run vectorized&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Algorithm &#39;</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s2">&#39;: Failed to set bfe for pop mode, will not run vectorized&quot;</span>
+                    <span class="p">)</span>
 
         <span class="c1"># nlopt:</span>
         <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;nlopt&quot;</span><span class="p">:</span>
@@ -275,7 +281,7 @@
 
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">uda</span><span class="o">.</span><span class="n">set_string_option</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-            
+
             <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># sga:</span>
@@ -326,7 +332,7 @@
 
             <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">sga</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
-                
+
             <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># pso:</span>
@@ -372,7 +378,7 @@
 
             <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">pso</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
-                
+
             <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># bee_colony:</span>
@@ -394,7 +400,7 @@
 
             <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">bee_colony</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
-                
+
             <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># nsga2:</span>
@@ -420,7 +426,7 @@
 
             <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">nsga2</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
-                
+
             <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># unknown driver:</span>

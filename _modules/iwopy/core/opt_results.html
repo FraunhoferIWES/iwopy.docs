@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.opt_results &mdash; iwopy 0.0.13 documentation</title>
+  <title>iwopy.core.opt_results &mdash; iwopy 0.0.14
+ documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -31,7 +32,8 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.13
+                0.0.14
+
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,6 +55,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -170,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -199,12 +203,16 @@
            <div itemprop="articleBody">
              
   <h1>Source code for iwopy.core.opt_results</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="OptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults">[docs]</a><span></span><span class="k">class</span> <span class="nc">OptResults</span><span class="p">:</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="OptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults">[docs]</a><span class="k">class</span> <span class="nc">OptResults</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Container for optimization results.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    problem : iwopy.core.Problem</span>
+<span class="sd">        The problem</span>
 <span class="sd">    success : bool</span>
 <span class="sd">        Optimization success</span>
 <span class="sd">    vars_int : np.array</span>
@@ -242,11 +250,22 @@
 <span class="sd">        Multi objective case: Constraint values, shape: (n_pop, n_constraints)</span>
 <span class="sd">    problem_results : Object</span>
 <span class="sd">        The results of the variable application to the problem</span>
+<span class="sd">    pname : str</span>
+<span class="sd">        The problem&#39;s name</span>
+<span class="sd">    vnames_int : list of str</span>
+<span class="sd">        The int variable names</span>
+<span class="sd">    vnames_float : list of str</span>
+<span class="sd">        The float variable names</span>
+<span class="sd">    onames : list of str</span>
+<span class="sd">        The names of objectives</span>
+<span class="sd">    cnames : list of str</span>
+<span class="sd">        The names of constraints</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="OptResults.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
+        <span class="n">problem</span><span class="p">,</span>
         <span class="n">success</span><span class="p">,</span>
         <span class="n">vars_int</span><span class="p">,</span>
         <span class="n">vars_float</span><span class="p">,</span>
@@ -260,7 +279,48 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span> <span class="o">=</span> <span class="n">vars_float</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">objs</span> <span class="o">=</span> <span class="n">objs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cons</span> <span class="o">=</span> <span class="n">cons</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">problem_results</span> <span class="o">=</span> <span class="n">problem_results</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">problem_results</span> <span class="o">=</span> <span class="n">problem_results</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pname</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">onames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">component_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cnames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">component_names</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Results problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pname</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">hline</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Integer variables:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vars_int</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Float variables:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Objectives:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnames</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnames</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Constraints:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnames</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;  Success: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+
+        <span class="k">return</span> <span class="n">s</span></div>
+        
 </pre></div>
 
            </div>

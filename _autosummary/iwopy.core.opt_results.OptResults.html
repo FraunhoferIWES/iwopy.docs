@@ -4,7 +4,8 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.opt_results.OptResults &mdash; iwopy 0.0.13 documentation</title>
+  <title>iwopy.core.opt_results.OptResults &mdash; iwopy 0.0.14
+ documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -34,7 +35,8 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.13
+                0.0.14
+
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -56,6 +58,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -173,6 +176,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -242,6 +246,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
+<li><p><strong>problem</strong> (<em>iwopy.core.Problem</em>) – The problem</p></li>
 <li><p><strong>success</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Optimization success</p></li>
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – Single objective case: Optimal variables, shape: (n_vars_int,)
 Multi objective case: Pareto variables, shape: (n_pop, n_vars_int)</p></li>
@@ -351,9 +356,84 @@ Multi objective case: Constraint values, shape: (n_pop, n_constraints)</p>
 </dd>
 </dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="iwopy.core.opt_results.OptResults.pname">
+<span class="sig-name descname"><span class="pre">pname</span></span><a class="headerlink" href="#iwopy.core.opt_results.OptResults.pname" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The problem’s name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd">
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="iwopy.core.opt_results.OptResults.vnames_int">
+<span class="sig-name descname"><span class="pre">vnames_int</span></span><a class="headerlink" href="#iwopy.core.opt_results.OptResults.vnames_int" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The int variable names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd">
+<p>list of str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="iwopy.core.opt_results.OptResults.vnames_float">
+<span class="sig-name descname"><span class="pre">vnames_float</span></span><a class="headerlink" href="#iwopy.core.opt_results.OptResults.vnames_float" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The float variable names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd">
+<p>list of str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="iwopy.core.opt_results.OptResults.onames">
+<span class="sig-name descname"><span class="pre">onames</span></span><a class="headerlink" href="#iwopy.core.opt_results.OptResults.onames" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The names of objectives</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd">
+<p>list of str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="iwopy.core.opt_results.OptResults.cnames">
+<span class="sig-name descname"><span class="pre">cnames</span></span><a class="headerlink" href="#iwopy.core.opt_results.OptResults.cnames" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The names of constraints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd">
+<p>list of str</p>
+</dd>
+</dl>
+</dd>
+</dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.opt_results.OptResults.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">success</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/opt_results.html#OptResults.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.opt_results.OptResults.__init__" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">success</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/opt_results.html#OptResults.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.opt_results.OptResults.__init__" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
@@ -366,14 +446,14 @@ Multi objective case: Constraint values, shape: (n_pop, n_constraints)</p>
 </colgroup>
 <tbody>
 <tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.core.opt_results.OptResults.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(success, vars_int, vars_float, ...)</p></td>
+<td><p><a class="reference internal" href="#id0" title="iwopy.core.opt_results.OptResults.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(problem, success, vars_int, ...)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">success</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/opt_results.html#OptResults.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">success</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/opt_results.html#OptResults.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
