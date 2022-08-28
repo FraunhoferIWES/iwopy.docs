@@ -493,7 +493,7 @@ div.rendered_html tbody tr:hover {
 </h2>
 <p>Let’s minimize the following simple function:</p>
 <div class="math notranslate nohighlight">
-\[f(x, y) = (x - 3.6)^2 - 2 (y+1.1)^2\]</div>
+\[f(x, y) = (x - 3.6)^2 + 2 (y+1.1)^2\]</div>
 <p>The global minimum is obvious: <span class="math notranslate nohighlight">\(f=0\)</span> for <span class="math notranslate nohighlight">\(x=3.6, y=-1.1\)</span>. We now want to find this minimum using <code class="docutils literal notranslate"><span class="pre">iwopy</span></code>, in a setup as follows:</p>
 <ul class="simple">
 <li><p>Parameter bounds: <span class="math notranslate nohighlight">\(x, y \in [-5,5]\)</span></p></li>
@@ -538,7 +538,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">components</span></code> argument of the function <code class="docutils literal notranslate"><span class="pre">g</span></code> is not used here since <code class="docutils literal notranslate"><span class="pre">f</span></code> is a single-component function.</p>
-<p>Otherwise, the parameter <code class="docutils literal notranslate"><span class="pre">n_components</span></code> has to be passed to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function of <code class="docutils literal notranslate"><span class="pre">SimpleObjective</span></code>, and <code class="docutils literal notranslate"><span class="pre">f</span></code> has to return a list of scalars. In that case also <code class="docutils literal notranslate"><span class="pre">g</span></code> has to return a list of results, with same length as the requested <code class="docutils literal notranslate"><span class="pre">components</span></code>. The same rules apply to classes derived from <code class="docutils literal notranslate"><span class="pre">SimpleConstraint</span></code>.</p>
+<p>In the case of multi-component functions the parameter <code class="docutils literal notranslate"><span class="pre">n_components</span></code> has to be passed to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function of <code class="docutils literal notranslate"><span class="pre">SimpleObjective</span></code>, and <code class="docutils literal notranslate"><span class="pre">f</span></code> has to return a list of scalars. In that case also <code class="docutils literal notranslate"><span class="pre">g</span></code> has to return a list of results, with same length as the requested <code class="docutils literal notranslate"><span class="pre">components</span></code>. The same rules apply to classes derived from <code class="docutils literal notranslate"><span class="pre">SimpleConstraint</span></code>.</p>
 <p>We can now proceed and setup the problem:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate">
@@ -682,7 +682,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     949011208212063072
+        ID:                     17210152225042211698
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -781,7 +781,7 @@ Results problem 'minf':
 </pre></div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">gproblem</span></code> object is now the <code class="docutils literal notranslate"><span class="pre">problem</span></code> on a grid, defined by the variable bounds and the specified <code class="docutils literal notranslate"><span class="pre">deltas</span></code>. We can use the same gradient based solver as above for solving this problem:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gproblem</span></code> object now corresponds to putting the original <code class="docutils literal notranslate"><span class="pre">problem</span></code> on a grid. The latter is defined by the variable bounds and the specified <code class="docutils literal notranslate"><span class="pre">deltas</span></code> indicating the grid resolution for each variable. We can use the same gradient based solver as above for solving this problem:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate">
 <div class="highlight"><pre><span></span>In [10]:
@@ -849,7 +849,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     6432344705237765695
+        ID:                     3796812289558317530
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.77386e-08]
 
@@ -1180,7 +1180,7 @@ Termination:
 
 Optimizer_pymoo: Optimization run finished
   Success: True
-  Best potential = 78.29799257008322
+  Best potential = 77.99741290601777
 </pre></div>
 </div>
 </div>
@@ -1206,71 +1206,71 @@ Optimizer_pymoo: Optimization run finished
 Results problem 'charges_problem':
 -----------------------------------
   Float variables:
-    0: x0  = 1.502514e+00
-    1: y0  = 1.430548e+00
-    2: x1  = 3.723330e+00
-    3: y1  = 3.331876e+00
-    4: x2  = -1.603314e+00
-    5: y2  = -1.732950e+00
-    6: x3  = 3.603589e+00
-    7: y3  = -3.459268e+00
-    8: x4  = -3.849584e+00
-    9: y4  = -3.190077e+00
-    10: x5  = -3.397933e+00
-    11: y5  = 3.667873e+00
-    12: x6  = -1.420636e+00
-    13: y6  = 4.788753e+00
-    14: x7  = 4.827644e+00
-    15: y7  = 1.300627e+00
-    16: x8  = -1.590491e+00
-    17: y8  = 1.780512e+00
-    18: x9  = 4.994535e+00
-    19: y9  = -2.232788e-01
-    20: x10 = 4.639299e+00
-    21: y10 = -1.862989e+00
-    22: x11 = -4.673445e+00
-    23: y11 = 1.777047e+00
-    24: x12 = 2.377304e+00
-    25: y12 = 4.396919e+00
-    26: x13 = 1.383577e+00
-    27: y13 = -1.982483e+00
-    28: x14 = -4.872608e+00
-    29: y14 = -1.119751e+00
-    30: x15 = 1.996599e+00
-    31: y15 = -4.584008e+00
-    32: x16 = -2.348116e+00
-    33: y16 = -4.404328e+00
-    34: x17 = 5.490359e-01
-    35: y17 = 4.968054e+00
-    36: x18 = -2.470317e-01
-    37: y18 = -4.993398e+00
-    38: x19 = -4.996549e+00
-    39: y19 = 1.818344e-01
+    0: x0  = 2.118445e+00
+    1: y0  = -4.525270e+00
+    2: x1  = -4.987727e+00
+    3: y1  = -3.496370e-01
+    4: x2  = 4.431279e+00
+    5: y2  = 2.311606e+00
+    6: x3  = 4.704969e-01
+    7: y3  = -4.977453e+00
+    8: x4  = -2.271113e-01
+    9: y4  = 4.994351e+00
+    10: x5  = 3.488284e+00
+    11: y5  = -3.570565e+00
+    12: x6  = -3.702600e+00
+    13: y6  = 3.359282e+00
+    14: x7  = 1.721732e+00
+    15: y7  = 4.694049e+00
+    16: x8  = -1.816946e+00
+    17: y8  = 1.357116e+00
+    18: x9  = -4.462930e+00
+    19: y9  = -2.254351e+00
+    20: x10 = -1.083983e+00
+    21: y10 = -4.881026e+00
+    22: x11 = 4.994095e+00
+    23: y11 = 2.354978e-01
+    24: x12 = 1.879394e+00
+    25: y12 = -1.168268e+00
+    26: x13 = 3.183061e+00
+    27: y13 = 3.849030e+00
+    28: x14 = -2.304153e+00
+    29: y14 = 4.437226e+00
+    30: x15 = 1.327558e+00
+    31: y15 = 1.781459e+00
+    32: x16 = 4.643041e+00
+    33: y16 = -1.853920e+00
+    34: x17 = -4.714499e+00
+    35: y17 = 1.662115e+00
+    36: x18 = -1.672733e+00
+    37: y18 = -1.755174e+00
+    38: x19 = -2.972939e+00
+    39: y19 = -4.019489e+00
 -----------------------------------
   Objectives:
-    0: potential = 7.829799e+01
+    0: potential = 7.799741e+01
 -----------------------------------
   Constraints:
-    0: radius_0  = -2.925388e+00
-    1: radius_1  = -3.542735e-03
-    2: radius_2  = -2.639125e+00
-    3: radius_3  = -4.763078e-03
-    4: radius_4  = -4.112374e-04
-    5: radius_5  = -7.620634e-05
-    6: radius_6  = -4.966639e-03
-    7: radius_7  = -2.217505e-04
-    8: radius_8  = -2.612557e+00
-    9: radius_9  = -4.765994e-04
-    10: radius_10 = -6.172870e-04
-    11: radius_11 = -1.018005e-04
-    12: radius_12 = -1.553127e-03
-    13: radius_13 = -2.582455e+00
-    14: radius_14 = -3.852251e-04
-    15: radius_15 = -4.647410e-05
-    16: radius_16 = -8.832209e-03
-    17: radius_17 = -1.700625e-03
-    18: radius_18 = -4.948365e-04
-    19: radius_19 = -1.435409e-04
+    0: radius_0  = -3.413046e-03
+    1: radius_1  = -3.339266e-05
+    2: radius_2  = -2.025245e-03
+    3: radius_3  = -3.596700e-04
+    4: radius_4  = -4.875173e-04
+    5: radius_5  = -8.300692e-03
+    6: radius_6  = -5.977808e-04
+    7: radius_7  = -1.544181e-04
+    8: radius_8  = -2.732170e+00
+    9: radius_9  = -1.607673e-05
+    10: radius_10 = -5.704316e-05
+    11: radius_11 = -3.553406e-04
+    12: radius_12 = -2.787090e+00
+    13: radius_13 = -5.312570e-03
+    14: radius_14 = -1.908212e-04
+    15: radius_15 = -2.778287e+00
+    16: radius_16 = -5.151855e-04
+    17: radius_17 = -1.087154e-03
+    18: radius_18 = -2.575403e+00
+    19: radius_19 = -5.338221e-04
 -----------------------------------
   Success: True
 -----------------------------------
@@ -1285,6 +1285,7 @@ Results problem 'charges_problem':
 <img alt="../_images/notebooks_examples_33_1.png" src="../_images/notebooks_examples_33_1.png">
 </div>
 </div>
+<p>Note that this problem has many equivalent solutions, and the displayed result is the best solution that the genetic algorithm was able to find within its convergence criteria. With heuristic methods there is generally no guarantee or proof that a global optimum has been found. However, the objective function has clearly been minimized, and therefore the “design” was improved which is often the goal in engineering tasks.</p>
 </section>
 </section>
 
