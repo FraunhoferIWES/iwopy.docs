@@ -1,4 +1,4 @@
-iwopy.wrappers.problem\_wrapper.ProblemWrapper
+﻿iwopy.wrappers.problem\_wrapper.ProblemWrapper
 ==============================================
 
 .. currentmodule:: iwopy.wrappers.problem_wrapper
@@ -49,8 +49,10 @@ iwopy.wrappers.problem\_wrapper.ProblemWrapper
    .. autosummary::
    
       ~ProblemWrapper.INT_INF
+      ~ProblemWrapper.constraints_tol
       ~ProblemWrapper.initialized
       ~ProblemWrapper.max_values_constraints
+      ~ProblemWrapper.maximize_objs
       ~ProblemWrapper.min_values_constraints
       ~ProblemWrapper.n_constraints
       ~ProblemWrapper.n_objectives

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to IWOPY &mdash; iwopy 0.0.14
+  <title>Welcome to IWOPY &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="#" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -55,9 +55,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -93,6 +93,10 @@
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -112,6 +116,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -149,6 +154,10 @@
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -176,6 +185,7 @@
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -233,13 +243,19 @@
 <h1>Welcome to IWOPY<a class="headerlink" href="#welcome-to-iwopy" title="Permalink to this heading"></a>
 </h1>
 <p><em>Fraunhofer IWES optimization tools in Python</em></p>
-<p>The <cite>iwopy</cite> package is in fact a meta package that provides interfaces to other open-source Python optimization packages out there. Currently this includes</p>
+<p>The <cite>iwopy</cite> package is in fact mainly a meta package that provides interfaces to other open-source Python optimization packages out there. Currently this includes</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pymoo.org/index.html">https://pymoo.org/index.html</a></p></li>
-<li><p><a class="reference external" href="https://esa.github.io/pygmo2/index.html">https://esa.github.io/pygmo2/index.html</a></p></li>
+<li><p><a class="reference external" href="https://pymoo.org/index.html">pymoo</a></p></li>
+<li><p><a class="reference external" href="https://esa.github.io/pygmo2/index.html">pygmo</a></p></li>
 </ul>
-<p>The basic idea of <cite>iwopy</cite> is to provide abstract base classes, that can be concretized for any kind of problem by the users, and the corresponding solver interfaces.</p>
 <p><cite>iwopy</cite> can thus be understood as an attempt to provide <em>the best of all worlds</em> when it comes to solving optimization problems with Python. Obviously all the credit for implementing the invoked optimizers goes to the original package providers.</p>
+<p>The basic idea of <cite>iwopy</cite> is to provide abstract base classes, that can be concretized for any kind of problem by the users, and the corresponding solver interfaces. However, also some helpful problem wrappers and an original optimizer are provided:</p>
+<ul class="simple">
+<li><p>Problem wrapper <em>LocalFD</em>: Calculates derivatives by finite differences</p></li>
+<li><p>Problem wrapper <em>RegularDiscretizationGrid</em>: Puts the problem on a Grid</p></li>
+<li><p>Optimizer <em>GG</em>: <em>Greedy Gradient</em> optimization with constraints</p></li>
+</ul>
+<p>All calculations support vectorized evaluation of a complete population of parameters. This is useful for heuristic approaches like genetic algorithms, but also for evaluating gradients. It can lead to a vast speed-up and should be invoked whenever possible. Check the examples (or the API) for details.</p>
 <p><strong>Quick Start</strong>:</p>
 <div class="highlight-default notranslate">
 <div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">iwopy</span>
@@ -285,9 +301,9 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -305,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>

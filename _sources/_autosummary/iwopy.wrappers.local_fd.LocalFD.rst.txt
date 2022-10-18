@@ -1,0 +1,62 @@
+iwopy.wrappers.local\_fd.LocalFD
+================================
+
+.. currentmodule:: iwopy.wrappers.local_fd
+
+.. autoclass:: LocalFD
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~LocalFD.__init__
+      ~LocalFD.add_constraint
+      ~LocalFD.add_objective
+      ~LocalFD.apply_individual
+      ~LocalFD.apply_population
+      ~LocalFD.calc_gradients
+      ~LocalFD.check_constraints_individual
+      ~LocalFD.check_constraints_population
+      ~LocalFD.evaluate_individual
+      ~LocalFD.evaluate_population
+      ~LocalFD.finalize
+      ~LocalFD.finalize_individual
+      ~LocalFD.finalize_population
+      ~LocalFD.get_gradients
+      ~LocalFD.initial_values_float
+      ~LocalFD.initial_values_int
+      ~LocalFD.initialize
+      ~LocalFD.max_values_float
+      ~LocalFD.max_values_int
+      ~LocalFD.min_values_float
+      ~LocalFD.min_values_int
+      ~LocalFD.var_names_float
+      ~LocalFD.var_names_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LocalFD.INT_INF
+      ~LocalFD.constraints_tol
+      ~LocalFD.initialized
+      ~LocalFD.max_values_constraints
+      ~LocalFD.maximize_objs
+      ~LocalFD.min_values_constraints
+      ~LocalFD.n_constraints
+      ~LocalFD.n_objectives
+      ~LocalFD.n_vars_float
+      ~LocalFD.n_vars_int
+   
+   

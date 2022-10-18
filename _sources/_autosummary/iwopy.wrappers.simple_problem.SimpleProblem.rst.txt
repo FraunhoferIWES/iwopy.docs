@@ -1,4 +1,4 @@
-iwopy.wrappers.simple\_problem.SimpleProblem
+﻿iwopy.wrappers.simple\_problem.SimpleProblem
 ============================================
 
 .. currentmodule:: iwopy.wrappers.simple_problem
@@ -49,8 +49,10 @@ iwopy.wrappers.simple\_problem.SimpleProblem
    .. autosummary::
    
       ~SimpleProblem.INT_INF
+      ~SimpleProblem.constraints_tol
       ~SimpleProblem.initialized
       ~SimpleProblem.max_values_constraints
+      ~SimpleProblem.maximize_objs
       ~SimpleProblem.min_values_constraints
       ~SimpleProblem.n_constraints
       ~SimpleProblem.n_objectives

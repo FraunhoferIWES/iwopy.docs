@@ -1,0 +1,31 @@
+iwopy.core.function\_subset
+===========================
+
+.. automodule:: iwopy.core.function_subset
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      OptFunctionSubset
+   
+   
+
+   
+   
+   
+
+
+

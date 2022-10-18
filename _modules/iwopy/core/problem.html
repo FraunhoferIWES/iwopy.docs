@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.problem &mdash; iwopy 0.0.14
+  <title>iwopy.core.problem &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -53,9 +53,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -91,6 +91,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -110,6 +114,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +152,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -174,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -251,7 +261,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_mem_keyf</span> <span class="o">=</span> <span class="n">mem_keyf</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="kc">None</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cons_tol</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="Problem.var_names_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.var_names_int">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -492,12 +503,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
 
         <span class="n">cmi</span><span class="p">,</span> <span class="n">cma</span> <span class="o">=</span> <span class="n">constraint</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+        <span class="n">ctol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">constraint</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">ctol</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">constraint</span><span class="o">.</span><span class="n">tol</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="n">cmi</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="n">cma</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_tol</span> <span class="o">=</span> <span class="n">ctol</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_mi</span><span class="p">,</span> <span class="n">cmi</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span><span class="p">,</span> <span class="n">cma</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span><span class="p">,</span> <span class="n">cma</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cons_tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cons_tol</span><span class="p">,</span> <span class="n">ctol</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">min_values_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -524,6 +539,19 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cons_ma</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">constraints_tol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the tolerance values of constraints</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ctol : numpy.ndarray</span>
+<span class="sd">            The constraint tolerance values, shape: (n_constraints,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cons_tol</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">n_objectives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -605,15 +633,16 @@
         <span class="n">vars_int</span><span class="p">,</span>
         <span class="n">vars_float</span><span class="p">,</span>
         <span class="n">func</span><span class="p">,</span>
+        <span class="n">components</span><span class="p">,</span>
         <span class="n">ivars</span><span class="p">,</span>
         <span class="n">fvars</span><span class="p">,</span>
         <span class="n">vrs</span><span class="p">,</span>
-        <span class="n">components</span><span class="p">,</span>
         <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The actual gradient calculation.</span>
+<span class="sd">        The actual gradient calculation, not to be called directly</span>
+<span class="sd">        (call `get_gradients` instead).</span>
 
 <span class="sd">        Can be overloaded in derived classes, the base class only considers</span>
 <span class="sd">        analytic derivatives.</span>
@@ -628,6 +657,8 @@
 <span class="sd">            The functions to be differentiated, or None</span>
 <span class="sd">            for a list of all objectives and all constraints</span>
 <span class="sd">            (in that order)</span>
+<span class="sd">        components : list of int, optional</span>
+<span class="sd">            The function&#39;s component selection, or None for all</span>
 <span class="sd">        ivars : list of int</span>
 <span class="sd">            The indices of the function int variables in the problem</span>
 <span class="sd">        fvars : list of int</span>
@@ -635,8 +666,6 @@
 <span class="sd">        vrs : list of int</span>
 <span class="sd">            The function float variable indices wrt which the</span>
 <span class="sd">            derivatives are to be calculated</span>
-<span class="sd">        components : list of int</span>
-<span class="sd">            The selected components of func, or None for all</span>
 <span class="sd">        pop : bool</span>
 <span class="sd">            Flag for vectorizing calculations via population</span>
 <span class="sd">        verbosity : int</span>
@@ -646,14 +675,15 @@
 <span class="sd">        -------</span>
 <span class="sd">        gradients : numpy.ndarray</span>
 <span class="sd">            The gradients of the functions, shape:</span>
-<span class="sd">            (n_func_cmpnts, n_vrs)</span>
+<span class="sd">            (n_components, n_vrs)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">n_vars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vrs</span><span class="p">)</span>
+        <span class="n">n_cmpnts</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
         <span class="n">varsi</span> <span class="o">=</span> <span class="n">vars_int</span><span class="p">[</span><span class="n">ivars</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_int</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="n">varsf</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[</span><span class="n">fvars</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_float</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 
-        <span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">func</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="n">n_vars</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n_cmpnts</span><span class="p">,</span> <span class="n">n_vars</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">vi</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vrs</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fvars</span><span class="p">:</span>
                 <span class="n">gradients</span><span class="p">[:,</span> <span class="n">vi</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">ana_deriv</span><span class="p">(</span>
@@ -669,8 +699,8 @@
         <span class="n">vars_int</span><span class="p">,</span>
         <span class="n">vars_float</span><span class="p">,</span>
         <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="p">):</span>
@@ -682,7 +712,7 @@
 <span class="sd">        object that contains a selection of objectives and/or constraints</span>
 <span class="sd">        that were previously added to this problem. By default all</span>
 <span class="sd">        objectives and constraints (and all their components) are</span>
-<span class="sd">        being considered.</span>
+<span class="sd">        being considered, cf. class `ProblemDefaultFunc`.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -694,12 +724,12 @@
 <span class="sd">            The functions to be differentiated, or None</span>
 <span class="sd">            for a list of all objectives and all constraints</span>
 <span class="sd">            (in that order)</span>
+<span class="sd">        components : list of int, optional</span>
+<span class="sd">            The function&#39;s component selection, or None for all</span>
 <span class="sd">        vars : list of int or str, optional</span>
 <span class="sd">            The float variables wrt which the</span>
 <span class="sd">            derivatives are to be calculated, or</span>
 <span class="sd">            None for all</span>
-<span class="sd">        components : list of int</span>
-<span class="sd">            The selected components of func, or None for all</span>
 <span class="sd">        verbosity : int</span>
 <span class="sd">            The verbosity level, 0 = silent</span>
 <span class="sd">        pop : bool</span>
@@ -709,16 +739,12 @@
 <span class="sd">        -------</span>
 <span class="sd">        gradients : numpy.ndarray</span>
 <span class="sd">            The gradients of the functions, shape:</span>
-<span class="sd">            (n_func_cmpnts, n_vrs)</span>
+<span class="sd">            (n_components, n_vars)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># set and check func:</span>
         <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">func</span> <span class="o">=</span> <span class="n">OptFunctionList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;objs_cons&quot;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
-                <span class="n">func</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
-                <span class="n">func</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="n">ProblemDefaultFunc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">problem</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Attempt to calculate gradient for function &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; which is linked to different problem &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
@@ -765,19 +791,15 @@
                 <span class="p">)</span>
             <span class="n">vrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hvnmsf</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
 
-        <span class="c1"># update components:</span>
-        <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">n_components</span><span class="p">())</span>
-
         <span class="c1"># calculate gradients:</span>
         <span class="n">gradients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_gradients</span><span class="p">(</span>
             <span class="n">vars_int</span><span class="p">,</span>
             <span class="n">vars_float</span><span class="p">,</span>
             <span class="n">func</span><span class="p">,</span>
+            <span class="n">components</span><span class="p">,</span>
             <span class="n">ivars</span><span class="p">,</span>
             <span class="n">fvars</span><span class="p">,</span>
             <span class="n">vrs</span><span class="p">,</span>
-            <span class="n">components</span><span class="p">,</span>
             <span class="n">pop</span><span class="o">=</span><span class="n">pop</span><span class="p">,</span>
             <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span>
         <span class="p">)</span>
@@ -785,7 +807,7 @@
         <span class="c1"># check success:</span>
         <span class="n">nog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">gradients</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nog</span><span class="p">):</span>
-            <span class="n">nvrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">vars</span><span class="p">)[</span><span class="n">nog</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">nvrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">vars</span><span class="p">)[</span><span class="n">nog</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Failed to calculate derivatives for variables </span><span class="si">{</span><span class="n">nvrs</span><span class="si">}</span><span class="s2">. Maybe wrap this problem into DiscretizeRegGrid?&quot;</span>
             <span class="p">)</span>
@@ -842,10 +864,24 @@
         <span class="n">i0</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
             <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">n_components</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_maximize</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">maximize</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maximize</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">maximize</span><span class="p">()</span>
             <span class="n">i0</span> <span class="o">=</span> <span class="n">i1</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maximize_objs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Flags for objective maximization</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        maximize : numpy.ndarray</span>
+<span class="sd">            Boolean flag for maximization of objective,</span>
+<span class="sd">            shape: (n_objectives,)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maximize</span>
 
 <div class="viewcode-block" id="Problem.apply_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.Problem.html#iwopy.core.problem.Problem.apply_individual">[docs]</a>    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1123,6 +1159,26 @@
         <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">finalize_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span></div></div>
+
+
+<div class="viewcode-block" id="ProblemDefaultFunc"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.ProblemDefaultFunc.html#iwopy.core.problem.ProblemDefaultFunc">[docs]</a><span class="k">class</span> <span class="nc">ProblemDefaultFunc</span><span class="p">(</span><span class="n">OptFunctionList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The default function of a problem</span>
+<span class="sd">    for gradient calculations.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    problem : iwopy.core.Problem</span>
+<span class="sd">        The problem</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ProblemDefaultFunc.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.problem.ProblemDefaultFunc.html#iwopy.core.problem.ProblemDefaultFunc.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="s2">&quot;objs_cons&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">problem</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">problem</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

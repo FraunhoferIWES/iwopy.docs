@@ -32,6 +32,7 @@
    iwopy.core.constraint
    iwopy.core.function
    iwopy.core.function_list
+   iwopy.core.function_subset
    iwopy.core.memory
    iwopy.core.objective
    iwopy.core.opt_results

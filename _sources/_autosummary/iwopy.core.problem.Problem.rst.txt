@@ -49,8 +49,10 @@ iwopy.core.problem.Problem
    .. autosummary::
    
       ~Problem.INT_INF
+      ~Problem.constraints_tol
       ~Problem.initialized
       ~Problem.max_values_constraints
+      ~Problem.maximize_objs
       ~Problem.min_values_constraints
       ~Problem.n_constraints
       ~Problem.n_objectives

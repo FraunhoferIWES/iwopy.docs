@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core &mdash; iwopy 0.0.14
+  <title>iwopy.core &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -56,9 +56,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -94,6 +94,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -113,6 +117,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -150,6 +155,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -177,6 +186,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -257,22 +267,26 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd">
+<td><p><a class="reference internal" href="iwopy.core.function_subset.html#module-iwopy.core.function_subset" title="iwopy.core.function_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iwopy.core.function_subset</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even">
 <td><p><a class="reference internal" href="iwopy.core.memory.html#module-iwopy.core.memory" title="iwopy.core.memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iwopy.core.memory</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
+<tr class="row-odd">
 <td><p><a class="reference internal" href="iwopy.core.objective.html#module-iwopy.core.objective" title="iwopy.core.objective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iwopy.core.objective</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd">
+<tr class="row-even">
 <td><p><a class="reference internal" href="iwopy.core.opt_results.html#module-iwopy.core.opt_results" title="iwopy.core.opt_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iwopy.core.opt_results</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
+<tr class="row-odd">
 <td><p><a class="reference internal" href="iwopy.core.optimizer.html#module-iwopy.core.optimizer" title="iwopy.core.optimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iwopy.core.optimizer</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd">
+<tr class="row-even">
 <td><p><a class="reference internal" href="iwopy.core.problem.html#module-iwopy.core.problem" title="iwopy.core.problem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iwopy.core.problem</span></code></a></p></td>
 <td><p></p></td>
 </tr>

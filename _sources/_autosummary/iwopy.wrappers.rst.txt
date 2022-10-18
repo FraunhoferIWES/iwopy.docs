@@ -29,6 +29,7 @@
    :recursive:
 
    iwopy.wrappers.discretize_reg_grid
+   iwopy.wrappers.local_fd
    iwopy.wrappers.problem_wrapper
    iwopy.wrappers.simple_constraint
    iwopy.wrappers.simple_objective

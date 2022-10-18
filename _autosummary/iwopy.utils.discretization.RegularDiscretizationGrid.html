@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.utils.discretization.RegularDiscretizationGrid &mdash; iwopy 0.0.14
+  <title>iwopy.utils.discretization.RegularDiscretizationGrid &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -56,9 +56,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -94,6 +94,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -113,6 +117,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -150,6 +155,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -177,6 +186,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -251,6 +261,7 @@ without points storage.</p>
 <li><p><strong>deltas</strong> (<em>array-like</em>) – The step sizes, len: n_dims.</p></li>
 <li><p><strong>n_steps</strong> (<em>array-like</em>) – The number of steps, len: n_dims. Use
 INT_INF for infinite.</p></li>
+<li><p><strong>interpolation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The interpolation method: None, nearest, linear</p></li>
 <li><p><strong>tol</strong> (<em>list of float</em><em>, </em><em>optional</em>) – The tolerances for grid bounds, default is 0,
 shape: (n_dims,)</p></li>
 <li><p><strong>digits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The grid point precision</p></li>
@@ -303,6 +314,21 @@ shape: (n_dims,)</p></li>
 </dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="iwopy.utils.discretization.RegularDiscretizationGrid.interpolation">
+<span class="sig-name descname"><span class="pre">interpolation</span></span><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid.interpolation" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>The interpolation method: None, nearest, linear</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd">
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.utils.discretization.RegularDiscretizationGrid.tol">
 <span class="sig-name descname"><span class="pre">tol</span></span><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid.tol" title="Permalink to this definition"></a>
 </dt>
@@ -335,7 +361,7 @@ or None</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.utils.discretization.RegularDiscretizationGrid.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid.__init__" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid.__init__" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
@@ -348,7 +374,7 @@ or None</p>
 </colgroup>
 <tbody>
 <tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.utils.discretization.RegularDiscretizationGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(origin, deltas, n_steps[, tol, digits])</p></td>
+<td><p><a class="reference internal" href="#id0" title="iwopy.utils.discretization.RegularDiscretizationGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(origin, deltas, n_steps[, ...])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even">
@@ -440,7 +466,7 @@ or None</p>
 <td><p>Checks if grid indices are valid</p></td>
 </tr>
 <tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint" title="iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_gridpoint</span></code></a>(p[, ret_inds])</p></td>
+<td><p><a class="reference internal" href="#iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint" title="iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_gridpoint</span></code></a>(p[, allow_outer, ret_inds])</p></td>
 <td><p>Checks if a point is on grid.</p></td>
 </tr>
 <tr class="row-odd">
@@ -480,7 +506,7 @@ or None</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
 </dt>
 <dd></dd>
 </dl>
@@ -1109,7 +1135,7 @@ shape: (n_gpts, n_dims)</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint">
-<span class="sig-name descname"><span class="pre">is_gridpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_inds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid.is_gridpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">is_gridpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_outer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_inds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid.is_gridpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint" title="Permalink to this definition"></a>
 </dt>
 <dd>
 <p>Checks if a point is on grid.</p>
@@ -1118,6 +1144,8 @@ shape: (n_gpts, n_dims)</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>p</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The point, shape: (n_dims,)</p></li>
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+reduce those to lower-left cell corner</p></li>
 <li><p><strong>ret_inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Additionally return indices</p></li>
 </ul>
 </dd>

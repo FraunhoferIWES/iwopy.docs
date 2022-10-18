@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.constraint.Constraint &mdash; iwopy 0.0.14
+  <title>iwopy.core.constraint.Constraint &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -56,9 +56,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -94,6 +94,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -113,6 +117,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -150,6 +155,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -177,6 +186,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -287,11 +297,11 @@ constraints.</p>
 <td><p>Calculates the analytic derivative, if possible.</p></td>
 </tr>
 <tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.constraint.Constraint.calc_individual" title="iwopy.core.constraint.Constraint.calc_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_individual</span></code></a>(vars_int, vars_float, ...)</p></td>
+<td><p><a class="reference internal" href="#iwopy.core.constraint.Constraint.calc_individual" title="iwopy.core.constraint.Constraint.calc_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_individual</span></code></a>(vars_int, vars_float, ...[, ...])</p></td>
 <td><p>Calculate values for a single individual of the underlying problem.</p></td>
 </tr>
 <tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.constraint.Constraint.calc_population" title="iwopy.core.constraint.Constraint.calc_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_population</span></code></a>(vars_int, vars_float, ...)</p></td>
+<td><p><a class="reference internal" href="#iwopy.core.constraint.Constraint.calc_population" title="iwopy.core.constraint.Constraint.calc_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_population</span></code></a>(vars_int, vars_float, ...[, ...])</p></td>
 <td><p>Calculate values for all individuals of a population.</p></td>
 </tr>
 <tr class="row-odd">
@@ -415,7 +425,7 @@ constraints.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.constraint.Constraint.calc_individual">
-<span class="sig-name descname"><span class="pre">calc_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.constraint.Constraint.calc_individual" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">calc_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.constraint.Constraint.calc_individual" title="Permalink to this definition"></a>
 </dt>
 <dd>
 <p>Calculate values for a single individual of the
@@ -428,11 +438,12 @@ underlying problem.</p>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
+<li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even">
-<p><strong>values</strong> – The component values, shape: (n_components,)</p>
+<p><strong>values</strong> – The component values, shape: (n_sel_components,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">
@@ -444,7 +455,7 @@ to the problem</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.constraint.Constraint.calc_population">
-<span class="sig-name descname"><span class="pre">calc_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.constraint.Constraint.calc_population" title="Permalink to this definition"></a>
+<span class="sig-name descname"><span class="pre">calc_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.constraint.Constraint.calc_population" title="Permalink to this definition"></a>
 </dt>
 <dd>
 <p>Calculate values for all individuals of a population.</p>
@@ -456,11 +467,12 @@ to the problem</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
+<li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even">
-<p><strong>values</strong> – The component values, shape: (n_pop, n_components,)</p>
+<p><strong>values</strong> – The component values, shape: (n_pop, n_sel_components)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">

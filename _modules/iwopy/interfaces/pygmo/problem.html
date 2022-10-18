@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pygmo.problem &mdash; iwopy 0.0.14
+  <title>iwopy.interfaces.pygmo.problem &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -53,9 +53,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -91,6 +91,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -110,6 +114,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +152,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -174,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -205,7 +215,7 @@
   <h1>Source code for iwopy.interfaces.pygmo.problem</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">OptResults</span><span class="p">,</span> <span class="n">Problem</span>
+<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">OptResults</span><span class="p">,</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">OptFunctionList</span><span class="p">,</span> <span class="n">OptFunctionSubset</span>
 
 
 <div class="viewcode-block" id="UDP"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.problem.UDP.html#iwopy.interfaces.pygmo.problem.UDP">[docs]</a><span class="k">class</span> <span class="nc">UDP</span><span class="p">:</span>
@@ -245,7 +255,6 @@
 <div class="viewcode-block" id="UDP.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.problem.UDP.html#iwopy.interfaces.pygmo.problem.UDP.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">problem</span><span class="p">,</span>
-        <span class="n">c_tol</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="p">):</span>
@@ -254,7 +263,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">n_vars_all</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_vars_float</span> <span class="o">+</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_vars_int</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_fitness</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">+</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_constraints</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">c_tol</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_tol</span><span class="p">]</span> <span class="o">*</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_constraints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_tol</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">constraints_tol</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="n">verbosity</span></div>
@@ -268,6 +277,7 @@
         <span class="c1"># apply new variables:</span>
         <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_fitness</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">evaluate_individual</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">)</span>
+        <span class="n">objs</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">maximize_objs</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
         <span class="n">values</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span> <span class="o">=</span> <span class="n">objs</span>
         <span class="n">values</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cons</span>
 
@@ -287,6 +297,7 @@
         <span class="c1"># apply new variables:</span>
         <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fitness</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">)</span>
+        <span class="n">objs</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">maximize_objs</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
         <span class="n">values</span><span class="p">[:,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span> <span class="o">=</span> <span class="n">objs</span>
         <span class="n">values</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cons</span>
 
@@ -338,6 +349,17 @@
         <span class="n">cmpnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">spars</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
         <span class="n">vrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">spars</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmpnts</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_constraints</span><span class="p">:</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="n">OptFunctionList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="s2">&quot;objs_cons&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">functions</span><span class="p">:</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="n">OptFunctionSubset</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">cmpnts</span><span class="p">)</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="kc">None</span>
+
         <span class="n">varsf</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_float</span><span class="p">]</span>
         <span class="n">varsi</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_float</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
@@ -345,7 +367,7 @@
             <span class="n">varsi</span><span class="p">,</span>
             <span class="n">varsf</span><span class="p">,</span>
             <span class="nb">vars</span><span class="o">=</span><span class="n">vrs</span><span class="p">,</span>
-            <span class="n">components</span><span class="o">=</span><span class="n">cmpnts</span><span class="p">,</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
             <span class="n">verbosity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span><span class="p">,</span>
             <span class="n">pop</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">,</span>
         <span class="p">)</span>

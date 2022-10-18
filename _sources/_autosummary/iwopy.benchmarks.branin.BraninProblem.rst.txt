@@ -1,4 +1,4 @@
-iwopy.benchmarks.branin.BraninProblem
+﻿iwopy.benchmarks.branin.BraninProblem
 =====================================
 
 .. currentmodule:: iwopy.benchmarks.branin
@@ -49,8 +49,10 @@ iwopy.benchmarks.branin.BraninProblem
    .. autosummary::
    
       ~BraninProblem.INT_INF
+      ~BraninProblem.constraints_tol
       ~BraninProblem.initialized
       ~BraninProblem.max_values_constraints
+      ~BraninProblem.maximize_objs
       ~BraninProblem.min_values_constraints
       ~BraninProblem.n_constraints
       ~BraninProblem.n_objectives

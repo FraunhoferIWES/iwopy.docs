@@ -1,0 +1,53 @@
+iwopy.core.problem.ProblemDefaultFunc
+=====================================
+
+.. currentmodule:: iwopy.core.problem
+
+.. autoclass:: ProblemDefaultFunc
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ProblemDefaultFunc.__init__
+      ~ProblemDefaultFunc.ana_deriv
+      ~ProblemDefaultFunc.append
+      ~ProblemDefaultFunc.calc_individual
+      ~ProblemDefaultFunc.calc_population
+      ~ProblemDefaultFunc.finalize
+      ~ProblemDefaultFunc.finalize_individual
+      ~ProblemDefaultFunc.finalize_population
+      ~ProblemDefaultFunc.initialize
+      ~ProblemDefaultFunc.n_components
+      ~ProblemDefaultFunc.rename_vars_float
+      ~ProblemDefaultFunc.rename_vars_int
+      ~ProblemDefaultFunc.split_individual
+      ~ProblemDefaultFunc.split_population
+      ~ProblemDefaultFunc.vardeps_float
+      ~ProblemDefaultFunc.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ProblemDefaultFunc.component_names
+      ~ProblemDefaultFunc.functions
+      ~ProblemDefaultFunc.initialized
+      ~ProblemDefaultFunc.n_functions
+      ~ProblemDefaultFunc.n_vars_float
+      ~ProblemDefaultFunc.n_vars_int
+      ~ProblemDefaultFunc.var_names_float
+      ~ProblemDefaultFunc.var_names_int
+   
+   

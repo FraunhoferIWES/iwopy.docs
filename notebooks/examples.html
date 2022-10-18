@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Examples &mdash; iwopy 0.0.14
+  <title>Examples &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -37,7 +37,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -96,6 +96,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -115,6 +119,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -152,6 +157,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -179,6 +188,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -493,7 +503,7 @@ div.rendered_html tbody tr:hover {
 </h2>
 <p>Let’s minimize the following simple function:</p>
 <div class="math notranslate nohighlight">
-\[f(x, y) = (x - 3.6)^2 - 2 (y+1.1)^2\]</div>
+\[f(x, y) = (x - 3.6)^2 + 2 (y+1.1)^2\]</div>
 <p>The global minimum is obvious: <span class="math notranslate nohighlight">\(f=0\)</span> for <span class="math notranslate nohighlight">\(x=3.6, y=-1.1\)</span>. We now want to find this minimum using <code class="docutils literal notranslate"><span class="pre">iwopy</span></code>, in a setup as follows:</p>
 <ul class="simple">
 <li><p>Parameter bounds: <span class="math notranslate nohighlight">\(x, y \in [-5,5]\)</span></p></li>
@@ -538,7 +548,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">components</span></code> argument of the function <code class="docutils literal notranslate"><span class="pre">g</span></code> is not used here since <code class="docutils literal notranslate"><span class="pre">f</span></code> is a single-component function.</p>
-<p>Otherwise, the parameter <code class="docutils literal notranslate"><span class="pre">n_components</span></code> has to be passed to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function of <code class="docutils literal notranslate"><span class="pre">SimpleObjective</span></code>, and <code class="docutils literal notranslate"><span class="pre">f</span></code> has to return a list of scalars. In that case also <code class="docutils literal notranslate"><span class="pre">g</span></code> has to return a list of results, with same length as the requested <code class="docutils literal notranslate"><span class="pre">components</span></code>. The same rules apply to classes derived from <code class="docutils literal notranslate"><span class="pre">SimpleConstraint</span></code>.</p>
+<p>In the case of multi-component functions the parameter <code class="docutils literal notranslate"><span class="pre">n_components</span></code> has to be passed to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function of <code class="docutils literal notranslate"><span class="pre">SimpleObjective</span></code>, and <code class="docutils literal notranslate"><span class="pre">f</span></code> has to return a list of scalars. In that case also <code class="docutils literal notranslate"><span class="pre">g</span></code> has to return a list of results, with same length as the requested <code class="docutils literal notranslate"><span class="pre">components</span></code>. The same rules apply to classes derived from <code class="docutils literal notranslate"><span class="pre">SimpleConstraint</span></code>.</p>
 <p>We can now proceed and setup the problem:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate">
@@ -588,7 +598,7 @@ Problem 'minf' (SimpleProblem): Initializing
 <div class="input_area highlight-ipython3 notranslate">
 <div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
     <span class="n">problem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">c_tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">),</span>
+    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
     <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"ipopt"</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
@@ -617,7 +627,7 @@ Extra info:
 </pre></div>
 </div>
 </div>
-<p>Ok, we are now ready - let’s solve the problem!</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">tol</span></code> is an <code class="docutils literal notranslate"><span class="pre">IPOPT</span></code> parameter that defines the convergence tolerance. Now we are finally ready - let’s solve the problem!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate">
 <div class="highlight"><pre><span></span>In [5]:
@@ -682,7 +692,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     949011208212063072
+        ID:                     2860610128850480351
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -742,14 +752,19 @@ Results problem 'minf':
 <li><p><code class="docutils literal notranslate"><span class="pre">cnames</span></code>: The names of the constraints (all components)</p></li>
 </ul>
 <p>Next, we want to explore finite difference gradient calculations for the same example. We can either remove the function <code class="docutils literal notranslate"><span class="pre">g(v,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">components)</span></code> from the <code class="docutils literal notranslate"><span class="pre">MinFunc</span></code> class, or create it invoking the parameter <code class="docutils literal notranslate"><span class="pre">has_ana_derivs=False</span></code>. This will then ignore the analytical gradient definition in the class.</p>
-<p>Additionally, we need to wrap the problem into the <code class="docutils literal notranslate"><span class="pre">DiscretizeRegGrid</span></code> problem wrapper and set the grid step size and the order of finite difference derivative calculations. This is the code for doing so:</p>
+<p>Additionally, we need to wrap the problem into a wrapper that provides numerical derivatives. There are two choices:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DiscretizeRegGrid</span></code>: A wrapper that evaluates the problem on a regular grid and calculates derivatives based on fixed grid point locations. Interpolation in between is optional (and increases the number of required function evaluations). The grid also offers a memory such that re-calculations of grid point results are minimized.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LocalFD</span></code>: A wrapper that evaluates local finite difference rules for derivative calculations. Hence the problem evaluation points are defined based on the current variables and hence not memorized since those usually differ with every call.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">LocalFD</span></code> is usually the faster choice, unless you are expecting a lot of benefits from the memory capabilities of the regular grid. Here is an example how to use it for solving our problem:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate">
 <div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">DiscretizeRegGrid</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">LocalFD</span>
 </pre></div>
 </div>
 </div>
@@ -770,18 +785,48 @@ Results problem 'minf':
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate">
 <div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">gproblem</span> <span class="o">=</span> <span class="n">DiscretizeRegGrid</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">deltas</span><span class="o">=</span><span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">},</span> <span class="n">fd_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">gproblem</span> <span class="o">=</span> <span class="n">LocalFD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">deltas</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">fd_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">gproblem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">gproblem</span></code> object is now the <code class="docutils literal notranslate"><span class="pre">problem</span></code> on a grid, defined by the variable bounds and the specified <code class="docutils literal notranslate"><span class="pre">deltas</span></code>. We can use the same gradient based solver as above for solving this problem:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Problem 'minf' (SimpleProblem): Initializing
+--------------------------------------------
+  n_vars_int   : 0
+  n_vars_float : 2
+--------------------------------------------
+  n_objectives : 1
+  n_obj_cmptns : 1
+--------------------------------------------
+  n_constraints: 0
+  n_con_cmptns : 0
+--------------------------------------------
+Problem 'minf_fd' (LocalFD): Initializing
+-----------------------------------------
+  n_vars_int   : 0
+  n_vars_float : 2
+-----------------------------------------
+  n_objectives : 1
+  n_obj_cmptns : 1
+-----------------------------------------
+  n_constraints: 0
+  n_con_cmptns : 0
+-----------------------------------------
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">gproblem</span></code> object now corresponds to original <code class="docutils literal notranslate"><span class="pre">problem</span></code> with finite difference gradients of order 2. We can use the same gradient based solver as above for solving this problem:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate">
 <div class="highlight"><pre><span></span>In [10]:
@@ -790,7 +835,7 @@ Results problem 'minf':
 <div class="input_area highlight-ipython3 notranslate">
 <div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
     <span class="n">gproblem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">c_tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">),</span>
+    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
     <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"ipopt"</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
@@ -810,18 +855,18 @@ Optimisation return status: Solve_Succeeded (value = 0)
 
  objevals:        objval:      violated:    viol. norm:
          1          15.38              0              0
-         2         9.2338              0              0
-         3         9.2338              0              0
-         4         9.2338              0              0
-         5         9.2338              0              0
-         6         9.2338              0              0
-         7          1.606              0              0
-         8      0.0440738              0              0
-         9     0.00159727              0              0
-        10    1.27606e-05              0              0
-        11    1.77386e-08              0              0
+         2        9.23375              0              0
+         3        9.23375              0              0
+         4        9.23375              0              0
+         5        9.23375              0              0
+         6        9.23375              0              0
+         7        1.60594              0              0
+         8      0.0440281              0              0
+         9     0.00157443              0              0
+        10    1.35988e-06              0              0
+        11    1.28522e-12              0              0
 
-Problem name: minf_grid
+Problem name: minf_fd
         C++ class name: pybind11::object
 
         Global dimension:                       2
@@ -849,18 +894,18 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     6432344705237765695
+        ID:                     8859142894084493550
         Decision vector:        [3.6, -1.1]
-        Fitness vector:         [1.77386e-08]
+        Fitness vector:         [1.28522e-12]
 
 Champion decision vector: [3.6, -1.1]
-Champion fitness: [1.77386e-08]
+Champion fitness: [1.28522e-12]
 
 
 
 Optimizer_pygmo: Optimization run finished
   Success: True
-  Best f = 1.2852212529252677e-12
+  Best f = 1.285221254342924e-12
 </pre></div>
 </div>
 </div>
@@ -879,17 +924,17 @@ Optimizer_pygmo: Optimization run finished
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Results problem 'minf_grid':
------------------------------
+Results problem 'minf_fd':
+---------------------------
   Float variables:
     0: x = 3.599999e+00
     1: y = -1.100000e+00
------------------------------
+---------------------------
   Objectives:
     0: f = 1.285221e-12
------------------------------
+---------------------------
   Success: True
------------------------------
+---------------------------
 
 </pre></div>
 </div>
@@ -999,25 +1044,25 @@ approaches (in fact also the gradient calculation via <code class="docutils lite
         <span class="sd">"""Indicates that the single component is to be minimized"""</span>
         <span class="k">return</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""This evaluates the potential. See problem.apply_individual</span>
 <span class="sd">        for problem results"""</span>
         <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span>
         <span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">):</span>
-            <span class="n">value</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">1e-10</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">dist</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 
-    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""This evaluates the potential in vectorized manner.</span>
 <span class="sd">        See problem.apply_population for problem results"""</span>
         <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span>
         <span class="n">n_pop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">):</span>
-            <span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
-                <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
-            <span class="p">)</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">1e-10</span><span class="p">)</span>
+            <span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">dist</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 </pre></div>
 </div>
@@ -1031,7 +1076,7 @@ approaches (in fact also the gradient calculation via <code class="docutils lite
 </div>
 <div class="input_area highlight-ipython3 notranslate">
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MaxRadius</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
         <span class="sd">"""Define the same variable names and ordering as in the problem"""</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">problem</span><span class="p">,</span> <span class="s2">"radius"</span><span class="p">,</span> <span class="n">vnames_float</span><span class="o">=</span><span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">(),</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span>
@@ -1051,18 +1096,20 @@ approaches (in fact also the gradient calculation via <code class="docutils lite
         <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">deps</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">deps</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""This evaluates the constraints, negative values are valid.</span>
 <span class="sd">        See problem.apply_individual for problem results"""</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span>
+        <span class="n">components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[:]</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">components</span>
+        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span><span class="p">[</span><span class="n">components</span><span class="p">]</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
 
-    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""This evaluates the constraints in vectorized manner,</span>
 <span class="sd">        negative values are valid. See problem.apply_population for</span>
 <span class="sd">        problem results"""</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span>
+        <span class="n">components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[:]</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">components</span>
+        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span><span class="p">[:,</span> <span class="n">components</span><span class="p">]</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
 </pre></div>
@@ -1180,7 +1227,7 @@ Termination:
 
 Optimizer_pymoo: Optimization run finished
   Success: True
-  Best potential = 78.29799257008322
+  Best potential = 78.18857190516454
 </pre></div>
 </div>
 </div>
@@ -1206,71 +1253,71 @@ Optimizer_pymoo: Optimization run finished
 Results problem 'charges_problem':
 -----------------------------------
   Float variables:
-    0: x0  = 1.502514e+00
-    1: y0  = 1.430548e+00
-    2: x1  = 3.723330e+00
-    3: y1  = 3.331876e+00
-    4: x2  = -1.603314e+00
-    5: y2  = -1.732950e+00
-    6: x3  = 3.603589e+00
-    7: y3  = -3.459268e+00
-    8: x4  = -3.849584e+00
-    9: y4  = -3.190077e+00
-    10: x5  = -3.397933e+00
-    11: y5  = 3.667873e+00
-    12: x6  = -1.420636e+00
-    13: y6  = 4.788753e+00
-    14: x7  = 4.827644e+00
-    15: y7  = 1.300627e+00
-    16: x8  = -1.590491e+00
-    17: y8  = 1.780512e+00
-    18: x9  = 4.994535e+00
-    19: y9  = -2.232788e-01
-    20: x10 = 4.639299e+00
-    21: y10 = -1.862989e+00
-    22: x11 = -4.673445e+00
-    23: y11 = 1.777047e+00
-    24: x12 = 2.377304e+00
-    25: y12 = 4.396919e+00
-    26: x13 = 1.383577e+00
-    27: y13 = -1.982483e+00
-    28: x14 = -4.872608e+00
-    29: y14 = -1.119751e+00
-    30: x15 = 1.996599e+00
-    31: y15 = -4.584008e+00
-    32: x16 = -2.348116e+00
-    33: y16 = -4.404328e+00
-    34: x17 = 5.490359e-01
-    35: y17 = 4.968054e+00
-    36: x18 = -2.470317e-01
-    37: y18 = -4.993398e+00
-    38: x19 = -4.996549e+00
-    39: y19 = 1.818344e-01
+    0: x0  = -3.925133e-01
+    1: y0  = 4.984564e+00
+    2: x1  = 2.009662e+00
+    3: y1  = -1.038737e-01
+    4: x2  = 4.998999e+00
+    5: y2  = 9.778929e-02
+    6: x3  = -4.118869e+00
+    7: y3  = 2.830489e+00
+    8: x4  = -4.833042e+00
+    9: y4  = 1.280245e+00
+    10: x5  = -2.121311e+00
+    11: y5  = -4.526235e+00
+    12: x6  = 4.712112e+00
+    13: y6  = -1.668366e+00
+    14: x7  = -4.581949e+00
+    15: y7  = -1.999117e+00
+    16: x8  = 2.969553e-01
+    17: y8  = -4.990680e+00
+    18: x9  = -2.411494e+00
+    19: y9  = 4.378015e+00
+    20: x10 = 2.229446e-01
+    21: y10 = 2.613455e+00
+    22: x11 = -1.853519e+00
+    23: y11 = 3.172475e-01
+    24: x12 = -1.617366e-01
+    25: y12 = -2.637144e+00
+    26: x13 = 3.843683e+00
+    27: y13 = -3.191130e+00
+    28: x14 = -4.984760e+00
+    29: y14 = -3.824262e-01
+    30: x15 = 2.512846e+00
+    31: y15 = -4.320552e+00
+    32: x16 = 3.377094e+00
+    33: y16 = 3.686986e+00
+    34: x17 = 4.649424e+00
+    35: y17 = 1.838915e+00
+    36: x18 = 1.897129e+00
+    37: y18 = 4.626067e+00
+    38: x19 = -3.721012e+00
+    39: y19 = -3.338556e+00
 -----------------------------------
   Objectives:
-    0: potential = 7.829799e+01
+    0: potential = 7.818857e+01
 -----------------------------------
   Constraints:
-    0: radius_0  = -2.925388e+00
-    1: radius_1  = -3.542735e-03
-    2: radius_2  = -2.639125e+00
-    3: radius_3  = -4.763078e-03
-    4: radius_4  = -4.112374e-04
-    5: radius_5  = -7.620634e-05
-    6: radius_6  = -4.966639e-03
-    7: radius_7  = -2.217505e-04
-    8: radius_8  = -2.612557e+00
-    9: radius_9  = -4.765994e-04
-    10: radius_10 = -6.172870e-04
-    11: radius_11 = -1.018005e-04
-    12: radius_12 = -1.553127e-03
-    13: radius_13 = -2.582455e+00
-    14: radius_14 = -3.852251e-04
-    15: radius_15 = -4.647410e-05
-    16: radius_16 = -8.832209e-03
-    17: radius_17 = -1.700625e-03
-    18: radius_18 = -4.948365e-04
-    19: radius_19 = -1.435409e-04
+    0: radius_0  = -5.273076e-06
+    1: radius_1  = -2.987656e+00
+    2: radius_2  = -4.452101e-05
+    3: radius_3  = -2.325494e-03
+    4: radius_4  = -2.683414e-04
+    5: radius_5  = -1.323643e-03
+    6: radius_6  = -1.255340e-03
+    7: radius_7  = -9.274631e-04
+    8: radius_8  = -4.928508e-04
+    9: radius_9  = -1.768378e-03
+    10: radius_10 = -2.377052e+00
+    11: radius_11 = -3.119527e+00
+    12: radius_12 = -2.357901e+00
+    13: radius_13 = -4.280803e-03
+    14: radius_14 = -5.918043e-04
+    15: radius_15 = -1.844332e-03
+    16: radius_16 = -1.365413e-04
+    17: radius_17 = -1.249597e-04
+    18: radius_18 = -4.008799e-05
+    19: radius_19 = -8.114325e-04
 -----------------------------------
   Success: True
 -----------------------------------
@@ -1283,6 +1330,264 @@ Results problem 'charges_problem':
 </div>
 <div class="output_area docutils container">
 <img alt="../_images/notebooks_examples_33_1.png" src="../_images/notebooks_examples_33_1.png">
+</div>
+</div>
+<p>Note that this problem has many equivalent solutions, and the displayed result is the best solution that the genetic algorithm was able to find within its convergence criteria. With heuristic methods there is generally no guarantee or proof that a global optimum has been found. However, the objective function has clearly been minimized, and therefore the “design” was improved which is often the goal in engineering tasks.</p>
+<p>For the fun of it, let’s also solve the problem using iwopy’s <code class="docutils literal notranslate"><span class="pre">GG</span></code> solver (stands for <em>Greedy Gradient</em>), now for 50 charges. This solver is a simple steepest decent algorithm which projects out directions that would violate constraints (and reverts those that already do). It supports iwopy’s vectorization capabilities and hence can run fast for many variables. Of course it is not as advanced as other gradient based solvers, but for this particular problem it does a good job:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate">
+<div class="highlight"><pre><span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate">
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy.optimizers</span> <span class="kn">import</span> <span class="n">GG</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate">
+<div class="highlight"><pre><span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate">
+<div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">R</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">R</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">problem</span> <span class="o">=</span> <span class="n">ChargesProblem</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinPotential</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">MaxRadius</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
+
+<span class="n">gproblem</span> <span class="o">=</span> <span class="n">LocalFD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">deltas</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">fd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gproblem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+<span class="n">solver</span> <span class="o">=</span> <span class="n">GG</span><span class="p">(</span>
+    <span class="n">gproblem</span><span class="p">,</span>
+    <span class="n">step_max</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">step_min</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">vectorized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Problem 'charges_problem' (ChargesProblem): Initializing
+--------------------------------------------------------
+  n_vars_int   : 0
+  n_vars_float : 100
+--------------------------------------------------------
+  n_objectives : 1
+  n_obj_cmptns : 1
+--------------------------------------------------------
+  n_constraints: 1
+  n_con_cmptns : 50
+--------------------------------------------------------
+Problem 'charges_problem_fd' (LocalFD): Initializing
+----------------------------------------------------
+  n_vars_int   : 0
+  n_vars_float : 100
+----------------------------------------------------
+  n_objectives : 1
+  n_obj_cmptns : 1
+----------------------------------------------------
+  n_constraints: 1
+  n_con_cmptns : 50
+----------------------------------------------------
+GG: Optimization run finished
+  Success: True
+  Best potential = 587.9654163422571
+Results problem 'charges_problem_fd':
+--------------------------------------
+  Float variables:
+    0: x0  = -1.236208e+00
+    1: y0  = -1.708999e+00
+    2: x1  = 2.013002e+00
+    3: y1  = -7.886082e-01
+    4: x2  = 4.314693e+00
+    5: y2  = 2.526550e+00
+    6: x3  = -4.015066e+00
+    7: y3  = 2.979854e+00
+    8: x4  = 3.499176e+00
+    9: y4  = 1.678460e+00
+    10: x5  = -1.362974e+00
+    11: y5  = 4.810645e+00
+    12: x6  = -3.607953e+00
+    13: y6  = 1.023309e+00
+    14: x7  = -2.483641e+00
+    15: y7  = -4.339552e+00
+    16: x8  = 4.673964e+00
+    17: y8  = -1.775998e+00
+    18: x9  = 1.630472e+00
+    19: y9  = -4.726692e+00
+    20: x10 = -3.654452e+00
+    21: y10 = -8.957545e-01
+    22: x11 = 2.247764e+00
+    23: y11 = 3.022091e+00
+    24: x12 = -4.889755e+00
+    25: y12 = -1.044440e+00
+    26: x13 = -4.900226e-01
+    27: y13 = -4.975941e+00
+    28: x14 = 3.663091e+00
+    29: y14 = 3.403210e+00
+    30: x15 = 2.818225e+00
+    31: y15 = 4.130087e+00
+    32: x16 = 4.150963e+00
+    33: y16 = -2.787393e+00
+    34: x17 = -4.560103e+00
+    35: y17 = -2.050762e+00
+    36: x18 = -2.374185e+00
+    37: y18 = 4.400368e+00
+    38: x19 = 4.945479e+00
+    39: y19 = -7.364235e-01
+    40: x20 = -1.415240e+00
+    41: y20 = 1.641640e+00
+    42: x21 = -4.036053e+00
+    43: y21 = -2.951396e+00
+    44: x22 = -4.551125e+00
+    45: y22 = 2.070613e+00
+    46: x23 = 1.858505e+00
+    47: y23 = 4.641763e+00
+    48: x24 = 4.783005e+00
+    49: y24 = 1.457018e+00
+    50: x25 = 3.391337e+00
+    51: y25 = -1.803648e+00
+    52: x26 = -3.088196e-01
+    53: y26 = 4.990453e+00
+    54: x27 = 5.727371e-01
+    55: y27 = -4.967097e+00
+    56: x28 = -1.255281e+00
+    57: y28 = -3.510220e+00
+    58: x29 = -3.246922e+00
+    59: y29 = 3.802313e+00
+    60: x30 = 4.985018e+00
+    61: y30 = 3.868391e-01
+    62: x31 = 2.181194e+00
+    63: y31 = -3.056698e+00
+    64: x32 = -2.798771e+00
+    65: y32 = 2.617715e+00
+    66: x33 = 5.839424e-01
+    67: y33 = 3.781091e+00
+    68: x34 = 3.776890e+00
+    69: y34 = -5.245396e-02
+    70: x35 = 7.953584e-01
+    71: y35 = 4.936334e+00
+    72: x36 = 1.936926e+00
+    73: y36 = 1.085468e+00
+    74: x37 = -3.324688e+00
+    75: y37 = -3.734501e+00
+    76: x38 = -5.000000e+00
+    77: y38 = 3.700560e-03
+    78: x39 = -2.157369e+00
+    79: y39 = -7.152338e-02
+    80: x40 = 4.948472e-01
+    81: y40 = -3.750252e+00
+    82: x41 = 6.153006e-01
+    83: y41 = -2.035853e+00
+    84: x42 = 2.268677e-02
+    85: y42 = 3.690313e-02
+    86: x43 = 3.978828e-01
+    87: y43 = 2.136130e+00
+    88: x44 = -1.523031e+00
+    89: y44 = -4.762399e+00
+    90: x45 = 2.588252e+00
+    91: y45 = -4.277966e+00
+    92: x46 = -2.816180e+00
+    93: y46 = -2.473878e+00
+    94: x47 = 3.461650e+00
+    95: y47 = -3.607915e+00
+    96: x48 = -1.206654e+00
+    97: y48 = 3.542324e+00
+    98: x49 = -4.891478e+00
+    99: y49 = 1.036359e+00
+--------------------------------------
+  Objectives:
+    0: potential = 5.879654e+02
+--------------------------------------
+  Constraints:
+    0: radius_0  = -2.890761e+00
+    1: radius_1  = -2.838038e+00
+    2: radius_2  = 3.491675e-06
+    3: radius_3  = 2.794606e-05
+    4: radius_4  = -1.119091e+00
+    5: radius_5  = 6.028581e-07
+    6: radius_6  = -1.249735e+00
+    7: radius_7  = 1.837549e-05
+    8: radius_8  = 1.050980e-05
+    9: radius_9  = 5.701033e-06
+    10: radius_10 = -1.237368e+00
+    11: radius_11 = -1.233638e+00
+    12: radius_12 = 5.596730e-05
+    13: radius_13 = 1.078150e-05
+    14: radius_14 = 7.145725e-06
+    15: radius_15 = 7.171671e-07
+    16: radius_16 = 5.429440e-06
+    17: radius_17 = 1.651152e-05
+    18: radius_18 = -5.045368e-07
+    19: radius_19 = 7.923529e-06
+    20: radius_20 = -2.832539e+00
+    21: radius_21 = 4.630492e-05
+    22: radius_22 = 1.812114e-05
+    23: radius_23 = 5.300602e-07
+    24: radius_24 = 4.062323e-06
+    25: radius_25 = -1.158866e+00
+    26: radius_26 = -1.239135e-06
+    27: radius_27 = 7.767202e-06
+    28: radius_28 = -1.272082e+00
+    29: radius_29 = 8.179690e-06
+    30: radius_30 = 4.949858e-06
+    31: radius_31 = -1.244869e+00
+    32: radius_32 = -1.167827e+00
+    33: radius_33 = -1.174083e+00
+    34: radius_34 = -1.222746e+00
+    35: radius_35 = -1.631635e-06
+    36: radius_36 = -2.779657e+00
+    37: radius_37 = 4.848075e-06
+    38: radius_38 = 1.369414e-06
+    39: radius_39 = -2.841445e+00
+    40: radius_40 = -1.217241e+00
+    41: radius_41 = -2.873197e+00
+    42: radius_42 = -4.956681e+00
+    43: radius_43 = -2.827130e+00
+    44: radius_44 = 6.913378e-06
+    45: radius_45 = 4.616045e-06
+    46: radius_46 = -1.251541e+00
+    47: radius_47 = 6.784496e-06
+    48: radius_48 = -1.257798e+00
+    49: radius_49 = 5.933672e-05
+--------------------------------------
+  Success: True
+--------------------------------------
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate">
+<div class="highlight"><pre><span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate">
+<div class="highlight"><pre><span></span><span class="n">xy</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">problem_results</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">get_fig</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_examples_37_0.png" src="../_images/notebooks_examples_37_0.png">
 </div>
 </div>
 </section>

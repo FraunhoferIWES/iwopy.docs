@@ -1,4 +1,4 @@
-iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
+﻿iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
 ======================================================
 
 .. currentmodule:: iwopy.wrappers.discretize_reg_grid
@@ -49,8 +49,10 @@ iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
    .. autosummary::
    
       ~DiscretizeRegGrid.INT_INF
+      ~DiscretizeRegGrid.constraints_tol
       ~DiscretizeRegGrid.initialized
       ~DiscretizeRegGrid.max_values_constraints
+      ~DiscretizeRegGrid.maximize_objs
       ~DiscretizeRegGrid.min_values_constraints
       ~DiscretizeRegGrid.n_constraints
       ~DiscretizeRegGrid.n_objectives

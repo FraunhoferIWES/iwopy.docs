@@ -1,4 +1,4 @@
-iwopy.benchmarks.rosenbrock.RosenbrockProblem
+﻿iwopy.benchmarks.rosenbrock.RosenbrockProblem
 =============================================
 
 .. currentmodule:: iwopy.benchmarks.rosenbrock
@@ -49,8 +49,10 @@ iwopy.benchmarks.rosenbrock.RosenbrockProblem
    .. autosummary::
    
       ~RosenbrockProblem.INT_INF
+      ~RosenbrockProblem.constraints_tol
       ~RosenbrockProblem.initialized
       ~RosenbrockProblem.max_values_constraints
+      ~RosenbrockProblem.maximize_objs
       ~RosenbrockProblem.min_values_constraints
       ~RosenbrockProblem.n_constraints
       ~RosenbrockProblem.n_objectives

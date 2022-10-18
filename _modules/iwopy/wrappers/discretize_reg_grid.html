@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.0.14
+  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.0.15
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.0.14
+                0.0.15
 
               </div>
 <div role="search">
@@ -53,9 +53,9 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Simple-function-minimization">Simple function minimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html#Electrostatic-potential-minimization">Electrostatic potential minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/simple_function.html">Simple function minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 </ul>
 </li>
 </ul>
@@ -91,6 +91,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html">iwopy.core.function_list.OptFunctionList</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_subset.html">iwopy.core.function_subset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.function_subset.OptFunctionSubset.html">iwopy.core.function_subset.OptFunctionSubset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.html">iwopy.core.memory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.get_default_keyf.html">iwopy.core.memory.get_default_keyf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.memory.Memory.html">iwopy.core.memory.Memory</a></li>
@@ -110,6 +114,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.html">iwopy.core.problem</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.Problem.html">iwopy.core.problem.Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.problem.ProblemDefaultFunc.html">iwopy.core.problem.ProblemDefaultFunc</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +152,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html">iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.local_fd.html">iwopy.wrappers.local_fd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.local_fd.LocalFD.html">iwopy.wrappers.local_fd.LocalFD</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.html">iwopy.wrappers.problem_wrapper</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html">iwopy.wrappers.problem_wrapper.ProblemWrapper</a></li>
 </ul>
@@ -174,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -206,11 +216,11 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">iwopy.utils</span> <span class="kn">import</span> <span class="n">RegularDiscretizationGrid</span>
-<span class="kn">from</span> <span class="nn">.problem_wrapper</span> <span class="kn">import</span> <span class="n">ProblemWrapper</span>
-<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">Memory</span>
+<span class="kn">from</span> <span class="nn">.local_fd</span> <span class="kn">import</span> <span class="n">LocalFD</span>
+<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">Memory</span><span class="p">,</span> <span class="n">ProblemDefaultFunc</span>
 
 
-<div class="viewcode-block" id="DiscretizeRegGrid"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid">[docs]</a><span class="k">class</span> <span class="nc">DiscretizeRegGrid</span><span class="p">(</span><span class="n">ProblemWrapper</span><span class="p">):</span>
+<div class="viewcode-block" id="DiscretizeRegGrid"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid">[docs]</a><span class="k">class</span> <span class="nc">DiscretizeRegGrid</span><span class="p">(</span><span class="n">LocalFD</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A wrapper that provides finite distance</span>
 <span class="sd">    differentiation on a regular grid for</span>
@@ -236,6 +246,8 @@
 <span class="sd">        for all variables. Default is same as fd_order</span>
 <span class="sd">    mem_size : int, optional</span>
 <span class="sd">        The memory size, default no memory</span>
+<span class="sd">    name : str, optional</span>
+<span class="sd">        The problem name</span>
 <span class="sd">    dpars : dict, optional</span>
 <span class="sd">        Additional parameters for `RegularDiscretizationGrid`</span>
 
@@ -259,41 +271,17 @@
         <span class="n">fd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">fd_bounds_order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">mem_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">dpars</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_problem</span><span class="p">,</span> <span class="n">base_problem</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_grid&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
-            <span class="n">deltas</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">deltas</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">base_problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()}</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">base_problem</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_grid&quot;</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_problem</span><span class="p">,</span> <span class="n">deltas</span><span class="p">,</span> <span class="n">fd_order</span><span class="p">,</span> <span class="n">fd_bounds_order</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_deltas</span> <span class="o">=</span> <span class="n">deltas</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_msize</span> <span class="o">=</span> <span class="n">mem_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dpars</span> <span class="o">=</span> <span class="n">dpars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dpars</span> <span class="o">=</span> <span class="n">dpars</span></div>
 
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fd_order</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">fd_order</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">deltas</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="n">fd_order</span>
-            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">deltas</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Missing fd_order entry for variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-                    <span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">fd_bounds_order</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">orderb</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fd_bounds_order</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">orderb</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">fd_bounds_order</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">deltas</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">orderb</span> <span class="o">=</span> <span class="n">fd_bounds_order</span>
-            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">deltas</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderb</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Missing fd_bounds_order entry for variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-                    <span class="p">)</span></div>
-
-<div class="viewcode-block" id="DiscretizeRegGrid.initialize"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="DiscretizeRegGrid.initialize"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the problem.</span>
 
@@ -305,34 +293,24 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbosity</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Finite difference grid:&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">origin</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">deltas</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">nsteps</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_orderb</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="n">vnms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
+        <span class="n">vnms</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()</span>
         <span class="n">vmins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">n_vars_float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">vmins</span><span class="p">[:]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">min_values_float</span><span class="p">()</span>
         <span class="n">vmaxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">n_vars_float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">vmaxs</span><span class="p">[:]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max_values_float</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deltas</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">vi</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="p">:</span>
 
-            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vnms</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39; given in deltas, but not found in problem float variables </span><span class="si">{</span><span class="n">vnms</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="p">)</span>
-
-            <span class="n">vi</span> <span class="o">=</span> <span class="n">vnms</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">vnam</span> <span class="o">=</span> <span class="n">vnms</span><span class="p">[</span><span class="n">vi</span><span class="p">]</span>
             <span class="n">vmin</span> <span class="o">=</span> <span class="n">vmins</span><span class="p">[</span><span class="n">vi</span><span class="p">]</span>
             <span class="n">vmax</span> <span class="o">=</span> <span class="n">vmaxs</span><span class="p">[</span><span class="n">vi</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vi</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_orderb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orderb</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deltas</span><span class="p">[</span><span class="n">vnam</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">vmin</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">vmax</span><span class="p">):</span>
                 <span class="n">origin</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
                 <span class="n">deltas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
@@ -351,12 +329,9 @@
                 <span class="n">deltas</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">vmax</span> <span class="o">-</span> <span class="n">vmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">nsteps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="n">RegularDiscretizationGrid</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">deltas</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_dpars</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbosity</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">print_info</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hline</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_order</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_orderb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_orderb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
@@ -368,105 +343,12 @@
 
             <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_msize</span><span class="p">,</span> <span class="n">keyf</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DiscretizeRegGrid.calc_gradients"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.calc_gradients">[docs]</a>    <span class="k">def</span> <span class="nf">calc_gradients</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">vars_int</span><span class="p">,</span>
-        <span class="n">vars_float</span><span class="p">,</span>
-        <span class="n">func</span><span class="p">,</span>
-        <span class="n">ivars</span><span class="p">,</span>
-        <span class="n">fvars</span><span class="p">,</span>
-        <span class="n">vrs</span><span class="p">,</span>
-        <span class="n">components</span><span class="p">,</span>
-        <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_grad_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">gvars</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderb</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The actual gradient calculation.</span>
-
-<span class="sd">        Can be overloaded in derived classes, the base class only considers</span>
-<span class="sd">        analytic derivatives.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        vars_int : np.array</span>
-<span class="sd">            The integer variable values, shape: (n_vars_int,)</span>
-<span class="sd">        vars_float : np.array</span>
-<span class="sd">            The float variable values, shape: (n_vars_float,)</span>
-<span class="sd">        func : iwopy.core.OptFunctionList, optional</span>
-<span class="sd">            The functions to be differentiated, or None</span>
-<span class="sd">            for a list of all objectives and all constraints</span>
-<span class="sd">            (in that order)</span>
-<span class="sd">        ivars : list of int</span>
-<span class="sd">            The indices of the function int variables in the problem</span>
-<span class="sd">        fvars : list of int</span>
-<span class="sd">            The indices of the function float variables in the problem</span>
-<span class="sd">        vrs : list of int</span>
-<span class="sd">            The function float variable indices wrt which the</span>
-<span class="sd">            derivatives are to be calculated</span>
-<span class="sd">        components : list of int</span>
-<span class="sd">            The selected components of func, or None for all</span>
-<span class="sd">        pop : bool</span>
-<span class="sd">            Flag for vectorizing calculations via population</span>
-<span class="sd">        verbosity : int</span>
-<span class="sd">            The verbosity level, 0 = silent</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        gradients : numpy.ndarray</span>
-<span class="sd">            The gradients of the functions, shape:</span>
-<span class="sd">            (n_func_cmpnts, n_vrs)</span>
-
+<span class="sd">        Helper function that provides gradient coeffs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># get analytic gradient results:</span>
-        <span class="n">gradients</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">calc_gradients</span><span class="p">(</span>
-            <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">ivars</span><span class="p">,</span> <span class="n">fvars</span><span class="p">,</span> <span class="n">vrs</span><span class="p">,</span> <span class="n">components</span><span class="p">,</span> <span class="n">verbosity</span>
-        <span class="p">)</span>
-
-        <span class="c1"># find variables and components of unsolved gradients:</span>
-        <span class="n">gnan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">gradients</span><span class="p">)</span>
-        <span class="n">gvars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">gnan</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">pvars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fvars</span><span class="p">)[</span><span class="n">gvars</span><span class="p">]</span>
-        <span class="n">gvars</span> <span class="o">=</span> <span class="p">[</span><span class="n">vi</span> <span class="k">for</span> <span class="n">vi</span> <span class="ow">in</span> <span class="n">pvars</span> <span class="k">if</span> <span class="n">vi</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="p">]</span>
-        <span class="n">ivars</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">vi</span><span class="p">)</span> <span class="k">for</span> <span class="n">vi</span> <span class="ow">in</span> <span class="n">gvars</span><span class="p">]</span>
-        <span class="n">cmpnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">gnan</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">cmpnts</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">components</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cmpnts</span><span class="p">]</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">gvars</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmpnts</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">gradients</span>
-        <span class="k">del</span> <span class="n">gnan</span>
-
-        <span class="c1"># get gradient grid points and coeffs:</span>
-        <span class="n">varsf</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">gvars</span><span class="p">]</span>
-        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_order</span><span class="p">[</span><span class="n">ivars</span><span class="p">]</span>
-        <span class="n">orderb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orderb</span><span class="p">[</span><span class="n">ivars</span><span class="p">]</span>
-        <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">grad_coeffs</span><span class="p">(</span><span class="n">varsf</span><span class="p">,</span> <span class="n">gvars</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderb</span><span class="p">)</span>
-
-        <span class="c1"># run the calculation:</span>
-        <span class="n">n_pop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gpts</span><span class="p">)</span>
-        <span class="n">varsf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_vars_float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-        <span class="n">varsf</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">vars_float</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">varsf</span><span class="p">[:,</span> <span class="n">gvars</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpts</span>
-        <span class="k">if</span> <span class="n">pop</span><span class="p">:</span>
-            <span class="n">varsi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_vars_int</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_vars_int</span><span class="p">:</span>
-                <span class="n">varsi</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">vars_int</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">objs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-            <span class="n">cons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_constraints</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">varsf</span><span class="p">):</span>
-                <span class="n">objs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cons</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vf</span><span class="p">)</span>
-
-        <span class="c1"># recombine results:</span>
-        <span class="n">fres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">][:,</span> <span class="n">cmpnts</span><span class="p">]</span>
-        <span class="n">gres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,vg-&gt;cv&quot;</span><span class="p">,</span> <span class="n">fres</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmpnts</span><span class="p">)</span> <span class="o">==</span> <span class="n">func</span><span class="o">.</span><span class="n">n_components</span><span class="p">():</span>
-            <span class="n">gradients</span><span class="p">[:,</span> <span class="n">gvars</span><span class="p">]</span> <span class="o">=</span> <span class="n">gres</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">temp</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">[:,</span> <span class="n">gvars</span><span class="p">]</span>
-            <span class="n">temp</span><span class="p">[</span><span class="n">cmpnts</span><span class="p">]</span> <span class="o">=</span> <span class="n">gres</span>
-            <span class="n">gradients</span><span class="p">[:,</span> <span class="n">gvars</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
-
-        <span class="k">return</span> <span class="n">gradients</span></div>
+        <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">grad_coeffs</span><span class="p">(</span><span class="n">varsf</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="n">gvars</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderb</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.apply_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.apply_individual">[docs]</a>    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -488,7 +370,6 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">is_gridpoint</span><span class="p">(</span><span class="n">vars_float</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="p">]):</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">apply_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
-
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; cannot apply non-grid point </span><span class="si">{</span><span class="n">vars_float</span><span class="si">}</span><span class="s2"> to problem&quot;</span>
@@ -515,7 +396,6 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">all_gridpoints</span><span class="p">(</span><span class="n">vars_float</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="p">]):</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">apply_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span>
-
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="bp">NotImplemented</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; cannot apply non-grid points to problem&quot;</span>

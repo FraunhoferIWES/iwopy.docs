@@ -1,0 +1,48 @@
+iwopy.core.function\_subset.OptFunctionSubset
+=============================================
+
+.. currentmodule:: iwopy.core.function_subset
+
+.. autoclass:: OptFunctionSubset
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OptFunctionSubset.__init__
+      ~OptFunctionSubset.ana_deriv
+      ~OptFunctionSubset.calc_individual
+      ~OptFunctionSubset.calc_population
+      ~OptFunctionSubset.finalize
+      ~OptFunctionSubset.finalize_individual
+      ~OptFunctionSubset.finalize_population
+      ~OptFunctionSubset.initialize
+      ~OptFunctionSubset.n_components
+      ~OptFunctionSubset.rename_vars_float
+      ~OptFunctionSubset.rename_vars_int
+      ~OptFunctionSubset.vardeps_float
+      ~OptFunctionSubset.vardeps_int
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~OptFunctionSubset.component_names
+      ~OptFunctionSubset.initialized
+      ~OptFunctionSubset.n_vars_float
+      ~OptFunctionSubset.n_vars_int
+      ~OptFunctionSubset.var_names_float
+      ~OptFunctionSubset.var_names_int
+   
+   
