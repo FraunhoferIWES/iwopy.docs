@@ -1,4 +1,4 @@
-﻿iwopy.wrappers.simple\_problem.SimpleProblem
+iwopy.wrappers.simple\_problem.SimpleProblem
 ============================================
 
 .. currentmodule:: iwopy.wrappers.simple_problem

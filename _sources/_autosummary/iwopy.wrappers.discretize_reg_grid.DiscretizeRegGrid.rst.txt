@@ -1,4 +1,4 @@
-﻿iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
+iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
 ======================================================
 
 .. currentmodule:: iwopy.wrappers.discretize_reg_grid

@@ -1,4 +1,4 @@
-﻿iwopy.wrappers.problem\_wrapper.ProblemWrapper
+iwopy.wrappers.problem\_wrapper.ProblemWrapper
 ==============================================
 
 .. currentmodule:: iwopy.wrappers.problem_wrapper

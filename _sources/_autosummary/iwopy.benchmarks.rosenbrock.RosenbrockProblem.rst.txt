@@ -1,4 +1,4 @@
-﻿iwopy.benchmarks.rosenbrock.RosenbrockProblem
+iwopy.benchmarks.rosenbrock.RosenbrockProblem
 =============================================
 
 .. currentmodule:: iwopy.benchmarks.rosenbrock

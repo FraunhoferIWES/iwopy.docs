@@ -1,4 +1,4 @@
-﻿iwopy.benchmarks.branin.BraninProblem
+iwopy.benchmarks.branin.BraninProblem
 =====================================
 
 .. currentmodule:: iwopy.benchmarks.branin
