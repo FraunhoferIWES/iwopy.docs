@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -258,8 +259,8 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>base_problem</strong> (<em>iwopy.Problem</em>) – The underlying concrete problem</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The problem name</p></li>
-<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Additional parameters for the Problem class</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The problem name</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Additional parameters for the Problem class</p></li>
 </ul>
 </dd>
 </dl>
@@ -453,13 +454,13 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>constraint</strong> (<em>iwopy.Constraint</em>) – The constraint</p></li>
-<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 </dl>
@@ -477,13 +478,13 @@ value: str or int</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>objective</strong> (<em>iwopy.Objective</em>) – The objective</p></li>
-<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 </dl>
@@ -568,8 +569,8 @@ for a list of all objectives and all constraints
 <li><p><strong>fvars</strong> (<em>list of int</em>) – The indices of the function float variables in the problem</p></li>
 <li><p><strong>vrs</strong> (<em>list of int</em>) – The function float variable indices wrt which the
 derivatives are to be calculated</p></li>
-<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -597,7 +598,7 @@ given individual.</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_components,)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -624,7 +625,7 @@ given population.</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_pop, n_components)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -670,7 +671,7 @@ given population.</p>
 <ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
-<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
+<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -722,7 +723,7 @@ given population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd>
@@ -740,7 +741,7 @@ given population.</p>
 <ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The optimal integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -772,7 +773,7 @@ to the problem</p></li>
 generation, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values of the final
 generation, shape: (n_pop, n_vars_float)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -812,11 +813,11 @@ being considered, cf. class <cite>ProblemDefaultFunc</cite>.</p>
 for a list of all objectives and all constraints
 (in that order)</p></li>
 <li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
-<li><p><strong>vars</strong> (<em>list of int</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
+<li><p><strong>vars</strong> (<em>list of int</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
 derivatives are to be calculated, or
 None for all</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
-<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -879,7 +880,7 @@ None for all</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd>
@@ -898,7 +899,7 @@ None for all</p></li>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -1057,7 +1058,7 @@ functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -1078,7 +1079,7 @@ functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -1097,7 +1098,7 @@ functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -1116,7 +1117,7 @@ functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>

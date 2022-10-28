@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -259,9 +260,9 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>problem</strong> (<em>iwopy.Problem</em>) – The problem to optimize</p></li>
-<li><p><strong>problem_pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Parameters for the problem</p></li>
-<li><p><strong>algo_pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Parameters for the alorithm</p></li>
-<li><p><strong>setup_pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Parameters for the calculation setup</p></li>
+<li><p><strong>problem_pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – Parameters for the problem</p></li>
+<li><p><strong>algo_pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – Parameters for the alorithm</p></li>
+<li><p><strong>setup_pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – Parameters for the calculation setup</p></li>
 </ul>
 </dd>
 </dl>
@@ -274,7 +275,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
 </dd>
 </dl>
 </dd>
@@ -289,7 +290,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
 </dd>
 </dl>
 </dd>
@@ -304,7 +305,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
 </dd>
 </dl>
 </dd>
@@ -319,7 +320,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
 </dd>
 </dl>
 </dd>
@@ -427,7 +428,7 @@ the optimization.</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>opt_results</strong> (<em>iwopy.OptResults</em>) – The optimization results object</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 </dl>
@@ -450,7 +451,7 @@ plot command.</p>
 <ul class="simple">
 <li><p><strong>fig</strong> (<em>plt.Figure</em><em>, </em><em>optional</em>) – The figure to which to add the plot</p></li>
 <li><p><strong>ax</strong> (<em>plt.Axis</em><em>, </em><em>optional</em>) – The axis to which to add the plot</p></li>
-<li><p><strong>valid_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Settings for the point of first valid
+<li><p><strong>valid_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Settings for the point of first valid
 solution, forwarded to scatter</p></li>
 </ul>
 </dd>
@@ -475,7 +476,7 @@ solution, forwarded to scatter</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd>
@@ -494,7 +495,7 @@ solution, forwarded to scatter</p></li>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -520,7 +521,7 @@ solution, forwarded to scatter</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>callback</strong> (<em>pymoo.Callback</em><em>, </em><em>optional</em>) – The callback</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

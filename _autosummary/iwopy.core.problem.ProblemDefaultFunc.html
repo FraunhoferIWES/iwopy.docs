@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -401,7 +402,7 @@ for gradient calculations.</p>
 <ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
-<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The index of the differentiation float variable</p></li>
+<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The index of the differentiation float variable</p></li>
 <li><p><strong>components</strong> (<em>list of int</em>) – The selected components, or None for all</p></li>
 </ul>
 </dd>
@@ -519,7 +520,7 @@ to the problem</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd>
@@ -539,7 +540,7 @@ to the problem</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -570,7 +571,7 @@ generation, shape: (n_pop, n_vars_int)</p></li>
 generation, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -613,7 +614,7 @@ to the problem</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd>
@@ -632,7 +633,7 @@ to the problem</p></li>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -652,7 +653,7 @@ function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -671,7 +672,7 @@ function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -690,7 +691,7 @@ function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -709,7 +710,7 @@ function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -724,7 +725,7 @@ function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – The name mapping. Key: old name str,
+<p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
 Value: new name str</p>
 </dd>
 </dl>
@@ -740,7 +741,7 @@ Value: new name str</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – The name mapping. Key: old name str,
+<p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
 Value: new name str</p>
 </dd>
 </dl>

@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -251,7 +252,7 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.utils.discretization.</span></span><span class="sig-name descname"><span class="pre">RegularDiscretizationGrid</span></span><a class="reference internal" href="../_modules/iwopy/utils/discretization.html#RegularDiscretizationGrid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.utils.discretization.RegularDiscretizationGrid" title="Permalink to this definition"></a>
 </dt>
 <dd>
-<p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A lightweight regular grid in n dimensions,
 without points storage.</p>
 <dl class="field-list simple">
@@ -262,10 +263,10 @@ without points storage.</p>
 <li><p><strong>deltas</strong> (<em>array-like</em>) – The step sizes, len: n_dims.</p></li>
 <li><p><strong>n_steps</strong> (<em>array-like</em>) – The number of steps, len: n_dims. Use
 INT_INF for infinite.</p></li>
-<li><p><strong>interpolation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The interpolation method: None, nearest, linear</p></li>
+<li><p><strong>interpolation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The interpolation method: None, nearest, linear</p></li>
 <li><p><strong>tol</strong> (<em>list of float</em><em>, </em><em>optional</em>) – The tolerances for grid bounds, default is 0,
 shape: (n_dims,)</p></li>
-<li><p><strong>digits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The grid point precision</p></li>
+<li><p><strong>digits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The grid point precision</p></li>
 </ul>
 </dd>
 </dl>
@@ -323,7 +324,7 @@ shape: (n_dims,)</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
 </dd>
@@ -354,7 +355,7 @@ or None</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -523,7 +524,7 @@ or None</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The points space, shape: (n_pts, n_dims)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
 </ul>
 </dd>
@@ -533,7 +534,7 @@ reduce those to lower-left cell corner</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -596,11 +597,11 @@ reduce those to lower-left cell corner</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The evaluation points, shape: (n_pts, n_dims)</p></li>
-<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The dimension representing the variable
+<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The dimension representing the variable
 wrt which to differentiate</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The finite difference order,
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order,
 1 = forward, -1 = backward, 2 = centre</p></li>
-<li><p><strong>orderb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The finite difference order at boundary points</p></li>
+<li><p><strong>orderb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order at boundary points</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -630,11 +631,11 @@ shape: (n_gpts, n_dims)</p></li>
 <ul class="simple">
 <li><p><strong>inds</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The integer grid point indices, shape:
 (n_inds, n_dims)</p></li>
-<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The dimension representing the variable
+<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The dimension representing the variable
 wrt which to differentiate</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The finite difference order,
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order,
 1 = forward, -1 = backward, 2 = centre</p></li>
-<li><p><strong>orderb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The finite difference order at boundary points</p></li>
+<li><p><strong>orderb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order at boundary points</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -688,9 +689,9 @@ shape: (n_inds, n_dims)</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The points, shape: (n_pts, n_dims)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
-<li><p><strong>ret_inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Additionally return indices</p></li>
+<li><p><strong>ret_inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Additionally return indices</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -791,7 +792,7 @@ one cell per point.</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>p</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The point, shape: (n_dims,)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
 </ul>
 </dd>
@@ -818,7 +819,7 @@ reduce those to lower-left cell corner</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The points space, shape: (n_pts, n_dims)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
 </ul>
 </dd>
@@ -845,9 +846,9 @@ reduce those to lower-left cell corner</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>gp</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The point, shape: (n_dims,)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
-<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for throwing error if off-grid, else
+<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for throwing error if off-grid, else
 return None in that case</p></li>
 </ul>
 </dd>
@@ -874,9 +875,9 @@ return None in that case</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>gpts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The grid points, shape: (n_gpts, n_dims)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
-<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for throwing error if off-grid, else
+<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for throwing error if off-grid, else
 return None in that case</p></li>
 </ul>
 </dd>
@@ -942,7 +943,7 @@ shape: (n_pts, n_vars, n_gpts)</p></li>
 <li><p><strong>vars</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The dimensions representing the variables
 wrt which to differentiate, shape: (n_vars,).
 Default is all dimensions</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>list of int</em>) – The finite difference order,
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><em>list of int</em>) – The finite difference order,
 1 = forward, -1 = backward, 2 = centre</p></li>
 <li><p><strong>orderb</strong> (<em>int list of int</em>) – The finite difference order at boundary points</p></li>
 </ul>
@@ -972,8 +973,8 @@ shape: (n_inds, n_vars, n_gpts)</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The grid point indices, shape: (n_dims,)</p></li>
-<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Flag for throwing error if off-grid, else
+<li><p><strong>inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The grid point indices, shape: (n_dims,)</p></li>
+<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for throwing error if off-grid, else
 return None in that case</p></li>
 </ul>
 </dd>
@@ -1006,7 +1007,7 @@ return None in that case</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -1091,7 +1092,7 @@ shape: (n_gpts, n_dims)</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The points, shape: (n_pts, n_dims)</p></li>
-<li><p><strong>ret_pmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Additionally return the map from pts to
+<li><p><strong>ret_pmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Additionally return the map from pts to
 gpts</p></li>
 </ul>
 </dd>
@@ -1120,7 +1121,7 @@ shape: (n_gpts, n_dims)</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The grid point indices, shape: (n_dims,)</p>
+<p><strong>inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The grid point indices, shape: (n_dims,)</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even">
@@ -1128,7 +1129,7 @@ shape: (n_gpts, n_dims)</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -1145,9 +1146,9 @@ shape: (n_gpts, n_dims)</p></li>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>p</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The point, shape: (n_dims,)</p></li>
-<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allow outermost point indices, else
+<li><p><strong>allow_outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Allow outermost point indices, else
 reduce those to lower-left cell corner</p></li>
-<li><p><strong>ret_inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Additionally return indices</p></li>
+<li><p><strong>ret_inds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Additionally return indices</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1176,7 +1177,7 @@ reduce those to lower-left cell corner</p></li>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
 </dd>
@@ -1251,7 +1252,7 @@ shape: (n_dims,)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>spaces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The prepending spaces</p>
+<p><strong>spaces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The prepending spaces</p>
 </dd>
 </dl>
 </dd>
