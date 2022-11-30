@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple function minimization &mdash; iwopy 0.1.0
+  <title>Simple function minimization &mdash; iwopy 0.1.1
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -19,6 +19,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -37,7 +38,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.0
+                0.1.1
 
               </div>
 <div role="search">
@@ -191,6 +192,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -208,9 +210,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../examples.html">Examples</a> &raquo;</li>
-      <li>Simple function minimization</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../examples.html">Examples</a></li>
+      <li class="breadcrumb-item active">Simple function minimization</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/notebooks/simple_function.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -330,10 +332,11 @@ div.nboutput.container div.prompt > div {
     }
 }
 
-/* disable scrollbars on prompts */
+/* disable scrollbars and line breaks on prompts */
 div.nbinput.container div.prompt pre,
 div.nboutput.container div.prompt pre {
     overflow: hidden;
+    white-space: pre;
 }
 
 /* input/output area */
@@ -661,7 +664,6 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
          6        9.23375              0              0
          7        1.60594              0              0
          8      0.0440281              0              0
-         9     0.00157443              0              0
 
 Problem name: minf
         C++ class name: pybind11::object
@@ -691,7 +693,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     7565884861357763337
+        ID:                     4532949313023848969
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -703,6 +705,7 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.2852212531163044e-12
+         9     0.00157443              0              0
         10    1.35988e-06              0              0
         11    1.28522e-12              0              0
 </pre></div>
@@ -864,7 +867,6 @@ Optimisation return status: Solve_Succeeded (value = 0)
          8      0.0440281              0              0
          9     0.00157443              0              0
         10    1.35988e-06              0              0
-        11    1.28522e-12              0              0
 
 Problem name: minf_fd
         C++ class name: pybind11::object
@@ -894,7 +896,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     11996841378585573384
+        ID:                     4750941745604202471
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -906,6 +908,7 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.285221254342924e-12
+        11    1.28522e-12              0              0
 </pre></div>
 </div>
 </div>

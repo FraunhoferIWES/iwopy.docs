@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.utils.discretization.RegularDiscretizationGrid &mdash; iwopy 0.1.0
+  <title>iwopy.utils.discretization.RegularDiscretizationGrid &mdash; iwopy 0.1.1
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -19,6 +19,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.0
+                0.1.1
 
               </div>
 <div role="search">
@@ -189,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -206,11 +208,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API</a> &raquo;</li>
-          <li><a href="iwopy.utils.html">iwopy.utils</a> &raquo;</li>
-          <li><a href="iwopy.utils.discretization.html">iwopy.utils.discretization</a> &raquo;</li>
-      <li>iwopy.utils.discretization.RegularDiscretizationGrid</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.utils.html">iwopy.utils</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.utils.discretization.html">iwopy.utils.discretization</a></li>
+      <li class="breadcrumb-item active">iwopy.utils.discretization.RegularDiscretizationGrid</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -264,7 +266,7 @@ without points storage.</p>
 <li><p><strong>n_steps</strong> (<em>array-like</em>) – The number of steps, len: n_dims. Use
 INT_INF for infinite.</p></li>
 <li><p><strong>interpolation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The interpolation method: None, nearest, linear</p></li>
-<li><p><strong>tol</strong> (<em>list of float</em><em>, </em><em>optional</em>) – The tolerances for grid bounds, default is 0,
+<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – The tolerances for grid bounds, default is 0,
 shape: (n_dims,)</p></li>
 <li><p><strong>digits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The grid point precision</p></li>
 </ul>
@@ -672,7 +674,7 @@ shape: (n_inds, n_dims)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">
-<p>numpy.ndarray of bool</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -726,7 +728,7 @@ shape: (n_pts, n_dims)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd">
-<p>numpy.ndarray of bool</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -905,12 +907,12 @@ shape: (n_gpts, n_dims)</p>
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>pts</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The evaluation points, shape: (n_pts, n_dims)</p></li>
-<li><p><strong>vars</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The dimensions representing the variables
+<li><p><strong>vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The dimensions representing the variables
 wrt which to differentiate, shape: (n_vars,).
 Default is all dimensions</p></li>
-<li><p><strong>order</strong> (<em>int list of int</em>) – The finite difference order,
+<li><p><strong>order</strong> (<em>int list</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order,
 1 = forward, -1 = backward, 2 = centre</p></li>
-<li><p><strong>orderb</strong> (<em>int list of int</em>) – The finite difference order at boundary points</p></li>
+<li><p><strong>orderb</strong> (<em>int list</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order at boundary points</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -940,12 +942,12 @@ shape: (n_pts, n_vars, n_gpts)</p></li>
 <ul class="simple">
 <li><p><strong>inds</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The integer grid point indices, shape:
 (n_inds, n_dims)</p></li>
-<li><p><strong>vars</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The dimensions representing the variables
+<li><p><strong>vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The dimensions representing the variables
 wrt which to differentiate, shape: (n_vars,).
 Default is all dimensions</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><em>list of int</em>) – The finite difference order,
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order,
 1 = forward, -1 = backward, 2 = centre</p></li>
-<li><p><strong>orderb</strong> (<em>int list of int</em>) – The finite difference order at boundary points</p></li>
+<li><p><strong>orderb</strong> (<em>int list</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The finite difference order at boundary points</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

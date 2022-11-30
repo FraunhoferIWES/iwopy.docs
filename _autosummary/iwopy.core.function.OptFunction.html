@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.function.OptFunction &mdash; iwopy 0.1.0
+  <title>iwopy.core.function.OptFunction &mdash; iwopy 0.1.1
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -19,6 +19,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.0
+                0.1.1
 
               </div>
 <div role="search">
@@ -189,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -206,11 +208,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API</a> &raquo;</li>
-          <li><a href="iwopy.core.html">iwopy.core</a> &raquo;</li>
-          <li><a href="iwopy.core.function.html">iwopy.core.function</a> &raquo;</li>
-      <li>iwopy.core.function.OptFunction</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.core.html">iwopy.core</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.core.function.html">iwopy.core.function</a></li>
+      <li class="breadcrumb-item active">iwopy.core.function.OptFunction</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/iwopy.core.function.OptFunction.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -267,13 +269,13 @@ problem int variables</p></li>
 <li><p><strong>n_vars_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The number of float variables. If not specified
 it is assumed that the function depends on all
 problem float variables</p></li>
-<li><p><strong>vnames_int</strong> (<em>list of str</em><em>, </em><em>optional</em>) – The integer variable names. Useful for mapping
+<li><p><strong>vnames_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The integer variable names. Useful for mapping
 function variables to problem variables, otherwise
 map by integer or default name</p></li>
-<li><p><strong>vnames_float</strong> (<em>list of str</em><em>, </em><em>optional</em>) – The float variable names. Useful for mapping
+<li><p><strong>vnames_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The float variable names. Useful for mapping
 function variables to problem variables, otherwise
 map by integer or default name</p></li>
-<li><p><strong>cnames</strong> (<em>list of str</em><em>, </em><em>optional</em>) – The names of the components</p></li>
+<li><p><strong>cnames</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The names of the components</p></li>
 </ul>
 </dd>
 </dl>
@@ -414,7 +416,7 @@ map by integer or default name</p></li>
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The index of the differentiation float variable</p></li>
-<li><p><strong>components</strong> (<em>list of int</em>) – The selected components, or None for all</p></li>
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The selected components, or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -444,7 +446,7 @@ underlying problem.</p>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -473,7 +475,7 @@ to the problem</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -501,7 +503,7 @@ to the problem</p></li>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>list of str</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
 </dd>
@@ -719,7 +721,7 @@ Value: new name str</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>list of str</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
 </dd>
@@ -738,7 +740,7 @@ Value: new name str</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>list of str</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
 </dd>
@@ -759,7 +761,7 @@ variables, shape: (n_components, n_vars_float)</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>numpy.ndarray of bool</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>
@@ -780,7 +782,7 @@ variables, shape: (n_components, n_vars_int)</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>numpy.ndarray of bool</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
 </dd>

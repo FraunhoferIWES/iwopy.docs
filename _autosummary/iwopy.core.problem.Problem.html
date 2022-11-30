@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.problem.Problem &mdash; iwopy 0.1.0
+  <title>iwopy.core.problem.Problem &mdash; iwopy 0.1.1
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -19,6 +19,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.0
+                0.1.1
 
               </div>
 <div role="search">
@@ -189,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-14-alpha">v0.0.14-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -206,11 +208,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API</a> &raquo;</li>
-          <li><a href="iwopy.core.html">iwopy.core</a> &raquo;</li>
-          <li><a href="iwopy.core.problem.html">iwopy.core.problem</a> &raquo;</li>
-      <li>iwopy.core.problem.Problem</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.core.html">iwopy.core</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.core.problem.html">iwopy.core.problem</a></li>
+      <li class="breadcrumb-item active">iwopy.core.problem.Problem</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/iwopy.core.problem.Problem.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -595,10 +597,10 @@ analytic derivatives.</p>
 <li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
 for a list of all objectives and all constraints
 (in that order)</p></li>
-<li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
-<li><p><strong>ivars</strong> (<em>list of int</em>) – The indices of the function int variables in the problem</p></li>
-<li><p><strong>fvars</strong> (<em>list of int</em>) – The indices of the function float variables in the problem</p></li>
-<li><p><strong>vrs</strong> (<em>list of int</em>) – The function float variable indices wrt which the
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
+<li><p><strong>ivars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The indices of the function int variables in the problem</p></li>
+<li><p><strong>fvars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The indices of the function float variables in the problem</p></li>
+<li><p><strong>vrs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The function float variable indices wrt which the
 derivatives are to be calculated</p></li>
 <li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
 <li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
@@ -843,8 +845,8 @@ being considered, cf. class <cite>ProblemDefaultFunc</cite>.</p>
 <li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
 for a list of all objectives and all constraints
 (in that order)</p></li>
-<li><p><strong>components</strong> (<em>list of int</em><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
-<li><p><strong>vars</strong> (<em>list of int</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
+<li><p><strong>vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
 derivatives are to be calculated, or
 None for all</p></li>
 <li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
@@ -1167,7 +1169,7 @@ functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>list of str</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
 </dd>
@@ -1186,7 +1188,7 @@ functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even">
-<p>list of str</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
 </dd>
