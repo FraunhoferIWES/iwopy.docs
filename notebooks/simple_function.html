@@ -52,9 +52,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation.html#virtual-python-environment">Virtual Python environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation.html#standard-users">Standard users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-via-conda">Installation via conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-via-pip">Installation via pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#developers">Developers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -522,8 +526,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">SimpleProblem</span><span class="p">,</span> <span class="n">SimpleObjective</span>
-<span class="kn">from</span> <span class="nn">iwopy.interfaces.pygmo</span> <span class="kn">import</span> <span class="n">Optimizer_pygmo</span>
+<div class="highlight"><pre><span></span>from iwopy import SimpleProblem, SimpleObjective
+from iwopy.interfaces.pygmo import Optimizer_pygmo
 </pre></div>
 </div>
 </div>
@@ -542,12 +546,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MinFunc</span><span class="p">(</span><span class="n">SimpleObjective</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">3.6</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mf">1.1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<div class="highlight"><pre><span></span>class MinFunc(SimpleObjective):
+    def f(self, x, y):
+        return (x - 3.6) ** 2 + 2 * (y + 1.1) ** 2
 
-    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">3.6</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mf">1.1</span><span class="p">)</span>
+    def g(self, v, x, y, components):
+        return 2 * (x - 3.6) if v == 0 else 4 * (y + 1.1)
 </pre></div>
 </div>
 </div>
@@ -560,15 +564,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">SimpleProblem</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"minf"</span><span class="p">,</span>
-    <span class="n">float_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">],</span>
-    <span class="n">init_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
-    <span class="n">min_values_float</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">],</span>
-    <span class="n">max_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinFunc</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>problem = SimpleProblem(
+    name="minf",
+    float_vars=["x", "y"],
+    init_values_float=[0.0, 0.0],
+    min_values_float=[-5.0, -5.0],
+    max_values_float=[5.0, 5.0],
+)
+problem.add_objective(MinFunc(problem))
+problem.initialize()
 </pre></div>
 </div>
 </div>
@@ -600,13 +604,13 @@ Problem 'minf' (SimpleProblem): Initializing
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
-    <span class="n">problem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
-    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"ipopt"</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
-<span class="p">)</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>solver = Optimizer_pygmo(
+    problem,
+    problem_pars=dict(),
+    algo_pars=dict(type="ipopt", tol=1e-4),
+)
+solver.initialize()
+solver.print_info()
 </pre></div>
 </div>
 </div>
@@ -638,8 +642,8 @@ Extra info:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>results = solver.solve()
+solver.finalize(results)
 </pre></div>
 </div>
 </div>
@@ -666,8 +670,6 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
          7        1.60594              0              0
          8      0.0440281              0              0
          9     0.00157443              0              0
-        10    1.35988e-06              0              0
-        11    1.28522e-12              0              0
 
 Problem name: minf
         C++ class name: pybind11::object
@@ -697,7 +699,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     8711576421749775746
+        ID:                     8663250798338762771
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -709,6 +711,8 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.2852212531163044e-12
+        10    1.35988e-06              0              0
+        11    1.28522e-12              0              0
 </pre></div>
 </div>
 </div>
@@ -718,7 +722,7 @@ Optimizer_pygmo: Optimization run finished
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>print(results)
 </pre></div>
 </div>
 </div>
@@ -768,7 +772,7 @@ Results problem 'minf':
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">LocalFD</span>
+<div class="highlight"><pre><span></span>from iwopy import LocalFD
 </pre></div>
 </div>
 </div>
@@ -778,14 +782,14 @@ Results problem 'minf':
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">SimpleProblem</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"minf"</span><span class="p">,</span>
-    <span class="n">float_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">],</span>
-    <span class="n">init_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
-    <span class="n">min_values_float</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">],</span>
-    <span class="n">max_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinFunc</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">has_ana_derivs</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight"><pre><span></span>problem = SimpleProblem(
+    name="minf",
+    float_vars=["x", "y"],
+    init_values_float=[0.0, 0.0],
+    min_values_float=[-5.0, -5.0],
+    max_values_float=[5.0, 5.0],
+)
+problem.add_objective(MinFunc(problem, has_ana_derivs=False))
 </pre></div>
 </div>
 </div>
@@ -795,8 +799,8 @@ Results problem 'minf':
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">gproblem</span> <span class="o">=</span> <span class="n">LocalFD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">deltas</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">fd_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">gproblem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>gproblem = LocalFD(problem, deltas=1e-4, fd_order=2)
+gproblem.initialize()
 </pre></div>
 </div>
 </div>
@@ -837,15 +841,15 @@ Problem 'minf_fd' (LocalFD): Initializing
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
-    <span class="n">gproblem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
-    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"ipopt"</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
-<span class="p">)</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>solver = Optimizer_pygmo(
+    gproblem,
+    problem_pars=dict(),
+    algo_pars=dict(type="ipopt", tol=1e-4),
+)
+solver.initialize()
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+results = solver.solve()
+solver.finalize(results)
 </pre></div>
 </div>
 </div>
@@ -868,6 +872,7 @@ Optimisation return status: Solve_Succeeded (value = 0)
          8      0.0440281              0              0
          9     0.00157443              0              0
         10    1.35988e-06              0              0
+        11    1.28522e-12              0              0
 
 Problem name: minf_fd
         C++ class name: pybind11::object
@@ -897,7 +902,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     611073521821847130
+        ID:                     7467025924418338214
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -909,7 +914,6 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.285221254342924e-12
-        11    1.28522e-12              0              0
 </pre></div>
 </div>
 </div>
@@ -919,7 +923,7 @@ Optimizer_pygmo: Optimization run finished
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>print(results)
 </pre></div>
 </div>
 </div>

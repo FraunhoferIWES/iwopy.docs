@@ -52,9 +52,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation.html#virtual-python-environment">Virtual Python environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation.html#standard-users">Standard users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-via-conda">Installation via conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-via-pip">Installation via pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#developers">Developers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -518,10 +522,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">Objective</span><span class="p">,</span> <span class="n">Constraint</span>
-<span class="kn">from</span> <span class="nn">iwopy.interfaces.pymoo</span> <span class="kn">import</span> <span class="n">Optimizer_pymoo</span>
+<div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
+from iwopy import Problem, Objective, Constraint
+from iwopy.interfaces.pymoo import Optimizer_pymoo
 </pre></div>
 </div>
 </div>
@@ -532,51 +536,51 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ChargesProblem</span><span class="p">(</span><span class="n">Problem</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xy_init</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"charges_problem"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">xy_init</span> <span class="o">=</span> <span class="n">xy_init</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy_init</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+<div class="highlight"><pre><span></span>class ChargesProblem(Problem):
+    def __init__(self, xy_init, radius):
+        super().__init__(name="charges_problem")
+        self.xy_init = xy_init
+        self.n_charges = len(xy_init)
+        self.radius = radius
 
-    <span class="k">def</span> <span class="nf">var_names_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Defines the variable names"""</span>
-        <span class="n">vnames</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">):</span>
-            <span class="n">vnames</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"y</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">vnames</span>
+    def var_names_float(self):
+        """Defines the variable names"""
+        vnames = []
+        for i in range(self.n_charges):
+            vnames += [f"x{i}", f"y{i}"]
+        return vnames
 
-    <span class="k">def</span> <span class="nf">initial_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Returns inital values, as given to constructor"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xy_init</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">)</span>
+    def initial_values_float(self):
+        """Returns inital values, as given to constructor"""
+        return self.xy_init.reshape(2 * self.n_charges)
 
-    <span class="k">def</span> <span class="nf">min_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Minimal values for a square of size 2*radius"""</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>
+    def min_values_float(self):
+        """Minimal values for a square of size 2*radius"""
+        return np.full(2 * self.n_charges, -self.radius)
 
-    <span class="k">def</span> <span class="nf">max_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Maximal values for a square of size 2*radius"""</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>
+    def max_values_float(self):
+        """Maximal values for a square of size 2*radius"""
+        return np.full(2 * self.n_charges, self.radius)
 
-    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">"""Returns (x, y) variables for each charge"""</span>
-        <span class="k">return</span> <span class="n">vars_float</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    def apply_individual(self, vars_int, vars_float):
+        """Returns (x, y) variables for each charge"""
+        return vars_float.reshape(self.n_charges, 2)
 
-    <span class="k">def</span> <span class="nf">apply_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">"""Returns (x, y) variables for each charge per individual"""</span>
-        <span class="n">n_pop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vars_float</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">vars_float</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    def apply_population(self, vars_int, vars_float):
+        """Returns (x, y) variables for each charge per individual"""
+        n_pop = len(vars_float)
+        return vars_float.reshape(n_pop, self.n_charges, 2)
 
-    <span class="k">def</span> <span class="nf">get_fig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xy</span><span class="p">):</span>
-        <span class="sd">"""Get a figure showing the charges locations"""</span>
-        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"darkred"</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s2">"box"</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"N = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">fig</span>
+    def get_fig(self, xy):
+        """Get a figure showing the charges locations"""
+        fig, ax = plt.subplots(figsize=(6, 6))
+        ax.scatter(xy[:, 0], xy[:, 1], color="orange")
+        ax.add_patch(plt.Circle((0, 0), self.radius, color="darkred", fill=False))
+        ax.set_aspect("equal", adjustable="box")
+        ax.set_xlabel("x")
+        ax.set_ylabel("y")
+        ax.set_title(f"N = {self.n_charges}")
+        return fig
 </pre></div>
 </div>
 </div>
@@ -591,42 +595,42 @@ approaches (in fact also the gradient calculation via <code class="docutils lite
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MinPotential</span><span class="p">(</span><span class="n">Objective</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">):</span>
-        <span class="sd">"""Define the same variable names and ordering as in the problem"""</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="s2">"potential"</span><span class="p">,</span> <span class="n">vnames_float</span><span class="o">=</span><span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_charges</span>
+<div class="highlight"><pre><span></span>class MinPotential(Objective):
+    def __init__(self, problem):
+        """Define the same variable names and ordering as in the problem"""
+        super().__init__(problem, "potential", vnames_float=problem.var_names_float())
+        self.n_charges = problem.n_charges
 
-    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""The potential is a scalar function, hence one component"""</span>
-        <span class="k">return</span> <span class="mi">1</span>
+    def n_components(self):
+        """The potential is a scalar function, hence one component"""
+        return 1
 
-    <span class="k">def</span> <span class="nf">maximize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Indicates that the single component is to be minimized"""</span>
-        <span class="k">return</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
+    def maximize(self):
+        """Indicates that the single component is to be minimized"""
+        return [False]
 
-    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""This evaluates the potential. See problem.apply_individual</span>
-<span class="sd">        for problem results"""</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">):</span>
-            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">1e-10</span><span class="p">)</span>
-            <span class="n">value</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">dist</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">value</span>
+    def calc_individual(self, vars_int, vars_float, problem_results, components=None):
+        """This evaluates the potential. See problem.apply_individual
+        for problem results"""
+        xy = problem_results
+        value = 0.0
+        for i in range(1, self.n_charges):
+            dist = np.maximum(np.linalg.norm(xy[i - 1, None] - xy[i:], axis=-1), 1e-10)
+            value += 2 * np.sum(1 / dist)
+        return value
 
-    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""This evaluates the potential in vectorized manner.</span>
-<span class="sd">        See problem.apply_population for problem results"""</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span>
-        <span class="n">n_pop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">):</span>
-            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">1e-10</span>
-            <span class="p">)</span>
-            <span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">dist</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">value</span>
+    def calc_population(self, vars_int, vars_float, problem_results, components=None):
+        """This evaluates the potential in vectorized manner.
+        See problem.apply_population for problem results"""
+        xy = problem_results
+        n_pop = len(xy)
+        value = np.zeros((n_pop, 1))
+        for i in range(1, self.n_charges):
+            dist = np.maximum(
+                np.linalg.norm(xy[:, i - 1, None] - xy[:, i:], axis=-1), 1e-10
+            )
+            value[:, 0] += 2 * np.sum(1 / dist, axis=1)
+        return value
 </pre></div>
 </div>
 </div>
@@ -638,43 +642,43 @@ approaches (in fact also the gradient calculation via <code class="docutils lite
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MaxRadius</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
-        <span class="sd">"""Define the same variable names and ordering as in the problem"""</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="n">problem</span><span class="p">,</span> <span class="s2">"radius"</span><span class="p">,</span> <span class="n">vnames_float</span><span class="o">=</span><span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">(),</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_charges</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">radius</span>
+<div class="highlight"><pre><span></span>class MaxRadius(Constraint):
+    def __init__(self, problem, tol=1e-2):
+        """Define the same variable names and ordering as in the problem"""
+        super().__init__(
+            problem, "radius", vnames_float=problem.var_names_float(), tol=tol
+        )
+        self.n_charges = problem.n_charges
+        self.radius = problem.radius
 
-    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""One constraint per charge"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span>
+    def n_components(self):
+        """One constraint per charge"""
+        return self.n_charges
 
-    <span class="k">def</span> <span class="nf">vardeps_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Boolean array that defines which component depends</span>
-<span class="sd">        on which variable (optional, default is on all)"""</span>
-        <span class="n">deps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">deps</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">deps</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">deps</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_charges</span><span class="p">)</span>
+    def vardeps_float(self):
+        """Boolean array that defines which component depends
+        on which variable (optional, default is on all)"""
+        deps = np.zeros((self.n_components(), self.n_charges, 2), dtype=bool)
+        np.fill_diagonal(deps[..., 0], True)
+        np.fill_diagonal(deps[..., 1], True)
+        return deps.reshape(self.n_components(), 2 * self.n_charges)
 
-    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""This evaluates the constraints, negative values are valid.</span>
-<span class="sd">        See problem.apply_individual for problem results"""</span>
-        <span class="n">components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[:]</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">components</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span><span class="p">[</span><span class="n">components</span><span class="p">]</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+    def calc_individual(self, vars_int, vars_float, problem_results, components=None):
+        """This evaluates the constraints, negative values are valid.
+        See problem.apply_individual for problem results"""
+        components = np.s_[:] if components is None else components
+        xy = problem_results[components]
+        r = np.linalg.norm(xy, axis=-1)
+        return r - self.radius
 
-    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""This evaluates the constraints in vectorized manner,</span>
-<span class="sd">        negative values are valid. See problem.apply_population for</span>
-<span class="sd">        problem results"""</span>
-        <span class="n">components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[:]</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">components</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">problem_results</span><span class="p">[:,</span> <span class="n">components</span><span class="p">]</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+    def calc_population(self, vars_int, vars_float, problem_results, components=None):
+        """This evaluates the constraints in vectorized manner,
+        negative values are valid. See problem.apply_population for
+        problem results"""
+        components = np.s_[:] if components is None else components
+        xy = problem_results[:, components]
+        r = np.linalg.norm(xy, axis=-1)
+        return r - self.radius
 </pre></div>
 </div>
 </div>
@@ -687,19 +691,19 @@ approaches (in fact also the gradient calculation via <code class="docutils lite
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">R</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight"><pre><span></span>N = 20
+R = 5
 
-<span class="c1"># generate random initial coordinates of the N charges:</span>
-<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">R</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">R</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+# generate random initial coordinates of the N charges:
+xy = np.random.uniform(-R / 10.0, R / 10.0, (N, 2))
 
-<span class="n">problem</span> <span class="o">=</span> <span class="n">ChargesProblem</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinPotential</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">MaxRadius</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+problem = ChargesProblem(xy, R)
+problem.add_objective(MinPotential(problem))
+problem.add_constraint(MaxRadius(problem))
+problem.initialize()
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">get_fig</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig = problem.get_fig(xy)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -736,29 +740,29 @@ Problem 'charges_problem' (ChargesProblem): Initializing
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pymoo</span><span class="p">(</span>
-    <span class="n">problem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="nb">type</span><span class="o">=</span><span class="s2">"ga"</span><span class="p">,</span>
-        <span class="n">pop_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-        <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">setup_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
-    <span class="n">term_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="nb">type</span><span class="o">=</span><span class="s2">"default"</span><span class="p">,</span>
-        <span class="n">n_max_gen</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-        <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
-        <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
-    <span class="p">),</span>
-<span class="p">)</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>solver = Optimizer_pymoo(
+    problem,
+    problem_pars=dict(
+        vectorize=True,
+    ),
+    algo_pars=dict(
+        type="ga",
+        pop_size=100,
+        seed=1,
+    ),
+    setup_pars=dict(),
+    term_pars=dict(
+        type="default",
+        n_max_gen=300,
+        ftol=1e-6,
+        xtol=1e-6,
+    ),
+)
+solver.initialize()
+solver.print_info()
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+results = solver.solve(verbosity=0)
+solver.finalize(results)
 </pre></div>
 </div>
 </div>
@@ -802,11 +806,11 @@ Optimizer_pymoo: Optimization run finished
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>print(results)
 
-<span class="n">xy</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">problem_results</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">get_fig</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+xy = results.problem_results
+fig = problem.get_fig(xy)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -905,8 +909,8 @@ Results problem 'charges_problem':
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">LocalFD</span>
-<span class="kn">from</span> <span class="nn">iwopy.optimizers</span> <span class="kn">import</span> <span class="n">GG</span>
+<div class="highlight"><pre><span></span>from iwopy import LocalFD
+from iwopy.optimizers import GG
 </pre></div>
 </div>
 </div>
@@ -916,29 +920,29 @@ Results problem 'charges_problem':
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">R</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight"><pre><span></span>N = 50
+R = 5
 
-<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">R</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">R</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+xy = np.random.uniform(-R / 10.0, R / 10.0, (N, 2))
 
-<span class="n">problem</span> <span class="o">=</span> <span class="n">ChargesProblem</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinPotential</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">MaxRadius</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
+problem = ChargesProblem(xy, R)
+problem.add_objective(MinPotential(problem))
+problem.add_constraint(MaxRadius(problem))
 
-<span class="n">gproblem</span> <span class="o">=</span> <span class="n">LocalFD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">deltas</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">fd_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">gproblem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+gproblem = LocalFD(problem, deltas=1e-2, fd_order=1)
+gproblem.initialize()
 
-<span class="n">solver</span> <span class="o">=</span> <span class="n">GG</span><span class="p">(</span>
-    <span class="n">gproblem</span><span class="p">,</span>
-    <span class="n">step_max</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">step_min</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
-    <span class="n">vectorized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+solver = GG(
+    gproblem,
+    step_max=0.1,
+    step_min=1e-4,
+    vectorized=True,
+)
+solver.initialize()
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+results = solver.solve(verbosity=0)
+solver.finalize(results)
+print(results)
 </pre></div>
 </div>
 </div>
@@ -1143,9 +1147,9 @@ Results problem 'charges_problem_fd':
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span><span class="n">xy</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">problem_results</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">get_fig</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>xy = results.problem_results
+fig = problem.get_fig(xy)
+plt.show()
 </pre></div>
 </div>
 </div>
