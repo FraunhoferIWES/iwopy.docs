@@ -1,0 +1,27 @@
+iwopy.core.opt\_results.MultiObjOptResults
+==========================================
+
+.. currentmodule:: iwopy.core.opt_results
+
+.. autoclass:: MultiObjOptResults
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MultiObjOptResults.__init__
+      ~MultiObjOptResults.find_pareto_objmix
+      ~MultiObjOptResults.plot_pareto
+   
+   
+
+   
+   
+   

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.opt_results &mdash; iwopy 0.1.1
+  <title>iwopy.core.opt_results &mdash; iwopy 0.1.3
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.1
+                0.1.3
 
               </div>
 <div role="search">
@@ -47,9 +47,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#standard-users">Standard users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#installation-via-conda">Installation via conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#installation-via-pip">Installation via pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#developers">Developers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -57,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -107,7 +112,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html">iwopy.core.opt_results.MultiObjOptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/iwopy.core.opt_results.SingleObjOptResults.html">iwopy.core.opt_results.SingleObjOptResults</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
@@ -188,6 +194,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -218,11 +226,13 @@
              
   <h1>Source code for iwopy.core.opt_results</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
-<div class="viewcode-block" id="OptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults">[docs]</a><span class="k">class</span> <span class="nc">OptResults</span><span class="p">:</span>
+<div class="viewcode-block" id="SingleObjOptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.SingleObjOptResults.html#iwopy.core.opt_results.SingleObjOptResults">[docs]</a><span class="k">class</span> <span class="nc">SingleObjOptResults</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Container for optimization results.</span>
+<span class="sd">    Container for optimization results for single objective</span>
+<span class="sd">    problems.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -231,18 +241,13 @@
 <span class="sd">    success : bool</span>
 <span class="sd">        Optimization success</span>
 <span class="sd">    vars_int : np.array</span>
-<span class="sd">        Single objective case: Optimal variables, shape: (n_vars_int,)</span>
-<span class="sd">        Multi objective case: Pareto variables, shape: (n_pop, n_vars_int)</span>
+<span class="sd">        Optimal variables, shape: (n_vars_int,)</span>
 <span class="sd">    vars_float : np.array</span>
-<span class="sd">        Single objective case: Optimal variables, shape: (n_vars_float,)</span>
-<span class="sd">        Multi objective case: Pareto variables, shape: (n_pop, n_vars_float)</span>
-<span class="sd">    objs : np.array</span>
-<span class="sd">        Single objective case: Optimal objective function value, shape: (1,)</span>
-<span class="sd">        Multi objective case: Pareto front objective function values,</span>
-<span class="sd">        shape: (n_pop, n_objectives)</span>
+<span class="sd">        Optimal variables, shape: (n_vars_float,)</span>
+<span class="sd">    objs : float</span>
+<span class="sd">        Optimal objective function value</span>
 <span class="sd">    cons : np.array</span>
-<span class="sd">        Single objective case: Constraint values, shape: (1,)</span>
-<span class="sd">        Multi objective case: Constraint values, shape: (n_pop, n_constraints)</span>
+<span class="sd">        Constraint values, shape: (n_constraints,)</span>
 <span class="sd">    problem_results : Object</span>
 <span class="sd">        The results of the variable application to the problem</span>
 
@@ -251,18 +256,13 @@
 <span class="sd">    success : bool</span>
 <span class="sd">        Optimization success</span>
 <span class="sd">    vars_int : np.array</span>
-<span class="sd">        Single objective case: Optimal variables, shape: (n_vars_int,)</span>
-<span class="sd">        Multi objective case: Pareto variables, shape: (n_pop, n_vars_int)</span>
+<span class="sd">        Optimal variables, shape: (n_vars_int,)</span>
 <span class="sd">    vars_float : np.array</span>
-<span class="sd">        Single objective case: Optimal variables, shape: (n_vars_float,)</span>
-<span class="sd">        Multi objective case: Pareto variables, shape: (n_pop, n_vars_float)</span>
-<span class="sd">    objs : np.array</span>
-<span class="sd">        Single objective case: Optimal objective function value, shape: (1,)</span>
-<span class="sd">        Multi objective case: Pareto front objective function values,</span>
-<span class="sd">        shape: (n_pop, n_objectives)</span>
+<span class="sd">        Optimal variables, shape: (n_vars_float,)</span>
+<span class="sd">    objs : float</span>
+<span class="sd">        Optimal objective function value</span>
 <span class="sd">    cons : np.array</span>
-<span class="sd">        Single objective case: Constraint values, shape: (1,)</span>
-<span class="sd">        Multi objective case: Constraint values, shape: (n_pop, n_constraints)</span>
+<span class="sd">        Constraint values, shape: (n_constraints,)</span>
 <span class="sd">    problem_results : Object</span>
 <span class="sd">        The results of the variable application to the problem</span>
 <span class="sd">    pname : str</span>
@@ -278,7 +278,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="OptResults.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.OptResults.html#iwopy.core.opt_results.OptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="SingleObjOptResults.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.SingleObjOptResults.html#iwopy.core.opt_results.SingleObjOptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">problem</span><span class="p">,</span>
         <span class="n">success</span><span class="p">,</span>
@@ -300,7 +300,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">onames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">component_names</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cnames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">component_names</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cnames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">component_names</span>
+
+        <span class="k">if</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Wrong opt results class &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; for multi objective problem. Use &#39;MultiObjOptResults&#39; instead.&quot;</span>
+            <span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -335,6 +340,216 @@
         <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
 
         <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="MultiObjOptResults"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html#iwopy.core.opt_results.MultiObjOptResults">[docs]</a><span class="k">class</span> <span class="nc">MultiObjOptResults</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Container for optimization results for multi objective</span>
+<span class="sd">    problems.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    problem : iwopy.core.Problem</span>
+<span class="sd">        The problem</span>
+<span class="sd">    success : bool</span>
+<span class="sd">        Optimization success</span>
+<span class="sd">    vars_int : np.array</span>
+<span class="sd">        Pareto-optimal variables, shape: (n_pop, n_vars_int)</span>
+<span class="sd">    vars_float : np.array</span>
+<span class="sd">        Pareto-optimal variables, shape: (n_pop, n_vars_float)</span>
+<span class="sd">    objs : np.array</span>
+<span class="sd">        Pareto front objective function values, shape: (n_pop, n_objectives)</span>
+<span class="sd">    cons : np.array</span>
+<span class="sd">        Parteo front Constraint values, shape: (n_pop, n_constraints)</span>
+<span class="sd">    problem_results : Object</span>
+<span class="sd">        The results of the variable application to the problem</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    success : bool</span>
+<span class="sd">        Optimization success</span>
+<span class="sd">    vars_int : np.array</span>
+<span class="sd">        Pareto-optimal variables, shape: (n_pop, n_vars_int)</span>
+<span class="sd">    vars_float : np.array</span>
+<span class="sd">        Pareto-optimal variables, shape: (n_pop, n_vars_float)</span>
+<span class="sd">    objs : np.array</span>
+<span class="sd">        Pareto front objective function values, shape: (n_pop, n_objectives)</span>
+<span class="sd">    cons : np.array</span>
+<span class="sd">        Parteo front Constraint values, shape: (n_pop, n_constraints)</span>
+<span class="sd">    problem_results : Object</span>
+<span class="sd">        The results of the variable application to the problem</span>
+<span class="sd">    pname : str</span>
+<span class="sd">        The problem&#39;s name</span>
+<span class="sd">    vnames_int : list of str</span>
+<span class="sd">        The int variable names</span>
+<span class="sd">    vnames_float : list of str</span>
+<span class="sd">        The float variable names</span>
+<span class="sd">    onames : list of str</span>
+<span class="sd">        The names of objectives</span>
+<span class="sd">    cnames : list of str</span>
+<span class="sd">        The names of constraints</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MultiObjOptResults.__init__"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html#iwopy.core.opt_results.MultiObjOptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">problem</span><span class="p">,</span>
+        <span class="n">success</span><span class="p">,</span>
+        <span class="n">vars_int</span><span class="p">,</span>
+        <span class="n">vars_float</span><span class="p">,</span>
+        <span class="n">objs</span><span class="p">,</span>
+        <span class="n">cons</span><span class="p">,</span>
+        <span class="n">problem_results</span><span class="p">,</span>
+    <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="n">success</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vars_int</span> <span class="o">=</span> <span class="n">vars_int</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span> <span class="o">=</span> <span class="n">vars_float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objs</span> <span class="o">=</span> <span class="n">objs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cons</span> <span class="o">=</span> <span class="n">cons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">problem_results</span> <span class="o">=</span> <span class="n">problem_results</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pname</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">onames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">objs</span><span class="o">.</span><span class="n">component_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cnames</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">cons</span><span class="o">.</span><span class="n">component_names</span>
+
+        <span class="k">if</span> <span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Wrong opt results class &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; for single objective problem. Use &#39;SingleObjOptResults&#39; instead.&quot;</span>
+            <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Results problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pname</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">hline</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Integer variables:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_int</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vars_int</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Float variables:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vnames_float</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vars_float</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Objectives:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnames</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnames</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  Constraints:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnames</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cons</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vname</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">L</span><span class="si">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;  Success: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">v</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> %</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
+
+        <span class="k">return</span> <span class="n">s</span>
+
+<div class="viewcode-block" id="MultiObjOptResults.plot_pareto"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html#iwopy.core.opt_results.MultiObjOptResults.plot_pareto">[docs]</a>    <span class="k">def</span> <span class="nf">plot_pareto</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">obj_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">obj_1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">color_val</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+        <span class="n">color_ival</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get figure that shows the pareto front</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        obj_0 : int</span>
+<span class="sd">            The objective on the x axis</span>
+<span class="sd">        obj_1 : int</span>
+<span class="sd">            The objective on the y axis</span>
+<span class="sd">        ax : pyplot.Axis, optional</span>
+<span class="sd">            The axis to plot on</span>
+<span class="sd">        figsize : tuple</span>
+<span class="sd">            The figure size, if ax is not given</span>
+<span class="sd">        s : float</span>
+<span class="sd">            Scatter point size</span>
+<span class="sd">        color_val : str</span>
+<span class="sd">            Color choice for valid points</span>
+<span class="sd">        color_ival : str</span>
+<span class="sd">            Color choice for invalid points</span>
+<span class="sd">        title : str, optional</span>
+<span class="sd">            The plot title</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ax : pyplot.axis</span>
+<span class="sd">            The plot axis</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">__</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+
+        <span class="n">sel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="n">obj_0</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="n">obj_1</span><span class="p">],</span>
+            <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span>
+            <span class="n">c</span><span class="o">=</span><span class="n">color_val</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">sel</span> <span class="o">=</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="n">obj_0</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="n">obj_1</span><span class="p">],</span>
+            <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span>
+            <span class="n">c</span><span class="o">=</span><span class="n">color_ival</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;invalid&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">[</span><span class="n">obj_0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onames</span><span class="p">[</span><span class="n">obj_1</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pname</span> <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">title</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ax</span></div>
+
+<div class="viewcode-block" id="MultiObjOptResults.find_pareto_objmix"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html#iwopy.core.opt_results.MultiObjOptResults.find_pareto_objmix">[docs]</a>    <span class="k">def</span> <span class="nf">find_pareto_objmix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_weights</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the point on the pareto front that</span>
+<span class="sd">        approximates best the given weights of objectives</span>
+
+<span class="sd">        Paramters</span>
+<span class="sd">        ---------</span>
+<span class="sd">        obj_weights : list of float</span>
+<span class="sd">            The weights of the objectives</span>
+<span class="sd">        max : bool</span>
+<span class="sd">            Find the maximal value of the weighted result</span>
+<span class="sd">            (otherwise find the minimal value)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        index : int</span>
+<span class="sd">            The index in the pareto front results</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj_weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;po,o-&gt;p&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="k">if</span> <span class="nb">max</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

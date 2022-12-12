@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pymoo.problem &mdash; iwopy 0.1.1
+  <title>iwopy.interfaces.pymoo.problem &mdash; iwopy 0.1.3
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.1
+                0.1.3
 
               </div>
 <div role="search">
@@ -47,9 +47,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-via-conda">Installation via conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-via-pip">Installation via pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -57,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -107,7 +112,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html">iwopy.core.opt_results.MultiObjOptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.SingleObjOptResults.html">iwopy.core.opt_results.SingleObjOptResults</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
@@ -188,6 +194,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -219,13 +227,14 @@
   <h1>Source code for iwopy.interfaces.pymoo.problem</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">OptResults</span>
+<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">SingleObjOptResults</span><span class="p">,</span> <span class="n">MultiObjOptResults</span>
 <span class="kn">from</span> <span class="nn">.imports</span> <span class="kn">import</span> <span class="n">check_import</span><span class="p">,</span> <span class="n">Problem</span>
 
 
-<div class="viewcode-block" id="Pymoo_problem"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.Pymoo_problem.html#iwopy.interfaces.pymoo.problem.Pymoo_problem">[docs]</a><span class="k">class</span> <span class="nc">Pymoo_problem</span><span class="p">(</span><span class="n">Problem</span><span class="p">):</span>
+<div class="viewcode-block" id="SingleObjProblem"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.SingleObjProblem.html#iwopy.interfaces.pymoo.problem.SingleObjProblem">[docs]</a><span class="k">class</span> <span class="nc">SingleObjProblem</span><span class="p">(</span><span class="n">Problem</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Wrapper around the pymoo problem.</span>
+<span class="sd">    Wrapper around the pymoo problem for a single</span>
+<span class="sd">    objective.</span>
 
 <span class="sd">    At the moment this interface only supports</span>
 <span class="sd">    pure int or pure float problems (not mixed).</span>
@@ -250,7 +259,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Pymoo_problem.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.Pymoo_problem.html#iwopy.interfaces.pymoo.problem.Pymoo_problem.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">):</span>
+<div class="viewcode-block" id="SingleObjProblem.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.SingleObjProblem.html#iwopy.interfaces.pymoo.problem.SingleObjProblem.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">):</span>
 
         <span class="n">check_import</span><span class="p">()</span>
 
@@ -355,7 +364,7 @@
                 <span class="n">sel</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cmi</span><span class="p">)</span>
                 <span class="n">out</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">][</span><span class="n">sel</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmi</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span> <span class="o">-</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">][</span><span class="n">sel</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Pymoo_problem.finalize"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.Pymoo_problem.html#iwopy.interfaces.pymoo.problem.Pymoo_problem.finalize">[docs]</a>    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_results</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="SingleObjProblem.finalize"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.SingleObjProblem.html#iwopy.interfaces.pymoo.problem.SingleObjProblem.finalize">[docs]</a>    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_results</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalize the problem.</span>
 
@@ -368,7 +377,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        results: iwopy.OptResults</span>
+<span class="sd">        results: iwopy.SingleObjOptResults</span>
 <span class="sd">            The optimization results object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -420,7 +429,90 @@
             <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">OptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">SingleObjOptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="MultiObjProblem"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.MultiObjProblem.html#iwopy.interfaces.pymoo.problem.MultiObjProblem">[docs]</a><span class="k">class</span> <span class="nc">MultiObjProblem</span><span class="p">(</span><span class="n">SingleObjProblem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper around the pymoo problem for a multiple</span>
+<span class="sd">    objectives.</span>
+
+<span class="sd">    At the moment this interface only supports</span>
+<span class="sd">    pure int or pure float problems (not mixed).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    problem : iwopy.core.Problem</span>
+<span class="sd">        The iwopy problem to solve</span>
+<span class="sd">    vectorize : bool, optional</span>
+<span class="sd">        Switch for vectorized calculations, wrt</span>
+<span class="sd">        population individuals</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    problem : iwopy.core.Problem</span>
+<span class="sd">        The iwopy problem to solve</span>
+<span class="sd">    vectorize : bool</span>
+<span class="sd">        Switch for vectorized calculations, wrt</span>
+<span class="sd">        population individuals</span>
+<span class="sd">    is_intprob : bool</span>
+<span class="sd">        Flag for integer problems</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MultiObjProblem.__init__"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.MultiObjProblem.html#iwopy.interfaces.pymoo.problem.MultiObjProblem.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">vectorize</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MultiObjProblem.finalize"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.problem.MultiObjProblem.html#iwopy.interfaces.pymoo.problem.MultiObjProblem.finalize">[docs]</a>    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_results</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalize the problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pymoo_results: pymoo.Results</span>
+<span class="sd">            The results from the solver</span>
+<span class="sd">        verbosity : int</span>
+<span class="sd">            The verbosity level, 0 = silent</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results: iwopy.SingleObjOptResults</span>
+<span class="sd">            The optimization results object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># prepare:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">pymoo_results</span>
+        <span class="n">suc</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># case no solution from pymoo:</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">X</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">suc</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">xi</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">xf</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">cons</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># evaluate pymoo final solution:</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_pop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">pop</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_intprob</span><span class="p">:</span>
+                <span class="n">xi</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">X</span>
+                <span class="n">xf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+                <span class="n">xf</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">X</span>
+
+            <span class="n">res</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">finalize_population</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">()</span>
+            <span class="n">suc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">check_constraints_population</span><span class="p">(</span><span class="n">cons</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">MultiObjOptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

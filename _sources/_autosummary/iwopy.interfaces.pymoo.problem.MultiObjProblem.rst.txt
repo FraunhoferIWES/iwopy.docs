@@ -1,0 +1,42 @@
+iwopy.interfaces.pymoo.problem.MultiObjProblem
+==============================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.problem
+
+.. autoclass:: MultiObjProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MultiObjProblem.__init__
+      ~MultiObjProblem.bounds
+      ~MultiObjProblem.do
+      ~MultiObjProblem.evaluate
+      ~MultiObjProblem.finalize
+      ~MultiObjProblem.has_bounds
+      ~MultiObjProblem.has_constraints
+      ~MultiObjProblem.ideal_point
+      ~MultiObjProblem.nadir_point
+      ~MultiObjProblem.name
+      ~MultiObjProblem.pareto_front
+      ~MultiObjProblem.pareto_set
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MultiObjProblem.n_constr
+   
+   

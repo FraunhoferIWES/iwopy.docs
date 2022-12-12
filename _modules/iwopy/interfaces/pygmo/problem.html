@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pygmo.problem &mdash; iwopy 0.1.1
+  <title>iwopy.interfaces.pygmo.problem &mdash; iwopy 0.1.3
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.1
+                0.1.3
 
               </div>
 <div role="search">
@@ -47,9 +47,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-via-conda">Installation via conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-via-pip">Installation via pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -57,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -107,7 +112,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html">iwopy.core.opt_results.MultiObjOptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.SingleObjOptResults.html">iwopy.core.opt_results.SingleObjOptResults</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
@@ -188,6 +194,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -219,7 +227,7 @@
   <h1>Source code for iwopy.interfaces.pygmo.problem</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">OptResults</span><span class="p">,</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">OptFunctionList</span><span class="p">,</span> <span class="n">OptFunctionSubset</span>
+<span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">SingleObjOptResults</span><span class="p">,</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">OptFunctionList</span><span class="p">,</span> <span class="n">OptFunctionSubset</span>
 
 
 <div class="viewcode-block" id="UDP"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.problem.UDP.html#iwopy.interfaces.pygmo.problem.UDP">[docs]</a><span class="k">class</span> <span class="nc">UDP</span><span class="p">:</span>
@@ -439,7 +447,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        results: iwopy.OptResults</span>
+<span class="sd">        results: iwopy.SingleObjOptResults</span>
 <span class="sd">            The optimization results object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -462,7 +470,7 @@
         <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">OptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">SingleObjOptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

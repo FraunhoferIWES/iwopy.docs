@@ -1,0 +1,42 @@
+iwopy.interfaces.pymoo.problem.SingleObjProblem
+===============================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.problem
+
+.. autoclass:: SingleObjProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SingleObjProblem.__init__
+      ~SingleObjProblem.bounds
+      ~SingleObjProblem.do
+      ~SingleObjProblem.evaluate
+      ~SingleObjProblem.finalize
+      ~SingleObjProblem.has_bounds
+      ~SingleObjProblem.has_constraints
+      ~SingleObjProblem.ideal_point
+      ~SingleObjProblem.nadir_point
+      ~SingleObjProblem.name
+      ~SingleObjProblem.pareto_front
+      ~SingleObjProblem.pareto_set
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SingleObjProblem.n_constr
+   
+   

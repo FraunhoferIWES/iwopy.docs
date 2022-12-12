@@ -19,7 +19,8 @@ iwopy.interfaces.pymoo.problem
       :toctree:
       :template: custom-class-template.rst
    
-      Pymoo_problem
+      MultiObjProblem
+      SingleObjProblem
    
    
 

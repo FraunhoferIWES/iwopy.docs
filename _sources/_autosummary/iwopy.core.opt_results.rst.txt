@@ -19,7 +19,8 @@ iwopy.core.opt\_results
       :toctree:
       :template: custom-class-template.rst
    
-      OptResults
+      MultiObjOptResults
+      SingleObjOptResults
    
    
 

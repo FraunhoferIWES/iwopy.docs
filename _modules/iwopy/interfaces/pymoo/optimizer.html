@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pymoo.optimizer &mdash; iwopy 0.1.1
+  <title>iwopy.interfaces.pymoo.optimizer &mdash; iwopy 0.1.3
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.1
+                0.1.3
 
               </div>
 <div role="search">
@@ -47,9 +47,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-via-conda">Installation via conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-via-pip">Installation via pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#virtual-python-environment">Virtual Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#standard-users">Standard users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#developers">Developers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -57,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -107,7 +112,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.html">iwopy.core.opt_results</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.OptResults.html">iwopy.core.opt_results.OptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.MultiObjOptResults.html">iwopy.core.opt_results.MultiObjOptResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.core.opt_results.SingleObjOptResults.html">iwopy.core.opt_results.SingleObjOptResults</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.core.optimizer.html">iwopy.core.optimizer</a><ul>
@@ -188,6 +194,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-0-15-alpha">v0.0.15-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-0-alpha">v0.1.0-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -221,7 +229,7 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">Optimizer</span>
-<span class="kn">from</span> <span class="nn">.problem</span> <span class="kn">import</span> <span class="n">Pymoo_problem</span>
+<span class="kn">from</span> <span class="nn">.problem</span> <span class="kn">import</span> <span class="n">SingleObjProblem</span><span class="p">,</span> <span class="n">MultiObjProblem</span>
 <span class="kn">from</span> <span class="nn">.imports</span> <span class="kn">import</span> <span class="n">IMPORT_OK</span><span class="p">,</span> <span class="n">check_import</span><span class="p">,</span> <span class="n">Callback</span>
 <span class="kn">from</span> <span class="nn">.factory</span> <span class="kn">import</span> <span class="n">Factory</span>
 
@@ -238,13 +246,19 @@
     <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">):</span>
         <span class="n">fvals</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">pop</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
         <span class="n">cvals</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">pop</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;CV&quot;</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">fvals</span><span class="p">)</span>
+        <span class="n">n_obj</span> <span class="o">=</span> <span class="n">fvals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">n_con</span> <span class="o">=</span> <span class="n">cvals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">fvals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fvals</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_obj</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvals</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_con</span><span class="p">)]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">],</span> <span class="n">fvals</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">],</span> <span class="n">cvals</span><span class="p">[</span><span class="n">i</span><span class="p">])</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;f_best&quot;</span><span class="p">],</span> <span class="n">fvals</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_obj</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cv_best&quot;</span><span class="p">],</span> <span class="n">cvals</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_con</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+            <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Optimizer_pymoo"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo.html#iwopy.interfaces.pymoo.optimizer.Optimizer_pymoo">[docs]</a><span class="k">class</span> <span class="nc">Optimizer_pymoo</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
@@ -272,7 +286,7 @@
 <span class="sd">        Parameters for the calculation setup</span>
 <span class="sd">    term_pars : dict</span>
 <span class="sd">        Parameters for the termination conditions</span>
-<span class="sd">    pymoo_problem : iwopy.interfaces.pymoo.Pymoo_problem</span>
+<span class="sd">    pymoo_problem : iwopy.interfaces.pymoo.SingleObjProblem</span>
 <span class="sd">        The pygmo problem</span>
 <span class="sd">    algo : pygmo.algo</span>
 <span class="sd">        The pygmo algorithm</span>
@@ -337,7 +351,10 @@
 <span class="sd">            The verbosity level, 0 = silent</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span> <span class="o">=</span> <span class="n">Pymoo_problem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">problem_pars</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span> <span class="o">=</span> <span class="n">SingleObjProblem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">problem_pars</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span> <span class="o">=</span> <span class="n">MultiObjProblem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">problem_pars</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
@@ -361,7 +378,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        results: iwopy.OptResults</span>
+<span class="sd">        results: iwopy.SingleObjOptResults or iwopy.MultiObjOptResults</span>
 <span class="sd">            The optimization results object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
