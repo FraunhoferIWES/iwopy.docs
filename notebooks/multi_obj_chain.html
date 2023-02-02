@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multi objective geometric chain &mdash; iwopy 0.1.3
+  <title>Multi objective geometric chain &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -26,7 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wind farm layout optimization" href="../wind_farm_layout.html" />
+    <link rel="next" title="Mixed problems" href="mixed.html" />
     <link rel="prev" title="Electrostatic potential minimization" href="electrostatics.html" /> 
 </head>
 
@@ -38,7 +37,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -67,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -201,6 +201,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -509,9 +510,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Multi-objective-geometric-chain">
-<h1>Multi objective geometric chain<a class="headerlink" href="#Multi-objective-geometric-chain" title="Permalink to this heading"></a>
-</h1>
+<div class="section" id="Multi-objective-geometric-chain">
+<h1>Multi objective geometric chain<a class="headerlink" href="#Multi-objective-geometric-chain" title="Permalink to this heading"></a></h1>
 <p>Here we demonstrate how to solve a simple multi-objective problem via <code class="docutils literal notranslate"><span class="pre">pymoo</span></code>’s <a class="reference external" href="https://pymoo.org/algorithms/moo/nsga2.html">NSGA2</a> algorithm within the <code class="docutils literal notranslate"><span class="pre">iwopy</span></code> framework.</p>
 <p>The problem that we want to attack here is based on a chain of geometrically touching circles in two dimensions, for example representing a chain of marbles on a string. The marbles may have different radii, and each of them is allowed to touch two neighbours (except the outermost marbles, which have only one neighbour).</p>
 <p>Our two objectives for this chain of blobs are:</p>
@@ -522,226 +522,214 @@ div.rendered_html tbody tr:hover {
 <p>Obviously these objectives are contradictory, and hence we can expect a nice and clean Pareto front when looking at solutions.</p>
 <p>Here are the required imports:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>import numpy as np
-import matplotlib.pyplot as plt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-from iwopy import Problem, Constraint, Objective
-from iwopy.interfaces.pymoo import Optimizer_pymoo
+<span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">Constraint</span><span class="p">,</span> <span class="n">Objective</span>
+<span class="kn">from</span> <span class="nn">iwopy.interfaces.pymoo</span> <span class="kn">import</span> <span class="n">Optimizer_pymoo</span>
 </pre></div>
 </div>
 </div>
 <p>First, we create a class that describes our chain of blobs. Actually, since we are planning to use <code class="docutils literal notranslate"><span class="pre">iwopy</span></code>’s fast vectorization capabilities, we directly implement a <em>population</em> of chains. This means that each object of the class represents not one but <code class="docutils literal notranslate"><span class="pre">n_pop</span></code> chains, each containing <code class="docutils literal notranslate"><span class="pre">N</span></code> blobs. Note that the <em>individuals</em> of a <em>population</em> are completely independent of one another.</p>
 <p>The geometry of a chain is descibed by <code class="docutils literal notranslate"><span class="pre">N-1</span></code> angles in degrees, giving the direction from one blob centre to the next. When combined with the information of the radii of the blobs and the location of the first blob in the chain, these angles fully determine the location of each blob. They will later serve as the optimization variables of the problem:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>class ChainPopulation:
-    """ A polulation of chains with N blobs """
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ChainPopulation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A polulation of chains with N blobs &quot;&quot;&quot;</span>
 
-    def __init__(self, n_pop, N, radii=1., xy0=0., alpha=0.):
-        self.N = N
-        self.n_pop = n_pop
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_pop</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">radii</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">xy0</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_pop</span> <span class="o">=</span> <span class="n">n_pop</span>
 
-        self.radii = np.zeros(N)
-        self.radii[:] = radii
+        <span class="bp">self</span><span class="o">.</span><span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radii</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">radii</span>
 
-        self.xy = np.zeros((n_pop, N, 2))
-        self.xy[:, 0] = xy0
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">xy0</span>
 
-        self.alpha = np.zeros((n_pop, N-1))
-        self.dists = np.zeros((n_pop, N, N))
-        self.set_alpha(alpha)
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
 
-    def set_alpha(self, alpha):
-        """ Set new alpha values and update data """
-        self.alpha[:] = alpha
-        arad = self.alpha*np.pi/180.
-        uv = np.stack([np.cos(arad), np.sin(arad)], axis=-1)
-        for i in range(1, self.N):
-            self.xy[:, i] = self.xy[:, i-1] + uv[:, i-1] * (
-                                self.radii[i-1] + self.radii[i])
+    <span class="k">def</span> <span class="nf">set_alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Set new alpha values and update data &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="n">arad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span>
+        <span class="n">uv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">arad</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arad</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">uv</span><span class="p">[:,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
-        for i in range(self.N):
-            d = self.xy - self.xy[:, i, None]
-            self.dists[:, i] = np.linalg.norm(d, axis=-1)
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xy</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dists</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
-    def get_fig(self, i=0, ax=None, title=None):
-        """ Visualize the chain for a selected individual """
-        if ax is None:
-            fig, ax = plt.subplots()
-        else:
-            fig = ax.get_figure()
-        xy = self.xy[i]
-        for pi, pxy in enumerate(xy):
-            ax.add_patch(plt.Circle(pxy, self.radii[pi], color='orange'))
-        rmax = np.max(self.radii)
-        xy_imin = np.argmin(xy, axis=0)
-        xy_imax = np.argmax(xy, axis=0)
-        xy_min = xy[xy_imin, range(2)] - rmax
-        xy_max = xy[xy_imax, range(2)] + rmax
-        xy_del = xy_max - xy_min
-        ax.set_xlim((xy_min[0] - 0.1*xy_del[0], xy_max[0] + 0.1*xy_del[0]))
-        ax.set_ylim((xy_min[1] - 0.1*xy_del[1], xy_max[1] + 0.1*xy_del[1]))
-        ax.set_aspect("equal", adjustable="box")
-        ax.set_xlabel("x")
-        ax.set_ylabel("y")
-        ax.set_title(f"N = {self.N}" if title is None else title)
-        return fig
+    <span class="k">def</span> <span class="nf">get_fig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Visualize the chain for a selected individual &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+        <span class="n">xy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">pi</span><span class="p">,</span> <span class="n">pxy</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">pxy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="n">pi</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">))</span>
+        <span class="n">rmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">radii</span><span class="p">)</span>
+        <span class="n">xy_imin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">xy_imax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">xy_min</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">xy_imin</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span> <span class="o">-</span> <span class="n">rmax</span>
+        <span class="n">xy_max</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">xy_imax</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span> <span class="o">+</span> <span class="n">rmax</span>
+        <span class="n">xy_del</span> <span class="o">=</span> <span class="n">xy_max</span> <span class="o">-</span> <span class="n">xy_min</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">xy_min</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">xy_del</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy_max</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">xy_del</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">xy_min</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">xy_del</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xy_max</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">xy_del</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;N = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">title</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <p>Note the <code class="docutils literal notranslate"><span class="pre">get_fig</span></code> function which was added for results plotting in the end.</p>
 <p>Next, we define an optimization problem whose optimization variables are the angles of the chain of blobs. Our intention is the evaluation in vectorized form, as mitigated by the <code class="docutils literal notranslate"><span class="pre">apply_population</span></code> function. Here this simply updates the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> values of the chain to those given by the optimizer:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>class ChainProblem(Problem):
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ChainProblem</span><span class="p">(</span><span class="n">Problem</span><span class="p">):</span>
 
-    def __init__(self, chain):
-        super().__init__(name="chain_problem")
-        self.chain = chain
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;chain_problem&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain</span> <span class="o">=</span> <span class="n">chain</span>
 
-    def var_names_float(self):
-        """ The variable names """
-        return [f"alpha_{i:04}" for i in range(self.chain.N - 1)]
+    <span class="k">def</span> <span class="nf">var_names_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The variable names &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;alpha_</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
 
-    def initial_values_float(self):
-        """ The initial variable values """
-        return self.chain.alpha[:-1]
+    <span class="k">def</span> <span class="nf">initial_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The initial variable values &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">alpha</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-    def min_values_float(self):
-        """ The minimal variable values: 0 degrees """
-        return np.full(self.chain.N - 1, 0.)
+    <span class="k">def</span> <span class="nf">min_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The minimal variable values: 0 degrees &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
 
-    def max_values_float(self):
-        """ The maximal variable values: 360 degrees """
-        return np.full(self.chain.N - 1, 360.)
+    <span class="k">def</span> <span class="nf">max_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The maximal variable values: 360 degrees &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">360.</span><span class="p">)</span>
 
-    def apply_individual(self, vars_int, vars_float):
-        """ Apply new variables from the optimizer """
-        self.chain.set_alpha(vars_float[None, :])
+    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Apply new variables from the optimizer &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">vars_float</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
 
-    def apply_population(self, vars_int, vars_float):
-        """ Apply new variables from the optimizer """
-        self.chain.set_alpha(vars_float)
+    <span class="k">def</span> <span class="nf">apply_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Apply new variables from the optimizer &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">vars_float</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>We want to avoid that the chain is crossing, or that any of the blobs that are not neighbours crash into each other. Let’s introduce a constraint that prevent such solutions:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>class NoCrossing(Constraint):
-    """ The chain blobs are not allowed to cross """
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NoCrossing</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The chain blobs are not allowed to cross &quot;&quot;&quot;</span>
 
-    def __init__(self, problem, tol=1e-3):
-        super().__init__(
-            problem, "nocross", vnames_float=problem.var_names_float(), tol=tol
-        )
-        self.chain = problem.chain
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">problem</span><span class="p">,</span> <span class="s2">&quot;nocross&quot;</span><span class="p">,</span> <span class="n">vnames_float</span><span class="o">=</span><span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">(),</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">chain</span>
 
-    def n_components(self):
-        """ Each blob touches two neighbours only """
-        N = self.chain.N
-        return int((N**2 - N - 2*(N - 1))/2)
+    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Each blob touches two neighbours only &quot;&quot;&quot;</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">N</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 
-    def calc_individual(self, vars_int, vars_float, problem_results, cmpnts=None):
-        """ Positive values for too nearby 3rd and higher neighbours """
-        rmin = np.min(self.chain.radii)
-        values = np.zeros(self.n_components())
-        i0 = 0
-        for i in range(self.chain.N - 2):
-            i1 = i0 + self.chain.N - 2 - i
-            meet = self.chain.dists[0, i, i+2:] - self.chain.radii[i] - self.chain.radii[i+2:]
-            values[i0:i1] = 0.1 * rmin - meet
-            i0 = i1
+    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">cmpnts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Positive values for too nearby 3rd and higher neighbours &quot;&quot;&quot;</span>
+        <span class="n">rmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">())</span>
+        <span class="n">i0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">i</span>
+            <span class="n">meet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">dists</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">:]</span>
+            <span class="n">values</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">rmin</span> <span class="o">-</span> <span class="n">meet</span>
+            <span class="n">i0</span> <span class="o">=</span> <span class="n">i1</span>
 
-        return values
+        <span class="k">return</span> <span class="n">values</span>
 
-    def calc_population(self, vars_int, vars_float, problem_results, cmpnts=None):
-        """ Positive values for too nearby 3rd and higher neighbours """
-        rmin = np.min(self.chain.radii)
-        values = np.zeros((self.chain.n_pop, self.n_components()))
-        i0 = 0
-        for i in range(self.chain.N - 2):
-            i1 = i0 + self.chain.N - 2 - i
-            meet = self.chain.dists[:, i, i+2:] - self.chain.radii[i] - self.chain.radii[None, i+2:]
-            values[:, i0:i1] = 0.1 * rmin - meet
-            i0 = i1
+    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">cmpnts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Positive values for too nearby 3rd and higher neighbours &quot;&quot;&quot;</span>
+        <span class="n">rmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">()))</span>
+        <span class="n">i0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">i</span>
+            <span class="n">meet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">dists</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">:]</span>
+            <span class="n">values</span><span class="p">[:,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">rmin</span> <span class="o">-</span> <span class="n">meet</span>
+            <span class="n">i0</span> <span class="o">=</span> <span class="n">i1</span>
 
-        return values
+        <span class="k">return</span> <span class="n">values</span>
 </pre></div>
 </div>
 </div>
 <p>For <code class="docutils literal notranslate"><span class="pre">N</span></code> blobs in the chain, this defines <code class="docutils literal notranslate"><span class="pre">(N**2</span> <span class="pre">-</span> <span class="pre">N</span> <span class="pre">-</span> <span class="pre">(N</span> <span class="pre">-</span> <span class="pre">1))/2</span></code> costraint component functions. Imagine a matrix with <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">N</span></code> entries. Since only 3rd neighbours onwards correspond to a constraint, and there is no need to repeat constraints for backward located blobs on the chain, this constraint number represents the upper-diagonal content of that matrix when ignoring the diagonal and also the secondary diagonal.</p>
 <p>The objectives are straight-forward measures of the extension of given directions:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><br><span></span>class MaxStretch(Objective):
-    """ Aim for maximal stretch along a given direction """
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="k">class</span> <span class="nc">MaxStretch</span><span class="p">(</span><span class="n">Objective</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Aim for maximal stretch along a given direction &quot;&quot;&quot;</span>
 
-    def __init__(self, problem, direction=np.array([0., 1.]), name="stretch"):
-        super().__init__(problem, name, vnames_float=problem.var_names_float())
-        self.chain = problem.chain
-        self.direction = direction
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stretch&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">vnames_float</span><span class="o">=</span><span class="n">problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chain</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">chain</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">direction</span>
 
-    def n_components(self):
-        """ There is only one component for this objective """
-        return 1
+    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; There is only one component for this objective &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">1</span>
 
-    def maximize(self):
-        """ The stretch length is to be maximized """
-        return [True]
+    <span class="k">def</span> <span class="nf">maximize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The stretch length is to be maximized &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span>
 
-    def calc_individual(self, vars_int, vars_float, problem_results, cmpnts=None):
-        """ Calculate the stretch length """
-        u = np.einsum('cd,d-&gt;c', self.chain.xy[0], self.direction)
-        return np.max(u + self.chain.radii) - np.min(u + self.chain.radii)
+    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">cmpnts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Calculate the stretch length &quot;&quot;&quot;</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;cd,d-&gt;c&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">)</span>
 
-    def calc_population(self, vars_int, vars_float, problem_results, cmpnts=None):
-        """ Calculate the stretch length """
-        u = np.einsum('pcd,d-&gt;pc', self.chain.xy, self.direction)[:, :, None]
-        return np.max(u + self.chain.radii[None, :, None], axis=1) - np.min(u - self.chain.radii[None, :, None], axis=1)
-<br></pre></div>
+    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">cmpnts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Calculate the stretch length &quot;&quot;&quot;</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;pcd,d-&gt;pc&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">xy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">radii</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<br/></pre></div>
 </div>
 </div>
 <p>This completes our elements for the description of our optimization problem. So let’s create the problem and add objectives and constraints, here for maximal radius <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">10</span></code> blobs per chain:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>r = 5.0
-n = 10
-n_pop = 100
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_pop</span> <span class="o">=</span> <span class="mi">100</span>
 
-radii = np.random.uniform(r/2., r, n)
-chain = ChainPopulation(n_pop, n, radii)
+<span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">ChainPopulation</span><span class="p">(</span><span class="n">n_pop</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">radii</span><span class="p">)</span>
 
-problem = ChainProblem(chain)
-problem.add_constraint(NoCrossing(problem))
-problem.add_objective(MaxStretch(problem, direction=np.array([1.,0.]), name="stretch_x"))
-problem.add_objective(MaxStretch(problem, direction=np.array([0.,1.]), name="stretch_y"))
-problem.initialize()
+<span class="n">problem</span> <span class="o">=</span> <span class="n">ChainProblem</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">NoCrossing</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MaxStretch</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stretch_x&quot;</span><span class="p">))</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MaxStretch</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stretch_y&quot;</span><span class="p">))</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -750,7 +738,7 @@ problem.initialize()
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Problem 'chain_problem' (ChainProblem): Initializing
+Problem &#39;chain_problem&#39; (ChainProblem): Initializing
 ----------------------------------------------------
   n_vars_int   : 0
   n_vars_float : 9
@@ -761,37 +749,34 @@ Problem 'chain_problem' (ChainProblem): Initializing
   n_constraints: 1
   n_con_cmptns : 36
 ----------------------------------------------------
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>Notice that we selected <code class="docutils literal notranslate"><span class="pre">n_pop</span> <span class="pre">=</span> <span class="pre">100</span></code> individuals per population.</p>
 <p>We would like to solve this problem using <code class="docutils literal notranslate"><span class="pre">pymoo</span></code>’s <code class="docutils literal notranslate"><span class="pre">NSGA2</span></code> algorithm. Here we create the corresponding solver object and initialize it:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>solver = Optimizer_pymoo(
-    problem,
-    problem_pars=dict(
-        vectorize=True,
-    ),
-    algo_pars=dict(
-        type="nsga2",
-        pop_size=n_pop,
-        seed=42,
-    ),
-    setup_pars=dict(),
-    term_pars=dict(
-        type="default",
-        n_max_gen=200,
-        ftol=0,
-        xtol=0,
-    ),
-)
-solver.initialize()
-solver.print_info()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pymoo</span><span class="p">(</span>
+    <span class="n">problem</span><span class="p">,</span>
+    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;NSGA2&quot;</span><span class="p">,</span>
+        <span class="n">pop_size</span><span class="o">=</span><span class="n">n_pop</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">setup_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
+    <span class="n">term_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+        <span class="n">n_max_gen</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="n">ftol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">xtol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -802,7 +787,7 @@ solver.print_info()
 <div class="highlight"><pre>
 Initializing Optimizer_pymoo
 Selecting sampling: float_random (FloatRandomSampling)
-Selecting algorithm: nsga2 (NSGA2)
+Selecting algorithm: NSGA2 (NSGA2)
 Selecting termination: default (DefaultMultiObjectiveTermination)
 
 Problem:
@@ -811,7 +796,7 @@ Problem:
 
 Algorithm:
 ----------
-  type: nsga2
+  type: NSGA2
   pop_size: 100
   seed: 42
 
@@ -821,18 +806,15 @@ Termination:
   ftol: 0
   xtol: 0
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>Notice that we selected <code class="docutils literal notranslate"><span class="pre">n_max_gen</span> <span class="pre">=</span> <span class="pre">200</span></code> generations in this setup. We are now ready to go! Let’s run the solver:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>results = solver.solve(verbosity=0)
-solver.finalize(results)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -845,20 +827,17 @@ solver.finalize(results)
 
 Optimizer_pymoo: Optimization run finished
   Success: 100.00 %
-  Best stretch_x = 69.60010711732801
-  Best stretch_y = 69.56779006082309
-</pre></div>
-</div>
+  Best stretch_x = 77.49262822001863
+  Best stretch_y = 77.47438610279563
+</pre></div></div>
 </div>
 <p>All solution data is now contained in the <code class="docutils literal notranslate"><span class="pre">results</span></code> object. We can ask it to create a Pareto front plot:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>ax = results.plot_pareto()
-plt.show()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">plot_pareto</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -866,21 +845,19 @@ plt.show()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_multi_obj_chain_18_0.png" src="../_images/notebooks_multi_obj_chain_18_0.png">
+<img alt="../_images/notebooks_multi_obj_chain_18_0.png" src="../_images/notebooks_multi_obj_chain_18_0.png" />
 </div>
 </div>
 <p>One of the nice things about <code class="docutils literal notranslate"><span class="pre">NSGA2</span></code> is that it produces a well covered Pareto front in the final population. We can have a look at individuals, picking them according to weights of the objectives:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>for w in [[1, 0], [0.5, 0.5], [0, 1]]:
-    i = results.find_pareto_objmix(w, max=True)
-    fig = chain.get_fig(i, title=f"Weights stretch x, y: {w}")
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">find_pareto_objmix</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">get_fig</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Weights stretch x, y: </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    plt.show()
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -888,42 +865,39 @@ plt.show()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_multi_obj_chain_20_0.png" src="../_images/notebooks_multi_obj_chain_20_0.png">
+<img alt="../_images/notebooks_multi_obj_chain_20_0.png" src="../_images/notebooks_multi_obj_chain_20_0.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_multi_obj_chain_20_1.png" src="../_images/notebooks_multi_obj_chain_20_1.png">
+<img alt="../_images/notebooks_multi_obj_chain_20_1.png" src="../_images/notebooks_multi_obj_chain_20_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_multi_obj_chain_20_2.png" src="../_images/notebooks_multi_obj_chain_20_2.png">
+<img alt="../_images/notebooks_multi_obj_chain_20_2.png" src="../_images/notebooks_multi_obj_chain_20_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
-</section>
-
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="electrostatics.html" class="btn btn-neutral float-left" title="Electrostatic potential minimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../wind_farm_layout.html" class="btn btn-neutral float-right" title="Wind farm layout optimization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mixed.html" class="btn btn-neutral float-right" title="Mixed problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

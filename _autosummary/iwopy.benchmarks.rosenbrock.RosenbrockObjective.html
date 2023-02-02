@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.benchmarks.rosenbrock.RosenbrockObjective &mdash; iwopy 0.1.3
+  <title>iwopy.benchmarks.rosenbrock.RosenbrockObjective &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -36,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -65,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -199,6 +199,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -254,15 +255,12 @@
     text-align: unset;
 }
 </style>
-<section id="iwopy-benchmarks-rosenbrock-rosenbrockobjective">
-<h1>iwopy.benchmarks.rosenbrock.RosenbrockObjective<a class="headerlink" href="#iwopy-benchmarks-rosenbrock-rosenbrockobjective" title="Permalink to this heading"></a>
-</h1>
+<div class="section" id="iwopy-benchmarks-rosenbrock-rosenbrockobjective">
+<h1>iwopy.benchmarks.rosenbrock.RosenbrockObjective<a class="headerlink" href="#iwopy-benchmarks-rosenbrock-rosenbrockobjective" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.benchmarks.rosenbrock.</span></span><span class="sig-name descname"><span class="pre">RosenbrockObjective</span></span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Bases: <a class="reference internal" href="iwopy.wrappers.simple_objective.SimpleObjective.html#iwopy.wrappers.simple_objective.SimpleObjective" title="iwopy.wrappers.simple_objective.SimpleObjective"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleObjective</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.benchmarks.rosenbrock.</span></span><span class="sig-name descname"><span class="pre">RosenbrockObjective</span></span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="iwopy.wrappers.simple_objective.SimpleObjective.html#iwopy.wrappers.simple_objective.SimpleObjective" title="iwopy.wrappers.simple_objective.SimpleObjective"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleObjective</span></code></a></p>
 <p>The Rosenbrock function is defined as</p>
 <p>f(x,y) = (a-x)^2 + b(y-x^2)^2</p>
 <p>Recommended values for the parameters are:
@@ -277,8 +275,7 @@ y = [-inf, inf]</p>
 <p>f(x,y) = 0</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>problem</strong> (<em>iwopy.Problem</em>) – The underlying optimization problem</p></li>
 <li><p><strong>pars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><em>tuple</em></a>) – The a, b parameters</p></li>
 <li><p><strong>ana_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Switch for analytical derivatives</p></li>
@@ -288,80 +285,62 @@ y = [-inf, inf]</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">100.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.__init__" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">100.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(problem[, pars, ana_deriv, name])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(problem[, pars, ana_deriv, name])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ana_deriv</span></code></a>(vars_int, vars_float, var[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ana_deriv</span></code></a>(vars_int, vars_float, var[, ...])</p></td>
 <td><p>Calculates the analytic derivative, if possible.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_individual</span></code></a>(vars_int, vars_float, ...[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_individual</span></code></a>(vars_int, vars_float, ...[, ...])</p></td>
 <td><p>Calculate values for a single individual of the underlying problem.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_population</span></code></a>(vars_int, vars_float, ...[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_population</span></code></a>(vars_int, vars_float, ...[, ...])</p></td>
 <td><p>Calculate values for all individuals of a population.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.f" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.f"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code></a>(x, y)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.f" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.f"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code></a>(x, y)</p></td>
 <td><p>The Rosenbrock function f(x, y)</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>([verbosity])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>([verbosity])</p></td>
 <td><p>Finalize the object.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_individual</span></code></a>(vars_int, vars_float, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_individual</span></code></a>(vars_int, vars_float, ...)</p></td>
 <td><p>Finalization, given the champion data.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_population</span></code></a>(vars_int, vars_float, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_population</span></code></a>(vars_int, vars_float, ...)</p></td>
 <td><p>Finalization, given the final population data.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.g" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.g"><code class="xref py py-obj docutils literal notranslate"><span class="pre">g</span></code></a>(var, x, y[, components])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.g" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.g"><code class="xref py py-obj docutils literal notranslate"><span class="pre">g</span></code></a>(var, x, y[, components])</p></td>
 <td><p>The derivative of the Rosenbrock function</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([verbosity])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([verbosity])</p></td>
 <td><p>Initialize the object.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maximize</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maximize</span></code></a>()</p></td>
 <td><p>Returns flag for maximization of each component.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_components</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_components</span></code></a>()</p></td>
 <td><p>Returns the number of components of the function.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_vars_float</span></code></a>(varmap)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_vars_float</span></code></a>(varmap)</p></td>
 <td><p>Rename float variables.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_vars_int</span></code></a>(varmap)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_vars_int</span></code></a>(varmap)</p></td>
 <td><p>Rename integer variables.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vardeps_float</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vardeps_float</span></code></a>()</p></td>
 <td><p>Gets the dependencies of all components on the function float variables</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vardeps_int</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vardeps_int</span></code></a>()</p></td>
 <td><p>Gets the dependencies of all components on the function int variables</p></td>
 </tr>
 </tbody>
@@ -369,58 +348,46 @@ y = [-inf, inf]</p>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">component_names</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">component_names</span></code></a></p></td>
 <td><p>The names of the components</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_ana_derivs</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_ana_derivs</span></code></a></p></td>
 <td><p>Returns analyical derivatives flag</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialized</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialized</span></code></a></p></td>
 <td><p>Flag for finished initialization</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_float</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_float</span></code></a></p></td>
 <td><p>The number of float variables</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_int</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_int</span></code></a></p></td>
 <td><p>The number of int variables</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_float</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_float</span></code></a></p></td>
 <td><p>The names of the float variables</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_int</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int" title="iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_int</span></code></a></p></td>
 <td><p>The names of the integer variables</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">100.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">100.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv">
-<span class="sig-name descname"><span class="pre">ana_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Calculates the analytic derivative, if possible.</p>
+<span class="sig-name descname"><span class="pre">ana_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.ana_deriv" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the analytic derivative, if possible.</p>
 <p>Use <cite>numpy.nan</cite> if analytic derivatives cannot be calculated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The index of the differentiation float variable</p></li>
@@ -428,28 +395,22 @@ y = [-inf, inf]</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>deriv</strong> – The derivative values, shape: (n_sel_components,)</p>
+<dd class="field-even"><p><strong>deriv</strong> – The derivative values, shape: (n_sel_components,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual">
-<span class="sig-name descname"><span class="pre">calc_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Calculate values for a single individual of the
+<span class="sig-name descname"><span class="pre">calc_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate values for a single individual of the
 underlying problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
@@ -458,27 +419,21 @@ to the problem</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>values</strong> – The component values, shape: (n_sel_components,)</p>
+<dd class="field-even"><p><strong>values</strong> – The component values, shape: (n_sel_components,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>np.array</p>
+<dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population">
-<span class="sig-name descname"><span class="pre">calc_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Calculate values for all individuals of a population.</p>
+<span class="sig-name descname"><span class="pre">calc_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.calc_population" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate values for all individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
@@ -487,70 +442,52 @@ to the problem</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>values</strong> – The component values, shape: (n_pop, n_sel_components,)</p>
+<dd class="field-even"><p><strong>values</strong> – The component values, shape: (n_pop, n_sel_components,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>np.array</p>
+<dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">component_names</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The names of the components</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">component_names</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.component_names" title="Permalink to this definition"></a></dt>
+<dd><p>The names of the components</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>names</strong> – The component names</p>
+<dd class="field-odd"><p><strong>names</strong> – The component names</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.f">
-<span class="sig-name descname"><span class="pre">f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.f"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.f" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The Rosenbrock function f(x, y)</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.f"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.f" title="Permalink to this definition"></a></dt>
+<dd><p>The Rosenbrock function f(x, y)</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize">
-<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Finalize the object.</p>
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize" title="Permalink to this definition"></a></dt>
+<dd><p>Finalize the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual">
-<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Finalization, given the champion data.</p>
+<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Finalization, given the champion data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The optimal integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
@@ -559,27 +496,21 @@ to the problem</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>values</strong> – The component values, shape: (n_components,)</p>
+<dd class="field-even"><p><strong>values</strong> – The component values, shape: (n_components,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>np.array</p>
+<dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population">
-<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Finalization, given the final population data.</p>
+<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.finalize_population" title="Permalink to this definition"></a></dt>
+<dd><p>Finalization, given the final population data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values of the final
 generation, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values of the final
@@ -590,274 +521,204 @@ to the problem</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>values</strong> – The component values, shape: (n_pop, n_components)</p>
+<dd class="field-even"><p><strong>values</strong> – The component values, shape: (n_pop, n_components)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>np.array</p>
+<dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.g">
-<span class="sig-name descname"><span class="pre">g</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.g"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.g" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The derivative of the Rosenbrock function</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">g</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/rosenbrock.html#RosenbrockObjective.g"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.g" title="Permalink to this definition"></a></dt>
+<dd><p>The derivative of the Rosenbrock function</p>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_ana_derivs</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Returns analyical derivatives flag</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_ana_derivs</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.has_ana_derivs" title="Permalink to this definition"></a></dt>
+<dd><p>Returns analyical derivatives flag</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p>Analitical derivatives flag</p>
+<dd class="field-odd"><p>Analitical derivatives flag</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Initialize the object.</p>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialize" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Flag for finished initialization</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.initialized" title="Permalink to this definition"></a></dt>
+<dd><p>Flag for finished initialization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p>True if initialization has been done</p>
+<dd class="field-odd"><p>True if initialization has been done</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize">
-<span class="sig-name descname"><span class="pre">maximize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Returns flag for maximization of each component.</p>
+<span class="sig-name descname"><span class="pre">maximize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.maximize" title="Permalink to this definition"></a></dt>
+<dd><p>Returns flag for maximization of each component.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>flags</strong> – Bool array for component maximization,
+<dd class="field-odd"><p><strong>flags</strong> – Bool array for component maximization,
 shape: (n_components,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p>np.array</p>
+<dd class="field-even"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components">
-<span class="sig-name descname"><span class="pre">n_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Returns the number of components of the
+<span class="sig-name descname"><span class="pre">n_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_components" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the number of components of the
 function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p>The number of components.</p>
+<dd class="field-odd"><p>The number of components.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The number of float variables</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_float" title="Permalink to this definition"></a></dt>
+<dd><p>The number of float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>n</strong> – The number of float variables</p>
+<dd class="field-odd"><p><strong>n</strong> – The number of float variables</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The number of int variables</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.n_vars_int" title="Permalink to this definition"></a></dt>
+<dd><p>The number of int variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>n</strong> – The number of int variables</p>
+<dd class="field-odd"><p><strong>n</strong> – The number of int variables</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float">
-<span class="sig-name descname"><span class="pre">rename_vars_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Rename float variables.</p>
+<span class="sig-name descname"><span class="pre">rename_vars_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_float" title="Permalink to this definition"></a></dt>
+<dd><p>Rename float variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
+<dd class="field-odd"><p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
 Value: new name str</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int">
-<span class="sig-name descname"><span class="pre">rename_vars_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Rename integer variables.</p>
+<span class="sig-name descname"><span class="pre">rename_vars_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.rename_vars_int" title="Permalink to this definition"></a></dt>
+<dd><p>Rename integer variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
+<dd class="field-odd"><p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
 Value: new name str</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_float</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The names of the float variables</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_float</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_float" title="Permalink to this definition"></a></dt>
+<dd><p>The names of the float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>names</strong> – The float variable names</p>
+<dd class="field-odd"><p><strong>names</strong> – The float variable names</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_int</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The names of the integer variables</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_int</span></span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.var_names_int" title="Permalink to this definition"></a></dt>
+<dd><p>The names of the integer variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>names</strong> – The integer variable names</p>
+<dd class="field-odd"><p><strong>names</strong> – The integer variable names</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float">
-<span class="sig-name descname"><span class="pre">vardeps_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Gets the dependencies of all components
+<span class="sig-name descname"><span class="pre">vardeps_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_float" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the dependencies of all components
 on the function float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>deps</strong> – The dependencies of components on function
+<dd class="field-odd"><p><strong>deps</strong> – The dependencies of components on function
 variables, shape: (n_components, n_vars_float)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int">
-<span class="sig-name descname"><span class="pre">vardeps_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Gets the dependencies of all components
+<span class="sig-name descname"><span class="pre">vardeps_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.rosenbrock.RosenbrockObjective.vardeps_int" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the dependencies of all components
 on the function int variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>deps</strong> – The dependencies of components on function
+<dd class="field-odd"><p><strong>deps</strong> – The dependencies of components on function
 variables, shape: (n_components, n_vars_int)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
-</dd>
-</dl>
+</dd></dl>
 
-</section>
-
+</div>
 
 
            </div>

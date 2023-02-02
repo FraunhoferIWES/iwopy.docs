@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.1.3
+  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -233,7 +234,7 @@
 
 
 <div class="viewcode-block" id="DiscretizeRegGrid"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid">[docs]</a><span class="k">class</span> <span class="nc">DiscretizeRegGrid</span><span class="p">(</span><span class="n">LocalFD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A wrapper that provides finite distance</span>
 <span class="sd">    differentiation on a regular grid for</span>
 <span class="sd">    selected or all problem float variables.</span>
@@ -294,7 +295,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_dpars</span> <span class="o">=</span> <span class="n">dpars</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.initialize"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the problem.</span>
 
 <span class="sd">        Parameters</span>
@@ -356,14 +357,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_msize</span><span class="p">,</span> <span class="n">keyf</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_grad_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">gvars</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderb</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function that provides gradient coeffs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">grad_coeffs</span><span class="p">(</span><span class="n">varsf</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="n">gvars</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderb</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.apply_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.apply_individual">[docs]</a>    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply new variables to the problem.</span>
 
 <span class="sd">        Parameters</span>
@@ -388,7 +389,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.apply_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.apply_population">[docs]</a>    <span class="k">def</span> <span class="nf">apply_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply new variables to the problem,</span>
 <span class="sd">        for a whole population.</span>
 
@@ -414,7 +415,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.evaluate_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.evaluate_individual">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Evaluate a single individual of the problem.</span>
 
 <span class="sd">        Parameters</span>
@@ -453,7 +454,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.evaluate_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.evaluate_population">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Evaluate all individuals of a population.</span>
 
 <span class="sd">        Parameters</span>
@@ -541,7 +542,7 @@
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.finalize_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.finalize_individual">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalization, given the champion data.</span>
 
 <span class="sd">        Parameters</span>
@@ -569,7 +570,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">finalize_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.finalize_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.finalize_population">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalization, given the final population data.</span>
 
 <span class="sd">        Parameters</span>

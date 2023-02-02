@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.utils.discretization &mdash; iwopy 0.1.3
+  <title>iwopy.utils.discretization &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -230,7 +231,7 @@
 
 
 <div class="viewcode-block" id="RegularDiscretizationGrid"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid">[docs]</a><span class="k">class</span> <span class="nc">RegularDiscretizationGrid</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A lightweight regular grid in n dimensions,</span>
 <span class="sd">    without points storage.</span>
 
@@ -297,7 +298,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">n_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The number of points in each dimension</span>
 
 <span class="sd">        Returns</span>
@@ -313,7 +314,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">n_dims</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The number of dimensions</span>
 
 <span class="sd">        Returns</span>
@@ -326,7 +327,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">p_min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The minimal grid point values</span>
 
 <span class="sd">        Returns</span>
@@ -342,7 +343,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">p_max</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The maximal grid point values</span>
 
 <span class="sd">        Returns</span>
@@ -357,7 +358,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.print_info"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.print_info">[docs]</a>    <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spaces</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Prints basic information</span>
 
 <span class="sd">        Parameters</span>
@@ -375,7 +376,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">p_max   :&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_error_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">for_ocell</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper for printing information at interpolation error</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GDIM:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_points</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
@@ -392,7 +393,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P   :&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_error_infos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">for_ocell</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper for printing information at interpolation error</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GDIM:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_points</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
@@ -435,7 +436,7 @@
                 <span class="p">)</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.is_gridi"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.is_gridi">[docs]</a>    <span class="k">def</span> <span class="nf">is_gridi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if grid indices are valid</span>
 
 <span class="sd">        Parameters</span>
@@ -454,7 +455,7 @@
         <span class="k">return</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.i2gp"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.i2gp">[docs]</a>    <span class="k">def</span> <span class="nf">i2gp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Translates grid point indices to grid point.</span>
 
 <span class="sd">        Parameters</span>
@@ -479,7 +480,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.find_grid_inds"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.find_grid_inds">[docs]</a>    <span class="k">def</span> <span class="nf">find_grid_inds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finds indices that are on grid</span>
 
 <span class="sd">        Parameters</span>
@@ -500,7 +501,7 @@
         <span class="k">return</span> <span class="o">~</span><span class="n">sel</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.inds2gpts"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.inds2gpts">[docs]</a>    <span class="k">def</span> <span class="nf">inds2gpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Translates grid point indices to grid points.</span>
 
 <span class="sd">        Parameters</span>
@@ -527,7 +528,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_gp2i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gp</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lower_left</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function for indices calculation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">lower_left</span><span class="p">:</span>
@@ -545,7 +546,7 @@
         <span class="k">return</span> <span class="n">inds</span>
 
     <span class="k">def</span> <span class="nf">_gpts2inds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lower_left</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function for index calculation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
@@ -564,7 +565,7 @@
         <span class="k">return</span> <span class="n">inds</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.apply_tol"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.apply_tol">[docs]</a>    <span class="k">def</span> <span class="nf">apply_tol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get tolerance corrected point</span>
 
 <span class="sd">        Parameters</span>
@@ -594,7 +595,7 @@
         <span class="k">return</span> <span class="n">p</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.apply_tols"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.apply_tols">[docs]</a>    <span class="k">def</span> <span class="nf">apply_tols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get tolerance corrected points</span>
 
 <span class="sd">        Parameters</span>
@@ -630,7 +631,7 @@
         <span class="k">return</span> <span class="n">pts</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.is_gridpoint"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.is_gridpoint">[docs]</a>    <span class="k">def</span> <span class="nf">is_gridpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ret_inds</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if a point is on grid.</span>
 
 <span class="sd">        Parameters</span>
@@ -665,7 +666,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">p0</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.find_gridpoints"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.find_gridpoints">[docs]</a>    <span class="k">def</span> <span class="nf">find_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ret_inds</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finds points that are on grid.</span>
 
 <span class="sd">        Parameters</span>
@@ -704,7 +705,7 @@
         <span class="k">return</span> <span class="n">sel</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.all_gridpoints"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.all_gridpoints">[docs]</a>    <span class="k">def</span> <span class="nf">all_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if all points are on grid.</span>
 
 <span class="sd">        Parameters</span>
@@ -725,7 +726,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">selg</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.in_grid"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.in_grid">[docs]</a>    <span class="k">def</span> <span class="nf">in_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if a point is located within the grid.</span>
 
 <span class="sd">        Parameters</span>
@@ -743,7 +744,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">((</span><span class="n">p</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_min</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.find_ingrid"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.find_ingrid">[docs]</a>    <span class="k">def</span> <span class="nf">find_ingrid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finds points that are on grid.</span>
 
 <span class="sd">        Parameters</span>
@@ -762,7 +763,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">pts</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_min</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pts</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.gp2i"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.gp2i">[docs]</a>    <span class="k">def</span> <span class="nf">gp2i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gp</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get grid index of a grid point</span>
 
 <span class="sd">        Parameters</span>
@@ -799,7 +800,7 @@
         <span class="k">return</span> <span class="n">inds</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.gpts2inds"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.gpts2inds">[docs]</a>    <span class="k">def</span> <span class="nf">gpts2inds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get grid indices of grid points.</span>
 
 <span class="sd">        Parameters</span>
@@ -834,7 +835,7 @@
         <span class="k">return</span> <span class="n">inds</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_corner"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_corner">[docs]</a>    <span class="k">def</span> <span class="nf">get_corner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the lower-left grid corner of a point.</span>
 
 <span class="sd">        Parameters</span>
@@ -865,7 +866,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_corners"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_corners">[docs]</a>    <span class="k">def</span> <span class="nf">get_corners</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">allow_outer</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the lower-left grid corners of points.</span>
 
 <span class="sd">        Parameters</span>
@@ -907,7 +908,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">o</span> <span class="o">+</span> <span class="n">inds</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_cell"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_cell">[docs]</a>    <span class="k">def</span> <span class="nf">get_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the grid cell that contains a point.</span>
 
 <span class="sd">        Parameters</span>
@@ -928,7 +929,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.get_cells"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.get_cells">[docs]</a>    <span class="k">def</span> <span class="nf">get_cells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the grid cells that contain the given points,</span>
 <span class="sd">        one cell per point.</span>
 
@@ -951,7 +952,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_get_opts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function that returns unit origin cell points</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -963,7 +964,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opts</span>
 
     <span class="k">def</span> <span class="nf">_interpolate_ocell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qts</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Helper function for interpolation weights in</span>
 <span class="sd">        unit hypercube.</span>
 
@@ -973,16 +974,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="p">(</span>
             <span class="n">qts</span> <span class="o">&gt;=</span> <span class="mf">0.0</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates below 0: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&lt;</span><span class="mf">0.</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates below 0: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&lt;</span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">assert</span> <span class="p">(</span>
             <span class="n">qts</span> <span class="o">&lt;=</span> <span class="mf">1.0</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates above 1: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&gt;</span><span class="mf">1.</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates above 1: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&gt;</span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
 
         <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_opts</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">qts</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">opts</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.interpolation_coeffs_point"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.interpolation_coeffs_point">[docs]</a>    <span class="k">def</span> <span class="nf">interpolation_coeffs_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the interpolation coefficients for</span>
 <span class="sd">        a point.</span>
 
@@ -1047,7 +1048,7 @@
         <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.interpolation_coeffs_points"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.interpolation_coeffs_points">[docs]</a>    <span class="k">def</span> <span class="nf">interpolation_coeffs_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">ret_pmap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the interpolation coefficients for a set of points.</span>
 
 <span class="sd">        Example</span>
@@ -1138,7 +1139,7 @@
         <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.deriv_coeffs_gridpoints"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.deriv_coeffs_gridpoints">[docs]</a>    <span class="k">def</span> <span class="nf">deriv_coeffs_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">orderb</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the derivative coefficients at grid points.</span>
 
 <span class="sd">        Parameters</span>
@@ -1294,7 +1295,7 @@
         <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">deltas</span><span class="p">[</span><span class="n">var</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.deriv_coeffs"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.deriv_coeffs">[docs]</a>    <span class="k">def</span> <span class="nf">deriv_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">orderb</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the derivative coefficients at points.</span>
 
 <span class="sd">        Parameters</span>
@@ -1335,7 +1336,7 @@
         <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.grad_coeffs_gridpoints"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.grad_coeffs_gridpoints">[docs]</a>    <span class="k">def</span> <span class="nf">grad_coeffs_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">orderb</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the gradient coefficients at grid points.</span>
 
 <span class="sd">        Parameters</span>
@@ -1400,7 +1401,7 @@
         <span class="k">return</span> <span class="n">gpts</span><span class="p">,</span> <span class="n">coeffs</span></div>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.grad_coeffs"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.grad_coeffs">[docs]</a>    <span class="k">def</span> <span class="nf">grad_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">orderb</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the gradient coefficients at grid points.</span>
 
 <span class="sd">        Parameters</span>

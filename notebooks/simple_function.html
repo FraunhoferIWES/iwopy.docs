@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple function minimization &mdash; iwopy 0.1.3
+  <title>Simple function minimization &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -38,7 +37,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -67,6 +66,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -201,6 +201,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -509,9 +510,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Simple-function-minimization">
-<h1>Simple function minimization<a class="headerlink" href="#Simple-function-minimization" title="Permalink to this heading"></a>
-</h1>
+<div class="section" id="Simple-function-minimization">
+<h1>Simple function minimization<a class="headerlink" href="#Simple-function-minimization" title="Permalink to this heading"></a></h1>
 <p>Let’s minimize the following simple function:</p>
 <div class="math notranslate nohighlight">
 \[f(x, y) = (x - 3.6)^2 + 2 (y+1.1)^2\]</div>
@@ -524,13 +524,11 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p>The usage of finite difference gradients will be demonstrated directly after. We start by importing the required classes from the <code class="docutils literal notranslate"><span class="pre">iwopy</span></code> package:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>from iwopy import SimpleProblem, SimpleObjective
-from iwopy.interfaces.pygmo import Optimizer_pygmo
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">SimpleProblem</span><span class="p">,</span> <span class="n">SimpleObjective</span>
+<span class="kn">from</span> <span class="nn">iwopy.interfaces.pygmo</span> <span class="kn">import</span> <span class="n">Optimizer_pygmo</span>
 </pre></div>
 </div>
 </div>
@@ -544,17 +542,15 @@ from iwopy.interfaces.pygmo import Optimizer_pygmo
 \right.\end{split}\]</div>
 <p>in a straight forward manner:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>class MinFunc(SimpleObjective):
-    def f(self, x, y):
-        return (x - 3.6) ** 2 + 2 * (y + 1.1) ** 2
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MinFunc</span><span class="p">(</span><span class="n">SimpleObjective</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">3.6</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mf">1.1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
-    def g(self, v, x, y, components):
-        return 2 * (x - 3.6) if v == 0 else 4 * (y + 1.1)
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">3.6</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mf">1.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -562,20 +558,18 @@ from iwopy.interfaces.pygmo import Optimizer_pygmo
 <p>In the case of multi-component functions the parameter <code class="docutils literal notranslate"><span class="pre">n_components</span></code> has to be passed to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function of <code class="docutils literal notranslate"><span class="pre">SimpleObjective</span></code>, and <code class="docutils literal notranslate"><span class="pre">f</span></code> has to return a list of scalars. In that case also <code class="docutils literal notranslate"><span class="pre">g</span></code> has to return a list of results, with same length as the requested <code class="docutils literal notranslate"><span class="pre">components</span></code>. The same rules apply to classes derived from <code class="docutils literal notranslate"><span class="pre">SimpleConstraint</span></code>.</p>
 <p>We can now proceed and setup the problem:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>problem = SimpleProblem(
-    name="minf",
-    float_vars=["x", "y"],
-    init_values_float=[0.0, 0.0],
-    min_values_float=[-5.0, -5.0],
-    max_values_float=[5.0, 5.0],
-)
-problem.add_objective(MinFunc(problem))
-problem.initialize()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">SimpleProblem</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;minf&quot;</span><span class="p">,</span>
+    <span class="n">float_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span>
+    <span class="n">init_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="n">min_values_float</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">],</span>
+    <span class="n">max_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinFunc</span><span class="p">(</span><span class="n">problem</span><span class="p">))</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -584,7 +578,7 @@ problem.initialize()
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Problem 'minf' (SimpleProblem): Initializing
+Problem &#39;minf&#39; (SimpleProblem): Initializing
 --------------------------------------------
   n_vars_int   : 0
   n_vars_float : 2
@@ -595,25 +589,22 @@ Problem 'minf' (SimpleProblem): Initializing
   n_constraints: 0
   n_con_cmptns : 0
 --------------------------------------------
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>Note that in a similar way you can easily add constraints to the problem, by defining them in a class that is derived from <code class="docutils literal notranslate"><span class="pre">iwopy.Constraint</span></code> or <code class="docutils literal notranslate"><span class="pre">iwopy.SimpleConstraint</span></code> and then adding them via <code class="docutils literal notranslate"><span class="pre">problem.add_constraint(...)</span></code>.</p>
 <p>Adding additional objectives works in the same way, simply repeat <code class="docutils literal notranslate"><span class="pre">problem.add_objective(...)</span></code> as often as you want. However, be aware that not all optimizers can handle multiple objective cases.</p>
 <p>Next, we create and initialize the solver:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>solver = Optimizer_pygmo(
-    problem,
-    problem_pars=dict(),
-    algo_pars=dict(type="ipopt", tol=1e-4),
-)
-solver.initialize()
-solver.print_info()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
+    <span class="n">problem</span><span class="p">,</span>
+    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
+    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;ipopt&quot;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -635,18 +626,15 @@ Extra info:
         Individual replacement policy: best
         Numeric options: {tol : 0.0001}
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">tol</span></code> is an <code class="docutils literal notranslate"><span class="pre">IPOPT</span></code> parameter that defines the convergence tolerance. Now we are finally ready - let’s solve the problem!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>results = solver.solve()
-solver.finalize(results)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -659,7 +647,7 @@ solver.finalize(results)
 ******************************************************************************
 This program contains Ipopt, a library for large-scale nonlinear optimization.
  Ipopt is released as open source code under the Eclipse Public License (EPL).
-         For more information visit http://projects.coin-or.org/Ipopt
+         For more information visit https://github.com/coin-or/Ipopt
 ******************************************************************************
 
 
@@ -671,9 +659,6 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
          5        9.23375              0              0
          6        9.23375              0              0
          7        1.60594              0              0
-         8      0.0440281              0              0
-         9     0.00157443              0              0
-        10    1.35988e-06              0              0
 
 Problem name: minf
         C++ class name: pybind11::object
@@ -703,7 +688,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     960333663886521318
+        ID:                     12438814850537371647
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -715,17 +700,17 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.2852212531163044e-12
+         8      0.0440281              0              0
+         9     0.00157443              0              0
+        10    1.35988e-06              0              0
         11    1.28522e-12              0              0
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>print(results)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -734,7 +719,7 @@ Optimizer_pygmo: Optimization run finished
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Results problem 'minf':
+Results problem &#39;minf&#39;:
 ------------------------
   Float variables:
     0: x = 3.599999e+00
@@ -746,8 +731,7 @@ Results problem 'minf':
   Success: True
 ------------------------
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> object is an instance of the class <code class="docutils literal notranslate"><span class="pre">OptResults</span></code>, cf. API. it carries attributes</p>
 <ul class="simple">
@@ -770,40 +754,34 @@ Results problem 'minf':
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">LocalFD</span></code> is usually the faster choice, unless you are expecting a lot of benefits from the memory capabilities of the regular grid. Here is an example how to use it for solving our problem:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>from iwopy import LocalFD
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">LocalFD</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>problem = SimpleProblem(
-    name="minf",
-    float_vars=["x", "y"],
-    init_values_float=[0.0, 0.0],
-    min_values_float=[-5.0, -5.0],
-    max_values_float=[5.0, 5.0],
-)
-problem.add_objective(MinFunc(problem, has_ana_derivs=False))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">SimpleProblem</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;minf&quot;</span><span class="p">,</span>
+    <span class="n">float_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span>
+    <span class="n">init_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="n">min_values_float</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">],</span>
+    <span class="n">max_values_float</span><span class="o">=</span><span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">MinFunc</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">has_ana_derivs</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>gproblem = LocalFD(problem, deltas=1e-4, fd_order=2)
-gproblem.initialize()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gproblem</span> <span class="o">=</span> <span class="n">LocalFD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">deltas</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">fd_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">gproblem</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -812,7 +790,7 @@ gproblem.initialize()
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Problem 'minf' (SimpleProblem): Initializing
+Problem &#39;minf&#39; (SimpleProblem): Initializing
 --------------------------------------------
   n_vars_int   : 0
   n_vars_float : 2
@@ -823,7 +801,7 @@ Problem 'minf' (SimpleProblem): Initializing
   n_constraints: 0
   n_con_cmptns : 0
 --------------------------------------------
-Problem 'minf_fd' (LocalFD): Initializing
+Problem &#39;minf_fd&#39; (LocalFD): Initializing
 -----------------------------------------
   n_vars_int   : 0
   n_vars_float : 2
@@ -834,25 +812,22 @@ Problem 'minf_fd' (LocalFD): Initializing
   n_constraints: 0
   n_con_cmptns : 0
 -----------------------------------------
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">gproblem</span></code> object now corresponds to original <code class="docutils literal notranslate"><span class="pre">problem</span></code> with finite difference gradients of order 2. We can use the same gradient based solver as above for solving this problem:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>solver = Optimizer_pygmo(
-    gproblem,
-    problem_pars=dict(),
-    algo_pars=dict(type="ipopt", tol=1e-4),
-)
-solver.initialize()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
+    <span class="n">gproblem</span><span class="p">,</span>
+    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
+    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;ipopt&quot;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
-results = solver.solve()
-solver.finalize(results)
+<span class="n">results</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -904,7 +879,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     13919691282517108264
+        ID:                     10466017124361567679
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -917,16 +892,13 @@ Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.285221254342924e-12
         11    1.28522e-12              0              0
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate">
-<div class="highlight"><pre><span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate">
-<div class="highlight"><pre><span></span>print(results)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -935,7 +907,7 @@ Optimizer_pygmo: Optimization run finished
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Results problem 'minf_fd':
+Results problem &#39;minf_fd&#39;:
 ---------------------------
   Float variables:
     0: x = 3.599999e+00
@@ -947,11 +919,9 @@ Results problem 'minf_fd':
   Success: True
 ---------------------------
 
-</pre></div>
+</pre></div></div>
 </div>
 </div>
-</section>
-
 
 
            </div>

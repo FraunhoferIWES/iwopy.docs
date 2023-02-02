@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pygmo.optimizer &mdash; iwopy 0.1.3
+  <title>iwopy.interfaces.pygmo.optimizer &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -235,7 +236,7 @@
 
 
 <div class="viewcode-block" id="Optimizer_pygmo"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.html#iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo">[docs]</a><span class="k">class</span> <span class="nc">Optimizer_pygmo</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Interface to the pygmo optimizers</span>
 <span class="sd">    for serial runs.</span>
 
@@ -278,7 +279,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">algo</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="Optimizer_pygmo.initialize"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.html#iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the object.</span>
 
 <span class="sd">        Parameters</span>
@@ -326,7 +327,7 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Optimizer_pygmo.print_info"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.html#iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.print_info">[docs]</a>    <span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print solver info, called before solving</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
@@ -335,7 +336,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algo</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Optimizer_pygmo.solve"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.html#iwopy.interfaces.pygmo.optimizer.Optimizer_pygmo.solve">[docs]</a>    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run the optimization solver.</span>
 
 <span class="sd">        Parameters</span>

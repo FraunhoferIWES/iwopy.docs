@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pymoo.factory.Factory &mdash; iwopy 0.1.3
+  <title>iwopy.interfaces.pymoo.factory.Factory &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -36,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -65,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -199,6 +199,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -255,108 +256,80 @@
     text-align: unset;
 }
 </style>
-<section id="iwopy-interfaces-pymoo-factory-factory">
-<h1>iwopy.interfaces.pymoo.factory.Factory<a class="headerlink" href="#iwopy-interfaces-pymoo-factory-factory" title="Permalink to this heading"></a>
-</h1>
+<div class="section" id="iwopy-interfaces-pymoo-factory-factory">
+<h1>iwopy.interfaces.pymoo.factory.Factory<a class="headerlink" href="#iwopy-interfaces-pymoo-factory-factory" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.interfaces.pymoo.factory.Factory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.interfaces.pymoo.factory.</span></span><span class="sig-name descname"><span class="pre">Factory</span></span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.interfaces.pymoo.factory.</span></span><span class="sig-name descname"><span class="pre">Factory</span></span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A factory for pymoo components</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.interfaces.pymoo.factory.Factory.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pymoo_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.__init__" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pymoo_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.interfaces.pymoo.factory.Factory.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(pymoo_problem, verbosity)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="iwopy.interfaces.pymoo.factory.Factory.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(pymoo_problem, verbosity)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_algorithm" title="iwopy.interfaces.pymoo.factory.Factory.get_algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_algorithm</span></code></a>(pars)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_algorithm" title="iwopy.interfaces.pymoo.factory.Factory.get_algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_algorithm</span></code></a>(pars)</p></td>
 <td><p>Algorithm factory function</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_crossover" title="iwopy.interfaces.pymoo.factory.Factory.get_crossover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_crossover</span></code></a>(cross, **pars)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_crossover" title="iwopy.interfaces.pymoo.factory.Factory.get_crossover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_crossover</span></code></a>(cross, **pars)</p></td>
 <td><p>Crossover factory function</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_mutation" title="iwopy.interfaces.pymoo.factory.Factory.get_mutation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mutation</span></code></a>(mut, **pars)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_mutation" title="iwopy.interfaces.pymoo.factory.Factory.get_mutation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mutation</span></code></a>(mut, **pars)</p></td>
 <td><p>Mutation factory function</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_sampling" title="iwopy.interfaces.pymoo.factory.Factory.get_sampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sampling</span></code></a>(samp_name, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.interfaces.pymoo.factory.Factory.get_sampling" title="iwopy.interfaces.pymoo.factory.Factory.get_sampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sampling</span></code></a>(samp_name, **kwargs)</p></td>
 <td><p>Sampling factory function</p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_termination</span></code>(term_pars)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_termination</span></code>(term_pars)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pymoo_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pymoo_problem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.interfaces.pymoo.factory.Factory.get_algorithm">
-<span class="sig-name descname"><span class="pre">get_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_algorithm" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Algorithm factory function</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">get_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_algorithm" title="Permalink to this definition"></a></dt>
+<dd><p>Algorithm factory function</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.interfaces.pymoo.factory.Factory.get_crossover">
-<span class="sig-name descname"><span class="pre">get_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cross</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_crossover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_crossover" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Crossover factory function</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">get_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cross</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_crossover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_crossover" title="Permalink to this definition"></a></dt>
+<dd><p>Crossover factory function</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.interfaces.pymoo.factory.Factory.get_mutation">
-<span class="sig-name descname"><span class="pre">get_mutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mut</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_mutation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_mutation" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Mutation factory function</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">get_mutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mut</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_mutation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_mutation" title="Permalink to this definition"></a></dt>
+<dd><p>Mutation factory function</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.interfaces.pymoo.factory.Factory.get_sampling">
-<span class="sig-name descname"><span class="pre">get_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samp_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_sampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_sampling" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Sampling factory function</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">get_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samp_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/interfaces/pymoo/factory.html#Factory.get_sampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.interfaces.pymoo.factory.Factory.get_sampling" title="Permalink to this definition"></a></dt>
+<dd><p>Sampling factory function</p>
+</dd></dl>
 
-</dd>
-</dl>
+</dd></dl>
 
-</section>
-
+</div>
 
 
            </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.problem_wrapper &mdash; iwopy 0.1.3
+  <title>iwopy.wrappers.problem_wrapper &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -229,7 +230,7 @@
 
 
 <div class="viewcode-block" id="ProblemWrapper"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper">[docs]</a><span class="k">class</span> <span class="nc">ProblemWrapper</span><span class="p">(</span><span class="n">Problem</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generic abstract problem wrapper class.</span>
 
 <span class="sd">    Parameters</span>
@@ -256,7 +257,7 @@
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="s2">&quot;base_problem&quot;</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ProblemWrapper.var_names_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.var_names_int">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The names of integer variables.</span>
 
 <span class="sd">        Returns</span>
@@ -268,7 +269,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">var_names_int</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.initial_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.initial_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">initial_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The initial values of the integer variables.</span>
 
 <span class="sd">        Returns</span>
@@ -280,7 +281,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">initial_values_int</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.min_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.min_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">min_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The minimal values of the integer variables.</span>
 
 <span class="sd">        Use -self.INT_INF for unbounded.</span>
@@ -294,7 +295,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">min_values_int</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.max_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.max_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">max_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The maximal values of the integer variables.</span>
 
 <span class="sd">        Use self.INT_INF for unbounded.</span>
@@ -308,7 +309,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">max_values_int</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.var_names_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.var_names_float">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The names of float variables.</span>
 
 <span class="sd">        Returns</span>
@@ -320,7 +321,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">var_names_float</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.initial_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.initial_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">initial_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The initial values of the float variables.</span>
 
 <span class="sd">        Returns</span>
@@ -332,7 +333,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">initial_values_float</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.min_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.min_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">min_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The minimal values of the float variables.</span>
 
 <span class="sd">        Use -numpy.inf for unbounded.</span>
@@ -346,7 +347,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">min_values_float</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.max_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.max_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">max_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The maximal values of the float variables.</span>
 
 <span class="sd">        Use numpy.inf for unbounded.</span>
@@ -360,7 +361,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">max_values_float</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.initialize"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the problem.</span>
 
 <span class="sd">        Parameters</span>
@@ -386,7 +387,7 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.apply_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.apply_individual">[docs]</a>    <span class="k">def</span> <span class="nf">apply_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply new variables to the problem.</span>
 
 <span class="sd">        Parameters</span>
@@ -406,7 +407,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">apply_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.apply_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.apply_population">[docs]</a>    <span class="k">def</span> <span class="nf">apply_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply new variables to the problem,</span>
 <span class="sd">        for a whole population.</span>
 
@@ -427,7 +428,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">apply_population</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.finalize_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.finalize_individual">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalization, given the champion data.</span>
 
 <span class="sd">        Parameters</span>
@@ -453,7 +454,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_problem</span><span class="o">.</span><span class="n">finalize_individual</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProblemWrapper.finalize_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.problem_wrapper.ProblemWrapper.html#iwopy.wrappers.problem_wrapper.ProblemWrapper.finalize_population">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalization, given the final population data.</span>
 
 <span class="sd">        Parameters</span>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.simple_problem &mdash; iwopy 0.1.3
+  <title>iwopy.wrappers.simple_problem &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -231,7 +232,7 @@
 
 
 <div class="viewcode-block" id="SimpleProblem"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem">[docs]</a><span class="k">class</span> <span class="nc">SimpleProblem</span><span class="p">(</span><span class="n">Problem</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A problem which simply pipes variables to its</span>
 <span class="sd">    objectives and constraints.</span>
 
@@ -351,7 +352,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_fvars_max</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fvars</span><span class="p">}</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.var_names_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.var_names_int">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The names of integer variables.</span>
 
 <span class="sd">        Returns</span>
@@ -363,7 +364,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ivars</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.initial_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.initial_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">initial_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The initial values of the integer variables.</span>
 
 <span class="sd">        Returns</span>
@@ -375,7 +376,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ivars</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.min_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.min_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">min_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The minimal values of the integer variables.</span>
 
 <span class="sd">        Use -self.INT_INF for unbounded.</span>
@@ -391,7 +392,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.max_values_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.max_values_int">[docs]</a>    <span class="k">def</span> <span class="nf">max_values_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The maximal values of the integer variables.</span>
 
 <span class="sd">        Use self.INT_INF for unbounded.</span>
@@ -407,7 +408,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.var_names_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.var_names_float">[docs]</a>    <span class="k">def</span> <span class="nf">var_names_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The names of float variables.</span>
 
 <span class="sd">        Returns</span>
@@ -419,7 +420,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fvars</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.initial_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.initial_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">initial_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The initial values of the float variables.</span>
 
 <span class="sd">        Returns</span>
@@ -431,7 +432,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fvars</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.min_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.min_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">min_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The minimal values of the float variables.</span>
 
 <span class="sd">        Use -numpy.inf for unbounded.</span>
@@ -447,7 +448,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleProblem.max_values_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem.max_values_float">[docs]</a>    <span class="k">def</span> <span class="nf">max_values_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The maximal values of the float variables.</span>
 
 <span class="sd">        Use numpy.inf for unbounded.</span>

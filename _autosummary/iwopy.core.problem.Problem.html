@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.problem.Problem &mdash; iwopy 0.1.3
+  <title>iwopy.core.problem.Problem &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -36,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -65,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -199,6 +199,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -254,20 +255,16 @@
     text-align: unset;
 }
 </style>
-<section id="iwopy-core-problem-problem">
-<h1>iwopy.core.problem.Problem<a class="headerlink" href="#iwopy-core-problem-problem" title="Permalink to this heading"></a>
-</h1>
+<div class="section" id="iwopy-core-problem-problem">
+<h1>iwopy.core.problem.Problem<a class="headerlink" href="#iwopy-core-problem-problem" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.core.problem.</span></span><span class="sig-name descname"><span class="pre">Problem</span></span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Bases: <a class="reference internal" href="iwopy.core.base.Base.html#iwopy.core.base.Base" title="iwopy.core.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.core.problem.</span></span><span class="sig-name descname"><span class="pre">Problem</span></span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="iwopy.core.base.Base.html#iwopy.core.base.Base" title="iwopy.core.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
 <p>Abstract base class for optimization problems.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The problem’s name</p></li>
 <li><p><strong>mem_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The memory size, default no memory</p></li>
 <li><p><strong>mem_keyf</strong> (<em>Function</em><em>, </em><em>optional</em>) – The memory key function. Parameters:
@@ -277,153 +274,116 @@
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.objs">
-<span class="sig-name descname"><span class="pre">objs</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.objs" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The objective functions</p>
+<span class="sig-name descname"><span class="pre">objs</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.objs" title="Permalink to this definition"></a></dt>
+<dd><p>The objective functions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd">
-<p>iwopy.core.OptFunctionList</p>
+<dd class="field-odd"><p>iwopy.core.OptFunctionList</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.cons">
-<span class="sig-name descname"><span class="pre">cons</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.cons" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The constraints</p>
+<span class="sig-name descname"><span class="pre">cons</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.cons" title="Permalink to this definition"></a></dt>
+<dd><p>The constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd">
-<p>iwopy.core.OptFunctionList</p>
+<dd class="field-odd"><p>iwopy.core.OptFunctionList</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.memory">
-<span class="sig-name descname"><span class="pre">memory</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.memory" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The memory, or None</p>
+<span class="sig-name descname"><span class="pre">memory</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.memory" title="Permalink to this definition"></a></dt>
+<dd><p>The memory, or None</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd">
-<p>iwopy.core.Memory</p>
+<dd class="field-odd"><p>iwopy.core.Memory</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.__init__" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.core.problem.Problem.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(name[, mem_size, mem_keyf])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="iwopy.core.problem.Problem.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(name[, mem_size, mem_keyf])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.add_constraint" title="iwopy.core.problem.Problem.add_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constraint</span></code></a>(constraint[, varmap_int, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.add_constraint" title="iwopy.core.problem.Problem.add_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constraint</span></code></a>(constraint[, varmap_int, ...])</p></td>
 <td><p>Add a constraint to the problem.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.add_objective" title="iwopy.core.problem.Problem.add_objective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_objective</span></code></a>(objective[, varmap_int, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.add_objective" title="iwopy.core.problem.Problem.add_objective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_objective</span></code></a>(objective[, varmap_int, ...])</p></td>
 <td><p>Add an objective to the problem.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.apply_individual" title="iwopy.core.problem.Problem.apply_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_individual</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.apply_individual" title="iwopy.core.problem.Problem.apply_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_individual</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Apply new variables to the problem.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.apply_population" title="iwopy.core.problem.Problem.apply_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_population</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.apply_population" title="iwopy.core.problem.Problem.apply_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_population</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Apply new variables to the problem, for a whole population.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.calc_gradients" title="iwopy.core.problem.Problem.calc_gradients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_gradients</span></code></a>(vars_int, vars_float, func, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.calc_gradients" title="iwopy.core.problem.Problem.calc_gradients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_gradients</span></code></a>(vars_int, vars_float, func, ...)</p></td>
 <td><p>The actual gradient calculation, not to be called directly (call <cite>get_gradients</cite> instead).</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.check_constraints_individual" title="iwopy.core.problem.Problem.check_constraints_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_individual</span></code></a>(constraint_values)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.check_constraints_individual" title="iwopy.core.problem.Problem.check_constraints_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_individual</span></code></a>(constraint_values)</p></td>
 <td><p>Check if the constraints are fullfilled for the given individual.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.check_constraints_population" title="iwopy.core.problem.Problem.check_constraints_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_population</span></code></a>(constraint_values)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.check_constraints_population" title="iwopy.core.problem.Problem.check_constraints_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_population</span></code></a>(constraint_values)</p></td>
 <td><p>Check if the constraints are fullfilled for the given population.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.evaluate_individual" title="iwopy.core.problem.Problem.evaluate_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_individual</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.evaluate_individual" title="iwopy.core.problem.Problem.evaluate_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_individual</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Evaluate a single individual of the problem.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.evaluate_population" title="iwopy.core.problem.Problem.evaluate_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_population</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.evaluate_population" title="iwopy.core.problem.Problem.evaluate_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_population</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Evaluate all individuals of a population.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.finalize" title="iwopy.core.problem.Problem.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>([verbosity])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.finalize" title="iwopy.core.problem.Problem.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>([verbosity])</p></td>
 <td><p>Finalize the object.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.finalize_individual" title="iwopy.core.problem.Problem.finalize_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_individual</span></code></a>(vars_int, vars_float[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.finalize_individual" title="iwopy.core.problem.Problem.finalize_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_individual</span></code></a>(vars_int, vars_float[, ...])</p></td>
 <td><p>Finalization, given the champion data.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.finalize_population" title="iwopy.core.problem.Problem.finalize_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_population</span></code></a>(vars_int, vars_float[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.finalize_population" title="iwopy.core.problem.Problem.finalize_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize_population</span></code></a>(vars_int, vars_float[, ...])</p></td>
 <td><p>Finalization, given the final population data.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.get_gradients" title="iwopy.core.problem.Problem.get_gradients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_gradients</span></code></a>(vars_int, vars_float[, func, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.get_gradients" title="iwopy.core.problem.Problem.get_gradients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_gradients</span></code></a>(vars_int, vars_float[, func, ...])</p></td>
 <td><p>Obtain gradients of a function that is linked to the problem.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initial_values_float" title="iwopy.core.problem.Problem.initial_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_values_float</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initial_values_float" title="iwopy.core.problem.Problem.initial_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_values_float</span></code></a>()</p></td>
 <td><p>The initial values of the float variables.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initial_values_int" title="iwopy.core.problem.Problem.initial_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_values_int</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initial_values_int" title="iwopy.core.problem.Problem.initial_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_values_int</span></code></a>()</p></td>
 <td><p>The initial values of the integer variables.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initialize" title="iwopy.core.problem.Problem.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([verbosity])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initialize" title="iwopy.core.problem.Problem.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>([verbosity])</p></td>
 <td><p>Initialize the problem.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.max_values_float" title="iwopy.core.problem.Problem.max_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_float</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.max_values_float" title="iwopy.core.problem.Problem.max_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_float</span></code></a>()</p></td>
 <td><p>The maximal values of the float variables.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.max_values_int" title="iwopy.core.problem.Problem.max_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_int</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.max_values_int" title="iwopy.core.problem.Problem.max_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_int</span></code></a>()</p></td>
 <td><p>The maximal values of the integer variables.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.min_values_float" title="iwopy.core.problem.Problem.min_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_float</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.min_values_float" title="iwopy.core.problem.Problem.min_values_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_float</span></code></a>()</p></td>
 <td><p>The minimal values of the float variables.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.min_values_int" title="iwopy.core.problem.Problem.min_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_int</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.min_values_int" title="iwopy.core.problem.Problem.min_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_int</span></code></a>()</p></td>
 <td><p>The minimal values of the integer variables.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.var_names_float" title="iwopy.core.problem.Problem.var_names_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_float</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.var_names_float" title="iwopy.core.problem.Problem.var_names_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_float</span></code></a>()</p></td>
 <td><p>The names of float variables.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.var_names_int" title="iwopy.core.problem.Problem.var_names_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_int</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.var_names_int" title="iwopy.core.problem.Problem.var_names_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_int</span></code></a>()</p></td>
 <td><p>The names of integer variables.</p></td>
 </tr>
 </tbody>
@@ -431,69 +391,54 @@
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">INT_INF</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">INT_INF</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.constraints_tol" title="iwopy.core.problem.Problem.constraints_tol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">constraints_tol</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.constraints_tol" title="iwopy.core.problem.Problem.constraints_tol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">constraints_tol</span></code></a></p></td>
 <td><p>Gets the tolerance values of constraints</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initialized" title="iwopy.core.problem.Problem.initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialized</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.initialized" title="iwopy.core.problem.Problem.initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialized</span></code></a></p></td>
 <td><p>Flag for finished initialization</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.max_values_constraints" title="iwopy.core.problem.Problem.max_values_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_constraints</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.max_values_constraints" title="iwopy.core.problem.Problem.max_values_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_values_constraints</span></code></a></p></td>
 <td><p>Gets the maximal values of constraints</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.maximize_objs" title="iwopy.core.problem.Problem.maximize_objs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maximize_objs</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.maximize_objs" title="iwopy.core.problem.Problem.maximize_objs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maximize_objs</span></code></a></p></td>
 <td><p>Flags for objective maximization</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.min_values_constraints" title="iwopy.core.problem.Problem.min_values_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_constraints</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.min_values_constraints" title="iwopy.core.problem.Problem.min_values_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_constraints</span></code></a></p></td>
 <td><p>Gets the minimal values of constraints</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_constraints" title="iwopy.core.problem.Problem.n_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_constraints</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_constraints" title="iwopy.core.problem.Problem.n_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_constraints</span></code></a></p></td>
 <td><p>The total number of constraints, i.e., the sum of all components</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_objectives" title="iwopy.core.problem.Problem.n_objectives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_objectives</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_objectives" title="iwopy.core.problem.Problem.n_objectives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_objectives</span></code></a></p></td>
 <td><p>The total number of objectives, i.e., the sum of all components</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_vars_float" title="iwopy.core.problem.Problem.n_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_float</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_vars_float" title="iwopy.core.problem.Problem.n_vars_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_float</span></code></a></p></td>
 <td><p>The number of float variables</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_vars_int" title="iwopy.core.problem.Problem.n_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_int</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.problem.Problem.n_vars_int" title="iwopy.core.problem.Problem.n_vars_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_vars_int</span></code></a></p></td>
 <td><p>The number of int variables</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem_keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.add_constraint">
-<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.add_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.add_constraint" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Add a constraint to the problem.</p>
+<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.add_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.add_constraint" title="Permalink to this definition"></a></dt>
+<dd><p>Add a constraint to the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>constraint</strong> (<em>iwopy.Constraint</em>) – The constraint</p></li>
 <li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
@@ -505,19 +450,15 @@ value: str or int</p></li>
 </ul>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.add_objective">
-<span class="sig-name descname"><span class="pre">add_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objective</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.add_objective"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.add_objective" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Add an objective to the problem.</p>
+<span class="sig-name descname"><span class="pre">add_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objective</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.add_objective"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.add_objective" title="Permalink to this definition"></a></dt>
+<dd><p>Add an objective to the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>objective</strong> (<em>iwopy.Objective</em>) – The objective</p></li>
 <li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
@@ -529,77 +470,61 @@ value: str or int</p></li>
 </ul>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.apply_individual">
-<span class="sig-name descname"><span class="pre">apply_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.apply_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.apply_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Apply new variables to the problem.</p>
+<span class="sig-name descname"><span class="pre">apply_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.apply_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.apply_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Apply new variables to the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>problem_results</strong> – The results of the variable application
+<dd class="field-even"><p><strong>problem_results</strong> – The results of the variable application
 to the problem</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>Any</p>
+<dd class="field-odd"><p>Any</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.apply_population">
-<span class="sig-name descname"><span class="pre">apply_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.apply_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.apply_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Apply new variables to the problem,
+<span class="sig-name descname"><span class="pre">apply_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.apply_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.apply_population" title="Permalink to this definition"></a></dt>
+<dd><p>Apply new variables to the problem,
 for a whole population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>problem_results</strong> – The results of the variable application
+<dd class="field-even"><p><strong>problem_results</strong> – The results of the variable application
 to the problem</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>Any</p>
+<dd class="field-odd"><p>Any</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.calc_gradients">
-<span class="sig-name descname"><span class="pre">calc_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fvars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.calc_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.calc_gradients" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The actual gradient calculation, not to be called directly
+<span class="sig-name descname"><span class="pre">calc_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fvars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.calc_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.calc_gradients" title="Permalink to this definition"></a></dt>
+<dd><p>The actual gradient calculation, not to be called directly
 (call <cite>get_gradients</cite> instead).</p>
 <p>Can be overloaded in derived classes, the base class only considers
 analytic derivatives.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
@@ -615,201 +540,156 @@ derivatives are to be calculated</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>gradients</strong> – The gradients of the functions, shape:
+<dd class="field-even"><p><strong>gradients</strong> – The gradients of the functions, shape:
 (n_components, n_vrs)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.check_constraints_individual">
-<span class="sig-name descname"><span class="pre">check_constraints_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.check_constraints_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.check_constraints_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Check if the constraints are fullfilled for the
+<span class="sig-name descname"><span class="pre">check_constraints_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.check_constraints_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.check_constraints_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the constraints are fullfilled for the
 given individual.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_components,)</p></li>
 <li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>values</strong> – The boolean result, shape: (n_components,)</p>
+<dd class="field-even"><p><strong>values</strong> – The boolean result, shape: (n_components,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>np.array</p>
+<dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.check_constraints_population">
-<span class="sig-name descname"><span class="pre">check_constraints_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.check_constraints_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.check_constraints_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Check if the constraints are fullfilled for the
+<span class="sig-name descname"><span class="pre">check_constraints_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.check_constraints_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.check_constraints_population" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the constraints are fullfilled for the
 given population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_pop, n_components)</p></li>
 <li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>values</strong> – The boolean result, shape: (n_pop, n_components)</p>
+<dd class="field-even"><p><strong>values</strong> – The boolean result, shape: (n_pop, n_components)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p>np.array</p>
+<dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.constraints_tol">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constraints_tol</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.constraints_tol" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Gets the tolerance values of constraints</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constraints_tol</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.constraints_tol" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the tolerance values of constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>ctol</strong> – The constraint tolerance values, shape: (n_constraints,)</p>
+<dd class="field-odd"><p><strong>ctol</strong> – The constraint tolerance values, shape: (n_constraints,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.evaluate_individual">
-<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.evaluate_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.evaluate_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Evaluate a single individual of the problem.</p>
+<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.evaluate_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.evaluate_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate a single individual of the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p></p>
-<ul class="simple">
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_objectives,)</p></li>
 <li><p><strong>con</strong> (<em>np.array</em>) – The constraints values, shape: (n_constraints,)</p></li>
 </ul>
-
+</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.evaluate_population">
-<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.evaluate_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.evaluate_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Evaluate all individuals of a population.</p>
+<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.evaluate_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.evaluate_population" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate all individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p></p>
-<ul class="simple">
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_pop, n_objectives)</p></li>
 <li><p><strong>cons</strong> (<em>np.array</em>) – The constraints values, shape: (n_pop, n_constraints)</p></li>
 </ul>
-
+</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.finalize">
-<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.problem.Problem.finalize" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Finalize the object.</p>
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.problem.Problem.finalize" title="Permalink to this definition"></a></dt>
+<dd><p>Finalize the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.finalize_individual">
-<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.finalize_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.finalize_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Finalization, given the champion data.</p>
+<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.finalize_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.finalize_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Finalization, given the champion data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The optimal integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p></p>
-<ul class="simple">
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_objectives,)</p></li>
 <li><p><strong>cons</strong> (<em>np.array</em>) – The constraints values, shape: (n_constraints,)</p></li>
 </ul>
-
+</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.finalize_population">
-<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.finalize_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.finalize_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Finalization, given the final population data.</p>
+<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.finalize_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.finalize_population" title="Permalink to this definition"></a></dt>
+<dd><p>Finalization, given the final population data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values of the final
 generation, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values of the final
@@ -818,26 +698,21 @@ generation, shape: (n_pop, n_vars_float)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p></p>
-<ul class="simple">
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
 <li><p><strong>objs</strong> (<em>np.array</em>) – The final objective function values, shape: (n_pop, n_components)</p></li>
 <li><p><strong>cons</strong> (<em>np.array</em>) – The final constraint values, shape: (n_pop, n_constraints)</p></li>
 </ul>
-
+</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.get_gradients">
-<span class="sig-name descname"><span class="pre">get_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.get_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.get_gradients" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Obtain gradients of a function that is linked to the
+<span class="sig-name descname"><span class="pre">get_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.get_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.get_gradients" title="Permalink to this definition"></a></dt>
+<dd><p>Obtain gradients of a function that is linked to the
 problem.</p>
 <p>The func object typically is a <cite>iwopy.core.OptFunctionList</cite>
 object that contains a selection of objectives and/or constraints
@@ -846,8 +721,7 @@ objectives and constraints (and all their components) are
 being considered, cf. class <cite>ProblemDefaultFunc</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
@@ -862,351 +736,262 @@ None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>gradients</strong> – The gradients of the functions, shape:
+<dd class="field-even"><p><strong>gradients</strong> – The gradients of the functions, shape:
 (n_components, n_vars)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.initial_values_float">
-<span class="sig-name descname"><span class="pre">initial_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.initial_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.initial_values_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The initial values of the float variables.</p>
+<span class="sig-name descname"><span class="pre">initial_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.initial_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.initial_values_float" title="Permalink to this definition"></a></dt>
+<dd><p>The initial values of the float variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>values</strong> – Initial float values, shape: (n_vars_float,)</p>
+<dd class="field-odd"><p><strong>values</strong> – Initial float values, shape: (n_vars_float,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.initial_values_int">
-<span class="sig-name descname"><span class="pre">initial_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.initial_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.initial_values_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The initial values of the integer variables.</p>
+<span class="sig-name descname"><span class="pre">initial_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.initial_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.initial_values_int" title="Permalink to this definition"></a></dt>
+<dd><p>The initial values of the integer variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>values</strong> – Initial int values, shape: (n_vars_int,)</p>
+<dd class="field-odd"><p><strong>values</strong> – Initial int values, shape: (n_vars_int,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.initialize" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Initialize the problem.</p>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.initialize" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.initialized">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.initialized" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Flag for finished initialization</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.initialized" title="Permalink to this definition"></a></dt>
+<dd><p>Flag for finished initialization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p>True if initialization has been done</p>
+<dd class="field-odd"><p>True if initialization has been done</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.max_values_constraints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_values_constraints</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.max_values_constraints" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Gets the maximal values of constraints</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_values_constraints</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.max_values_constraints" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the maximal values of constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>cma</strong> – The maximal constraint values, shape: (n_constraints,)</p>
+<dd class="field-odd"><p><strong>cma</strong> – The maximal constraint values, shape: (n_constraints,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.max_values_float">
-<span class="sig-name descname"><span class="pre">max_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.max_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.max_values_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The maximal values of the float variables.</p>
+<span class="sig-name descname"><span class="pre">max_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.max_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.max_values_float" title="Permalink to this definition"></a></dt>
+<dd><p>The maximal values of the float variables.</p>
 <p>Use numpy.inf for unbounded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>values</strong> – Maximal float values, shape: (n_vars_float,)</p>
+<dd class="field-odd"><p><strong>values</strong> – Maximal float values, shape: (n_vars_float,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.max_values_int">
-<span class="sig-name descname"><span class="pre">max_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.max_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.max_values_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The maximal values of the integer variables.</p>
+<span class="sig-name descname"><span class="pre">max_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.max_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.max_values_int" title="Permalink to this definition"></a></dt>
+<dd><p>The maximal values of the integer variables.</p>
 <p>Use self.INT_INF for unbounded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>values</strong> – Maximal int values, shape: (n_vars_int,)</p>
+<dd class="field-odd"><p><strong>values</strong> – Maximal int values, shape: (n_vars_int,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.maximize_objs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maximize_objs</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.maximize_objs" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Flags for objective maximization</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maximize_objs</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.maximize_objs" title="Permalink to this definition"></a></dt>
+<dd><p>Flags for objective maximization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>maximize</strong> – Boolean flag for maximization of objective,
+<dd class="field-odd"><p><strong>maximize</strong> – Boolean flag for maximization of objective,
 shape: (n_objectives,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.min_values_constraints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_values_constraints</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.min_values_constraints" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Gets the minimal values of constraints</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_values_constraints</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.min_values_constraints" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the minimal values of constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>cmi</strong> – The minimal constraint values, shape: (n_constraints,)</p>
+<dd class="field-odd"><p><strong>cmi</strong> – The minimal constraint values, shape: (n_constraints,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.min_values_float">
-<span class="sig-name descname"><span class="pre">min_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.min_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.min_values_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The minimal values of the float variables.</p>
+<span class="sig-name descname"><span class="pre">min_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.min_values_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.min_values_float" title="Permalink to this definition"></a></dt>
+<dd><p>The minimal values of the float variables.</p>
 <p>Use -numpy.inf for unbounded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>values</strong> – Minimal float values, shape: (n_vars_float,)</p>
+<dd class="field-odd"><p><strong>values</strong> – Minimal float values, shape: (n_vars_float,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.min_values_int">
-<span class="sig-name descname"><span class="pre">min_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.min_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.min_values_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The minimal values of the integer variables.</p>
+<span class="sig-name descname"><span class="pre">min_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.min_values_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.min_values_int" title="Permalink to this definition"></a></dt>
+<dd><p>The minimal values of the integer variables.</p>
 <p>Use -self.INT_INF for unbounded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>values</strong> – Minimal int values, shape: (n_vars_int,)</p>
+<dd class="field-odd"><p><strong>values</strong> – Minimal int values, shape: (n_vars_int,)</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.n_constraints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_constraints</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_constraints" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The total number of constraints,
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_constraints</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_constraints" title="Permalink to this definition"></a></dt>
+<dd><p>The total number of constraints,
 i.e., the sum of all components</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>n_con</strong> – The total number of constraint
+<dd class="field-odd"><p><strong>n_con</strong> – The total number of constraint
 functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.n_objectives">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_objectives</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_objectives" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The total number of objectives,
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_objectives</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_objectives" title="Permalink to this definition"></a></dt>
+<dd><p>The total number of objectives,
 i.e., the sum of all components</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>n_obj</strong> – The total number of objective
+<dd class="field-odd"><p><strong>n_obj</strong> – The total number of objective
 functions</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.n_vars_float">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_vars_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The number of float variables</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_vars_float" title="Permalink to this definition"></a></dt>
+<dd><p>The number of float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>n</strong> – The number of float variables</p>
+<dd class="field-odd"><p><strong>n</strong> – The number of float variables</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.n_vars_int">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_vars_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The number of int variables</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.core.problem.Problem.n_vars_int" title="Permalink to this definition"></a></dt>
+<dd><p>The number of int variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>n</strong> – The number of int variables</p>
+<dd class="field-odd"><p><strong>n</strong> – The number of int variables</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.var_names_float">
-<span class="sig-name descname"><span class="pre">var_names_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.var_names_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.var_names_float" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The names of float variables.</p>
+<span class="sig-name descname"><span class="pre">var_names_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.var_names_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.var_names_float" title="Permalink to this definition"></a></dt>
+<dd><p>The names of float variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>names</strong> – The names of the float variables</p>
+<dd class="field-odd"><p><strong>names</strong> – The names of the float variables</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.problem.Problem.var_names_int">
-<span class="sig-name descname"><span class="pre">var_names_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.var_names_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.var_names_int" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The names of integer variables.</p>
+<span class="sig-name descname"><span class="pre">var_names_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/problem.html#Problem.var_names_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.problem.Problem.var_names_int" title="Permalink to this definition"></a></dt>
+<dd><p>The names of integer variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p><strong>names</strong> – The names of the integer variables</p>
+<dd class="field-odd"><p><strong>names</strong> – The names of the integer variables</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
-</dd>
-</dl>
+</dd></dl>
 
-</section>
-
+</div>
 
 
            </div>

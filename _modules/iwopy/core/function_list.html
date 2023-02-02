@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.function_list &mdash; iwopy 0.1.3
+  <title>iwopy.core.function_list &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -231,7 +232,7 @@
 
 
 <div class="viewcode-block" id="OptFunctionList"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList">[docs]</a><span class="k">class</span> <span class="nc">OptFunctionList</span><span class="p">(</span><span class="n">OptFunction</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A list of functions.</span>
 
 <span class="sd">    The main point of this class is to manage the</span>
@@ -270,7 +271,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span> <span class="o">=</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.append"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adds a function to the list.</span>
 
 <span class="sd">        Parameters</span>
@@ -293,7 +294,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">functions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The list of added funtions</span>
 
 <span class="sd">        Returns</span>
@@ -306,7 +307,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">n_functions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The number of added functions</span>
 
 <span class="sd">        Returns</span>
@@ -318,7 +319,7 @@
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">functions</span><span class="p">)</span>
 
 <div class="viewcode-block" id="OptFunctionList.initialize"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the object.</span>
 
 <span class="sd">        Parameters</span>
@@ -355,7 +356,7 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.vardeps_int"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.vardeps_int">[docs]</a>    <span class="k">def</span> <span class="nf">vardeps_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the dependencies of all components</span>
 <span class="sd">        on the function int variables</span>
 
@@ -377,7 +378,7 @@
         <span class="k">return</span> <span class="n">deps</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.vardeps_float"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.vardeps_float">[docs]</a>    <span class="k">def</span> <span class="nf">vardeps_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the dependencies of all components</span>
 <span class="sd">        on the function float variables</span>
 
@@ -399,7 +400,7 @@
         <span class="k">return</span> <span class="n">deps</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.n_components"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.n_components">[docs]</a>    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the number of components of the</span>
 <span class="sd">        function.</span>
 
@@ -412,7 +413,7 @@
         <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.split_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.split_individual">[docs]</a>    <span class="k">def</span> <span class="nf">split_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Splits result values or other data into</span>
 <span class="sd">        individual function data.</span>
 
@@ -437,7 +438,7 @@
         <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.split_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.split_population">[docs]</a>    <span class="k">def</span> <span class="nf">split_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Splits result values or other data into</span>
 <span class="sd">        individual function data.</span>
 
@@ -462,7 +463,7 @@
         <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.calc_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.calc_individual">[docs]</a>    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for a single individual of the</span>
 <span class="sd">        underlying problem.</span>
 
@@ -507,7 +508,7 @@
         <span class="k">return</span> <span class="n">values</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.calc_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.calc_population">[docs]</a>    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for all individuals of a population.</span>
 
 <span class="sd">        Parameters</span>
@@ -552,7 +553,7 @@
         <span class="k">return</span> <span class="n">values</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.finalize_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.finalize_individual">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalization, given the champion data.</span>
 
 <span class="sd">        Parameters</span>
@@ -588,7 +589,7 @@
         <span class="k">return</span> <span class="n">values</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.finalize_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.finalize_population">[docs]</a>    <span class="k">def</span> <span class="nf">finalize_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalization, given the final population data.</span>
 
 <span class="sd">        Parameters</span>
@@ -627,7 +628,7 @@
         <span class="k">return</span> <span class="n">values</span></div>
 
 <div class="viewcode-block" id="OptFunctionList.ana_deriv"><a class="viewcode-back" href="../../../_autosummary/iwopy.core.function_list.OptFunctionList.html#iwopy.core.function_list.OptFunctionList.ana_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">ana_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the analytic derivative, if possible.</span>
 
 <span class="sd">        Use `numpy.nan` if analytic derivatives cannot be calculated.</span>

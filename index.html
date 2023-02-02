@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to IWOPY &mdash; iwopy 0.1.3
+  <title>Welcome to IWOPY &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
@@ -35,7 +34,7 @@
             <a href="#" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -64,6 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -250,10 +251,8 @@
     text-align: unset;
 }
 </style>
-<img alt="_images/Logo_IWOPY_white.svg" class="align-center" src="_images/Logo_IWOPY_white.svg">
-<section id="welcome-to-iwopy">
-<h1>Welcome to IWOPY<a class="headerlink" href="#welcome-to-iwopy" title="Permalink to this heading"></a>
-</h1>
+<img alt="_images/Logo_IWOPY_white.svg" class="align-center" src="_images/Logo_IWOPY_white.svg" /><div class="section" id="welcome-to-iwopy">
+<h1>Welcome to IWOPY<a class="headerlink" href="#welcome-to-iwopy" title="Permalink to this heading"></a></h1>
 <p><em>Fraunhofer IWES optimization tools in Python</em></p>
 <p>The <cite>iwopy</cite> package is in fact mainly a meta package that provides interfaces to
 other open-source Python optimization packages out there. Currently this includes</p>
@@ -279,34 +278,18 @@ parameters. This is useful for heuristic approaches like genetic algorithms,
 but also for evaluating gradients. It can lead to a vast speed-up and should be
 invoked whenever possible. Check the examples (or the API) for details.</p>
 <dl class="simple">
-<dt>Source code repository (and issue tracker):</dt>
-<dd>
-<p><a class="reference external" href="https://github.com/FraunhoferIWES/iwopy">https://github.com/FraunhoferIWES/iwopy</a></p>
+<dt>Source code repository (and issue tracker):</dt><dd><p><a class="reference external" href="https://github.com/FraunhoferIWES/iwopy">https://github.com/FraunhoferIWES/iwopy</a></p>
 </dd>
-<dt>Contact (please report code issues under the github link above):</dt>
-<dd>
-<p><script type="text/javascript">document.write(
-    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:wbanf\056fpuzvqg\100vjrf\056senhaubsre\056qr\">Wbanf Fpuzvqg<\057n>".replace(/[a-zA-Z]/g,
-        function(c){
-            return String.fromCharCode(
-                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
-            );
-        }
-    )
-);</script></p>
-</dd>
-<dt>License:</dt>
-<dd>
-<p><a class="reference external" href="https://github.com/FraunhoferIWES/iwopy/blob/main/LICENSE">MIT</a></p>
+</dl>
+<p>Please report code issues under the github link above.</p>
+<dl class="simple">
+<dt>License:</dt><dd><p><a class="reference external" href="https://github.com/FraunhoferIWES/iwopy/blob/main/LICENSE">MIT</a></p>
 </dd>
 </dl>
 <dl>
-<dt>Contents:</dt>
-<dd>
-<div class="toctree-wrapper compound">
+<dt>Contents:</dt><dd><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1">
-<a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installation-via-conda">Installation via conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installation-via-pip">Installation via pip</a></li>
@@ -316,11 +299,11 @@ invoked whenever possible. Check the examples (or the API) for details.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1">
-<a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -333,8 +316,7 @@ invoked whenever possible. Check the examples (or the API) for details.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1">
-<a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-0-13-alpha">v0.0.13-alpha</a></li>
@@ -344,17 +326,16 @@ invoked whenever possible. Check the examples (or the API) for details.</p>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </dd>
 </dl>
-</section>
-
-<section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a>
-</h1>
+</div>
+<div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p>Fork <em>iwopy</em> on <em>github</em>.</p></li>
 <li><p>Create a branch (<cite>git checkout -b new_branch</cite>)</p></li>
@@ -362,8 +343,7 @@ invoked whenever possible. Check the examples (or the API) for details.</p>
 <li><p>Push to the branch (<cite>git push origin new_branch</cite>)</p></li>
 <li><p>Create a pull request <a class="reference external" href="https://github.com/FraunhoferIWES/iwopy/pulls">here</a></p></li>
 </ol>
-</section>
-
+</div>
 
 
            </div>

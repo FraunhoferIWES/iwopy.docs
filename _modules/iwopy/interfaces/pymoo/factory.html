@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.pymoo.factory &mdash; iwopy 0.1.3
+  <title>iwopy.interfaces.pymoo.factory &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -240,6 +241,7 @@
     <span class="kn">from</span> <span class="nn">pymoo.algorithms.soo.nonconvex.ga</span> <span class="kn">import</span> <span class="n">GA</span>
     <span class="kn">from</span> <span class="nn">pymoo.algorithms.moo.nsga2</span> <span class="kn">import</span> <span class="n">NSGA2</span>
     <span class="kn">from</span> <span class="nn">pymoo.algorithms.soo.nonconvex.pso</span> <span class="kn">import</span> <span class="n">PSO</span>
+    <span class="kn">from</span> <span class="nn">pymoo.core.mixed</span> <span class="kn">import</span> <span class="n">MixedVariableGA</span>
     <span class="kn">from</span> <span class="nn">pymoo.termination.default</span> <span class="kn">import</span> <span class="p">(</span>
         <span class="n">DefaultSingleObjectiveTermination</span><span class="p">,</span>
         <span class="n">DefaultMultiObjectiveTermination</span><span class="p">,</span>
@@ -247,7 +249,7 @@
 
 
 <div class="viewcode-block" id="Factory"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory">[docs]</a><span class="k">class</span> <span class="nc">Factory</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory for pymoo components</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -261,7 +263,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Factory.get_sampling"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory.get_sampling">[docs]</a>    <span class="k">def</span> <span class="nf">get_sampling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">samp_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sampling factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">samp_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -290,7 +292,7 @@
         <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="Factory.get_crossover"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory.get_crossover">[docs]</a>    <span class="k">def</span> <span class="nf">get_crossover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cross</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Crossover factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">cross</span> <span class="o">==</span> <span class="s2">&quot;sbx&quot;</span><span class="p">:</span>
@@ -303,7 +305,7 @@
         <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="Factory.get_mutation"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory.get_mutation">[docs]</a>    <span class="k">def</span> <span class="nf">get_mutation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mut</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mutation factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">mut</span> <span class="o">==</span> <span class="s2">&quot;pm&quot;</span><span class="p">:</span>
@@ -316,13 +318,13 @@
         <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="Factory.get_algorithm"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pymoo.factory.Factory.html#iwopy.interfaces.pymoo.factory.Factory.get_algorithm">[docs]</a>    <span class="k">def</span> <span class="nf">get_algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Algorithm factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">typ</span> <span class="o">=</span> <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
 
         <span class="c1"># Genetic Algorithm:</span>
-        <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;ga&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;GA&quot;</span><span class="p">:</span>
 
             <span class="n">samp_name</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sampling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="n">samp_pars</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sampling_pars&quot;</span><span class="p">,</span> <span class="p">{})</span>
@@ -347,7 +349,7 @@
             <span class="n">out</span> <span class="o">=</span> <span class="n">GA</span><span class="p">(</span><span class="o">**</span><span class="n">pars</span><span class="p">)</span>
 
         <span class="c1"># Particle Swarm:</span>
-        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;pso&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;PSO&quot;</span><span class="p">:</span>
 
             <span class="k">if</span> <span class="s2">&quot;samplig&quot;</span> <span class="ow">in</span> <span class="n">pars</span><span class="p">:</span>
                 <span class="n">samp_name</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sampling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -373,7 +375,7 @@
             <span class="n">out</span> <span class="o">=</span> <span class="n">PSO</span><span class="p">(</span><span class="o">**</span><span class="n">pars</span><span class="p">)</span>
 
         <span class="c1"># NSGA2:</span>
-        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;nsga2&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;NSGA2&quot;</span><span class="p">:</span>
 
             <span class="n">samp_name</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sampling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="n">samp_pars</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sampling_pars&quot;</span><span class="p">,</span> <span class="p">{})</span>
@@ -397,14 +399,36 @@
 
             <span class="n">out</span> <span class="o">=</span> <span class="n">NSGA2</span><span class="p">(</span><span class="o">**</span><span class="n">pars</span><span class="p">)</span>
 
+        <span class="c1"># MixedVariableGA:</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;MixedVariableGA&quot;</span><span class="p">:</span>
+
+            <span class="n">cross_pars</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;crossover_pars&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="k">if</span> <span class="s2">&quot;crossover_pars&quot;</span> <span class="ow">in</span> <span class="n">pars</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;crossover_pars&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;crossover&quot;</span> <span class="ow">in</span> <span class="n">pars</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pars</span><span class="p">[</span><span class="s2">&quot;crossover&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">cross</span> <span class="o">=</span> <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;crossover&quot;</span><span class="p">]</span>
+                <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;crossover&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_crossover</span><span class="p">(</span><span class="n">cross</span><span class="p">,</span> <span class="o">**</span><span class="n">cross_pars</span><span class="p">)</span>
+
+            <span class="n">mut_pars</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mutation_pars&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="k">if</span> <span class="s2">&quot;mutation_pars&quot;</span> <span class="ow">in</span> <span class="n">pars</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;mutation_pars&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;mutation&quot;</span> <span class="ow">in</span> <span class="n">pars</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pars</span><span class="p">[</span><span class="s2">&quot;mutation&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">mut</span> <span class="o">=</span> <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;mutation&quot;</span><span class="p">]</span>
+                <span class="n">pars</span><span class="p">[</span><span class="s2">&quot;mutation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_mutation</span><span class="p">(</span><span class="n">mut</span><span class="p">,</span> <span class="o">**</span><span class="n">mut_pars</span><span class="p">)</span>
+
+            <span class="n">out</span> <span class="o">=</span> <span class="n">MixedVariableGA</span><span class="p">(</span><span class="o">**</span><span class="n">pars</span><span class="p">)</span>
+
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown algorithm &#39;</span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s2">&#39;, please choose: ga, pso, nsga2&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown algorithm &#39;</span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s2">&#39;, please choose: GA, PSO, NSGA2, MixedVariableGA&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selecting algorithm: </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">out</span></div>
 
     <span class="k">def</span> <span class="nf">get_termination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term_pars</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">term_pars</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">term_pars</span>
 
         <span class="n">typ</span> <span class="o">=</span> <span class="n">term_pars</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">typ</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

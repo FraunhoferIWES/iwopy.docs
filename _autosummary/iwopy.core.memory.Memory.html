@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.core.memory.Memory &mdash; iwopy 0.1.3
+  <title>iwopy.core.memory.Memory &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -36,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -65,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/mixed.html">Mixed problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
@@ -199,6 +199,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -254,20 +255,16 @@
     text-align: unset;
 }
 </style>
-<section id="iwopy-core-memory-memory">
-<h1>iwopy.core.memory.Memory<a class="headerlink" href="#iwopy-core-memory-memory" title="Permalink to this heading"></a>
-</h1>
+<div class="section" id="iwopy-core-memory-memory">
+<h1>iwopy.core.memory.Memory<a class="headerlink" href="#iwopy-core-memory-memory" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.core.memory.</span></span><span class="sig-name descname"><span class="pre">Memory</span></span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.core.memory.</span></span><span class="sig-name descname"><span class="pre">Memory</span></span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Storage for function results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The number of maximally stored results</p></li>
 <li><p><strong>keyf</strong> (<em>Function</em><em>, </em><em>optional</em>) – The memory key function. Parameters:
 (vars_int, vars_float), returns key Object</p></li>
@@ -276,95 +273,73 @@
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.max_size">
-<span class="sig-name descname"><span class="pre">max_size</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.max_size" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The number of maximally stored results</p>
+<span class="sig-name descname"><span class="pre">max_size</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.max_size" title="Permalink to this definition"></a></dt>
+<dd><p>The number of maximally stored results</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.data">
-<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.data" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The stored data. Key: keyf return type,
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.data" title="Permalink to this definition"></a></dt>
+<dd><p>The stored data. Key: keyf return type,
 Values: tuples (objs, cons)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.keyf">
-<span class="sig-name descname"><span class="pre">keyf</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.keyf" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The memory key function. Parameters:
+<span class="sig-name descname"><span class="pre">keyf</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.keyf" title="Permalink to this definition"></a></dt>
+<dd><p>The memory key function. Parameters:
 (vars_int, vars_float), returns key Object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd">
-<p>Function</p>
+<dd class="field-odd"><p>Function</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.__init__" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#id0" title="iwopy.core.memory.Memory.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size[, keyf])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="iwopy.core.memory.Memory.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(size[, keyf])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.clear" title="iwopy.core.memory.Memory.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.clear" title="iwopy.core.memory.Memory.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
 <td><p>Clears the memory</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.found_individual" title="iwopy.core.memory.Memory.found_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">found_individual</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.found_individual" title="iwopy.core.memory.Memory.found_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">found_individual</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Check if entry is found in memory.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.found_population" title="iwopy.core.memory.Memory.found_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">found_population</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.found_population" title="iwopy.core.memory.Memory.found_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">found_population</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Check if entry is found in memory.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.lookup_individual" title="iwopy.core.memory.Memory.lookup_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_individual</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.lookup_individual" title="iwopy.core.memory.Memory.lookup_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_individual</span></code></a>(vars_int, vars_float)</p></td>
 <td><p>Lookup results from memory.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.lookup_population" title="iwopy.core.memory.Memory.lookup_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_population</span></code></a>(vars_int, vars_float[, target])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.lookup_population" title="iwopy.core.memory.Memory.lookup_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_population</span></code></a>(vars_int, vars_float[, target])</p></td>
 <td><p>Lookup results from memory.</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.store_individual" title="iwopy.core.memory.Memory.store_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">store_individual</span></code></a>(vars_int, vars_float, objs, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.store_individual" title="iwopy.core.memory.Memory.store_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">store_individual</span></code></a>(vars_int, vars_float, objs, ...)</p></td>
 <td><p>Store objs and cons data.</p></td>
 </tr>
-<tr class="row-even">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.store_population" title="iwopy.core.memory.Memory.store_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">store_population</span></code></a>(vars_int, vars_float, objs, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.store_population" title="iwopy.core.memory.Memory.store_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">store_population</span></code></a>(vars_int, vars_float, objs, ...)</p></td>
 <td><p>Store objs and cons data of a population.</p></td>
 </tr>
 </tbody>
@@ -372,170 +347,132 @@ Values: tuples (objs, cons)</p>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd">
-<td><p><a class="reference internal" href="#iwopy.core.memory.Memory.size" title="iwopy.core.memory.Memory.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.core.memory.Memory.size" title="iwopy.core.memory.Memory.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></p></td>
 <td><p>The number of elements currently stored in memory</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a>
-</dt>
-<dd></dd>
-</dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.clear" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Clears the memory</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Clears the memory</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.found_individual">
-<span class="sig-name descname"><span class="pre">found_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.found_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.found_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Check if entry is found in memory.</p>
+<span class="sig-name descname"><span class="pre">found_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.found_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.found_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Check if entry is found in memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>found</strong> – True if data is available</p>
+<dd class="field-even"><p><strong>found</strong> – True if data is available</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.found_population">
-<span class="sig-name descname"><span class="pre">found_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.found_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.found_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Check if entry is found in memory.</p>
+<span class="sig-name descname"><span class="pre">found_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.found_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.found_population" title="Permalink to this definition"></a></dt>
+<dd><p>Check if entry is found in memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>found</strong> – True if data is available, shape: (n_pop,)</p>
+<dd class="field-even"><p><strong>found</strong> – True if data is available, shape: (n_pop,)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.lookup_individual">
-<span class="sig-name descname"><span class="pre">lookup_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.lookup_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.lookup_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Lookup results from memory.</p>
+<span class="sig-name descname"><span class="pre">lookup_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.lookup_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.lookup_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Lookup results from memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>results</strong> – The results (objs, cons) if found, None otherwise</p>
+<dd class="field-even"><p><strong>results</strong> – The results (objs, cons) if found, None otherwise</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a> or None</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a> or None</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.lookup_population">
-<span class="sig-name descname"><span class="pre">lookup_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.lookup_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.lookup_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Lookup results from memory.</p>
+<span class="sig-name descname"><span class="pre">lookup_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.lookup_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.lookup_population" title="Permalink to this definition"></a></dt>
+<dd><p>Lookup results from memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
-<li><p><strong>target</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The results array to write to, shape:
+<li><p><strong>target</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The results array to write to, shape:
 (n_pop, n_objs_cmpnts + n_cons_cmpnts)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even">
-<p><strong>results</strong> – None if no results at all found, otherwise array
+<dd class="field-even"><p><strong>results</strong> – None if no results at all found, otherwise array
 with shape: (n_pop, n_objs_cmpnts + n_cons_cmpnts)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd">
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)">numpy.ndarray</a> or None</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a> or None</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.size">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.size" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>The number of elements currently stored
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#iwopy.core.memory.Memory.size" title="Permalink to this definition"></a></dt>
+<dd><p>The number of elements currently stored
 in memory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd">
-<p>The number of elements currently stored
+<dd class="field-odd"><p>The number of elements currently stored
 in memory</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even">
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.store_individual">
-<span class="sig-name descname"><span class="pre">store_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.store_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.store_individual" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Store objs and cons data.</p>
+<span class="sig-name descname"><span class="pre">store_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.store_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.store_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Store objs and cons data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_objectives,)</p></li>
@@ -543,19 +480,15 @@ in memory</p>
 </ul>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.memory.Memory.store_population">
-<span class="sig-name descname"><span class="pre">store_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.store_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.store_population" title="Permalink to this definition"></a>
-</dt>
-<dd>
-<p>Store objs and cons data of a population.</p>
+<span class="sig-name descname"><span class="pre">store_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/memory.html#Memory.store_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.memory.Memory.store_population" title="Permalink to this definition"></a></dt>
+<dd><p>Store objs and cons data of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_pop, n_objectives)</p></li>
@@ -563,14 +496,11 @@ in memory</p>
 </ul>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
 
-</dd>
-</dl>
+</dd></dl>
 
-</section>
-
+</div>
 
 
            </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.simple_constraint &mdash; iwopy 0.1.3
+  <title>iwopy.wrappers.simple_constraint &mdash; iwopy 0.1.4
  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../../index.html" class="icon icon-home"> iwopy
           </a>
               <div class="version">
-                0.1.3
+                0.1.4
 
               </div>
 <div role="search">
@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-1-alpha">v0.1.1-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-2-alpha">v0.1.2-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -232,7 +233,7 @@
 
 
 <div class="viewcode-block" id="SimpleConstraint"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint">[docs]</a><span class="k">class</span> <span class="nc">SimpleConstraint</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A simple constraint that assumes the</span>
 <span class="sd">    same variables as defined by the problem.</span>
 
@@ -289,7 +290,7 @@
 
 <div class="viewcode-block" id="SimpleConstraint.f"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.f">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The function.</span>
 
 <span class="sd">        Parameters</span>
@@ -309,7 +310,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="SimpleConstraint.g"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.g">[docs]</a>    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The analytical derivative of the function f, df/dvar,</span>
 <span class="sd">        if available.</span>
 
@@ -334,7 +335,7 @@
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="SimpleConstraint.get_bounds"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.get_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the bounds for all components.</span>
 
 <span class="sd">        Non-existing bounds are expressed by np.inf.</span>
@@ -350,7 +351,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxs</span></div>
 
 <div class="viewcode-block" id="SimpleConstraint.n_components"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.n_components">[docs]</a>    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the number of components of the</span>
 <span class="sd">        function.</span>
 
@@ -363,7 +364,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_comps</span></div>
 
 <div class="viewcode-block" id="SimpleConstraint.calc_individual"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.calc_individual">[docs]</a>    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for a single individual of the</span>
 <span class="sd">        underlying problem.</span>
 
@@ -389,7 +390,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleConstraint.calc_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.calc_population">[docs]</a>    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for all individuals of a population.</span>
 
 <span class="sd">        Parameters</span>
@@ -420,7 +421,7 @@
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SimpleConstraint.ana_deriv"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.simple_constraint.SimpleConstraint.html#iwopy.wrappers.simple_constraint.SimpleConstraint.ana_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">ana_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the analytic derivative, if possible.</span>
 
 <span class="sd">        Use `numpy.nan` if analytic derivatives cannot be calculated.</span>
