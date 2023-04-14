@@ -1,0 +1,32 @@
+iwopy.interfaces.scipy
+======================
+
+.. automodule:: iwopy.interfaces.scipy
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst 
+   :recursive:
+
+   iwopy.interfaces.scipy.optimizer
+

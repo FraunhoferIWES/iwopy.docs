@@ -37,6 +37,8 @@ iwopy.wrappers.problem\_wrapper.ProblemWrapper
       ~ProblemWrapper.max_values_int
       ~ProblemWrapper.min_values_float
       ~ProblemWrapper.min_values_int
+      ~ProblemWrapper.prob_res_einsum_individual
+      ~ProblemWrapper.prob_res_einsum_population
       ~ProblemWrapper.var_names_float
       ~ProblemWrapper.var_names_int
    

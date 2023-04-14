@@ -37,6 +37,8 @@ iwopy.wrappers.discretize\_reg\_grid.DiscretizeRegGrid
       ~DiscretizeRegGrid.max_values_int
       ~DiscretizeRegGrid.min_values_float
       ~DiscretizeRegGrid.min_values_int
+      ~DiscretizeRegGrid.prob_res_einsum_individual
+      ~DiscretizeRegGrid.prob_res_einsum_population
       ~DiscretizeRegGrid.var_names_float
       ~DiscretizeRegGrid.var_names_int
    

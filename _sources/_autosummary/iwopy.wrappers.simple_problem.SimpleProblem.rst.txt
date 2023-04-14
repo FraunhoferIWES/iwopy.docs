@@ -37,6 +37,8 @@ iwopy.wrappers.simple\_problem.SimpleProblem
       ~SimpleProblem.max_values_int
       ~SimpleProblem.min_values_float
       ~SimpleProblem.min_values_int
+      ~SimpleProblem.prob_res_einsum_individual
+      ~SimpleProblem.prob_res_einsum_population
       ~SimpleProblem.var_names_float
       ~SimpleProblem.var_names_int
    

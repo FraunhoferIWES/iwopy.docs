@@ -1,25 +1,37 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>iwopy.wrappers.local_fd.LocalFD &mdash; iwopy 0.1.5
+  <title>iwopy.wrappers.local_fd.LocalFD &mdash; iwopy 0.1.6
  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -31,14 +43,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="iwopy.wrappers.problem_wrapper" href="iwopy.wrappers.problem_wrapper.html" />
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                0.1.5
+                0.1.6
 
               </div>
             
@@ -84,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -190,6 +195,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.pymoo.problem.html">iwopy.interfaces.pymoo.problem</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.interfaces.scipy.html">iwopy.interfaces.scipy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.interfaces.scipy.optimizer.html">iwopy.interfaces.scipy.optimizer</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iwopy.utils.html">iwopy.utils</a><ul>
@@ -246,6 +255,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-3-alpha">v0.1.3-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
 </ul>
 </li>
 </ul>
@@ -253,6 +263,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -287,11 +298,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api.html">API</a> &raquo;</li>
         
@@ -304,7 +317,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_autosummary/iwopy.wrappers.local_fd.LocalFD.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -318,31 +331,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="iwopy-wrappers-local-fd-localfd">
+  <section id="iwopy-wrappers-local-fd-localfd">
 <h1>iwopy.wrappers.local_fd.LocalFD<a class="headerlink" href="#iwopy-wrappers-local-fd-localfd" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.wrappers.local_fd.LocalFD">
@@ -425,10 +414,10 @@ Key: variable name str, value: order int</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.check_constraints_population" title="iwopy.wrappers.local_fd.LocalFD.check_constraints_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_constraints_population</span></code></a>(constraint_values)</p></td>
 <td><p>Check if the constraints are fullfilled for the given population.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_individual" title="iwopy.wrappers.local_fd.LocalFD.evaluate_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_individual</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_individual" title="iwopy.wrappers.local_fd.LocalFD.evaluate_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_individual</span></code></a>(vars_int, vars_float[, ...])</p></td>
 <td><p>Evaluate a single individual of the problem.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_population" title="iwopy.wrappers.local_fd.LocalFD.evaluate_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_population</span></code></a>(vars_int, vars_float)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_population" title="iwopy.wrappers.local_fd.LocalFD.evaluate_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_population</span></code></a>(vars_int, vars_float[, ...])</p></td>
 <td><p>Evaluate all individuals of a population.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.finalize" title="iwopy.wrappers.local_fd.LocalFD.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>([verbosity])</p></td>
@@ -463,6 +452,12 @@ Key: variable name str, value: order int</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.min_values_int" title="iwopy.wrappers.local_fd.LocalFD.min_values_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_values_int</span></code></a>()</p></td>
 <td><p>The minimal values of the integer variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_individual" title="iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_individual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prob_res_einsum_individual</span></code></a>(prob_res_list, coeffs)</p></td>
+<td><p>Calculate the einsum of problem results</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_population" title="iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prob_res_einsum_population</span></code></a>(prob_res_list, coeffs)</p></td>
+<td><p>Calculate the einsum of problem results</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#iwopy.wrappers.local_fd.LocalFD.var_names_float" title="iwopy.wrappers.local_fd.LocalFD.var_names_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var_names_float</span></code></a>()</p></td>
 <td><p>The names of float variables.</p></td>
@@ -687,7 +682,7 @@ given population.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.wrappers.local_fd.LocalFD.evaluate_individual">
-<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_prob_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_individual" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate a single individual of the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -701,6 +696,7 @@ given population.</p>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_objectives,)</p></li>
 <li><p><strong>con</strong> (<em>np.array</em>) – The constraints values, shape: (n_constraints,)</p></li>
+<li><p><strong>prob_res</strong> (<em>object, optional</em>) – The problem results</p></li>
 </ul>
 </p>
 </dd>
@@ -709,19 +705,21 @@ given population.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.wrappers.local_fd.LocalFD.evaluate_population">
-<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_prob_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.evaluate_population" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate all individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
+<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>objs</strong> (<em>np.array</em>) – The objective function values, shape: (n_pop, n_objectives)</p></li>
 <li><p><strong>cons</strong> (<em>np.array</em>) – The constraints values, shape: (n_pop, n_constraints)</p></li>
+<li><p><strong>prob_res</strong> (<em>object, optional</em>) – The problem results</p></li>
 </ul>
 </p>
 </dd>
@@ -1042,6 +1040,46 @@ functions</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_individual">
+<span class="sig-name descname"><span class="pre">prob_res_einsum_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_res_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_individual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the einsum of problem results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prob_res_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – The problem results</p></li>
+<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><em>numpy.ndarray</em></a>) – The coefficients</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>prob_res</strong> – The weighted sum of problem results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_population">
+<span class="sig-name descname"><span class="pre">prob_res_einsum_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_res_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.prob_res_einsum_population" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the einsum of problem results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prob_res_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – The problem results</p></li>
+<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><em>numpy.ndarray</em></a>) – The coefficients</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>prob_res</strong> – The weighted sum of problem results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iwopy.wrappers.local_fd.LocalFD.var_names_float">
 <span class="sig-name descname"><span class="pre">var_names_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.wrappers.local_fd.LocalFD.var_names_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>The names of float variables.</p>
@@ -1078,29 +1116,29 @@ functions</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="iwopy.wrappers.problem_wrapper.html" class="btn btn-neutral float-right" title="iwopy.wrappers.problem_wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="iwopy.wrappers.local_fd.html" class="btn btn-neutral float-left" title="iwopy.wrappers.local_fd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="iwopy.wrappers.problem_wrapper.html" class="btn btn-neutral float-right" title="iwopy.wrappers.problem_wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="iwopy.wrappers.local_fd.html" class="btn btn-neutral float-left" title="iwopy.wrappers.local_fd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022, Fraunhofer IWES
+        &#169; Copyright 2022, Fraunhofer IWES.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -1108,7 +1146,6 @@ functions</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

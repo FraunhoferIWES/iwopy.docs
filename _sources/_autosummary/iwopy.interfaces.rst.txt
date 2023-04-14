@@ -30,4 +30,5 @@
 
    iwopy.interfaces.pygmo
    iwopy.interfaces.pymoo
+   iwopy.interfaces.scipy
 

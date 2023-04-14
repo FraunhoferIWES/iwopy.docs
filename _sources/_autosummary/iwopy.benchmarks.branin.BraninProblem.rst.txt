@@ -37,6 +37,8 @@ iwopy.benchmarks.branin.BraninProblem
       ~BraninProblem.max_values_int
       ~BraninProblem.min_values_float
       ~BraninProblem.min_values_int
+      ~BraninProblem.prob_res_einsum_individual
+      ~BraninProblem.prob_res_einsum_population
       ~BraninProblem.var_names_float
       ~BraninProblem.var_names_int
    

@@ -1,0 +1,35 @@
+iwopy.interfaces.scipy.optimizer.Optimizer\_scipy
+=================================================
+
+.. currentmodule:: iwopy.interfaces.scipy.optimizer
+
+.. autoclass:: Optimizer_scipy
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Optimizer_scipy.__init__
+      ~Optimizer_scipy.finalize
+      ~Optimizer_scipy.initialize
+      ~Optimizer_scipy.print_info
+      ~Optimizer_scipy.solve
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Optimizer_scipy.initialized
+   
+   

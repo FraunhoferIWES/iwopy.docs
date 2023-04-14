@@ -37,6 +37,8 @@ iwopy.wrappers.local\_fd.LocalFD
       ~LocalFD.max_values_int
       ~LocalFD.min_values_float
       ~LocalFD.min_values_int
+      ~LocalFD.prob_res_einsum_individual
+      ~LocalFD.prob_res_einsum_population
       ~LocalFD.var_names_float
       ~LocalFD.var_names_int
    

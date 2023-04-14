@@ -37,6 +37,8 @@ iwopy.benchmarks.rosenbrock.RosenbrockProblem
       ~RosenbrockProblem.max_values_int
       ~RosenbrockProblem.min_values_float
       ~RosenbrockProblem.min_values_int
+      ~RosenbrockProblem.prob_res_einsum_individual
+      ~RosenbrockProblem.prob_res_einsum_population
       ~RosenbrockProblem.var_names_float
       ~RosenbrockProblem.var_names_int
    

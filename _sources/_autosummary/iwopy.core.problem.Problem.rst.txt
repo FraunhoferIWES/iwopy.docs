@@ -37,6 +37,8 @@ iwopy.core.problem.Problem
       ~Problem.max_values_int
       ~Problem.min_values_float
       ~Problem.min_values_int
+      ~Problem.prob_res_einsum_individual
+      ~Problem.prob_res_einsum_population
       ~Problem.var_names_float
       ~Problem.var_names_int
    
