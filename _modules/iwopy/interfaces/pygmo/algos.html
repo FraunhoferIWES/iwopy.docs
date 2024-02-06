@@ -1,98 +1,54 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>iwopy.interfaces.pygmo.algos &mdash; iwopy 0.1.6
+  <title>iwopy.interfaces.pygmo.algos &mdash; iwopy 0.1.7
  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
 
   
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=e80004a2"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> iwopy
           
-
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            iwopy
           </a>
-
-          
-            
-            
               <div class="version">
-                0.1.6
+                0.1.7
 
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
@@ -203,6 +159,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.load.html">iwopy.utils.load</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.load.import_module.html">iwopy.utils.load.import_module</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../_autosummary/iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
 </ul>
@@ -253,76 +213,37 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">iwopy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>iwopy.interfaces.pygmo.algos</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">iwopy.interfaces.pygmo.algos</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for iwopy.interfaces.pygmo.algos</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.imports</span> <span class="kn">import</span> <span class="n">pygmo</span><span class="p">,</span> <span class="n">check_import</span>
-
+<span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imports</span>
 
 <div class="viewcode-block" id="AlgoFactory"><a class="viewcode-back" href="../../../../_autosummary/iwopy.interfaces.pygmo.algos.AlgoFactory.html#iwopy.interfaces.pygmo.algos.AlgoFactory">[docs]</a><span class="k">class</span> <span class="nc">AlgoFactory</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -345,17 +266,17 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        pygmo.algo :</span>
+<span class="sd">        imports.pygmo.algo :</span>
 <span class="sd">            The pygmo algorithm object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">check_import</span><span class="p">()</span>
+        <span class="n">imports</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 
         <span class="k">def</span> <span class="nf">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">pop</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="n">bfe</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">bfe</span><span class="p">()</span>
+                    <span class="n">bfe</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">bfe</span><span class="p">()</span>
                     <span class="n">uda</span><span class="o">.</span><span class="n">set_bfe</span><span class="p">(</span><span class="n">bfe</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span>
@@ -365,28 +286,28 @@
         <span class="c1"># nlopt:</span>
         <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;nlopt&quot;</span><span class="p">:</span>
 
-            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;optimizer&quot;</span><span class="p">])</span>
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;optimizer&quot;</span><span class="p">])</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
-            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="s2">&quot;ftol_rel&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">ftol_rel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ftol_rel&quot;</span><span class="p">]</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">ftol_rel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ftol_rel&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;ftol_abs&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">ftol_abs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ftol_abs&quot;</span><span class="p">]</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">ftol_abs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ftol_abs&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;xtol_rel&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">xtol_rel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xtol_rel&quot;</span><span class="p">]</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">xtol_rel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xtol_rel&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;xtol_abs&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">xtol_abs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xtol_abs&quot;</span><span class="p">]</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">xtol_abs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xtol_abs&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;maxeval&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">maxeval</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;maxeval&quot;</span><span class="p">]</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">maxeval</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;maxeval&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;maxtime&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">maxtime</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;maxtime&quot;</span><span class="p">]</span>
+                <span class="n">algo</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nlopt</span><span class="p">)</span><span class="o">.</span><span class="n">maxtime</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;maxtime&quot;</span><span class="p">]</span>
 
         <span class="c1"># ipopt:</span>
         <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;ipopt&quot;</span><span class="p">:</span>
 
-            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">ipopt</span><span class="p">()</span>
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">ipopt</span><span class="p">()</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -400,7 +321,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">uda</span><span class="o">.</span><span class="n">set_string_option</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
-            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># sga:</span>
         <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;sga&quot;</span><span class="p">:</span>
@@ -432,10 +353,10 @@
 <span class="sd">                *Crossover*: four different crossover schemes are provided:``single``, ``exponential``, ``binomial``, ``sbx``. The</span>
 <span class="sd">                ``single`` point crossover, works selecting a random point in the parent chromosome and, with probability *cr*, inserting the</span>
 <span class="sd">                partner chromosome thereafter. The ``exponential`` crossover is taken from the algorithm differential evolution,</span>
-<span class="sd">                implemented, in pygmo, as :class:`~pygmo.de`. It essentially selects a random point in the parent chromosome and inserts,</span>
+<span class="sd">                implemented, in pygmo, as :class:`~imports.pygmo.de`. It essentially selects a random point in the parent chromosome and inserts,</span>
 <span class="sd">                in each successive gene, the partner values with probability  *cr* up to when it stops. The binomial crossover</span>
 <span class="sd">                inserts each gene from the partner with probability *cr*. The simulated binary crossover (called ``sbx``), is taken</span>
-<span class="sd">                from the NSGA-II algorithm, implemented in pygmo as :class:`~pygmo.nsga2`, and makes use of an additional parameter called</span>
+<span class="sd">                from the NSGA-II algorithm, implemented in pygmo as :class:`~imports.pygmo.nsga2`, and makes use of an additional parameter called</span>
 <span class="sd">                distribution index *eta_c*.</span>
 
 <span class="sd">                *Mutation*: three different mutations schemes are provided: ``uniform``, ``gaussian`` and ``polynomial``. Uniform mutation</span>
@@ -448,10 +369,10 @@
 
 <span class="sd">            &quot;&quot;&quot;</span>
 
-            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">sga</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">sga</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
-            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># pso:</span>
         <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;pso&quot;</span><span class="p">:</span>
@@ -494,10 +415,10 @@
 
 <span class="sd">            &quot;&quot;&quot;</span>
 
-            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">pso</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">pso</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
-            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># bee_colony:</span>
         <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;bee_colony&quot;</span><span class="p">:</span>
@@ -516,10 +437,10 @@
 
 <span class="sd">            &quot;&quot;&quot;</span>
 
-            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">bee_colony</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">bee_colony</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
-            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># nsga2:</span>
         <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;nsga2&quot;</span><span class="p">:</span>
@@ -542,10 +463,10 @@
 
 <span class="sd">            &quot;&quot;&quot;</span>
 
-            <span class="n">uda</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">nsga2</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">uda</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">nsga2</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">set_bfe</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
-            <span class="n">algo</span> <span class="o">=</span> <span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">imports</span><span class="o">.</span><span class="n">pygmo</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="n">uda</span><span class="p">)</span>
 
         <span class="c1"># unknown driver:</span>
         <span class="k">else</span><span class="p">:</span>
@@ -564,46 +485,30 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Fraunhofer IWES.
-
-    </p>
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
     /* Sidebar header (and topbar for mobile) */

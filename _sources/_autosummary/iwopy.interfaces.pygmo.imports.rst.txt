@@ -14,7 +14,7 @@ iwopy.interfaces.pygmo.imports
    .. autosummary::
       :toctree:
    
-      check_import
+      load
    
    
 

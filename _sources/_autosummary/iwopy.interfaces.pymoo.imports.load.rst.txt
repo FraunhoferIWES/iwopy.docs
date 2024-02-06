@@ -1,0 +1,6 @@
+iwopy.interfaces.pymoo.imports.load
+===================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.imports
+
+.. autofunction:: load

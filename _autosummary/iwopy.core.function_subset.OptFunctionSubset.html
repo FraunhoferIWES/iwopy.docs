@@ -1,101 +1,57 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>iwopy.core.function_subset.OptFunctionSubset &mdash; iwopy 0.1.6
+  <title>iwopy.core.function_subset.OptFunctionSubset &mdash; iwopy 0.1.7
  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e80004a2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="iwopy.core.memory" href="iwopy.core.memory.html" />
     <link rel="prev" title="iwopy.core.function_subset" href="iwopy.core.function_subset.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> iwopy
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            iwopy
           </a>
-
-          
-            
-            
               <div class="version">
-                0.1.6
+                0.1.7
 
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
@@ -206,6 +162,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.utils.load.html">iwopy.utils.load</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.utils.load.import_module.html">iwopy.utils.load.import_module</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
 </ul>
@@ -256,86 +216,43 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">iwopy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../api.html">API</a> &raquo;</li>
-        
-          <li><a href="iwopy.core.html">iwopy.core</a> &raquo;</li>
-        
-          <li><a href="iwopy.core.function_subset.html">iwopy.core.function_subset</a> &raquo;</li>
-        
-      <li>iwopy.core.function_subset.OptFunctionSubset</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.core.html">iwopy.core</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.core.function_subset.html">iwopy.core.function_subset</a></li>
+      <li class="breadcrumb-item active">iwopy.core.function_subset.OptFunctionSubset</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/_autosummary/iwopy.core.function_subset.OptFunctionSubset.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <section id="iwopy-core-function-subset-optfunctionsubset">
-<h1>iwopy.core.function_subset.OptFunctionSubset<a class="headerlink" href="#iwopy-core-function-subset-optfunctionsubset" title="Permalink to this heading">¶</a></h1>
+<h1>iwopy.core.function_subset.OptFunctionSubset<a class="headerlink" href="#iwopy-core-function-subset-optfunctionsubset" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.core.function_subset.</span></span><span class="sig-name descname"><span class="pre">OptFunctionSubset</span></span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.core.function_subset.</span></span><span class="sig-name descname"><span class="pre">OptFunctionSubset</span></span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="iwopy.core.function.OptFunction.html#iwopy.core.function.OptFunction" title="iwopy.core.function.OptFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptFunction</span></code></a></p>
 <p>A function composed of a subset of a function’s
 components.</p>
@@ -343,14 +260,14 @@ components.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>function</strong> (<em>iwopy.OptFunction</em>) – The original function</p></li>
-<li><p><strong>subset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The component choice</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The function name</p></li>
+<li><p><strong>subset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The component choice</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – The function name</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.func_org">
-<span class="sig-name descname"><span class="pre">func_org</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.func_org" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">func_org</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.func_org" title="Permalink to this definition"></a></dt>
 <dd><p>The original function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -361,18 +278,18 @@ components.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.subset">
-<span class="sig-name descname"><span class="pre">subset</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.subset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">subset</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.subset" title="Permalink to this definition"></a></dt>
 <dd><p>The component choice</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -444,12 +361,12 @@ components.</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.ana_deriv">
-<span class="sig-name descname"><span class="pre">ana_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.ana_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.ana_deriv" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ana_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.ana_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.ana_deriv" title="Permalink to this definition"></a></dt>
 <dd><p>Calculates the analytic derivative, if possible.</p>
 <p>Use <cite>numpy.nan</cite> if analytic derivatives cannot be calculated.</p>
 <dl class="field-list simple">
@@ -457,22 +374,22 @@ components.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
-<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The index of the differentiation float variable</p></li>
-<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The selected components, or None for all</p></li>
+<li><p><strong>var</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The index of the differentiation float variable</p></li>
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The selected components, or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>deriv</strong> – The derivative values, shape: (n_sel_components,)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.calc_individual">
-<span class="sig-name descname"><span class="pre">calc_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.calc_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.calc_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calc_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.calc_individual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.calc_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate values for a single individual of the
 underlying problem.</p>
 <dl class="field-list simple">
@@ -482,7 +399,7 @@ underlying problem.</p>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -496,7 +413,7 @@ to the problem</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.calc_population">
-<span class="sig-name descname"><span class="pre">calc_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.calc_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.calc_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calc_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.calc_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.calc_population" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate values for all individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -505,7 +422,7 @@ to the problem</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>, </em><em>optional</em>) – The selected components or None for all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -519,32 +436,32 @@ to the problem</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.component_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">component_names</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.component_names" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">component_names</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.component_names" title="Permalink to this definition"></a></dt>
 <dd><p>The names of the components</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>names</strong> – The component names</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.finalize">
-<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>Finalize the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.finalize_individual">
-<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.finalize_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.finalize_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Finalization, given the champion data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -553,7 +470,7 @@ to the problem</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -567,7 +484,7 @@ to the problem</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.finalize_population">
-<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.finalize_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.finalize_population" title="Permalink to this definition"></a></dt>
 <dd><p>Finalization, given the final population data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -578,7 +495,7 @@ generation, shape: (n_pop, n_vars_int)</p></li>
 generation, shape: (n_pop, n_vars_float)</p></li>
 <li><p><strong>problem_results</strong> (<em>Any</em>) – The results of the variable application
 to the problem</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -592,32 +509,32 @@ to the problem</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.initialize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.initialize" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.initialized">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.initialized" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.initialized" title="Permalink to this definition"></a></dt>
 <dd><p>Flag for finished initialization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if initialization has been done</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.n_components">
-<span class="sig-name descname"><span class="pre">n_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.n_components"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.n_components" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">n_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.n_components"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.n_components" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the number of components of the
 function.</p>
 <dl class="field-list simple">
@@ -625,46 +542,46 @@ function.</p>
 <dd class="field-odd"><p>The number of components.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.n_vars_float">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.n_vars_float" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.n_vars_float" title="Permalink to this definition"></a></dt>
 <dd><p>The number of float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>n</strong> – The number of float variables</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.n_vars_int">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.n_vars_int" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.n_vars_int" title="Permalink to this definition"></a></dt>
 <dd><p>The number of int variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>n</strong> – The number of int variables</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.rename_vars_float">
-<span class="sig-name descname"><span class="pre">rename_vars_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.rename_vars_float" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rename_vars_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.rename_vars_float" title="Permalink to this definition"></a></dt>
 <dd><p>Rename float variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
+<dd class="field-odd"><p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The name mapping. Key: old name str,
 Value: new name str</p>
 </dd>
 </dl>
@@ -672,11 +589,11 @@ Value: new name str</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.rename_vars_int">
-<span class="sig-name descname"><span class="pre">rename_vars_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.rename_vars_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rename_vars_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.rename_vars_int" title="Permalink to this definition"></a></dt>
 <dd><p>Rename integer variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – The name mapping. Key: old name str,
+<dd class="field-odd"><p><strong>varmap</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – The name mapping. Key: old name str,
 Value: new name str</p>
 </dd>
 </dl>
@@ -684,35 +601,35 @@ Value: new name str</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.var_names_float">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_float</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.var_names_float" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_float</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.var_names_float" title="Permalink to this definition"></a></dt>
 <dd><p>The names of the float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>names</strong> – The float variable names</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.var_names_int">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_int</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.var_names_int" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names_int</span></span><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.var_names_int" title="Permalink to this definition"></a></dt>
 <dd><p>The names of the integer variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>names</strong> – The integer variable names</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.vardeps_float">
-<span class="sig-name descname"><span class="pre">vardeps_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.vardeps_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.vardeps_float" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">vardeps_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.vardeps_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.vardeps_float" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the dependencies of all components
 on the function float variables</p>
 <dl class="field-list simple">
@@ -721,14 +638,14 @@ on the function float variables</p>
 variables, shape: (n_components, n_vars_float)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.core.function_subset.OptFunctionSubset.vardeps_int">
-<span class="sig-name descname"><span class="pre">vardeps_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.vardeps_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.vardeps_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">vardeps_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/core/function_subset.html#OptFunctionSubset.vardeps_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.core.function_subset.OptFunctionSubset.vardeps_int" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the dependencies of all components
 on the function int variables</p>
 <dl class="field-list simple">
@@ -737,7 +654,7 @@ on the function int variables</p>
 variables, shape: (n_components, n_vars_int)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -748,50 +665,33 @@ variables, shape: (n_components, n_vars_int)</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="iwopy.core.memory.html" class="btn btn-neutral float-right" title="iwopy.core.memory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="iwopy.core.function_subset.html" class="btn btn-neutral float-left" title="iwopy.core.function_subset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iwopy.core.memory.html" class="btn btn-neutral float-right" title="iwopy.core.memory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Fraunhofer IWES.
-
-    </p>
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
     /* Sidebar header (and topbar for mobile) */

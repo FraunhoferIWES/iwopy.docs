@@ -1,104 +1,60 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Electrostatic potential minimization &mdash; iwopy 0.1.6
+  <title>Electrostatic potential minimization &mdash; iwopy 0.1.7
  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e80004a2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multi objective geometric chain" href="multi_obj_chain.html" />
     <link rel="prev" title="Simple function minimization" href="simple_function.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> iwopy
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            iwopy
           </a>
-
-          
-            
-            
               <div class="version">
-                0.1.6
+                0.1.7
 
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
@@ -209,6 +165,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.utils.load.html">iwopy.utils.load</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.utils.load.import_module.html">iwopy.utils.load.import_module</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../_autosummary/iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../_autosummary/iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
 </ul>
@@ -259,79 +219,38 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">iwopy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../examples.html">Examples</a> &raquo;</li>
-        
-      <li>Electrostatic potential minimization</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../examples.html">Examples</a></li>
+      <li class="breadcrumb-item active">Electrostatic potential minimization</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/notebooks/electrostatics.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <section id="Electrostatic-potential-minimization">
-<h1>Electrostatic potential minimization<a class="headerlink" href="#Electrostatic-potential-minimization" title="Permalink to this heading">¶</a></h1>
+<h1>Electrostatic potential minimization<a class="headerlink" href="#Electrostatic-potential-minimization" title="Permalink to this heading"></a></h1>
 <p>The main purpose of <code class="docutils literal notranslate"><span class="pre">iwopy</span></code> is to be helpful when attacking more complicated optimization tasks than the minimization of simple analytical functions. As an example, we consider the minimization of an inverse distance type potential for a fully coupled system of <span class="math notranslate nohighlight">\(N\)</span> particles in two dimensions. We can imagine such a system to be composed of <span class="math notranslate nohighlight">\(N\)</span> individual point charges, each of them carrying the same electric unit charge. The potential that we want to minimize is then represented by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}V = \sum_{i\neq j} \frac 1 {|\mathrm r_i - \mathrm r_j|} \ , \quad \text{where} \quad \mathrm r_i = \left( \begin{array}{c} x_i \\ y_i \end{array} \right)\end{split}\]</div>
@@ -581,6 +500,8 @@ Problem &#39;charges_problem&#39; (ChargesProblem): Initializing
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+Loading pymoo
+pymoo successfully loaded
 Initializing Optimizer_pymoo
 Selecting sampling: float_random (FloatRandomSampling)
 Selecting algorithm: GA (GA)
@@ -606,7 +527,7 @@ Termination:
 
 Optimizer_pymoo: Optimization run finished
   Success: True
-  Best potential = 78.10126626778782
+  Best potential = 78.69922244245727
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -629,71 +550,71 @@ Optimizer_pymoo: Optimization run finished
 Results problem &#39;charges_problem&#39;:
 -----------------------------------
   Float variables:
-    0: x0  = 2.347893e+00
-    1: y0  = -1.306908e+00
-    2: x1  = 4.755656e+00
-    3: y1  = 1.538807e+00
-    4: x2  = -9.254691e-01
-    5: y2  = -4.913092e+00
-    6: x3  = -1.093399e+00
-    7: y3  = -1.472314e+00
-    8: x4  = -4.727735e+00
-    9: y4  = -1.622439e+00
-    10: x5  = -1.249640e+00
-    11: y5  = 4.841101e+00
-    12: x6  = -1.741530e+00
-    13: y6  = 1.573486e+00
-    14: x7  = -4.400393e+00
-    15: y7  = 2.373510e+00
-    16: x8  = 2.211133e+00
-    17: y8  = 4.478829e+00
-    18: x9  = -3.887042e+00
-    19: y9  = -3.142983e+00
-    20: x10 = 1.681425e+00
-    21: y10 = 1.576298e+00
-    22: x11 = 2.432938e+00
-    23: y11 = -4.366588e+00
-    24: x12 = 5.763072e-01
-    25: y12 = -4.966442e+00
-    26: x13 = -4.982547e+00
-    27: y13 = 4.135544e-01
-    28: x14 = 4.925992e+00
-    29: y14 = -8.455471e-01
-    30: x15 = 4.396135e-01
-    31: y15 = 4.980480e+00
-    32: x16 = -2.518958e+00
-    33: y16 = -4.316364e+00
-    34: x17 = 3.941714e+00
-    35: y17 = -3.072407e+00
-    36: x18 = -3.025664e+00
-    37: y18 = 3.976280e+00
-    38: x19 = 3.691092e+00
-    39: y19 = 3.370534e+00
+    0: x0  = 2.236112e+00
+    1: y0  = -4.470885e+00
+    2: x1  = 2.082072e+00
+    3: y1  = 7.199634e-01
+    4: x2  = 4.258628e+00
+    5: y2  = 2.615461e+00
+    6: x3  = 4.931458e+00
+    7: y3  = 8.239395e-01
+    8: x4  = -3.453717e+00
+    9: y4  = -3.615375e+00
+    10: x5  = -2.459065e+00
+    11: y5  = 4.351725e+00
+    12: x6  = -6.527966e-01
+    13: y6  = 2.161302e+00
+    14: x7  = 1.670812e+00
+    15: y7  = -2.382281e+00
+    16: x8  = -1.235636e+00
+    17: y8  = -1.913568e+00
+    18: x9  = -2.099603e+00
+    19: y9  = -4.536876e+00
+    20: x10 = -4.701957e+00
+    21: y10 = -1.697765e+00
+    22: x11 = 1.517358e+00
+    23: y11 = 4.762982e+00
+    24: x12 = 4.845131e+00
+    25: y12 = -1.233574e+00
+    26: x13 = 4.140025e+00
+    27: y13 = -2.796535e+00
+    28: x14 = 2.992287e+00
+    29: y14 = 4.004978e+00
+    30: x15 = 2.484520e-02
+    31: y15 = -4.999799e+00
+    32: x16 = -4.887334e+00
+    33: y16 = 1.053824e+00
+    34: x17 = -3.199172e+00
+    35: y17 = 1.417813e-01
+    36: x18 = -3.795050e+00
+    37: y18 = 3.249910e+00
+    38: x19 = -4.806220e-01
+    39: y19 = 4.976805e+00
 -----------------------------------
   Objectives:
-    0: potential = 7.810127e+01
+    0: potential = 7.869922e+01
 -----------------------------------
   Constraints:
-    0: radius_0  = -2.312881e+00
-    1: radius_1  = -1.580820e-03
-    2: radius_2  = -5.036783e-04
-    3: radius_3  = -3.166089e+00
-    4: radius_4  = -1.621084e-03
-    5: radius_5  = -2.139439e-04
-    6: radius_6  = -2.652920e+00
-    7: radius_7  = -2.995608e-04
-    8: radius_8  = -5.100814e-03
-    9: radius_9  = -1.256188e-03
-    10: radius_10 = -2.695243e+00
-    11: radius_11 = -1.372748e-03
-    12: radius_12 = -2.322958e-04
-    13: radius_13 = -3.196897e-04
-    14: radius_14 = -1.965586e-03
-    15: radius_15 = -1.556582e-04
-    16: radius_16 = -2.385302e-03
-    17: radius_17 = -2.320824e-03
-    18: radius_18 = -3.456429e-03
-    19: radius_19 = -1.534034e-03
+    0: radius_0  = -1.098864e-03
+    1: radius_1  = -2.796963e+00
+    2: radius_2  = -2.345300e-03
+    3: radius_3  = -1.849789e-04
+    4: radius_4  = -8.972586e-05
+    5: radius_5  = -1.548850e-03
+    6: radius_6  = -2.742264e+00
+    7: radius_7  = -2.090210e+00
+    8: radius_8  = -2.722163e+00
+    9: radius_9  = -8.424672e-04
+    10: radius_10 = -9.192331e-04
+    11: radius_11 = -1.163198e-03
+    12: radius_12 = -3.001922e-04
+    13: radius_13 = -3.960526e-03
+    14: radius_14 = -6.371277e-04
+    15: radius_15 = -1.389087e-04
+    16: radius_16 = -3.424350e-04
+    17: radius_17 = -1.797687e+00
+    18: radius_18 = -3.568959e-03
+    19: radius_19 = -4.112099e-05
 -----------------------------------
   Success: True
 -----------------------------------
@@ -777,165 +698,165 @@ Problem &#39;charges_problem_fd&#39; (LocalFD): Initializing
 ----------------------------------------------------
 GG: Optimization run finished
   Success: True
-  Best potential = 586.5723344400639
+  Best potential = 585.5754719667092
 Results problem &#39;charges_problem_fd&#39;:
 --------------------------------------
   Float variables:
-    0: x0  = 4.000382e+00
-    1: y0  = 2.999490e+00
-    2: x1  = 5.079732e-01
-    3: y1  = 3.691573e+00
-    4: x2  = 2.114143e+00
-    5: y2  = -3.098944e+00
-    6: x3  = 3.277208e+00
-    7: y3  = 1.723608e+00
-    8: x4  = -4.495711e+00
-    9: y4  = -2.188282e+00
-    10: x5  = -1.348944e+00
-    11: y5  = -3.464171e+00
-    12: x6  = 3.340019e+00
-    13: y6  = -3.720789e+00
-    14: x7  = -2.457939e+00
-    15: y7  = -4.354140e+00
-    16: x8  = -7.376010e-01
-    17: y8  = 4.945295e+00
-    18: x9  = -4.996095e+00
-    19: y9  = -1.975738e-01
-    20: x10 = 4.553684e+00
-    21: y10 = 2.064937e+00
-    22: x11 = 5.000000e+00
-    23: y11 = 1.718687e-03
-    24: x12 = 1.281237e+00
-    25: y12 = -1.583603e+00
-    26: x13 = 2.468452e+00
-    27: y13 = -4.348189e+00
-    28: x14 = -4.182320e+00
-    29: y14 = 2.740109e+00
-    30: x15 = -3.275141e+00
-    31: y15 = -3.778023e+00
-    32: x16 = -4.932686e+00
-    33: y16 = 8.176837e-01
-    34: x17 = -1.193985e+00
-    35: y17 = 3.486114e+00
-    36: x18 = 5.148106e-01
-    37: y18 = -4.973427e+00
-    38: x19 = 4.561294e+00
-    39: y19 = -2.048072e+00
-    40: x20 = 8.243842e-01
-    41: y20 = 1.920188e+00
-    42: x21 = 4.885821e+00
-    43: y21 = 1.062429e+00
-    44: x22 = -3.620277e+00
-    45: y22 = -8.168378e-01
-    46: x23 = -7.371890e-01
-    47: y23 = -1.847337e+00
-    48: x24 = 4.031678e+00
-    49: y24 = -2.957291e+00
-    50: x25 = 4.886153e+00
-    51: y25 = -1.060901e+00
-    52: x26 = -5.058800e-01
-    53: y26 = -4.974342e+00
-    54: x27 = 3.272922e+00
-    55: y27 = 3.779945e+00
-    56: x28 = 2.361521e+00
-    57: y28 = 4.407178e+00
-    58: x29 = -4.654690e+00
-    59: y29 = 1.825885e+00
-    60: x30 = -4.847042e+00
-    61: y30 = -1.227270e+00
-    62: x31 = 2.198517e+00
-    63: y31 = 3.050567e+00
-    64: x32 = -2.726291e+00
-    65: y32 = -2.324120e+00
-    66: x33 = 1.523045e+00
-    67: y33 = -4.762387e+00
-    68: x34 = 3.740160e-02
-    69: y34 = 3.831777e-02
-    70: x35 = 3.231579e+00
-    71: y35 = -1.691136e+00
-    72: x36 = 3.122392e-01
-    73: y36 = 4.990241e+00
-    74: x37 = -1.199956e+00
-    75: y37 = 1.655533e+00
-    76: x38 = -1.763976e+00
-    77: y38 = 4.678503e+00
-    78: x39 = -3.968261e+00
-    79: y39 = -3.041860e+00
-    80: x40 = 2.049042e+00
-    81: y40 = 3.099094e-01
-    82: x41 = -2.695721e+00
-    83: y41 = 4.211067e+00
-    84: x42 = -1.985593e+00
-    85: y42 = -2.208243e-01
-    86: x43 = -3.508881e+00
-    87: y43 = 9.764948e-01
-    88: x44 = 4.255267e-01
-    89: y44 = -3.580911e+00
-    90: x45 = -1.502724e+00
-    91: y45 = -4.768839e+00
-    92: x46 = -2.743736e+00
-    93: y46 = 2.512271e+00
-    94: x47 = 3.744293e+00
-    95: y47 = -3.509546e-02
-    96: x48 = -3.508379e+00
-    97: y48 = 3.562482e+00
-    98: x49 = 1.383104e+00
-    99: y49 = 4.804896e+00
+    0: x0  = 1.087311e-01
+    1: y0  = 3.652947e+00
+    2: x1  = -4.606218e+00
+    3: y1  = 1.944930e+00
+    4: x2  = -1.887607e+00
+    5: y2  = -4.630003e+00
+    6: x3  = 3.562191e+00
+    7: y3  = 4.047046e-01
+    8: x4  = 1.485097e+00
+    9: y4  = 1.052208e+00
+    10: x5  = 3.858055e+00
+    11: y5  = 3.180473e+00
+    12: x6  = -4.141494e+00
+    13: y6  = -2.801432e+00
+    14: x7  = -4.122978e+00
+    15: y7  = 2.828613e+00
+    16: x8  = -8.834537e-01
+    17: y8  = -3.429528e+00
+    18: x9  = 2.007586e+00
+    19: y9  = -4.579257e+00
+    20: x10 = -3.463435e+00
+    21: y10 = 3.606192e+00
+    22: x11 = 1.932276e-01
+    23: y11 = -1.712766e+00
+    24: x12 = -1.579416e+00
+    25: y12 = 3.213613e+00
+    26: x13 = 1.743332e+00
+    27: y13 = 3.151292e+00
+    28: x14 = -1.420385e+00
+    29: y14 = -9.827574e-01
+    30: x15 = 3.402227e+00
+    31: y15 = -1.309271e+00
+    32: x16 = -3.366573e+00
+    33: y16 = -1.166486e+00
+    34: x17 = -4.900849e+00
+    35: y17 = -9.907955e-01
+    36: x18 = 2.878439e+00
+    37: y18 = -4.088348e+00
+    38: x19 = 1.042442e+00
+    39: y19 = -4.890124e+00
+    40: x20 = 3.120221e+00
+    41: y20 = 3.906946e+00
+    42: x21 = 4.444495e+00
+    43: y21 = 2.290517e+00
+    44: x22 = 3.645875e+00
+    45: y22 = -3.421637e+00
+    46: x23 = 2.536083e-01
+    47: y23 = 4.993564e+00
+    48: x24 = 3.064096e+00
+    49: y24 = 2.047608e+00
+    50: x25 = 4.740609e-02
+    51: y25 = -4.999775e+00
+    52: x26 = -3.516980e+00
+    53: y26 = -3.553991e+00
+    54: x27 = -7.810981e-01
+    55: y27 = 4.938612e+00
+    56: x28 = -4.607438e+00
+    57: y28 = -1.942042e+00
+    58: x29 = 1.275371e+00
+    59: y29 = 4.834607e+00
+    60: x30 = 4.255719e+00
+    61: y30 = -2.624664e+00
+    62: x31 = -1.127440e-01
+    63: y31 = 1.802090e+00
+    64: x32 = -2.673215e+00
+    65: y32 = 4.225390e+00
+    66: x33 = -2.750043e+00
+    67: y33 = -4.175796e+00
+    68: x34 = 2.240040e+00
+    69: y34 = 4.470148e+00
+    70: x35 = -2.396197e+00
+    71: y35 = -2.639390e+00
+    72: x36 = -2.902047e+00
+    73: y36 = 2.146349e+00
+    74: x37 = 2.344344e+00
+    75: y37 = -2.683691e+00
+    76: x38 = 4.819316e+00
+    77: y38 = 1.331988e+00
+    78: x39 = -3.530091e+00
+    79: y39 = 5.240002e-01
+    80: x40 = 4.990310e+00
+    81: y40 = 3.111336e-01
+    82: x41 = -9.358615e-01
+    83: y41 = -4.911636e+00
+    84: x42 = 4.702197e+00
+    85: y42 = -1.699806e+00
+    86: x43 = 8.549782e-01
+    87: y43 = -3.505766e+00
+    88: x44 = -4.999989e+00
+    89: y44 = -1.061685e-02
+    90: x45 = -4.900949e+00
+    91: y45 = 9.903010e-01
+    92: x46 = 4.949815e+00
+    93: y46 = -7.066317e-01
+    94: x47 = 1.642586e+00
+    95: y47 = -7.069032e-01
+    96: x48 = -1.757321e+00
+    97: y48 = 4.681007e+00
+    98: x49 = -1.552179e+00
+    99: y49 = 7.801572e-01
 --------------------------------------
   Objectives:
-    0: potential = 5.865723e+02
+    0: potential = 5.855755e+02
 --------------------------------------
   Constraints:
-    0: radius_0  = 2.234437e-09
-    1: radius_1  = -1.273641e+00
-    2: radius_2  = -1.248593e+00
-    3: radius_3  = -1.297174e+00
-    4: radius_4  = -5.637551e-07
-    5: radius_5  = -1.282456e+00
-    6: radius_6  = -1.882141e-08
-    7: radius_7  = -4.394566e-07
-    8: radius_8  = -8.410052e-09
-    9: radius_9  = -3.722207e-07
-    10: radius_10 = 5.548898e-09
-    11: radius_11 = 7.048172e-09
-    12: radius_12 = -2.963001e+00
-    13: radius_13 = 7.208022e-08
-    14: radius_14 = 3.389487e-08
-    15: radius_15 = 3.713464e-07
-    16: radius_16 = 2.038199e-07
-    17: radius_17 = -1.315086e+00
-    18: radius_18 = 3.133401e-07
-    19: radius_19 = -6.127818e-10
-    20: radius_20 = -2.910327e+00
-    21: radius_21 = 7.901577e-09
-    22: radius_22 = -1.288716e+00
-    23: radius_23 = -3.011005e+00
-    24: radius_24 = 1.995368e-08
-    25: radius_25 = 1.090438e-08
-    26: radius_26 = -4.323597e-07
-    27: radius_27 = -1.229288e-09
-    28: radius_28 = -5.207476e-09
-    29: radius_29 = -1.102322e-07
-    30: radius_30 = 5.678801e-07
-    31: radius_31 = -1.239756e+00
-    32: radius_32 = -1.417515e+00
-    33: radius_33 = -1.400719e-07
-    34: radius_34 = -4.946454e+00
-    35: radius_35 = -1.352666e+00
-    36: radius_36 = -1.226222e-08
-    37: radius_37 = -2.955328e+00
-    38: radius_38 = -1.690774e-08
-    39: radius_39 = 5.059426e-07
-    40: radius_40 = -2.927654e+00
-    41: radius_41 = 5.441159e-10
-    42: radius_42 = -3.002166e+00
-    43: radius_43 = -1.357777e+00
-    44: radius_44 = -1.393894e+00
-    45: radius_45 = 6.008603e-07
-    46: radius_46 = -1.279840e+00
-    47: radius_47 = -1.255542e+00
-    48: radius_48 = -2.948715e-08
-    49: radius_49 = -8.218404e-09
+    0: radius_0  = -1.345435e+00
+    1: radius_1  = 1.247216e-07
+    2: radius_2  = -6.293392e-07
+    3: radius_3  = -1.414893e+00
+    4: radius_4  = -3.179930e+00
+    5: radius_5  = -6.227472e-10
+    6: radius_6  = -3.288465e-07
+    7: radius_7  = -4.991725e-08
+    8: radius_8  = -1.458509e+00
+    9: radius_9  = -1.129005e-07
+    10: radius_10 = 1.821135e-08
+    11: radius_11 = -3.276369e+00
+    12: radius_12 = -1.419237e+00
+    13: radius_13 = -1.398633e+00
+    14: radius_14 = -3.272775e+00
+    15: radius_15 = -1.354546e+00
+    16: radius_16 = -1.437065e+00
+    17: radius_17 = -5.599746e-07
+    18: radius_18 = 4.179612e-08
+    19: radius_19 = 2.246986e-07
+    20: radius_20 = 1.327298e-09
+    21: radius_21 = 4.092386e-09
+    22: radius_22 = -2.982356e-08
+    23: radius_23 = 2.657750e-09
+    24: radius_24 = -1.314707e+00
+    25: radius_25 = -4.232622e-07
+    26: radius_26 = 1.408324e-07
+    27: radius_27 = -9.170680e-09
+    28: radius_28 = 7.811203e-07
+    29: radius_29 = 5.608240e-09
+    30: radius_30 = 7.925003e-09
+    31: radius_31 = -3.194387e+00
+    32: radius_32 = -2.086939e-08
+    33: radius_33 = 6.383923e-07
+    34: radius_34 = 4.152908e-09
+    35: radius_35 = -1.435152e+00
+    36: radius_36 = -1.390472e+00
+    37: radius_37 = -1.436554e+00
+    38: radius_38 = 7.981631e-09
+    39: radius_39 = -1.431231e+00
+    40: radius_40 = 6.595215e-09
+    41: radius_41 = 6.953370e-07
+    42: radius_42 = -5.153245e-09
+    43: radius_43 = -1.391485e+00
+    44: radius_44 = 4.658783e-07
+    45: radius_45 = -2.144952e-07
+    46: radius_46 = 9.729153e-09
+    47: radius_47 = -3.211760e+00
+    48: radius_48 = 7.765166e-10
+    49: radius_49 = -3.262789e+00
 --------------------------------------
   Success: True
 --------------------------------------
@@ -963,50 +884,33 @@ Results problem &#39;charges_problem_fd&#39;:
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="multi_obj_chain.html" class="btn btn-neutral float-right" title="Multi objective geometric chain" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="simple_function.html" class="btn btn-neutral float-left" title="Simple function minimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multi_obj_chain.html" class="btn btn-neutral float-right" title="Multi objective geometric chain" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Fraunhofer IWES.
-
-    </p>
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
     /* Sidebar header (and topbar for mobile) */

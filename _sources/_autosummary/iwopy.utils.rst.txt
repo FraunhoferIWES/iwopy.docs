@@ -29,5 +29,6 @@
    :recursive:
 
    iwopy.utils.discretization
+   iwopy.utils.load
    iwopy.utils.stdout
 

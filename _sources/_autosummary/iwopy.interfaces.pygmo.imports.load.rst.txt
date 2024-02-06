@@ -1,0 +1,6 @@
+iwopy.interfaces.pygmo.imports.load
+===================================
+
+.. currentmodule:: iwopy.interfaces.pygmo.imports
+
+.. autofunction:: load

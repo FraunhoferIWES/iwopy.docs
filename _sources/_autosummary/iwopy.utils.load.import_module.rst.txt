@@ -1,0 +1,6 @@
+iwopy.utils.load.import\_module
+===============================
+
+.. currentmodule:: iwopy.utils.load
+
+.. autofunction:: import_module

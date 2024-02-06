@@ -9,18 +9,17 @@ iwopy.interfaces.pymoo.problem
 
    
    
-   
-
-   
-   
-   .. rubric:: Classes
+   .. rubric:: Functions
 
    .. autosummary::
       :toctree:
-      :template: custom-class-template.rst
    
-      MultiObjProblem
-      SingleObjProblem
+      get_multi_obj_class
+      get_single_obj_class
+   
+   
+
+   
    
    
 

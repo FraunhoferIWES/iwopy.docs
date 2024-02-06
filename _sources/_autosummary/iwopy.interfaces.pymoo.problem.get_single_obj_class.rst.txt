@@ -1,0 +1,6 @@
+iwopy.interfaces.pymoo.problem.get\_single\_obj\_class
+======================================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.problem
+
+.. autofunction:: get_single_obj_class

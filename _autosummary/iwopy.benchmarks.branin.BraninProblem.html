@@ -1,101 +1,57 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>iwopy.benchmarks.branin.BraninProblem &mdash; iwopy 0.1.6
+  <title>iwopy.benchmarks.branin.BraninProblem &mdash; iwopy 0.1.7
  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e80004a2"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="iwopy.benchmarks.rosenbrock" href="iwopy.benchmarks.rosenbrock.html" />
     <link rel="prev" title="iwopy.benchmarks.branin.BraninObjective" href="iwopy.benchmarks.branin.BraninObjective.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> iwopy
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            iwopy
           </a>
-
-          
-            
-            
               <div class="version">
-                0.1.6
+                0.1.7
 
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
@@ -206,6 +162,10 @@
 <li class="toctree-l4"><a class="reference internal" href="iwopy.utils.discretization.RegularDiscretizationGrid.html">iwopy.utils.discretization.RegularDiscretizationGrid</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="iwopy.utils.load.html">iwopy.utils.load</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="iwopy.utils.load.import_module.html">iwopy.utils.load.import_module</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="iwopy.utils.stdout.html">iwopy.utils.stdout</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iwopy.utils.stdout.suppress_stdout.html">iwopy.utils.stdout.suppress_stdout</a></li>
 </ul>
@@ -256,111 +216,68 @@
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-4-alpha">v0.1.4-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">iwopy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../api.html">API</a> &raquo;</li>
-        
-          <li><a href="iwopy.benchmarks.html">iwopy.benchmarks</a> &raquo;</li>
-        
-          <li><a href="iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a> &raquo;</li>
-        
-      <li>iwopy.benchmarks.branin.BraninProblem</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.benchmarks.html">iwopy.benchmarks</a></li>
+          <li class="breadcrumb-item"><a href="iwopy.benchmarks.branin.html">iwopy.benchmarks.branin</a></li>
+      <li class="breadcrumb-item active">iwopy.benchmarks.branin.BraninProblem</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/_autosummary/iwopy.benchmarks.branin.BraninProblem.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <section id="iwopy-benchmarks-branin-braninproblem">
-<h1>iwopy.benchmarks.branin.BraninProblem<a class="headerlink" href="#iwopy-benchmarks-branin-braninproblem" title="Permalink to this heading">¶</a></h1>
+<h1>iwopy.benchmarks.branin.BraninProblem<a class="headerlink" href="#iwopy-benchmarks-branin-braninproblem" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.benchmarks.branin.</span></span><span class="sig-name descname"><span class="pre">BraninProblem</span></span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninProblem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iwopy.benchmarks.branin.</span></span><span class="sig-name descname"><span class="pre">BraninProblem</span></span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninProblem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="iwopy.wrappers.simple_problem.SimpleProblem.html#iwopy.wrappers.simple_problem.SimpleProblem" title="iwopy.wrappers.simple_problem.SimpleProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleProblem</span></code></a></p>
 <p>Problem definition of benchmark function Branin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The name of the problem</p></li>
-<li><p><strong>ana_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Switch for analytical derivatives</p></li>
-<li><p><strong>initial_values</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The initial values</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the problem</p></li>
+<li><p><strong>ana_deriv</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Switch for analytical derivatives</p></li>
+<li><p><strong>initial_values</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The initial values</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.initial_values">
-<span class="sig-name descname"><span class="pre">initial_values</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initial_values" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initial_values</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initial_values" title="Permalink to this definition"></a></dt>
 <dd><p>The initial values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'branin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninProblem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'branin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninProblem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -480,24 +397,24 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'branin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninProblem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'branin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ana_deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/iwopy/benchmarks/branin.html#BraninProblem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.add_constraint">
-<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.add_constraint" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.add_constraint" title="Permalink to this definition"></a></dt>
 <dd><p>Add a constraint to the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constraint</strong> (<em>iwopy.Constraint</em>) – The constraint</p></li>
-<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 </dl>
@@ -505,19 +422,19 @@ value: str or int</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.add_objective">
-<span class="sig-name descname"><span class="pre">add_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objective</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.add_objective" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objective</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varmap_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.add_objective" title="Permalink to this definition"></a></dt>
 <dd><p>Add an objective to the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>objective</strong> (<em>iwopy.Objective</em>) – The objective</p></li>
-<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_int</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
+<li><p><strong>varmap_float</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping from objective variables to
 problem variables. Key: str or int,
 value: str or int</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 </dl>
@@ -525,7 +442,7 @@ value: str or int</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.apply_individual">
-<span class="sig-name descname"><span class="pre">apply_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.apply_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.apply_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Apply new variables to the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -546,7 +463,7 @@ to the problem</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.apply_population">
-<span class="sig-name descname"><span class="pre">apply_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.apply_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.apply_population" title="Permalink to this definition"></a></dt>
 <dd><p>Apply new variables to the problem,
 for a whole population.</p>
 <dl class="field-list simple">
@@ -568,7 +485,7 @@ to the problem</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.calc_gradients">
-<span class="sig-name descname"><span class="pre">calc_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fvars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.calc_gradients" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calc_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fvars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.calc_gradients" title="Permalink to this definition"></a></dt>
 <dd><p>The actual gradient calculation, not to be called directly
 (call <cite>get_gradients</cite> instead).</p>
 <p>Can be overloaded in derived classes, the base class only considers
@@ -581,13 +498,13 @@ analytic derivatives.</p>
 <li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
 for a list of all objectives and all constraints
 (in that order)</p></li>
-<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
-<li><p><strong>ivars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The indices of the function int variables in the problem</p></li>
-<li><p><strong>fvars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The indices of the function float variables in the problem</p></li>
-<li><p><strong>vrs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The function float variable indices wrt which the
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
+<li><p><strong>ivars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The indices of the function int variables in the problem</p></li>
+<li><p><strong>fvars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The indices of the function float variables in the problem</p></li>
+<li><p><strong>vrs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The function float variable indices wrt which the
 derivatives are to be calculated</p></li>
-<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -595,21 +512,21 @@ derivatives are to be calculated</p></li>
 (n_components, n_vrs)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.check_constraints_individual">
-<span class="sig-name descname"><span class="pre">check_constraints_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.check_constraints_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_constraints_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.check_constraints_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the constraints are fullfilled for the
 given individual.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_components,)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -623,14 +540,14 @@ given individual.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.check_constraints_population">
-<span class="sig-name descname"><span class="pre">check_constraints_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.check_constraints_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_constraints_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.check_constraints_population" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the constraints are fullfilled for the
 given population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constraint_values</strong> (<em>np.array</em>) – The constraint values, shape: (n_pop, n_components)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -644,28 +561,28 @@ given population.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.constraints_tol">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constraints_tol</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.constraints_tol" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constraints_tol</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.constraints_tol" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the tolerance values of constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ctol</strong> – The constraint tolerance values, shape: (n_constraints,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.evaluate_individual">
-<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_prob_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.evaluate_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">evaluate_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_prob_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.evaluate_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Evaluate a single individual of the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_vars_float,)</p></li>
-<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
+<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -681,14 +598,14 @@ given population.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.evaluate_population">
-<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_prob_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.evaluate_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_prob_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.evaluate_population" title="Permalink to this definition"></a></dt>
 <dd><p>Evaluate all individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The integer variable values, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values, shape: (n_pop, n_vars_float)</p></li>
-<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
+<li><p><strong>ret_prob_res</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Flag for additionally returning of problem results</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -704,25 +621,25 @@ given population.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.finalize">
-<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.finalize" title="Permalink to this definition"></a></dt>
 <dd><p>Finalize the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.finalize_individual">
-<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.finalize_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.finalize_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Finalization, given the champion data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vars_int</strong> (<em>np.array</em>) – The optimal integer variable values, shape: (n_vars_int,)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The optimal float variable values, shape: (n_vars_float,)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -739,7 +656,7 @@ to the problem</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.finalize_population">
-<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.finalize_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.finalize_population" title="Permalink to this definition"></a></dt>
 <dd><p>Finalization, given the final population data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -748,7 +665,7 @@ to the problem</p></li>
 generation, shape: (n_pop, n_vars_int)</p></li>
 <li><p><strong>vars_float</strong> (<em>np.array</em>) – The float variable values of the final
 generation, shape: (n_pop, n_vars_float)</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -765,7 +682,7 @@ to the problem</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.get_gradients">
-<span class="sig-name descname"><span class="pre">get_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.get_gradients" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vars_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars_float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.get_gradients" title="Permalink to this definition"></a></dt>
 <dd><p>Obtain gradients of a function that is linked to the
 problem.</p>
 <p>The func object typically is a <cite>iwopy.core.OptFunctionList</cite>
@@ -781,12 +698,12 @@ being considered, cf. class <cite>ProblemDefaultFunc</cite>.</p>
 <li><p><strong>func</strong> (<em>iwopy.core.OptFunctionList</em><em>, </em><em>optional</em>) – The functions to be differentiated, or None
 for a list of all objectives and all constraints
 (in that order)</p></li>
-<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
-<li><p><strong>vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
+<li><p><strong>components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>, </em><em>optional</em>) – The function’s component selection, or None for all</p></li>
+<li><p><strong>vars</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – The float variables wrt which the
 derivatives are to be calculated, or
 None for all</p></li>
-<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
-<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
+<li><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Flag for vectorizing calculations via population</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -794,81 +711,81 @@ None for all</p></li>
 (n_components, n_vars)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.initial_values_float">
-<span class="sig-name descname"><span class="pre">initial_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initial_values_float" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initial_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initial_values_float" title="Permalink to this definition"></a></dt>
 <dd><p>The initial values of the float variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>values</strong> – Initial float values, shape: (n_vars_float,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.initial_values_int">
-<span class="sig-name descname"><span class="pre">initial_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initial_values_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initial_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initial_values_int" title="Permalink to this definition"></a></dt>
 <dd><p>The initial values of the integer variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>values</strong> – Initial int values, shape: (n_vars_int,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initialize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initialize" title="Permalink to this definition"></a></dt>
 <dd><p>Initialize the problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
+<dd class="field-odd"><p><strong>verbosity</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The verbosity level, 0 = silent</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.initialized">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initialized" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialized</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.initialized" title="Permalink to this definition"></a></dt>
 <dd><p>Flag for finished initialization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if initialization has been done</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.max_values_constraints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_values_constraints</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.max_values_constraints" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_values_constraints</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.max_values_constraints" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the maximal values of constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>cma</strong> – The maximal constraint values, shape: (n_constraints,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.max_values_float">
-<span class="sig-name descname"><span class="pre">max_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.max_values_float" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">max_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.max_values_float" title="Permalink to this definition"></a></dt>
 <dd><p>The maximal values of the float variables.</p>
 <p>Use numpy.inf for unbounded.</p>
 <dl class="field-list simple">
@@ -876,14 +793,14 @@ None for all</p></li>
 <dd class="field-odd"><p><strong>values</strong> – Maximal float values, shape: (n_vars_float,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.max_values_int">
-<span class="sig-name descname"><span class="pre">max_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.max_values_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">max_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.max_values_int" title="Permalink to this definition"></a></dt>
 <dd><p>The maximal values of the integer variables.</p>
 <p>Use self.INT_INF for unbounded.</p>
 <dl class="field-list simple">
@@ -891,14 +808,14 @@ None for all</p></li>
 <dd class="field-odd"><p><strong>values</strong> – Maximal int values, shape: (n_vars_int,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.maximize_objs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maximize_objs</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.maximize_objs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maximize_objs</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.maximize_objs" title="Permalink to this definition"></a></dt>
 <dd><p>Flags for objective maximization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -906,28 +823,28 @@ None for all</p></li>
 shape: (n_objectives,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.min_values_constraints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_values_constraints</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.min_values_constraints" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_values_constraints</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.min_values_constraints" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the minimal values of constraints</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>cmi</strong> – The minimal constraint values, shape: (n_constraints,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.min_values_float">
-<span class="sig-name descname"><span class="pre">min_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.min_values_float" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">min_values_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.min_values_float" title="Permalink to this definition"></a></dt>
 <dd><p>The minimal values of the float variables.</p>
 <p>Use -numpy.inf for unbounded.</p>
 <dl class="field-list simple">
@@ -935,14 +852,14 @@ shape: (n_objectives,)</p>
 <dd class="field-odd"><p><strong>values</strong> – Minimal float values, shape: (n_vars_float,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.min_values_int">
-<span class="sig-name descname"><span class="pre">min_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.min_values_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">min_values_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.min_values_int" title="Permalink to this definition"></a></dt>
 <dd><p>The minimal values of the integer variables.</p>
 <p>Use -self.INT_INF for unbounded.</p>
 <dl class="field-list simple">
@@ -950,14 +867,14 @@ shape: (n_objectives,)</p>
 <dd class="field-odd"><p><strong>values</strong> – Minimal int values, shape: (n_vars_int,)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)">numpy.ndarray</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.n_constraints">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_constraints</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_constraints" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_constraints</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_constraints" title="Permalink to this definition"></a></dt>
 <dd><p>The total number of constraints,
 i.e., the sum of all components</p>
 <dl class="field-list simple">
@@ -966,14 +883,14 @@ i.e., the sum of all components</p>
 functions</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.n_objectives">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_objectives</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_objectives" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_objectives</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_objectives" title="Permalink to this definition"></a></dt>
 <dd><p>The total number of objectives,
 i.e., the sum of all components</p>
 <dl class="field-list simple">
@@ -982,103 +899,103 @@ i.e., the sum of all components</p>
 functions</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.n_vars_float">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_vars_float" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_float</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_vars_float" title="Permalink to this definition"></a></dt>
 <dd><p>The number of float variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>n</strong> – The number of float variables</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.n_vars_int">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_vars_int" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars_int</span></span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.n_vars_int" title="Permalink to this definition"></a></dt>
 <dd><p>The number of int variables</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>n</strong> – The number of int variables</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.prob_res_einsum_individual">
-<span class="sig-name descname"><span class="pre">prob_res_einsum_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_res_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.prob_res_einsum_individual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prob_res_einsum_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_res_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.prob_res_einsum_individual" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate the einsum of problem results</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prob_res_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – The problem results</p></li>
-<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><em>numpy.ndarray</em></a>) – The coefficients</p></li>
+<li><p><strong>prob_res_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – The problem results</p></li>
+<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a>) – The coefficients</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>prob_res</strong> – The weighted sum of problem results</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)">object</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)">object</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.prob_res_einsum_population">
-<span class="sig-name descname"><span class="pre">prob_res_einsum_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_res_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.prob_res_einsum_population" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prob_res_einsum_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_res_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.prob_res_einsum_population" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate the einsum of problem results</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prob_res_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – The problem results</p></li>
-<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><em>numpy.ndarray</em></a>) – The coefficients</p></li>
+<li><p><strong>prob_res_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – The problem results</p></li>
+<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a>) – The coefficients</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>prob_res</strong> – The weighted sum of problem results</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)">object</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)">object</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.var_names_float">
-<span class="sig-name descname"><span class="pre">var_names_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.var_names_float" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">var_names_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.var_names_float" title="Permalink to this definition"></a></dt>
 <dd><p>The names of float variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>names</strong> – The names of the float variables</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iwopy.benchmarks.branin.BraninProblem.var_names_int">
-<span class="sig-name descname"><span class="pre">var_names_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.var_names_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">var_names_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iwopy.benchmarks.branin.BraninProblem.var_names_int" title="Permalink to this definition"></a></dt>
 <dd><p>The names of integer variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>names</strong> – The names of the integer variables</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1089,50 +1006,33 @@ functions</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="iwopy.benchmarks.rosenbrock.html" class="btn btn-neutral float-right" title="iwopy.benchmarks.rosenbrock" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="iwopy.benchmarks.branin.BraninObjective.html" class="btn btn-neutral float-left" title="iwopy.benchmarks.branin.BraninObjective" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iwopy.benchmarks.rosenbrock.html" class="btn btn-neutral float-right" title="iwopy.benchmarks.rosenbrock" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Fraunhofer IWES.
-
-    </p>
+    <p>&#169; Copyright 2022, Fraunhofer IWES.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
     /* Sidebar header (and topbar for mobile) */

@@ -14,7 +14,7 @@ iwopy.interfaces.pymoo.imports
    .. autosummary::
       :toctree:
    
-      check_import
+      load
    
    
 

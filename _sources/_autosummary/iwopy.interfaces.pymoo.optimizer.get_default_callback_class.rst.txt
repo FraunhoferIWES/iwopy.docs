@@ -1,0 +1,6 @@
+iwopy.interfaces.pymoo.optimizer.get\_default\_callback\_class
+==============================================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.optimizer
+
+.. autofunction:: get_default_callback_class

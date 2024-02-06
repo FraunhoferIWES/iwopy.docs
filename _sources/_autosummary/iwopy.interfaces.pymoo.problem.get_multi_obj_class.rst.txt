@@ -1,0 +1,6 @@
+iwopy.interfaces.pymoo.problem.get\_multi\_obj\_class
+=====================================================
+
+.. currentmodule:: iwopy.interfaces.pymoo.problem
+
+.. autofunction:: get_multi_obj_class
