@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.interfaces.scipy.optimizer &mdash; iwopy 0.1.7
+  <title>iwopy.interfaces.scipy.optimizer &mdash; iwopy 0.1.8
  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
@@ -17,7 +17,7 @@
   
         <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=e80004a2"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=001aa760"></script>
         <script src="../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -38,7 +38,7 @@
             iwopy
           </a>
               <div class="version">
-                0.1.7
+                0.1.8
 
               </div>
 <div role="search">
@@ -214,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../history.html#v0-1-8-beta">v0.1.8-beta</a></li>
 </ul>
 </li>
 </ul>
@@ -262,7 +263,7 @@
 <span class="sd">    problem : iwopy.Problem</span>
 <span class="sd">        The problem to optimize</span>
 <span class="sd">    scipy_pars : dict</span>
-<span class="sd">        Additional parameters for </span>
+<span class="sd">        Additional parameters for</span>
 <span class="sd">        scipy.optimze.minimize()</span>
 <span class="sd">    mem_size : int</span>
 <span class="sd">        The memory size, number of</span>
@@ -273,7 +274,7 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    scipy_pars : dict</span>
-<span class="sd">        Additional parameters for </span>
+<span class="sd">        Additional parameters for</span>
 <span class="sd">        scipy.optimze.minimize()</span>
 <span class="sd">    mem_size : int</span>
 <span class="sd">        The memory size, number of</span>
@@ -312,20 +313,18 @@
 <span class="sd">            The verbosity level, 0 = silent</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        
+
         <span class="c1"># Check objectives:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Scipy minimize does not support multi-objective optimization.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;Scipy minimize does not support multi-objective optimization.&quot;</span>
+            <span class="p">)</span>
 
         <span class="c1"># Define constraints:</span>
         <span class="n">cons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_constraints</span><span class="p">):</span>
-            <span class="n">cons</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span> 
-                <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_constraints</span><span class="p">,</span>
-                <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span>
-            <span class="p">})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scipy_pars</span><span class="p">[</span><span class="s1">&#39;constraints&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cons</span>
+            <span class="n">cons</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ineq&quot;</span><span class="p">,</span> <span class="s2">&quot;fun&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_constraints</span><span class="p">,</span> <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="p">,)})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scipy_pars</span><span class="p">[</span><span class="s2">&quot;constraints&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cons</span>
 
         <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using optimizer memory, size: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mem_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -350,30 +349,31 @@
 <span class="sd">            The constraints values, shape: (n_constraints,)</span>
 <span class="sd">        prob_results : object</span>
 <span class="sd">            The problem results</span>
-<span class="sd">        </span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mem</span><span class="p">:</span>
-            
+
             <span class="n">i0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_int</span>
             <span class="n">vars_int</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">i0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
             <span class="n">vars_float</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i0</span><span class="p">:]</span>
 
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">evaluate_individual</span><span class="p">(</span>
-                        <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
 
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mem</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mem_size</span><span class="p">:</span>
                 <span class="n">key0</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mem</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
                 <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mem</span><span class="p">[</span><span class="n">key0</span><span class="p">]</span>
-            
+
             <span class="bp">self</span><span class="o">.</span><span class="n">_mem</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-        
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mem</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Function which converts array from scipy </span>
-<span class="sd">        to readable variables for the problem and </span>
+<span class="sd">        Function which converts array from scipy</span>
+<span class="sd">        to readable variables for the problem and</span>
 <span class="sd">        evaluates the objective function.</span>
 
 <span class="sd">        Parameters</span>
@@ -393,7 +393,7 @@
 
     <span class="k">def</span> <span class="nf">_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ci</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Function which converts array from scipy </span>
+<span class="sd">        Function which converts array from scipy</span>
 <span class="sd">        to readable variables for the problem and</span>
 <span class="sd">        evaluates the constraints.</span>
 
@@ -431,17 +431,25 @@
 
         <span class="c1"># check problem initialization:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-        
+
         <span class="c1"># Initial values:</span>
         <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">initial_values_int</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">initial_values_float</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">x0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">initial_values_float</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="p">)</span>
 
         <span class="c1"># Find bounds:</span>
-        <span class="n">mini</span>   <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">INT_INF</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">min_values_int</span><span class="p">()]</span>
-        <span class="n">maxi</span>   <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">INT_INF</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">max_values_int</span><span class="p">()]</span>
+        <span class="n">mini</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">INT_INF</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">min_values_int</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="n">maxi</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">INT_INF</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">max_values_int</span><span class="p">()</span>
+        <span class="p">]</span>
         <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="n">mini</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">maxi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mini</span><span class="p">))]</span>
-        <span class="n">minf</span>   <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">min_values_float</span><span class="p">()]</span>
-        <span class="n">maxf</span>   <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">max_values_float</span><span class="p">()]</span>
+        <span class="n">minf</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">min_values_float</span><span class="p">()]</span>
+        <span class="n">maxf</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">max_values_float</span><span class="p">()]</span>
         <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="n">minf</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">maxf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">minf</span><span class="p">))]</span>
 
         <span class="c1"># Run minimization:</span>
@@ -455,8 +463,9 @@
             <span class="n">vars_int</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">i0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
             <span class="n">vars_float</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i0</span><span class="p">:]</span>
             <span class="n">prob_res</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">finalize_individual</span><span class="p">(</span>
-                                        <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">)</span>
-        
+                <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span>
+            <span class="p">)</span>
+
         <span class="k">else</span><span class="p">:</span>
             <span class="n">prob_res</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">vars_int</span> <span class="o">=</span> <span class="kc">None</span>
@@ -464,9 +473,9 @@
             <span class="n">objs</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">cons</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="k">return</span> <span class="n">SingleObjOptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> 
-                                    <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">prob_res</span><span class="p">)</span></div></div>
-    
+        <span class="k">return</span> <span class="n">SingleObjOptResults</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">prob_res</span>
+        <span class="p">)</span></div></div>
 </pre></div>
 
            </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.1.7
+  <title>iwopy.wrappers.discretize_reg_grid &mdash; iwopy 0.1.8
  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
@@ -17,7 +17,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=e80004a2"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=001aa760"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -38,7 +38,7 @@
             iwopy
           </a>
               <div class="version">
-                0.1.7
+                0.1.8
 
               </div>
 <div role="search">
@@ -214,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-8-beta">v0.1.8-beta</a></li>
 </ul>
 </li>
 </ul>
@@ -471,21 +472,23 @@
                 <span class="n">varsf</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_vinds</span><span class="p">]</span> <span class="o">=</span> <span class="n">gp</span>
                 <span class="k">if</span> <span class="n">ret_prob_res</span><span class="p">:</span>
                     <span class="n">objs</span><span class="p">[</span><span class="n">gi</span><span class="p">],</span> <span class="n">cons</span><span class="p">[</span><span class="n">gi</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="n">gi</span><span class="p">]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">evaluate_individual</span><span class="p">(</span>
-                                                        <span class="n">vars_int</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="p">)</span>
+                        <span class="n">vars_int</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">ret_prob_res</span>
+                    <span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">objs</span><span class="p">[</span><span class="n">gi</span><span class="p">],</span> <span class="n">cons</span><span class="p">[</span><span class="n">gi</span><span class="p">]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">evaluate_individual</span><span class="p">(</span>
-                                                    <span class="n">vars_int</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="p">)</span>
+                        <span class="n">vars_int</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">ret_prob_res</span>
+                    <span class="p">)</span>
 
             <span class="k">if</span> <span class="n">ret_prob_res</span><span class="p">:</span>
                 <span class="k">return</span> <span class="p">(</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,g-&gt;o&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span> 
+                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,g-&gt;o&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,g-&gt;c&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">prob_res_einsum_individual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prob_res_einsum_individual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="p">(</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,g-&gt;o&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span> 
-                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,g-&gt;c&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,g-&gt;o&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,g-&gt;c&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                 <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiscretizeRegGrid.evaluate_population"><a class="viewcode-back" href="../../../_autosummary/iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.html#iwopy.wrappers.discretize_reg_grid.DiscretizeRegGrid.evaluate_population">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -532,20 +535,20 @@
             <span class="k">if</span> <span class="n">ret_prob_res</span><span class="p">:</span>
 
                 <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="p">)</span>
-                
+
                 <span class="k">return</span> <span class="p">(</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,pg-&gt;po&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span> 
+                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,pg-&gt;po&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,pg-&gt;pc&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">prob_res_einsum_population</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prob_res_einsum_population</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                 <span class="p">)</span>
-            
+
             <span class="k">else</span><span class="p">:</span>
 
                 <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">varsi</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">ret_prob_res</span><span class="p">)</span>
 
                 <span class="k">return</span> <span class="p">(</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,pg-&gt;po&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span> 
-                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,pg-&gt;pc&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;go,pg-&gt;po&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;gc,pg-&gt;pc&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                 <span class="p">)</span>
 
         <span class="c1"># mixed case:</span>
@@ -596,7 +599,7 @@
                 <span class="k">return</span> <span class="p">(</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;pgo,pg-&gt;po&quot;</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;pgc,pg-&gt;pc&quot;</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">prob_res_einsum_population</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">prob_res_einsum_population</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">),</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="p">(</span>
