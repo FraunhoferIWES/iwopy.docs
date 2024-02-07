@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iwopy.utils.discretization &mdash; iwopy 0.1.7
+  <title>iwopy.utils.discretization &mdash; iwopy 0.1.9
  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
@@ -17,7 +17,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=e80004a2"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=a4622379"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -38,7 +38,7 @@
             iwopy
           </a>
               <div class="version">
-                0.1.7
+                0.1.9
 
               </div>
 <div role="search">
@@ -200,6 +200,9 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Testing</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-11-alpha">v0.0.11-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-0-12-alpha">v0.0.12-alpha</a></li>
@@ -214,6 +217,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-5-alpha">v0.1.5-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-6-alpha">v0.1.6-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-7-beta">v0.1.7-beta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-8-beta">v0.1.8-beta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#v0-1-9-beta">v0.1.9-beta</a></li>
 </ul>
 </li>
 </ul>
@@ -997,7 +1002,7 @@
         <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Found coordinates above 1: </span><span class="si">{</span><span class="n">qts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">qts</span><span class="o">&gt;</span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
 
         <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_opts</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">qts</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">opts</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">qts</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">opts</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RegularDiscretizationGrid.interpolation_coeffs_point"><a class="viewcode-back" href="../../../_autosummary/iwopy.utils.discretization.RegularDiscretizationGrid.html#iwopy.utils.discretization.RegularDiscretizationGrid.interpolation_coeffs_point">[docs]</a>    <span class="k">def</span> <span class="nf">interpolation_coeffs_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wind farm layout optimization &mdash; iwopy 0.1.9
+  <title>Testing &mdash; iwopy 0.1.9
  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
@@ -25,8 +25,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API" href="api.html" />
-    <link rel="prev" title="Mixed problems" href="notebooks/mixed.html" /> 
+    <link rel="next" title="History" href="history.html" />
+    <link rel="prev" title="iwopy.wrappers.simple_problem.SimpleProblem" href="_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -65,13 +65,13 @@
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="examples.html">Examples</a><ul class="current">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/simple_function.html">Simple function minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/electrostatics.html">Electrostatic potential minimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/multi_obj_chain.html">Multi objective geometric chain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/mixed.html">Mixed problems</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Wind farm layout optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wind_farm_layout.html">Wind farm layout optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -202,8 +202,8 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
@@ -240,10 +240,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="examples.html">Examples</a></li>
-      <li class="breadcrumb-item active">Wind farm layout optimization</li>
+      <li class="breadcrumb-item active">Testing</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/wind_farm_layout.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/testing.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -251,18 +250,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="wind-farm-layout-optimization">
-<h1>Wind farm layout optimization<a class="headerlink" href="#wind-farm-layout-optimization" title="Permalink to this heading"></a></h1>
-<p>A more complex application of the <code class="docutils literal notranslate"><span class="pre">iwopy</span></code> interface can be found <a class="reference external" href="https://fraunhoferiwes.github.io/foxes.docs/notebooks/layout_opt.html">among the examples</a> of the wind farm and wake modelling Python software <a class="reference external" href="https://github.com/FraunhoferIWES/foxes">foxes</a>.</p>
-<p>Other examples in that context can be found in as part of the <a class="reference external" href="https://github.com/FraunhoferIWES/foxes/tree/main/examples/foxes.opt">foxes github repository</a>.</p>
+  <section id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h1>
+<p>For testing, please clone the repository and install the required dependencies:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/FraunhoferIWES/iwopy.git</span>
+<span class="go">cd iwopy</span>
+<span class="go">pip install -e .[test]</span>
+</pre></div>
+</div>
+<p>The tests are then run by</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pytest tests</span>
+</pre></div>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="notebooks/mixed.html" class="btn btn-neutral float-left" title="Mixed problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="_autosummary/iwopy.wrappers.simple_problem.SimpleProblem.html" class="btn btn-neutral float-left" title="iwopy.wrappers.simple_problem.SimpleProblem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="history.html" class="btn btn-neutral float-right" title="History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
