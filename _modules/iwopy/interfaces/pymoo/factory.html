@@ -13,7 +13,7 @@
     
     
       
-        <title>iwopy.interfaces.pymoo.factory - iwopy 0.2
+        <title>iwopy.interfaces.pymoo.factory - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -72,8 +72,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -86,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -174,14 +174,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -312,7 +312,9 @@
 <span></span><code><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">imports</span>
 
 
-<div class="viewcode-block" id="Factory"><a class="viewcode-back" href="../../../../api_interfaces_pymoo.html#iwopy.interfaces.pymoo.Factory">[docs]</a><span class="k">class</span> <span class="nc">Factory</span><span class="p">:</span>
+<div class="viewcode-block" id="Factory">
+<a class="viewcode-back" href="../../../../api_interfaces_pymoo.html#iwopy.interfaces.pymoo.Factory">[docs]</a>
+<span class="k">class</span> <span class="nc">Factory</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory for pymoo components</span>
 
@@ -320,17 +322,25 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Factory.__init__"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.__init__.html#iwopy.interfaces.pymoo.Factory.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_problem</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">):</span>
+<div class="viewcode-block" id="Factory.__init__">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.__init__.html#iwopy.interfaces.pymoo.Factory.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pymoo_problem</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pymoo_problem</span> <span class="o">=</span> <span class="n">pymoo_problem</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="n">verbosity</span>
 
         <span class="n">imports</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factory.print"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.print.html#iwopy.interfaces.pymoo.Factory.print">[docs]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Factory.print">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.print.html#iwopy.interfaces.pymoo.Factory.print">[docs]</a>
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factory.get_sampling"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_sampling.html#iwopy.interfaces.pymoo.Factory.get_sampling">[docs]</a>    <span class="k">def</span> <span class="nf">get_sampling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">samp_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Factory.get_sampling">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_sampling.html#iwopy.interfaces.pymoo.Factory.get_sampling">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_sampling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">samp_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sampling factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -359,7 +369,10 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="Factory.get_crossover"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_crossover.html#iwopy.interfaces.pymoo.Factory.get_crossover">[docs]</a>    <span class="k">def</span> <span class="nf">get_crossover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cross</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Factory.get_crossover">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_crossover.html#iwopy.interfaces.pymoo.Factory.get_crossover">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_crossover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cross</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Crossover factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -372,7 +385,10 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="Factory.get_mutation"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_mutation.html#iwopy.interfaces.pymoo.Factory.get_mutation">[docs]</a>    <span class="k">def</span> <span class="nf">get_mutation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mut</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Factory.get_mutation">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_mutation.html#iwopy.interfaces.pymoo.Factory.get_mutation">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_mutation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mut</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mutation factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -385,7 +401,10 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="Factory.get_algorithm"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_algorithm.html#iwopy.interfaces.pymoo.Factory.get_algorithm">[docs]</a>    <span class="k">def</span> <span class="nf">get_algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Factory.get_algorithm">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_algorithm.html#iwopy.interfaces.pymoo.Factory.get_algorithm">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Algorithm factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -495,7 +514,10 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="Factory.get_termination"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_termination.html#iwopy.interfaces.pymoo.Factory.get_termination">[docs]</a>    <span class="k">def</span> <span class="nf">get_termination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term_pars</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Factory.get_termination">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pymoo/Factory.get_termination.html#iwopy.interfaces.pymoo.Factory.get_termination">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_termination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term_pars</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Termination factory function</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -519,7 +541,9 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selecting termination: </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">out</span></div></div>
+        <span class="k">return</span> <span class="n">out</span></div>
+</div>
+
 </code></pre></div>
 
 
@@ -551,7 +575,7 @@
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   

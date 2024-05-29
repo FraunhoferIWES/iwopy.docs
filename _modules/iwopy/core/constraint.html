@@ -13,7 +13,7 @@
     
     
       
-        <title>iwopy.core.constraint - iwopy 0.2
+        <title>iwopy.core.constraint - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -72,8 +72,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -86,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -174,14 +174,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -314,7 +314,9 @@
 <span class="kn">from</span> <span class="nn">.function</span> <span class="kn">import</span> <span class="n">OptFunction</span>
 
 
-<div class="viewcode-block" id="Constraint"><a class="viewcode-back" href="../../../api_iwopy.html#iwopy.core.Constraint">[docs]</a><span class="k">class</span> <span class="nc">Constraint</span><span class="p">(</span><span class="n">OptFunction</span><span class="p">):</span>
+<div class="viewcode-block" id="Constraint">
+<a class="viewcode-back" href="../../../api_iwopy.html#iwopy.core.Constraint">[docs]</a>
+<span class="k">class</span> <span class="nc">Constraint</span><span class="p">(</span><span class="n">OptFunction</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Abstract base class for optimization</span>
 <span class="sd">    constraints.</span>
@@ -328,10 +330,12 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Constraint.__init__"><a class="viewcode-back" href="../../../_iwopy/core/Constraint.__init__.html#iwopy.core.Constraint.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Constraint.__init__">
+<a class="viewcode-back" href="../../../_iwopy/core/Constraint.__init__.html#iwopy.core.Constraint.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        tol: float</span>
@@ -341,7 +345,10 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span></div>
 
-<div class="viewcode-block" id="Constraint.get_bounds"><a class="viewcode-back" href="../../../_iwopy/core/Constraint.get_bounds.html#iwopy.core.Constraint.get_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Constraint.get_bounds">
+<a class="viewcode-back" href="../../../_iwopy/core/Constraint.get_bounds.html#iwopy.core.Constraint.get_bounds">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the bounds for all components.</span>
 
@@ -360,7 +367,10 @@
             <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Constraint.check_individual"><a class="viewcode-back" href="../../../_iwopy/wrappers/SimpleConstraint.html#iwopy.core.Constraint.check_individual">[docs]</a>    <span class="k">def</span> <span class="nf">check_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Constraint.check_individual">
+<a class="viewcode-back" href="../../../_iwopy/wrappers/SimpleConstraint.html#iwopy.core.Constraint.check_individual">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the constraints are fullfilled for the</span>
 <span class="sd">        given individual.</span>
@@ -392,7 +402,10 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="Constraint.check_population"><a class="viewcode-back" href="../../../_iwopy/wrappers/SimpleConstraint.html#iwopy.core.Constraint.check_population">[docs]</a>    <span class="k">def</span> <span class="nf">check_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Constraint.check_population">
+<a class="viewcode-back" href="../../../_iwopy/wrappers/SimpleConstraint.html#iwopy.core.Constraint.check_population">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_values</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the constraints are fullfilled for the</span>
 <span class="sd">        given population.</span>
@@ -424,7 +437,9 @@
                 <span class="n">suc</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">ci</span><span class="p">])</span> <span class="k">else</span> <span class="s2">&quot;FAILED&quot;</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Constraint </span><span class="si">{</span><span class="n">cnames</span><span class="p">[</span><span class="n">ci</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">suc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">out</span></div></div>
+        <span class="k">return</span> <span class="n">out</span></div>
+</div>
+
 </code></pre></div>
 
 
@@ -456,7 +471,7 @@
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   

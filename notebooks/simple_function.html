@@ -13,7 +13,7 @@
     
     
       
-        <title>Simple function minimization - iwopy 0.2
+        <title>Simple function minimization - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
         <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -73,8 +73,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -87,7 +87,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -175,14 +175,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -418,7 +418,7 @@
 
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><h1 id="Simple-function-minimization">Simple function minimization<a class="headerlink" href="#Simple-function-minimization" title="Permalink to this heading">¶</a></h1>
+<script>require=requirejs;</script><h1 id="Simple-function-minimization">Simple function minimization<a class="headerlink" href="#Simple-function-minimization" title="Link to this heading">¶</a></h1>
 <p>Let’s minimize the following simple function:</p>
 <div class="math notranslate nohighlight">
 \[f(x, y) = (x - 3.6)^2 + 2 (y+1.1)^2\]</div>
@@ -568,6 +568,10 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
          5        9.23375              0              0
          6        9.23375              0              0
          7        1.60594              0              0
+         8      0.0440281              0              0
+         9     0.00157443              0              0
+        10    1.35988e-06              0              0
+        11    1.28522e-12              0              0
 
 Problem name: minf
         C++ class name: pybind11::object
@@ -597,7 +601,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     12615404713327442450
+        ID:                     12879951584046933432
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -609,10 +613,6 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.2852212531163044e-12
-         8      0.0440281              0              0
-         9     0.00157443              0              0
-        10    1.35988e-06              0              0
-        11    1.28522e-12              0              0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -757,8 +757,6 @@ Optimisation return status: Solve_Succeeded (value = 0)
          6        9.23375              0              0
          7        1.60594              0              0
          8      0.0440281              0              0
-         9     0.00157443              0              0
-        10    1.35988e-06              0              0
 
 Problem name: minf_fd
         C++ class name: pybind11::object
@@ -788,7 +786,7 @@ Population size: 1
 
 List of individuals:
 #0:
-        ID:                     12664710414381992975
+        ID:                     9505772739809237078
         Decision vector:        [3.6, -1.1]
         Fitness vector:         [1.28522e-12]
 
@@ -800,6 +798,8 @@ Champion fitness: [1.28522e-12]
 Optimizer_pygmo: Optimization run finished
   Success: True
   Best f = 1.285221254342924e-12
+         9     0.00157443              0              0
+        10    1.35988e-06              0              0
         11    1.28522e-12              0              0
 </pre></div></div>
 </div>
@@ -897,7 +897,7 @@ Results problem &#39;minf_fd&#39;:
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   

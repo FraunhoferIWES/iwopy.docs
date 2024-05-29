@@ -13,7 +13,7 @@
     
     
       
-        <title>iwopy.wrappers.local_fd - iwopy 0.2
+        <title>iwopy.wrappers.local_fd - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -72,8 +72,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -86,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -174,14 +174,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -315,7 +315,9 @@
 <span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">ProblemDefaultFunc</span>
 
 
-<div class="viewcode-block" id="LocalFD"><a class="viewcode-back" href="../../../api_wrappers.html#iwopy.wrappers.LocalFD">[docs]</a><span class="k">class</span> <span class="nc">LocalFD</span><span class="p">(</span><span class="n">ProblemWrapper</span><span class="p">):</span>
+<div class="viewcode-block" id="LocalFD">
+<a class="viewcode-back" href="../../../api_wrappers.html#iwopy.wrappers.LocalFD">[docs]</a>
+<span class="k">class</span> <span class="nc">LocalFD</span><span class="p">(</span><span class="n">ProblemWrapper</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A wrapper that provides finite distance</span>
 <span class="sd">    differentiation by local stepwise evaluation.</span>
@@ -333,7 +335,9 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="LocalFD.__init__"><a class="viewcode-back" href="../../../_iwopy/wrappers/LocalFD.__init__.html#iwopy.wrappers.LocalFD.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="LocalFD.__init__">
+<a class="viewcode-back" href="../../../_iwopy/wrappers/LocalFD.__init__.html#iwopy.wrappers.LocalFD.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">base_problem</span><span class="p">,</span>
         <span class="n">deltas</span><span class="p">,</span>
@@ -343,7 +347,7 @@
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        base_problem: iwopy.Problem</span>
@@ -395,7 +399,10 @@
                         <span class="sa">f</span><span class="s2">&quot;Problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: Missing fd_bounds_order entry for variable &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
                     <span class="p">)</span></div>
 
-<div class="viewcode-block" id="LocalFD.initialize"><a class="viewcode-back" href="../../../_iwopy/wrappers/LocalFD.initialize.html#iwopy.wrappers.LocalFD.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+<div class="viewcode-block" id="LocalFD.initialize">
+<a class="viewcode-back" href="../../../_iwopy/wrappers/LocalFD.initialize.html#iwopy.wrappers.LocalFD.initialize">[docs]</a>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the problem.</span>
 
@@ -439,6 +446,7 @@
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Boundary order(s) </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_orderb</span><span class="p">[</span><span class="o">~</span><span class="n">sel</span><span class="p">]))</span><span class="si">}</span><span class="s2"> not implemented.&quot;</span>
             <span class="p">)</span></div>
+
 
     <span class="k">def</span> <span class="nf">_grad_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varsf</span><span class="p">,</span> <span class="n">gvars</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">orderb</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -540,7 +548,9 @@
 
         <span class="k">return</span> <span class="n">pts</span><span class="p">,</span> <span class="n">cfs</span>
 
-<div class="viewcode-block" id="LocalFD.calc_gradients"><a class="viewcode-back" href="../../../_iwopy/wrappers/LocalFD.calc_gradients.html#iwopy.wrappers.LocalFD.calc_gradients">[docs]</a>    <span class="k">def</span> <span class="nf">calc_gradients</span><span class="p">(</span>
+<div class="viewcode-block" id="LocalFD.calc_gradients">
+<a class="viewcode-back" href="../../../_iwopy/wrappers/LocalFD.calc_gradients.html#iwopy.wrappers.LocalFD.calc_gradients">[docs]</a>
+    <span class="k">def</span> <span class="nf">calc_gradients</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">vars_int</span><span class="p">,</span>
         <span class="n">vars_float</span><span class="p">,</span>
@@ -653,7 +663,9 @@
         <span class="c1"># recombine results:</span>
         <span class="n">gradients</span><span class="p">[:,</span> <span class="n">gvars</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;pc,vp-&gt;cv&quot;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">gradients</span></div></div>
+        <span class="k">return</span> <span class="n">gradients</span></div>
+</div>
+
 </code></pre></div>
 
 
@@ -685,7 +697,7 @@
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   

@@ -13,7 +13,7 @@
     
     
       
-        <title>iwopy.interfaces.pygmo.problem - iwopy 0.2
+        <title>iwopy.interfaces.pygmo.problem - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -72,8 +72,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -86,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -174,14 +174,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -314,7 +314,9 @@
 <span class="kn">from</span> <span class="nn">iwopy.core</span> <span class="kn">import</span> <span class="n">SingleObjOptResults</span><span class="p">,</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">OptFunctionList</span><span class="p">,</span> <span class="n">OptFunctionSubset</span>
 
 
-<div class="viewcode-block" id="UDP"><a class="viewcode-back" href="../../../../api_interfaces_pygmo.html#iwopy.interfaces.pygmo.UDP">[docs]</a><span class="k">class</span> <span class="nc">UDP</span><span class="p">:</span>
+<div class="viewcode-block" id="UDP">
+<a class="viewcode-back" href="../../../../api_interfaces_pygmo.html#iwopy.interfaces.pygmo.UDP">[docs]</a>
+<span class="k">class</span> <span class="nc">UDP</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generic Problem to Pygmo UserDefinedProblem adapter</span>
 
@@ -334,12 +336,14 @@
 <span class="sd">        Vectorized fitness computation</span>
 <span class="sd">    verbosity: int</span>
 <span class="sd">        The verbosity level, 0 = silent</span>
-<span class="sd">    </span>
+
 <span class="sd">    :group: interfaces.pygmo</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="UDP.__init__"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.__init__.html#iwopy.interfaces.pygmo.UDP.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="UDP.__init__">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.__init__.html#iwopy.interfaces.pygmo.UDP.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">problem</span><span class="p">,</span>
         <span class="n">pop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -347,7 +351,7 @@
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        problem: iwopy.Problem</span>
@@ -369,7 +373,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="n">verbosity</span></div>
 
-<div class="viewcode-block" id="UDP.fitness"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.fitness.html#iwopy.interfaces.pygmo.UDP.fitness">[docs]</a>    <span class="k">def</span> <span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dv</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.fitness">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.fitness.html#iwopy.interfaces.pygmo.UDP.fitness">[docs]</a>
+    <span class="k">def</span> <span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dv</span><span class="p">):</span>
 
         <span class="c1"># extract variables:</span>
         <span class="n">xf</span> <span class="o">=</span> <span class="n">dv</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_float</span><span class="p">]</span>
@@ -384,7 +391,10 @@
 
         <span class="k">return</span> <span class="n">values</span></div>
 
-<div class="viewcode-block" id="UDP.batch_fitness"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.batch_fitness.html#iwopy.interfaces.pygmo.UDP.batch_fitness">[docs]</a>    <span class="k">def</span> <span class="nf">batch_fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dvs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.batch_fitness">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.batch_fitness.html#iwopy.interfaces.pygmo.UDP.batch_fitness">[docs]</a>
+    <span class="k">def</span> <span class="nf">batch_fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dvs</span><span class="p">):</span>
 
         <span class="c1"># extract variables:</span>
         <span class="n">n_vf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_float</span>
@@ -399,15 +409,21 @@
         <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_pop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fitness</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">)</span>
         <span class="n">objs</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">maximize_objs</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">values</span><span class="p">[:,:</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span> <span class="o">=</span> <span class="n">objs</span>
+        <span class="n">values</span><span class="p">[:,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span><span class="p">]</span> <span class="o">=</span> <span class="n">objs</span>
         <span class="n">values</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cons</span>
 
         <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_pop</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fitness</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UDP.has_batch_fitness"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_batch_fitness.html#iwopy.interfaces.pygmo.UDP.has_batch_fitness">[docs]</a>    <span class="k">def</span> <span class="nf">has_batch_fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.has_batch_fitness">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_batch_fitness.html#iwopy.interfaces.pygmo.UDP.has_batch_fitness">[docs]</a>
+    <span class="k">def</span> <span class="nf">has_batch_fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop</span></div>
 
-<div class="viewcode-block" id="UDP.get_bounds"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_bounds.html#iwopy.interfaces.pygmo.UDP.get_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.get_bounds">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_bounds.html#iwopy.interfaces.pygmo.UDP.get_bounds">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">lb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vars_all</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
         <span class="n">ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_vars_all</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
@@ -429,22 +445,40 @@
 
         <span class="k">return</span> <span class="p">(</span><span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UDP.get_nobj"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nobj.html#iwopy.interfaces.pygmo.UDP.get_nobj">[docs]</a>    <span class="k">def</span> <span class="nf">get_nobj</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.get_nobj">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nobj.html#iwopy.interfaces.pygmo.UDP.get_nobj">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nobj</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_objectives</span></div>
 
-<div class="viewcode-block" id="UDP.get_nec"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nec.html#iwopy.interfaces.pygmo.UDP.get_nec">[docs]</a>    <span class="k">def</span> <span class="nf">get_nec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.get_nec">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nec.html#iwopy.interfaces.pygmo.UDP.get_nec">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="UDP.get_nic"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nic.html#iwopy.interfaces.pygmo.UDP.get_nic">[docs]</a>    <span class="k">def</span> <span class="nf">get_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.get_nic">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nic.html#iwopy.interfaces.pygmo.UDP.get_nic">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_constraints</span></div>
 
-<div class="viewcode-block" id="UDP.get_nix"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nix.html#iwopy.interfaces.pygmo.UDP.get_nix">[docs]</a>    <span class="k">def</span> <span class="nf">get_nix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.get_nix">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_nix.html#iwopy.interfaces.pygmo.UDP.get_nix">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">n_vars_int</span></div>
 
-<div class="viewcode-block" id="UDP.has_gradient"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_gradient.html#iwopy.interfaces.pygmo.UDP.has_gradient">[docs]</a>    <span class="k">def</span> <span class="nf">has_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.has_gradient">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_gradient.html#iwopy.interfaces.pygmo.UDP.has_gradient">[docs]</a>
+    <span class="k">def</span> <span class="nf">has_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="UDP.gradient"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.gradient.html#iwopy.interfaces.pygmo.UDP.gradient">[docs]</a>    <span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.gradient">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.gradient.html#iwopy.interfaces.pygmo.UDP.gradient">[docs]</a>
+    <span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 
         <span class="n">spars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gradient_sparsity</span><span class="p">())</span>
         <span class="n">cmpnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">spars</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
@@ -475,10 +509,16 @@
 
         <span class="k">return</span> <span class="p">[</span><span class="n">grad</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vrs</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">spars</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="UDP.has_gradient_sparsity"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_gradient_sparsity.html#iwopy.interfaces.pygmo.UDP.has_gradient_sparsity">[docs]</a>    <span class="k">def</span> <span class="nf">has_gradient_sparsity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.has_gradient_sparsity">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_gradient_sparsity.html#iwopy.interfaces.pygmo.UDP.has_gradient_sparsity">[docs]</a>
+    <span class="k">def</span> <span class="nf">has_gradient_sparsity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="UDP.gradient_sparsity"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.gradient_sparsity.html#iwopy.interfaces.pygmo.UDP.gradient_sparsity">[docs]</a>    <span class="k">def</span> <span class="nf">gradient_sparsity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.gradient_sparsity">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.gradient_sparsity.html#iwopy.interfaces.pygmo.UDP.gradient_sparsity">[docs]</a>
+    <span class="k">def</span> <span class="nf">gradient_sparsity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -502,28 +542,46 @@
 
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">out</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UDP.has_hessians"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_hessians.html#iwopy.interfaces.pygmo.UDP.has_hessians">[docs]</a>    <span class="k">def</span> <span class="nf">has_hessians</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.has_hessians">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_hessians.html#iwopy.interfaces.pygmo.UDP.has_hessians">[docs]</a>
+    <span class="k">def</span> <span class="nf">has_hessians</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span></div>
+
 
     <span class="c1"># def hessians(self, dv):</span>
 
-<div class="viewcode-block" id="UDP.has_hessians_sparsity"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_hessians_sparsity.html#iwopy.interfaces.pygmo.UDP.has_hessians_sparsity">[docs]</a>    <span class="k">def</span> <span class="nf">has_hessians_sparsity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="UDP.has_hessians_sparsity">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_hessians_sparsity.html#iwopy.interfaces.pygmo.UDP.has_hessians_sparsity">[docs]</a>
+    <span class="k">def</span> <span class="nf">has_hessians_sparsity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span></div>
+
 
     <span class="c1"># def hessians_sparsity(self):</span>
 
-<div class="viewcode-block" id="UDP.has_set_seed"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_set_seed.html#iwopy.interfaces.pygmo.UDP.has_set_seed">[docs]</a>    <span class="k">def</span> <span class="nf">has_set_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="UDP.has_set_seed">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.has_set_seed.html#iwopy.interfaces.pygmo.UDP.has_set_seed">[docs]</a>
+    <span class="k">def</span> <span class="nf">has_set_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span></div>
+
 
     <span class="c1"># def set_seed(self, s):</span>
 
-<div class="viewcode-block" id="UDP.get_name"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_name.html#iwopy.interfaces.pygmo.UDP.get_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="UDP.get_name">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_name.html#iwopy.interfaces.pygmo.UDP.get_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">name</span></div>
 
-<div class="viewcode-block" id="UDP.get_extra_info"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_extra_info.html#iwopy.interfaces.pygmo.UDP.get_extra_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_extra_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.get_extra_info">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.get_extra_info.html#iwopy.interfaces.pygmo.UDP.get_extra_info">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_extra_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="UDP.finalize"><a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.finalize.html#iwopy.interfaces.pygmo.UDP.finalize">[docs]</a>    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pygmo_pop</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UDP.finalize">
+<a class="viewcode-back" href="../../../../_iwopy/interfaces/pygmo/UDP.finalize.html#iwopy.interfaces.pygmo.UDP.finalize">[docs]</a>
+    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pygmo_pop</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finalize the problem.</span>
 
@@ -559,7 +617,9 @@
         <span class="k">if</span> <span class="n">verbosity</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">SingleObjOptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">SingleObjOptResults</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="p">,</span> <span class="n">suc</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">objs</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span></div>
+</div>
+
 </code></pre></div>
 
 
@@ -591,7 +651,7 @@
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   

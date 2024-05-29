@@ -13,7 +13,7 @@
     
     
       
-        <title>iwopy.core.opt_results - iwopy 0.2
+        <title>iwopy.core.opt_results - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -72,8 +72,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -86,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -174,14 +174,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -313,7 +313,9 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
-<div class="viewcode-block" id="SingleObjOptResults"><a class="viewcode-back" href="../../../api_core.html#iwopy.core.SingleObjOptResults">[docs]</a><span class="k">class</span> <span class="nc">SingleObjOptResults</span><span class="p">:</span>
+<div class="viewcode-block" id="SingleObjOptResults">
+<a class="viewcode-back" href="../../../api_core.html#iwopy.core.SingleObjOptResults">[docs]</a>
+<span class="k">class</span> <span class="nc">SingleObjOptResults</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Container for optimization results for single objective</span>
 <span class="sd">    problems.</span>
@@ -347,7 +349,9 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="SingleObjOptResults.__init__"><a class="viewcode-back" href="../../../_iwopy/core/SingleObjOptResults.__init__.html#iwopy.core.SingleObjOptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="SingleObjOptResults.__init__">
+<a class="viewcode-back" href="../../../_iwopy/core/SingleObjOptResults.__init__.html#iwopy.core.SingleObjOptResults.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">problem</span><span class="p">,</span>
         <span class="n">success</span><span class="p">,</span>
@@ -359,7 +363,7 @@
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        problem: iwopy.core.Problem</span>
@@ -397,7 +401,10 @@
                 <span class="sa">f</span><span class="s2">&quot;Wrong opt results class &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; for multi objective problem. Use &#39;MultiObjOptResults&#39; instead.&quot;</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SingleObjOptResults.__str__"><a class="viewcode-back" href="../../../_iwopy/core/SingleObjOptResults.__str__.html#iwopy.core.SingleObjOptResults.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SingleObjOptResults.__str__">
+<a class="viewcode-back" href="../../../_iwopy/core/SingleObjOptResults.__str__.html#iwopy.core.SingleObjOptResults.__str__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Results problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pname</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="n">hline</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -429,10 +436,14 @@
         <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;  Success: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">hline</span>
 
-        <span class="k">return</span> <span class="n">s</span></div></div>
+        <span class="k">return</span> <span class="n">s</span></div>
+</div>
 
 
-<div class="viewcode-block" id="MultiObjOptResults"><a class="viewcode-back" href="../../../api_core.html#iwopy.core.MultiObjOptResults">[docs]</a><span class="k">class</span> <span class="nc">MultiObjOptResults</span><span class="p">:</span>
+
+<div class="viewcode-block" id="MultiObjOptResults">
+<a class="viewcode-back" href="../../../api_core.html#iwopy.core.MultiObjOptResults">[docs]</a>
+<span class="k">class</span> <span class="nc">MultiObjOptResults</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Container for optimization results for multi objective</span>
 <span class="sd">    problems.</span>
@@ -461,12 +472,14 @@
 <span class="sd">        The names of objectives</span>
 <span class="sd">    cnames: list of str</span>
 <span class="sd">        The names of constraints</span>
-<span class="sd">    </span>
+
 <span class="sd">    :group: core</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MultiObjOptResults.__init__"><a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.__init__.html#iwopy.core.MultiObjOptResults.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="MultiObjOptResults.__init__">
+<a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.__init__.html#iwopy.core.MultiObjOptResults.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">problem</span><span class="p">,</span>
         <span class="n">success</span><span class="p">,</span>
@@ -478,7 +491,7 @@
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        problem: iwopy.core.Problem</span>
@@ -515,7 +528,10 @@
                 <span class="sa">f</span><span class="s2">&quot;Wrong opt results class &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; for single objective problem. Use &#39;SingleObjOptResults&#39; instead.&quot;</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="MultiObjOptResults.__str__"><a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.__str__.html#iwopy.core.MultiObjOptResults.__str__">[docs]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MultiObjOptResults.__str__">
+<a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.__str__.html#iwopy.core.MultiObjOptResults.__str__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Results problem &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pname</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="n">hline</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -554,7 +570,10 @@
 
         <span class="k">return</span> <span class="n">s</span></div>
 
-<div class="viewcode-block" id="MultiObjOptResults.plot_pareto"><a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.plot_pareto.html#iwopy.core.MultiObjOptResults.plot_pareto">[docs]</a>    <span class="k">def</span> <span class="nf">plot_pareto</span><span class="p">(</span>
+
+<div class="viewcode-block" id="MultiObjOptResults.plot_pareto">
+<a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.plot_pareto.html#iwopy.core.MultiObjOptResults.plot_pareto">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_pareto</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">obj_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">obj_1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -623,7 +642,10 @@
 
         <span class="k">return</span> <span class="n">ax</span></div>
 
-<div class="viewcode-block" id="MultiObjOptResults.find_pareto_objmix"><a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.find_pareto_objmix.html#iwopy.core.MultiObjOptResults.find_pareto_objmix">[docs]</a>    <span class="k">def</span> <span class="nf">find_pareto_objmix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_weights</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MultiObjOptResults.find_pareto_objmix">
+<a class="viewcode-back" href="../../../_iwopy/core/MultiObjOptResults.find_pareto_objmix.html#iwopy.core.MultiObjOptResults.find_pareto_objmix">[docs]</a>
+    <span class="k">def</span> <span class="nf">find_pareto_objmix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_weights</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find the point on the pareto front that</span>
 <span class="sd">        approximates best the given weights of objectives</span>
@@ -644,7 +666,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj_weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;po,o-&gt;p&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objs</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="k">if</span> <span class="nb">max</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="k">if</span> <span class="nb">max</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+</div>
+
 </code></pre></div>
 
 
@@ -676,7 +700,7 @@
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   

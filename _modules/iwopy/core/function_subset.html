@@ -13,7 +13,7 @@
     
     
       
-        <title>iwopy.core.function_subset - iwopy 0.2
+        <title>iwopy.core.function_subset - iwopy 0.2.1
  documentation</title>
       
     
@@ -37,7 +37,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.01df5be22ee815f6a.min.css?v=af6841d5" />
+        <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_immaterial_theme.eaee958e8db0b4370.min.css?v=0db274d5" />
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -72,8 +72,8 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
@@ -86,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2
+            iwopy 0.2.1
  documentation
           </span>
         </div>
@@ -174,14 +174,14 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../index.html" title="iwopy 0.2
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2
+    <a href="../../../index.html" title="iwopy 0.2.1
+ documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.1
  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2
+    iwopy 0.2.1
  documentation
   </label>
   
@@ -314,7 +314,9 @@
 <span class="kn">from</span> <span class="nn">.function</span> <span class="kn">import</span> <span class="n">OptFunction</span>
 
 
-<div class="viewcode-block" id="OptFunctionSubset"><a class="viewcode-back" href="../../../api_core.html#iwopy.core.OptFunctionSubset">[docs]</a><span class="k">class</span> <span class="nc">OptFunctionSubset</span><span class="p">(</span><span class="n">OptFunction</span><span class="p">):</span>
+<div class="viewcode-block" id="OptFunctionSubset">
+<a class="viewcode-back" href="../../../api_core.html#iwopy.core.OptFunctionSubset">[docs]</a>
+<span class="k">class</span> <span class="nc">OptFunctionSubset</span><span class="p">(</span><span class="n">OptFunction</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A function composed of a subset of a function&#39;s</span>
 <span class="sd">    components.</span>
@@ -325,15 +327,17 @@
 <span class="sd">        The original function</span>
 <span class="sd">    subset: list of int</span>
 <span class="sd">        The component choice</span>
-<span class="sd">    </span>
+
 <span class="sd">    :group: core</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="OptFunctionSubset.__init__"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.__init__.html#iwopy.core.OptFunctionSubset.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="OptFunctionSubset.__init__">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.__init__.html#iwopy.core.OptFunctionSubset.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        function: iwopy.OptFunction</span>
@@ -351,7 +355,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">func_org</span> <span class="o">=</span> <span class="n">function</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.initialize"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.initialize.html#iwopy.core.OptFunctionSubset.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.initialize">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.initialize.html#iwopy.core.OptFunctionSubset.initialize">[docs]</a>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the object.</span>
 
@@ -373,7 +380,10 @@
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.vardeps_int"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.vardeps_int.html#iwopy.core.OptFunctionSubset.vardeps_int">[docs]</a>    <span class="k">def</span> <span class="nf">vardeps_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.vardeps_int">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.vardeps_int.html#iwopy.core.OptFunctionSubset.vardeps_int">[docs]</a>
+    <span class="k">def</span> <span class="nf">vardeps_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the dependencies of all components</span>
 <span class="sd">        on the function int variables</span>
@@ -387,7 +397,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vdepsi</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.vardeps_float"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.vardeps_float.html#iwopy.core.OptFunctionSubset.vardeps_float">[docs]</a>    <span class="k">def</span> <span class="nf">vardeps_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.vardeps_float">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.vardeps_float.html#iwopy.core.OptFunctionSubset.vardeps_float">[docs]</a>
+    <span class="k">def</span> <span class="nf">vardeps_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the dependencies of all components</span>
 <span class="sd">        on the function float variables</span>
@@ -401,7 +414,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vdepsf</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.n_components"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.n_components.html#iwopy.core.OptFunctionSubset.n_components">[docs]</a>    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.n_components">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.n_components.html#iwopy.core.OptFunctionSubset.n_components">[docs]</a>
+    <span class="k">def</span> <span class="nf">n_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the number of components of the</span>
 <span class="sd">        function.</span>
@@ -414,7 +430,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.calc_individual"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.calc_individual.html#iwopy.core.OptFunctionSubset.calc_individual">[docs]</a>    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.calc_individual">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.calc_individual.html#iwopy.core.OptFunctionSubset.calc_individual">[docs]</a>
+    <span class="k">def</span> <span class="nf">calc_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for a single individual of the</span>
 <span class="sd">        underlying problem.</span>
@@ -444,7 +463,10 @@
             <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">cmpts</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.calc_population"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.calc_population.html#iwopy.core.OptFunctionSubset.calc_population">[docs]</a>    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.calc_population">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.calc_population.html#iwopy.core.OptFunctionSubset.calc_population">[docs]</a>
+    <span class="k">def</span> <span class="nf">calc_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate values for all individuals of a population.</span>
 
@@ -473,7 +495,10 @@
             <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">problem_results</span><span class="p">,</span> <span class="n">cmpts</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="OptFunctionSubset.ana_deriv"><a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.ana_deriv.html#iwopy.core.OptFunctionSubset.ana_deriv">[docs]</a>    <span class="k">def</span> <span class="nf">ana_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="OptFunctionSubset.ana_deriv">
+<a class="viewcode-back" href="../../../_iwopy/core/OptFunctionSubset.ana_deriv.html#iwopy.core.OptFunctionSubset.ana_deriv">[docs]</a>
+    <span class="k">def</span> <span class="nf">ana_deriv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">components</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the analytic derivative, if possible.</span>
 
@@ -499,7 +524,9 @@
         <span class="n">cmpts</span> <span class="o">=</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="k">if</span> <span class="n">components</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_org</span><span class="o">.</span><span class="n">ana_deriv</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">cmpts</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_org</span><span class="o">.</span><span class="n">ana_deriv</span><span class="p">(</span><span class="n">vars_int</span><span class="p">,</span> <span class="n">vars_float</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">cmpts</span><span class="p">)</span></div>
+</div>
+
 </code></pre></div>
 
 
@@ -531,7 +558,7 @@
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.1.2.
+    7.3.7.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   
