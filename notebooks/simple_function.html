@@ -13,8 +13,7 @@
     
     
       
-        <title>Simple function minimization - iwopy 0.2.3
- documentation</title>
+        <title>Simple function minimization - iwopy 0.3 documentation</title>
       
     
     
@@ -37,7 +36,7 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.8b7122b5930e63132.min.css?v=abb87162" />
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.3625f807144f53acf.min.css?v=fbfc4466" />
         <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -73,9 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../index.html" title="iwopy 0.2.3
- documentation" class="md-header__button md-logo" aria-label="iwopy 0.2.3
- documentation" data-md-component="logo">
+    <a href="../index.html" title="iwopy 0.3 documentation" class="md-header__button md-logo" aria-label="iwopy 0.3 documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -87,8 +84,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            iwopy 0.2.3
- documentation
+            iwopy 0.3 documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,15 +171,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="iwopy 0.2.3
- documentation" class="md-nav__button md-logo" aria-label="iwopy 0.2.3
- documentation" data-md-component="logo">
+    <a href="../index.html" title="iwopy 0.3 documentation" class="md-nav__button md-logo" aria-label="iwopy 0.3 documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
     </a>
-    iwopy 0.2.3
- documentation
+    iwopy 0.3 documentation
   </label>
   
     <div class="md-nav__source">
@@ -381,8 +374,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../history.html" class="md-nav__link">
-        <span title="/history.md (reference label)" class="md-ellipsis">History</span>
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        <span title="/changelog.md (reference label)" class="md-ellipsis">History</span>
       </a>
     </li>
   
@@ -426,7 +419,7 @@
 <ul class="simple">
 <li><p>Parameter bounds: <span class="math notranslate nohighlight">\(x, y \in [-5,5]\)</span></p></li>
 <li><p>Unconstrained minimization</p></li>
-<li><p>Gradient based optimizer <a class="reference external" href="https://esa.github.io/pagmo2/docs/cpp/algorithms/ipopt.html">IPOPT</a> from <a class="reference external" href="https://esa.github.io/pygmo2/">pygmo</a></p></li>
+<li><p>Gradient based optimizer <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-slsqp.html">SLSQP</a> from <a class="reference external" href="https://scipy.org/">scipy</a></p></li>
 <li><p>Analytical gradients</p></li>
 </ul>
 <p>The usage of finite difference gradients will be demonstrated directly after. We start by importing the required classes from the <code class="docutils literal notranslate"><span class="pre">iwopy</span></code> package:</p>
@@ -435,7 +428,7 @@
 </code></pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">iwopy</span> <span class="kn">import</span> <span class="n">SimpleProblem</span><span class="p">,</span> <span class="n">SimpleObjective</span>
-<span class="kn">from</span> <span class="nn">iwopy.interfaces.pygmo</span> <span class="kn">import</span> <span class="n">Optimizer_pygmo</span>
+<span class="kn">from</span> <span class="nn">iwopy.interfaces.scipy</span> <span class="kn">import</span> <span class="n">Optimizer_scipy</span>
 </code></pre></div>
 </div>
 </div>
@@ -505,10 +498,9 @@ Problem &#39;minf&#39; (SimpleProblem): Initializing
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>In [4]:
 </code></pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_scipy</span><span class="p">(</span>
     <span class="n">problem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
-    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;ipopt&quot;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
+    <span class="n">scipy_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;SLSQP&quot;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">print_info</span><span class="p">()</span>
@@ -520,24 +512,16 @@ Problem &#39;minf&#39; (SimpleProblem): Initializing
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Loading pygmo
-pygmo successfully loaded
+Using optimizer memory, size: 100
 
-Algorithm name: Ipopt: Interior Point Optimization [deterministic]
-        C++ class name: pagmo::ipopt
-
-        Thread safety: none
-
-Extra info:
-        Last optimisation return code: Solve_Succeeded (value = 0)
-        Verbosity: 1
-        Individual selection policy: best
-        Individual replacement policy: best
-        Numeric options: {tol : 0.0001}
+Scipy parameters:
+-----------------
+  method: SLSQP
+  tol: 1e-08
 
 </pre></div></div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">tol</span></code> is an <code class="docutils literal notranslate"><span class="pre">IPOPT</span></code> parameter that defines the convergence tolerance. Now we are finally ready - let’s solve the problem!</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">tol</span></code> is an <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> parameter that defines the convergence tolerance. Now we are finally ready - let’s solve the problem!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>In [5]:
 </code></pre></div>
@@ -552,67 +536,9 @@ Extra info:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
-******************************************************************************
-This program contains Ipopt, a library for large-scale nonlinear optimization.
- Ipopt is released as open source code under the Eclipse Public License (EPL).
-         For more information visit https://github.com/coin-or/Ipopt
-******************************************************************************
-
-
- objevals:        objval:      violated:    viol. norm:
-         1          15.38              0              0
-         2        9.23375              0              0
-         3        9.23375              0              0
-         4        9.23375              0              0
-         5        9.23375              0              0
-         6        9.23375              0              0
-         7        1.60594              0              0
-
-Problem name: minf
-        C++ class name: pybind11::object
-
-        Global dimension:                       2
-        Integer dimension:                      0
-        Fitness dimension:                      1
-        Number of objectives:                   1
-        Equality constraints dimension:         0
-        Inequality constraints dimension:       0
-        Lower bounds: [-5, -5]
-        Upper bounds: [5, 5]
-        Has batch fitness evaluation: false
-
-        Has gradient: true
-        User implemented gradient sparsity: true
-        Expected gradients: 2
-        Has hessians: false
-        User implemented hessians sparsity: false
-
-        Fitness evaluations: 14
-        Gradient evaluations: 7
-
-        Thread safety: none
-
-Population size: 1
-
-List of individuals:
-#0:
-        ID:                     10109106550337115353
-        Decision vector:        [3.6, -1.1]
-        Fitness vector:         [1.28522e-12]
-
-Champion decision vector: [3.6, -1.1]
-Champion fitness: [1.28522e-12]
-
-
-
-Optimizer_pygmo: Optimization run finished
+Optimizer_scipy: Optimization run finished
   Success: True
-  Best f = 1.2852212531163044e-12
-         8      0.0440281              0              0
-         9     0.00157443              0              0
-        10    1.35988e-06              0              0
-        11    1.28522e-12              0              0
+  Best f = 1.66552658619115e-16
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -631,11 +557,11 @@ Optimizer_pygmo: Optimization run finished
 Results problem &#39;minf&#39;:
 ------------------------
   Float variables:
-    0: x = 3.599999e+00
+    0: x = 3.600000e+00
     1: y = -1.100000e+00
 ------------------------
   Objectives:
-    0: f = 1.285221e-12
+    0: f = 1.665527e-16
 ------------------------
   Success: True
 ------------------------
@@ -728,10 +654,9 @@ Problem &#39;minf_fd&#39; (LocalFD): Initializing
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>In [10]:
 </code></pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_pygmo</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">solver</span> <span class="o">=</span> <span class="n">Optimizer_scipy</span><span class="p">(</span>
     <span class="n">gproblem</span><span class="p">,</span>
-    <span class="n">problem_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span>
-    <span class="n">algo_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;ipopt&quot;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">),</span>
+    <span class="n">scipy_pars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;SLSQP&quot;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
@@ -745,62 +670,10 @@ Problem &#39;minf_fd&#39; (LocalFD): Initializing
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
-Optimisation return status: Solve_Succeeded (value = 0)
-
- objevals:        objval:      violated:    viol. norm:
-         1          15.38              0              0
-         2        9.23375              0              0
-         3        9.23375              0              0
-         4        9.23375              0              0
-         5        9.23375              0              0
-         6        9.23375              0              0
-         7        1.60594              0              0
-         8      0.0440281              0              0
-         9     0.00157443              0              0
-        10    1.35988e-06              0              0
-
-Problem name: minf_fd
-        C++ class name: pybind11::object
-
-        Global dimension:                       2
-        Integer dimension:                      0
-        Fitness dimension:                      1
-        Number of objectives:                   1
-        Equality constraints dimension:         0
-        Inequality constraints dimension:       0
-        Lower bounds: [-5, -5]
-        Upper bounds: [5, 5]
-        Has batch fitness evaluation: false
-
-        Has gradient: true
-        User implemented gradient sparsity: true
-        Expected gradients: 2
-        Has hessians: false
-        User implemented hessians sparsity: false
-
-        Fitness evaluations: 14
-        Gradient evaluations: 7
-
-        Thread safety: none
-
-Population size: 1
-
-List of individuals:
-#0:
-        ID:                     16890387282719974931
-        Decision vector:        [3.6, -1.1]
-        Fitness vector:         [1.28522e-12]
-
-Champion decision vector: [3.6, -1.1]
-Champion fitness: [1.28522e-12]
-
-
-
-Optimizer_pygmo: Optimization run finished
+Using optimizer memory, size: 100
+Optimizer_scipy: Optimization run finished
   Success: True
-  Best f = 1.285221254342924e-12
-        11    1.28522e-12              0              0
+  Best f = 1.66552658619115e-16
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -819,11 +692,11 @@ Optimizer_pygmo: Optimization run finished
 Results problem &#39;minf_fd&#39;:
 ---------------------------
   Float variables:
-    0: x = 3.599999e+00
+    0: x = 3.600000e+00
     1: y = -1.100000e+00
 ---------------------------
   Objectives:
-    0: f = 1.285221e-12
+    0: f = 1.665527e-16
 ---------------------------
   Success: True
 ---------------------------
@@ -897,7 +770,7 @@ Results problem &#39;minf_fd&#39;:
   
     Created using
     <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
-    7.3.7.
+    8.0.2.
      and
     <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
   
